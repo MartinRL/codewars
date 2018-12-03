@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryAddition.cs" />
     <Compile Include="CountingDuplicates.cs" />
     <Compile Include="CountSheep.cs" />
     <Compile Include="GetTheMiddleCharacter.cs" />
