@@ -5,21 +5,21 @@ namespace codewars
 {
     public static class Kata
     {
-        public static int CountSheeps(bool[] sheeps)
+        public static int CountSheep(bool[] sheep)
         {
             //TODO
         }
     }
     
     [TestFixture]
-    public class CountSheepsTests 
+    public class CountSheepTests 
     {
         [Test]
         public void SampleTest() 
         {
-            var sheeps = new bool[] { true, false, true };
+            var sheep = new bool[] { true, false, true };
     
-            Assert.AreEqual(2, Kata.CountSheeps(sheeps));
+            Assert.AreEqual(2, Kata.CountSheep(sheep));
         }
     }
 }
