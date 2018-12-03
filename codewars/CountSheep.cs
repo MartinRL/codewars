@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using FluentAssertions;
 using Xunit;
 
 namespace codewars
@@ -27,7 +28,7 @@ namespace codewars
                             false, false, false, false }, 0)]
         public void SampleTest(bool[] sheep, int expected) 
         {
-            Assert.Equal(Kata.CountSheep(sheep), expected);
+            Kata.CountSheep(sheep).Should().Be(expected);
         }
     }
 }
