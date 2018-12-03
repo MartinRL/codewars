@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using NUnit.Framework;
 
 namespace codewars
@@ -14,12 +15,27 @@ namespace codewars
     [TestFixture]
     public class CountSheepTests 
     {
-        [Test]
-        public void SampleTest() 
+        public class MyDataClass
+        {   
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(new[] { true, false, true }).Returns(2);
+                    yield return new TestCaseData(new[] { true,  true,  true,  false,
+                                                          true,  true,  true,  true,
+                                                          true,  false, true,  false,
+                                                          true,  false, false, true,
+                                                          true,  true,  true,  true,
+                                                          false, false, true,  true }).Returns(17);
+                }
+            }  
+        }
+        
+        [Test, TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases))]
+        public int SampleTest(bool[] sheep) 
         {
-            var sheep = new[] { true, false, true };
-    
-            Assert.AreEqual(2, Kata.CountSheep(sheep));
+            return Kata.CountSheep(sheep);
         }
     }
 }
