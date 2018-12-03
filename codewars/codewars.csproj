@@ -68,6 +68,7 @@
     <Compile Include="BinaryAddition.cs" />
     <Compile Include="CountingDuplicates.cs" />
     <Compile Include="CountSheep.cs" />
+    <Compile Include="FindTheNextPerfectSquare.cs" />
     <Compile Include="GetTheMiddleCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
