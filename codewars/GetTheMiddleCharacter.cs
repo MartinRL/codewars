@@ -11,6 +11,9 @@ namespace codewars
         {
             var quotient = s.Length / 2;
 
+            if (s.Length % 2 == 0)
+                return s[quotient - 1].ToString() + s[quotient];
+            
             return s[quotient].ToString();
         }
     }
