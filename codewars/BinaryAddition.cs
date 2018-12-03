@@ -15,6 +15,8 @@ namespace codewars
     {
         [Theory]
         [InlineData(1, 2, "11")]
+        [InlineData(5, 10, "1111")]
+        [InlineData(0, 235, "11101011")]
         public void RunCountDuplicatesTheory(int firstTerm, int secondTerm, string expected)
         {
             BinaryAdditionKata.AddBinary(firstTerm, secondTerm).Should().Be(expected);
