@@ -26,7 +26,7 @@ namespace codewars
         [InlineData(new[] { false, false, false, false, 
                             false, false, false, false, 
                             false, false, false, false }, 0)]
-        public void SampleTest(bool[] sheep, int expected) 
+        public void RunCountSheepTheory(bool[] sheep, int expected) 
         {
             CountSheepKata.CountSheep(sheep).Should().Be(expected);
         }
