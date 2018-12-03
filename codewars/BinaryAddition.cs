@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +8,7 @@ namespace codewars
     {
         public static string AddBinary(int firstTerm, int secondTerm)
         {
-            // your code ...
+            return Convert.ToString(firstTerm + secondTerm, 2);
         }
     }
     
