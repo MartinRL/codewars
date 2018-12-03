@@ -1,3 +1,4 @@
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +8,10 @@ namespace codewars
     {
         public static int CountDuplicates(string s)
         {
-            return -1;
+            var lowerCased = s.ToLower();
+            var unique = lowerCased.Distinct();
+            
+            return unique.Count(c => lowerCased.IndexOf(c) != lowerCased.LastIndexOf(c));
         }
     }
 
