@@ -9,7 +9,9 @@ namespace codewars
     {
         public static string GetMiddle(string s)
         {
-            //TODO
+            var quotient = s.Length / 2;
+
+            return s[quotient].ToString();
         }
     }
     
