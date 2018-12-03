@@ -17,7 +17,7 @@ namespace codewars
         [Test]
         public void SampleTest() 
         {
-            var sheep = new bool[] { true, false, true };
+            var sheep = new[] { true, false, true };
     
             Assert.AreEqual(2, Kata.CountSheep(sheep));
         }
