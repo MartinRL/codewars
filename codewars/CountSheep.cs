@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 namespace codewars
 {
@@ -13,35 +12,22 @@ namespace codewars
         }
     }
     
-    [TestFixture]
     public class CountSheepTests 
     {
-        public class MyDataClass
-        {   
-            public static IEnumerable TestCases
-            {
-                get
-                {
-                    yield return new TestCaseData(new[] { true, false, true }).Returns(2);
-                    
-                    yield return new TestCaseData(new[] { true,  true,  true,  false,
-                                                          true,  true,  true,  true,
-                                                          true,  false, true,  false,
-                                                          true,  false, false, true,
-                                                          true,  true,  true,  true,
-                                                          false, false, true,  true }).Returns(17);
-                    
-                    yield return new TestCaseData(new[] { false, false, false, false, 
-                                                          false, false, false, false, 
-                                                          false, false, false, false }).Returns(0);
-                }
-            }  
-        }
-        
-        [Test, TestCaseSource(typeof(MyDataClass), nameof(MyDataClass.TestCases))]
-        public int SampleTest(bool[] sheep) 
+        [Theory]
+        [InlineData(new[] { true, false, true }, 2)]
+        [InlineData(new[] { true,  true,  true,  false,
+                            true,  true,  true,  true,
+                            true,  false, true,  false,
+                            true,  false, false, true,
+                            true,  true,  true,  true,
+                            false, false, true,  true }, 17)]
+        [InlineData(new[] { false, false, false, false, 
+                            false, false, false, false, 
+                            false, false, false, false }, 0)]
+        public void SampleTest(bool[] sheep, int expected) 
         {
-            return Kata.CountSheep(sheep);
+            Assert.Equal(Kata.CountSheep(sheep), expected);
         }
     }
 }
