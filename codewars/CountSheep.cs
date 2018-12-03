@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using NUnit.Framework;
 
 namespace codewars
@@ -8,7 +9,7 @@ namespace codewars
     {
         public static int CountSheep(bool[] sheep)
         {
-            return 2;
+            return sheep.Count(_ => _);
         }
     }
     
