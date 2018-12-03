@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +10,18 @@ namespace codewars
     {
         public static long FindNextSquare(long num)
         {
-            // TODO
+            bool IsPerfectSquare(long x) => Math.Sqrt(x) % 1 == 0;
+
+            if (!IsPerfectSquare(num))
+                return -1;
+            
+            return GetLongsStartingWith(num).First(IsPerfectSquare);
+        }
+
+        private static IEnumerable<long> GetLongsStartingWith(long start) 
+        { 
+            while (start < long.MaxValue)
+                yield return ++start; 
         }
     }
     
@@ -19,7 +33,7 @@ namespace codewars
         [InlineData(625, 676)]
         [InlineData(319225, 320356)]
         [InlineData(15241383936, 15241630849)]
-        public void RunCountDuplicatesTheory(long num, long expected)
+        public void RunFindNextSquareTheory(long num, long expected)
         {
             FindTheNextPerfectSquareKata.FindNextSquare(num).Should().Be(expected);
         }
