@@ -15,13 +15,7 @@ namespace codewars
             if (!IsPerfectSquare(num))
                 return -1;
             
-            return GetLongsStartingWith(num).First(IsPerfectSquare);
-        }
-
-        private static IEnumerable<long> GetLongsStartingWith(long start) 
-        { 
-            while (start < long.MaxValue)
-                yield return ++start; 
+            return (long)Math.Pow(Math.Sqrt(num) + 1 /* next integer will yield a perfect square */ , 2);
         }
     }
     
