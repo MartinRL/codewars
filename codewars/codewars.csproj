@@ -71,6 +71,7 @@
     <Compile Include="FindTheNextPerfectSquare.cs" />
     <Compile Include="GetTheMiddleCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YourOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
