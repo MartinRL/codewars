@@ -8,7 +8,7 @@ namespace codewars
     {
         public static int FindShort(string s)
         {
-            return s.Split(' ').Select(w => w.Length).Min();
+            return s.Split(' ').Min(w => w.Length);
         }
     }
 
