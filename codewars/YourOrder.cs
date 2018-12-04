@@ -8,8 +8,11 @@ namespace codewars
     {
         public static string Order(string words)
         {
+            if (string.IsNullOrEmpty(words))
+                return string.Empty;
+            
             throw new NotImplementedException();
-        }        
+        }
     }
     
     public class YourOrderTests
