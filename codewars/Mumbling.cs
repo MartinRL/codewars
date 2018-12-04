@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +9,9 @@ namespace codewars
     {
         public static string Accum(string s)
         {
-            throw new NotImplementedException();
+            return string.Join("-",
+                s.ToCharArray()
+                .Select((c, i) => char.ToUpper(c).ToString() + new string(char.ToLower(c), i)));
         }
     }
 
