@@ -19,6 +19,8 @@ namespace codewars
     {
         [Theory]
         [InlineData(9119, 811181)]
+        [InlineData(1, 1)]
+        [InlineData(765, 493625)]
         public void RunSquareDigitsTheory(int n, int squaredDigits)
         {
             SquareEveryDigitKata.SquareDigits(n).Should().Be(squaredDigits);
