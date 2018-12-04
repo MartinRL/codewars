@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +9,9 @@ namespace codewars
     {
         public static int SquareDigits(int n)
         {
-            return 0;
+            return int.Parse(string.Join(
+                string.Empty,
+                n.ToString().ToCharArray().Select(c => Math.Pow(double.Parse(c.ToString()), 2).ToString())));
         }
     }
     
