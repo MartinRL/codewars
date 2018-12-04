@@ -1,3 +1,4 @@
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +8,7 @@ namespace codewars
     {
         public static int FindShort(string s)
         {
-            return 0;
+            return s.Split(' ').OrderBy(w => w.Length).First().Length;
         }
     }
 
