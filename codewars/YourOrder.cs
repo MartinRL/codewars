@@ -12,10 +12,7 @@ namespace codewars
             if (string.IsNullOrEmpty(words))
                 return string.Empty;
 
-            return string.Join(" ", 
-                words
-                .Split(' ')
-                .OrderBy(s => s.First(char.IsDigit)));
+            return string.Join(" ", words.Split().OrderBy(s => s.Single(char.IsDigit)));
         }
     }
     
