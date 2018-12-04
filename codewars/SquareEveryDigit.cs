@@ -9,9 +9,7 @@ namespace codewars
     {
         public static int SquareDigits(int n)
         {
-            return int.Parse(string.Join(
-                string.Empty,
-                n.ToString().ToCharArray().Select(c => Math.Pow(double.Parse(c.ToString()), 2).ToString())));
+            return int.Parse(string.Concat(n.ToString().ToCharArray().Select(c => Math.Pow(char.GetNumericValue(c), 2).ToString())));
         }
     }
     
