@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -10,8 +11,11 @@ namespace codewars
         {
             if (string.IsNullOrEmpty(words))
                 return string.Empty;
-            
-            throw new NotImplementedException();
+
+            return string.Join(" ", 
+                words
+                .Split(' ')
+                .OrderBy(s => s.First(char.IsDigit)));
         }
     }
     
