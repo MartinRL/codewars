@@ -6,7 +6,7 @@ using Xunit;
 
 namespace codewars
 {
-    public class FindTheNextPerfectSquareKata
+    public static class FindTheNextPerfectSquareKata
     {
         public static long FindNextSquare(long num)
         {
