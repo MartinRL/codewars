@@ -10,10 +10,11 @@ namespace codewars
     {
         public static int GetUnique(IEnumerable<int> numbers)
         {
-            return numbers.GroupBy(_ => _)
+            return numbers
+                .GroupBy(_ => _)
                 .Select(g => new {Number = g.Key, Count = g.Count()})
                 .OrderBy(_ => _.Count)
-                .ElementAt(0)
+                .Single(_ => _.Count == 1)
                 .Number;
         }
     }
