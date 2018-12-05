@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -9,7 +10,11 @@ namespace codewars
     {
         public static int GetUnique(IEnumerable<int> numbers)
         {
-            throw new NotImplementedException();
+            return numbers.GroupBy(_ => _)
+                .Select(g => new {Number = g.Key, Count = g.Count()})
+                .OrderBy(_ => _.Count)
+                .ElementAt(0)
+                .Number;
         }
     }
 
