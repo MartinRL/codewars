@@ -13,28 +13,26 @@ namespace codewars
 
             foreach (var bill in peopleInLine)
             {
-                if (bill == 25)
-                    ++billsOf25s;
-
-                if (bill == 50)
+                switch (bill)
                 {
-                    --billsOf25s;
-                    ++billsOf50s;
-                }
-
-                if (bill == 100)
-                {
-                    if (billsOf50s > 0)
-                    {
-                        --billsOf50s;
+                    case 25:
+                        ++billsOf25s;
+                        break;
+                    case 50:
                         --billsOf25s;
-                    }
-                    else
-                    {
-                        --billsOf25s;
-                        --billsOf25s;
-                        --billsOf25s;
-                    }
+                        ++billsOf50s;
+                        break;
+                    case 100:
+                        if (billsOf50s > 0)
+                        {
+                            --billsOf50s;
+                            --billsOf25s;
+                        }
+                        else
+                        {
+                            billsOf25s -= 3;
+                        }
+                        break;
                 }
 
                 if (billsOf25s < 0)
