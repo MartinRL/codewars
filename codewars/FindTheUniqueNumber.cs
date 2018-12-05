@@ -13,7 +13,6 @@ namespace codewars
             return numbers
                 .GroupBy(_ => _)
                 .Select(g => new {Number = g.Key, Count = g.Count()})
-                .OrderBy(_ => _.Count)
                 .Single(_ => _.Count == 1)
                 .Number;
         }
