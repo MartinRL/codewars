@@ -8,7 +8,7 @@ namespace codewars
     {
         public static string Tickets(int[] peopleInLine)
         { 
-            throw new NotImplementedException();
+            
         }
     }
 
@@ -16,6 +16,9 @@ namespace codewars
     {
         [Theory]
         [InlineData(new[] {25, 25, 50}, "YES")]
+        [InlineData(new[] {25, 25, 25, 100}, "YES")]
+        [InlineData(new[] {25, 25, 25, 25, 50, 100}, "YES")]
+        [InlineData(new[] {25, 25, 25, 25, 25, 25, 100, 100}, "YES")]
         [InlineData(new[] {25, 100}, "NO")]
         [InlineData(new[] {25, 25, 50, 50, 100}, "NO")]
         public void ExecuteTicketsExample(int[] peopleInLine, string canGiveChangeToEveryone)
