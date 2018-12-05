@@ -7,8 +7,41 @@ namespace codewars
     public static class VasyaClerkKata
     {
         public static string Tickets(int[] peopleInLine)
-        { 
-            
+        {
+            var billsOf25s = 0;
+            var billsOf50s = 0;
+
+            foreach (var bill in peopleInLine)
+            {
+                if (bill == 25)
+                    ++billsOf25s;
+
+                if (bill == 50)
+                {
+                    --billsOf25s;
+                    ++billsOf50s;
+                }
+
+                if (bill == 100)
+                {
+                    if (billsOf50s > 0)
+                    {
+                        --billsOf50s;
+                        --billsOf25s;
+                    }
+                    else
+                    {
+                        --billsOf25s;
+                        --billsOf25s;
+                        --billsOf25s;
+                    }
+                }
+
+                if (billsOf25s < 0)
+                    return "NO";
+            }
+
+            return "YES";
         }
     }
 
