@@ -27,7 +27,7 @@ namespace codewars
         [InlineData(625, 676)]
         [InlineData(319225, 320356)]
         [InlineData(15241383936, 15241630849)]
-        public void RunFindNextSquareTheory(long num, long expected)
+        public void ExecuteFindNextSquareExample(long num, long expected)
         {
             FindTheNextPerfectSquareKata.FindNextSquare(num).Should().Be(expected);
         }

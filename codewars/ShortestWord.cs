@@ -17,7 +17,7 @@ namespace codewars
         [Theory]
         [InlineData("bitcoin take over the world maybe who knows perhaps", 3)]
         [InlineData("turns out random test cases are easier than writing out basic ones", 3)]
-        public void RunFindShortTheory(string s, int shortestLength)
+        public void ExecuteFindShortExample(string s, int shortestLength)
         {
             ShortestWordKata.FindShort(s).Should().Be(shortestLength);
         }

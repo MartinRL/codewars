@@ -25,7 +25,7 @@ namespace codewars
         [InlineData("testing", "t")]
         [InlineData("middle", "dd")]
         [InlineData("A", "A")]
-        public void RunGetMiddleTheory(string argument, string expected)
+        public void ExecuteGetMiddleExample(string argument, string expected)
         {
             GetTheMiddleCharacterKata.GetMiddle(argument).Should().Be(expected);
         }

@@ -25,7 +25,7 @@ namespace codewars
         [InlineData("Indivisibility", 1)]
         [InlineData("Indivisibilities", 2)]
         [InlineData("1123232", 3)]
-        public void RunCountDuplicatesTheory(string argument, int expected)
+        public void ExecuteCountDuplicatesExample(string argument, int expected)
         {
             CountingDuplicatesKata.CountDuplicates(argument).Should().Be(expected);
         }
