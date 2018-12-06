@@ -9,7 +9,7 @@ namespace codewars
     {
         public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft)
         {
-            throw new NotImplementedException();
+            return mpg * fuelLeft >= distanceToPump;
         }
     }
 
