@@ -9,7 +9,7 @@ namespace codewars
     {
         public static bool IsDivisible(long n, long x, long y)
         {
-            throw new NotImplementedException();
+            return n % x == 0 && n % y == 0;
         }
     }
 
