@@ -10,11 +10,13 @@ namespace codewars
     {
         public static string TitleCase(string title, string minorWords)
         {
+            var titleCasedTitle = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
+            
             if (string.IsNullOrWhiteSpace(minorWords))
-                return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
+                return titleCasedTitle;
             
             return string.Join(" ",
-                CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower())
+                titleCasedTitle
                 .Split()
                 .Select((w, i) => minorWords.ToLower().Split().Contains(w.ToLower()) && i != 0 ? w.ToLower() : w )
             );
