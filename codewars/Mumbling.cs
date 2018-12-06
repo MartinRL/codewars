@@ -21,7 +21,7 @@ namespace codewars
         [InlineData("abcd", "A-Bb-Ccc-Dddd")]
         [InlineData("RqaEzty", "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")]
         [InlineData("cwAt", "C-Ww-Aaa-Tttt")]
-        public void RunAccumTheory(string s, string accummed)
+        public void ExecuteAccumExample(string s, string accummed)
         {
             MumblingKata.Accum(s).Should().Be(accummed);
         }
