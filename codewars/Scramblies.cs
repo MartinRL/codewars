@@ -19,6 +19,7 @@ namespace codewars
         [InlineData("rkqodlw", "world", true)]
         [InlineData("cedewaraaossoqqyt", "codewars", true)]
         [InlineData("katas", "steak", false)]
+        [InlineData("scriptjavx", "javascript", false)]
         public void ExecuteScrambleExample(string scrambled, string word, bool isMatch)
         {
             ScrambliesKata.Scramble(scrambled, word).Should().Be(isMatch);
