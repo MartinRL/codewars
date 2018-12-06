@@ -10,6 +10,9 @@ namespace codewars
     {
         public static string TitleCase(string title, string minorWords)
         {
+            if (string.IsNullOrWhiteSpace(minorWords))
+                return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
+            
             return string.Join(" ",
                 CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower())
                 .Split()
@@ -26,6 +29,7 @@ namespace codewars
         [InlineData("THE WIND IN THE WILLOWS", "The In", "The Wind in the Willows")]
         [InlineData("", "", "")]
         [InlineData("the quick brown fox", "", "The Quick Brown Fox")]
+        [InlineData("aBC deF Ghi", null, "Abc Def Ghi")]
         public void ExecuteOrderExample(string title, string minorWords, string titleCased)
         {
             TitleCaseKata.TitleCase(title, minorWords).Should().Be(titleCased);
