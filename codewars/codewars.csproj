@@ -78,6 +78,7 @@
     <Compile Include="ShortestWord.cs" />
     <Compile Include="SquareEveryDigit.cs" />
     <Compile Include="VasyaClerk.cs" />
+    <Compile Include="WillYouMakeIt.cs" />
     <Compile Include="YourOrder.cs" />
   </ItemGroup>
   <ItemGroup>
