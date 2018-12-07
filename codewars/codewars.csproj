@@ -70,6 +70,7 @@
     <Compile Include="CountSheep.cs" />
     <Compile Include="FindTheNextPerfectSquare.cs" />
     <Compile Include="FindTheUniqueNumber.cs" />
+    <Compile Include="FirstNonRepeatingCharacter.cs" />
     <Compile Include="GetTheMiddleCharacter.cs" />
     <Compile Include="IsNDivisibleByXandY.cs" />
     <Compile Include="JadenCasing.cs" />
