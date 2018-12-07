@@ -75,6 +75,7 @@
     <Compile Include="JadenCasing.cs" />
     <Compile Include="Mumbling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scramblies.cs" />
     <Compile Include="ShortestWord.cs" />
     <Compile Include="SquareEveryDigit.cs" />
     <Compile Include="TitleCase.cs" />
