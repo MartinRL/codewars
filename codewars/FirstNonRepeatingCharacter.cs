@@ -9,7 +9,7 @@ namespace codewars
     {
         public static string FirstNonRepeatingLetter(string s)
         {
-            throw new NotImplementedException();
+            return s.GroupBy(_ => _).First(g => g.Count() == 1).Key.ToString();
         }
     }
 
@@ -17,8 +17,8 @@ namespace codewars
     {
         [Theory]
         [InlineData("a", "a")]
-        [InlineData("t", "stress")]
-        [InlineData("e", "moonmen")]
+        [InlineData("stress", "t")]
+        [InlineData("moonmen", "e")]
         public void ExecuteOrderExample(string s, string l)
         {
             FirstNonRepeatingCharacterKata.FirstNonRepeatingLetter(s).Should().Be(l);
