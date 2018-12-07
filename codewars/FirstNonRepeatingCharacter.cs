@@ -9,6 +9,9 @@ namespace codewars
     {
         public static string FirstNonRepeatingLetter(string s)
         {
+            if (string.IsNullOrWhiteSpace(s))
+                return string.Empty;
+            
             return s.GroupBy(_ => _).First(g => g.Count() == 1).Key.ToString();
         }
     }
@@ -16,6 +19,7 @@ namespace codewars
     public class FirstNonRepeatingCharacterTests
     {
         [Theory]
+        [InlineData("", "")]
         [InlineData("a", "a")]
         [InlineData("stress", "t")]
         [InlineData("moonmen", "e")]
