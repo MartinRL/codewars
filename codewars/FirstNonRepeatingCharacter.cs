@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -12,43 +13,20 @@ namespace codewars
             if (string.IsNullOrWhiteSpace(s))
                 return string.Empty;
             
-            return s.GroupBy(g => new Letter(g)).First(g => g.Count() == 1).Key.ToString();
+            return s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).First(g => g.Count() == 1).Key.ToString();
         }
     }
 
-    public class Letter
+    public class CaseInsensitiveLetterComparer : IEqualityComparer<char>
     {
-        private readonly char letter;
-
-        public Letter(char letter)
+        public bool Equals(char a, char b)
         {
-            this.letter = letter;
+            return char.ToLower(a).Equals(char.ToLower(b));
         }
 
-        protected bool Equals(Letter other)
+        public int GetHashCode(char c)
         {
-            return char.ToLower(letter) == char.ToLower(other.letter);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj))
-                return false;
-            
-            if (ReferenceEquals(this, obj))
-                return true;
-            
-            return obj.GetType() == GetType() && Equals((Letter) obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return char.ToLower(letter).GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return letter.ToString();
+            return char.ToLower(c).GetHashCode();
         }
     }
 
