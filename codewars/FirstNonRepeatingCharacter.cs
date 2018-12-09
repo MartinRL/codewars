@@ -39,6 +39,7 @@ namespace codewars
     {
         [Theory]
         [InlineData("", "")]
+        [InlineData("  D", "D")]
         [InlineData("a", "a")]
         [InlineData("stress", "t")]
         [InlineData("moonmen", "e")]
