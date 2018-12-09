@@ -28,7 +28,6 @@ namespace codewars
         [Theory]
         [InlineData("a clash of KINGS", "a an the of", "A Clash of Kings")]
         [InlineData("THE WIND IN THE WILLOWS", "The In", "The Wind in the Willows")]
-        [InlineData("THE WIND IN THE WILLOWS", "The In", "The Wind in the Willows")]
         [InlineData("", "", "")]
         [InlineData("the quick brown fox", "", "The Quick Brown Fox")]
         [InlineData("aBC deF Ghi", null, "Abc Def Ghi")]
