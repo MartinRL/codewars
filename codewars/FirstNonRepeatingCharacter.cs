@@ -15,8 +15,10 @@ namespace codewars
             
             if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() == 1))
                 return string.Empty;
+
+            var firstNonRepeatingCharacter = s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).FirstOrDefault(g => g.Count() == 1);
             
-            return s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).First(g => g.Count() == 1).Key.ToString();
+            return firstNonRepeatingCharacter != null ? firstNonRepeatingCharacter.Key.ToString() : string.Empty;
         }
     }
 
