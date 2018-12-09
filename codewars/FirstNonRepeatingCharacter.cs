@@ -13,7 +13,7 @@ namespace codewars
             if (string.IsNullOrEmpty(s) || s.Length == 1)
                 return s;
             
-            if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() == 1))
+            if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() > 1))
                 return string.Empty;
 
             var firstNonRepeatingCharacter = s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).FirstOrDefault(g => g.Count() == 1);
