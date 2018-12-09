@@ -12,8 +12,8 @@ namespace codewars
         {
             return s.GroupBy(char.ToLower)
                 .Where(g => g.Count() == 1)
-                .Select(x => x.First().ToString())
-                .DefaultIfEmpty("")
+                .Select(g => g.First().ToString())
+                .DefaultIfEmpty(string.Empty)
                 .First();
         }
     }
