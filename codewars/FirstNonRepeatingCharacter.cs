@@ -12,11 +12,13 @@ namespace codewars
         {
             if (string.IsNullOrEmpty(s) || s.Length == 1)
                 return s;
+
+            var groupByChar = s.GroupBy(_ => _, new CaseInsensitiveLetterComparer());
             
-            if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() > 1))
+            if (groupByChar.All(g => g.Count() > 1))
                 return string.Empty;
 
-            var firstNonRepeatingCharacter = s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).FirstOrDefault(g => g.Count() == 1);
+            var firstNonRepeatingCharacter = groupByChar.FirstOrDefault(g => g.Count() == 1);
             
             return firstNonRepeatingCharacter != null ? firstNonRepeatingCharacter.Key.ToString() : string.Empty;
         }
