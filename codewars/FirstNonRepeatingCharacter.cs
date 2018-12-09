@@ -10,28 +10,11 @@ namespace codewars
     {
         public static string FirstNonRepeatingLetter(string s)
         {
-            if (string.IsNullOrEmpty(s) || s.Length == 1)
-                return s;
-
-            var groupByChar = s.GroupBy(_ => _, new CaseInsensitiveLetterComparer());
-            
-            if (groupByChar.All(g => g.Count() > 1))
-                return string.Empty;
-
-            return groupByChar.FirstOrDefault(g => g.Count() == 1).Key.ToString();
-        }
-    }
-
-    public class CaseInsensitiveLetterComparer : IEqualityComparer<char>
-    {
-        public bool Equals(char a, char b)
-        {
-            return char.ToLower(a).Equals(char.ToLower(b));
-        }
-
-        public int GetHashCode(char c)
-        {
-            return char.ToLower(c).GetHashCode();
+            return s.GroupBy(char.ToLower)
+                .Where(g => g.Count() == 1)
+                .Select(x => x.First().ToString())
+                .DefaultIfEmpty("")
+                .First();
         }
     }
 
