@@ -37,7 +37,7 @@ namespace codewars
         [InlineData("a", "a")]
         [InlineData("stress", "t")]
         [InlineData("moonmen", "e")]
-        [InlineData("SsT", "T")]
+        [InlineData("sTreSS", "T")]
         public void ExecuteOrderExample(string s, string l)
         {
             FirstNonRepeatingCharacterKata.FirstNonRepeatingLetter(s).Should().Be(l);
