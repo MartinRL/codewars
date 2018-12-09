@@ -10,7 +10,10 @@ namespace codewars
     {
         public static string FirstNonRepeatingLetter(string s)
         {
-            if (string.IsNullOrWhiteSpace(s))
+            if (s.Length == 1)
+                return s;
+            
+            if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() == 1))
                 return string.Empty;
             
             return s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).First(g => g.Count() == 1).Key.ToString();
@@ -37,6 +40,8 @@ namespace codewars
         [InlineData("a", "a")]
         [InlineData("stress", "t")]
         [InlineData("moonmen", "e")]
+        [InlineData("abcd", "")]
+        [InlineData("abcC", "a")]
         [InlineData("sTreSS", "T")]
         public void ExecuteOrderExample(string s, string l)
         {
