@@ -18,9 +18,7 @@ namespace codewars
             if (groupByChar.All(g => g.Count() > 1))
                 return string.Empty;
 
-            var firstNonRepeatingCharacter = groupByChar.FirstOrDefault(g => g.Count() == 1);
-            
-            return firstNonRepeatingCharacter != null ? firstNonRepeatingCharacter.Key.ToString() : string.Empty;
+            return groupByChar.FirstOrDefault(g => g.Count() == 1).Key.ToString();
         }
     }
 
