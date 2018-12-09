@@ -10,7 +10,7 @@ namespace codewars
     {
         public static string FirstNonRepeatingLetter(string s)
         {
-            if (s.Length == 1)
+            if (string.IsNullOrEmpty(s) || s.Length == 1)
                 return s;
             
             if (s.GroupBy(_ => _, new CaseInsensitiveLetterComparer()).All(g => g.Count() == 1))
@@ -43,6 +43,7 @@ namespace codewars
         [InlineData("abcd", "")]
         [InlineData("abcC", "a")]
         [InlineData("sTreSS", "T")]
+        [InlineData("sStT", "")]
         public void ExecuteOrderExample(string s, string l)
         {
             FirstNonRepeatingCharacterKata.FirstNonRepeatingLetter(s).Should().Be(l);
