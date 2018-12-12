@@ -44,6 +44,9 @@ namespace codewars
         [Theory]
         [InlineData(0, 1)]
         [InlineData(10, 22)]
+        [InlineData(20, 57)]
+        [InlineData(30, 91)]
+        [InlineData(50, 175)]
         public void ExecuteDblLinearExample(int index, int element)
         {
             TwiceLinearKata.DblLinear(index).Should().Be(element);
