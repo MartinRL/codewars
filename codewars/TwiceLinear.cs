@@ -8,34 +8,16 @@ namespace codewars
 {
     public static class TwiceLinearKata
     {
-        private static ISet<int> elements = new SortedSet<int>();
-
-        private static int index;
-        
         public static int DblLinear(int n)
         {
-            index = n;
-            
-            InitElements(1);
+            IEnumerable<int> elements = new List<int> { 1 };
 
-            return elements.ElementAt(n);
-        }
-
-        private static void InitElements(params int[] elementsToAdd)
-        {
-            while (elements.Count < index)
+            while (elements.Count() <= n)
             {
-                var yZ = new List<int>();
-                
-                foreach (var element in elementsToAdd)
-                {
-                    elements.Add(element);
-                    yZ.Add(element * 2 + 1);
-                    yZ.Add(element * 3 + 1);
-                }
-                
-                InitElements(yZ.ToArray());
+                elements = elements.SelectMany(x => new List<int> {x, x * 2 + 1, x * 3 + 1}).Distinct();
             }
+
+            return elements.OrderBy(_ => _).ElementAt(n);
         }
     }
 
