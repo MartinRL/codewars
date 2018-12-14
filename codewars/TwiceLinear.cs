@@ -12,7 +12,7 @@ namespace codewars
         {
             IEnumerable<int> elements = new List<int> { 1 };
 
-            while (elements.Count() <= n)
+            while (elements.Count() <= n * 2)
             {
                 elements = elements.SelectMany(x => new List<int> {x, x * 2 + 1, x * 3 + 1}).Distinct();
             }
@@ -28,6 +28,8 @@ namespace codewars
         [InlineData(10, 22)]
         [InlineData(20, 57)]
         [InlineData(30, 91)]
+        [InlineData(43, 139)]
+        [InlineData(44, 159)]
         [InlineData(50, 175)]
         public void ExecuteDblLinearExample(int index, int element)
         {
