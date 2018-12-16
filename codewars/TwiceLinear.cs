@@ -12,17 +12,14 @@ namespace codewars
         {
             IEnumerable<int> elements = new List<int> { 1 };
 
-            while (elements.Count() <= n)
+            //while (elements.Count() <= n)
+            while (elements.Last() < int.MaxValue / 2)
             {
                 elements = elements
                     .SelectMany(x => new List<int> {x, x * 2 + 1, x * 3 + 1})
                     .Distinct();
             }
             
-            elements = elements
-                .SelectMany(x => new List<int> {x, x * 2 + 1, x * 3 + 1})
-                .Distinct();
-
             return elements.OrderBy(_ => _).ElementAt(n);
         }
     }
