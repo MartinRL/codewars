@@ -10,17 +10,33 @@ namespace codewars
     {
         public static int DblLinear(int n)
         {
-            IEnumerable<int> elements = new List<int> { 1 };
-
-            //while (elements.Count() <= n)
-            while (elements.Last() < int.MaxValue / 2)
+            var ix = 0;
+            var iy = 0;
+            var sequence = new List<int> { 1 };
+            
+            for (var i = 0; i < n; i++) 
             {
-                elements = elements
-                    .SelectMany(x => new List<int> {x, x * 2 + 1, x * 3 + 1})
-                    .Distinct();
+                var nextX  = 2 * sequence.ElementAt(ix) + 1;
+                var nextY = 3 * sequence.ElementAt(iy) + 1;
+
+                if (nextX <= nextY)
+                {
+                    sequence.Add(nextX); 
+                    ix++;
+
+                    if (nextX == nextY)
+                    {
+                        iy++;
+                    }
+                }
+                else
+                {
+                    sequence.Add(nextY); 
+                    iy++;
+                }
             }
             
-            return elements.OrderBy(_ => _).ElementAt(n);
+            return sequence.ElementAt(n);
         }
     }
 
