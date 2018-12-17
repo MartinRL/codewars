@@ -24,7 +24,10 @@ namespace codewars
 
         public string play(int ballPos, int playerPos)
         {
-            string msg;
+            var msg = string.Empty;
+
+            if (maxScore <= 0)
+                return "This game doesn't make sense...";
             
             if (Enumerable.Range(playerPos - paddleHeight / 2, playerPos + paddleHeight / 2).Contains(ballPos))
             {
