@@ -29,7 +29,6 @@ namespace codewars
             if (Enumerable.Range(playerPos - paddleHeight / 2, playerPos + paddleHeight / 2).Contains(ballPos))
             {
                 msg = $"Player {PlayerNumber} has hit the ball!";
-                scores[currentPlayer]++;
                 currentPlayer = !currentPlayer;
                 
                 return msg;
