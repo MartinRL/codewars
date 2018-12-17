@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +9,7 @@ namespace codewars
     class Pong
     {
         private readonly int maxScore;
-        private readonly int paddleHeight = 7;
+        private const int paddleHeight = 7;
         private bool currentPlayer = false;
         private IDictionary<bool, int> scores = new Dictionary<bool, int>
         {
@@ -23,16 +24,22 @@ namespace codewars
 
         public string play(int ballPos, int playerPos)
         {
-            if (ballPos + paddleHeight / 2 >= playerPos || ballPos - paddleHeight / 2 <= playerPos)
+            string msg;
+            
+            if (Enumerable.Range(playerPos - paddleHeight / 2, playerPos + paddleHeight / 2).Contains(ballPos))
             {
-                var msg = $"Player {PlayerNumber} has hit the ball!";
+                msg = $"Player {PlayerNumber} has hit the ball!";
                 scores[currentPlayer]++;
                 currentPlayer = !currentPlayer;
                 
                 return msg;
             }
 
-            return string.Empty;
+            msg = $"Player {PlayerNumber} has missed the ball!";
+            currentPlayer = !currentPlayer;
+            scores[currentPlayer]++;
+
+            return msg;
         }
 
         public int PlayerNumber => currentPlayer ? 2 : 1;
