@@ -38,6 +38,9 @@ namespace codewars
             currentPlayer = !currentPlayer;
             scores[currentPlayer]++;
 
+            if (scores[currentPlayer] == maxScore)
+                return $"Player {PlayerNumber} has won the game!";
+
             return msg;
         }
 
