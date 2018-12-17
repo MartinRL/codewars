@@ -28,7 +28,7 @@ namespace codewars
             
             if (Enumerable.Range(playerPos - paddleHeight / 2, playerPos + paddleHeight / 2).Contains(ballPos))
             {
-                msg = $"Player {PlayerNumber} has hit the ball!";
+                msg = scores[currentPlayer] == maxScore ? "Game Over!" : $"Player {PlayerNumber} has hit the ball!";
                 currentPlayer = !currentPlayer;
                 
                 return msg;
