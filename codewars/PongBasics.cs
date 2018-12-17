@@ -1,11 +1,16 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Xunit;
 
 namespace codewars
 {
     class Pong
     {
-        private int maxScore;
+        private readonly int maxScore;
+        private readonly int paddleHeight = 7;
+        private int currentPlayer = 1;
+        private int playerOneScore = 0;
+        private int playerTwoScore = 0;
         
         public Pong(int maxScore)
         {
@@ -14,7 +19,12 @@ namespace codewars
 
         public string play(int ballPos, int playerPos)
         {
-            return "";
+            if (ballPos + paddleHeight % 2 >= playerPos || ballPos - paddleHeight % 2 <= playerPos)
+            {
+                return $"Player {currentPlayer} has hit the ball!";
+            }
+
+            return string.Empty;
         }
     }
 
