@@ -29,7 +29,7 @@ namespace codewars
             if (maxScore <= 0)
                 return "This game doesn't make sense...";
             
-            if (Enumerable.Range(playerPos - paddleHeight / 2, playerPos + paddleHeight / 2).Contains(ballPos))
+            if (Enumerable.Range(playerPos - paddleHeight / 2, paddleHeight).Contains(ballPos))
             {
                 msg = scores[currentPlayer] == maxScore ? "Game Over!" : $"Player {PlayerNumber} has hit the ball!";
                 currentPlayer = !currentPlayer;
