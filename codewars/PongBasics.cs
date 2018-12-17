@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -8,9 +9,12 @@ namespace codewars
     {
         private readonly int maxScore;
         private readonly int paddleHeight = 7;
-        private int currentPlayer = 1;
-        private int playerOneScore = 0;
-        private int playerTwoScore = 0;
+        private bool currentPlayer = false;
+        private IDictionary<bool, int> scores = new Dictionary<bool, int>
+        {
+            { false, 0 },
+            { true, 0 }
+        };
         
         public Pong(int maxScore)
         {
@@ -19,13 +23,19 @@ namespace codewars
 
         public string play(int ballPos, int playerPos)
         {
-            if (ballPos + paddleHeight % 2 >= playerPos || ballPos - paddleHeight % 2 <= playerPos)
+            if (ballPos + paddleHeight / 2 >= playerPos || ballPos - paddleHeight / 2 <= playerPos)
             {
-                return $"Player {currentPlayer} has hit the ball!";
+                var msg = $"Player {PlayerNumber} has hit the ball!";
+                scores[currentPlayer]++;
+                currentPlayer = !currentPlayer;
+                
+                return msg;
             }
 
             return string.Empty;
         }
+
+        public int PlayerNumber => currentPlayer ? 2 : 1;
     }
 
     public class PongBasicsTests
