@@ -80,6 +80,7 @@
     <Compile Include="ShortestWord.cs" />
     <Compile Include="SquareEveryDigit.cs" />
     <Compile Include="TitleCase.cs" />
+    <Compile Include="TwiceLinear.cs" />
     <Compile Include="VasyaClerk.cs" />
     <Compile Include="WillYouMakeIt.cs" />
     <Compile Include="YourOrder.cs" />
