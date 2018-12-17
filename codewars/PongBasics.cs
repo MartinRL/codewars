@@ -10,8 +10,8 @@ namespace codewars
     {
         private readonly int maxScore;
         private const int paddleHeight = 7;
-        private bool currentPlayer = false;
-        private IDictionary<bool, int> scores = new Dictionary<bool, int>
+        private bool currentPlayer;
+        private readonly IDictionary<bool, int> scores = new Dictionary<bool, int>
         {
             { false, 0 },
             { true, 0 }
