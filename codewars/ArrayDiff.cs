@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int[] ArrayDiff(int[] a, int[] b)
         {
-            throw new NotImplementedException();
+            return a.Where(x => !b.Contains(x)).ToArray();
         }
     }
 
