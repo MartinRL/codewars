@@ -42,7 +42,9 @@ namespace codewars
             scores[currentPlayer]++;
 
             if (scores[currentPlayer] == maxScore)
-                return $"Player {PlayerNumber} has won the game!";
+            {
+                msg = $"Player {PlayerNumber} has won the game!";
+            }
 
             return msg;
         }
