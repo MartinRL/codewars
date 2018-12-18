@@ -32,13 +32,13 @@ namespace codewars
             if (Enumerable.Range(playerPos - paddleHeight / 2, paddleHeight).Contains(ballPos))
             {
                 msg = scores[currentPlayer] == maxScore ? "Game Over!" : $"Player {PlayerNumber} has hit the ball!";
-                currentPlayer = !currentPlayer;
+                ChangePlayer();
                 
                 return msg;
             }
 
             msg = $"Player {PlayerNumber} has missed the ball!";
-            currentPlayer = !currentPlayer;
+            ChangePlayer();
             scores[currentPlayer]++;
 
             if (scores[currentPlayer] == maxScore)
@@ -47,7 +47,12 @@ namespace codewars
             return msg;
         }
 
-        public int PlayerNumber => currentPlayer ? 2 : 1;
+        private void ChangePlayer()
+        {
+            currentPlayer = !currentPlayer;
+        }
+
+        private int PlayerNumber => currentPlayer ? 2 : 1;
     }
 
     public class PongBasicsTests
