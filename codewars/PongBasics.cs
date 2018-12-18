@@ -19,14 +19,14 @@ namespace codewars
         
         public Pong(int maxScore)
         {
+            if (maxScore <= 0)
+                throw new ArgumentOutOfRangeException("Max score must be greater than one.");
+
             this.maxScore = maxScore;
         }
 
         public string play(int ballPos, int playerPos)
         {
-            if (maxScore <= 0)
-                return "This game doesn't make sense...";
-
             var msg = string.Empty;
             
             if (Enumerable.Range(playerPos - paddleHeight / 2, paddleHeight).Contains(ballPos))
