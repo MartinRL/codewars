@@ -69,7 +69,16 @@ namespace codewars
     public class PongBasicsTests
     {
         [Fact]
-        public void PlayGameShouldAdhereToTheRules()
+        public void PlayGameToOne()
+        {
+            var game = new Pong(1);
+
+            game.play(75, 25).Should().Be("Player 2 has won the game!");
+            game.play(50, 50).Should().Be("Game Over!");
+        }
+        
+        [Fact]
+        public void PlayGameToTwo()
         {
             var game = new Pong(2);
 
