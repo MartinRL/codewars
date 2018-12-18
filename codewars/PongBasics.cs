@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,61 +8,31 @@ namespace codewars
     class Pong
     {
         private readonly int maxScore;
-        private const int paddleHeight = 7;
-        private bool currentPlayer;
-        private readonly IDictionary<bool, int> scores = new Dictionary<bool, int>
-        {
-            { false, 0 },
-            { true, 0 }
-        };
+        private int currentPlayer;
+        private readonly int[] scores = { 0, 0 };
         
         public Pong(int maxScore)
         {
-            if (maxScore <= 0)
-                throw new ArgumentOutOfRangeException("Max score must be greater than one.");
-
             this.maxScore = maxScore;
         }
 
         public string play(int ballPos, int playerPos)
         {
-            var msg = string.Empty;
+            if (scores.Any(_ => _ == maxScore))
+                return "Game Over!";
+
+            var scoreIndex = (currentPlayer + 1) % 2;
+
+            var msg = Math.Abs(playerPos - ballPos) > 3
+                ? ++scores[scoreIndex] == maxScore
+                    ? $"Player {scoreIndex + 1} has won the game!"
+                    : $"Player {currentPlayer + 1} has missed the ball!"
+                : $"Player {currentPlayer + 1} has hit the ball!";
+
+            currentPlayer = scoreIndex;
             
-            if (Enumerable.Range(playerPos - paddleHeight / 2, paddleHeight).Contains(ballPos))
-            {
-                msg = CurrentPlayerHasReachedMaxScore
-                    ? "Game Over!" 
-                    : $"Player {PlayerNumber} has hit the ball!";
-                ChangePlayer();
-                
-                return msg;
-            }
-
-            msg = $"Player {PlayerNumber} has missed the ball!";
-            ChangePlayer();
-            UpdateScore();
-
-            if (CurrentPlayerHasReachedMaxScore)
-            {
-                msg = $"Player {PlayerNumber} has won the game!";
-            }
-
             return msg;
         }
-
-        private bool CurrentPlayerHasReachedMaxScore => scores[currentPlayer] == maxScore;
-
-        private void UpdateScore()
-        {
-            scores[currentPlayer]++;
-        }
-
-        private void ChangePlayer()
-        {
-            currentPlayer = !currentPlayer;
-        }
-
-        private int PlayerNumber => currentPlayer ? 2 : 1;
     }
 
     public class PongBasicsTests
