@@ -31,7 +31,7 @@ namespace codewars
             
             if (Enumerable.Range(playerPos - paddleHeight / 2, paddleHeight).Contains(ballPos))
             {
-                msg = scores[currentPlayer] == maxScore 
+                msg = CurrentPlayerHasReachedMaxScore
                     ? "Game Over!" 
                     : $"Player {PlayerNumber} has hit the ball!";
                 ChangePlayer();
@@ -41,14 +41,21 @@ namespace codewars
 
             msg = $"Player {PlayerNumber} has missed the ball!";
             ChangePlayer();
-            scores[currentPlayer]++;
+            UpdateScore();
 
-            if (scores[currentPlayer] == maxScore)
+            if (CurrentPlayerHasReachedMaxScore)
             {
                 msg = $"Player {PlayerNumber} has won the game!";
             }
 
             return msg;
+        }
+
+        private bool CurrentPlayerHasReachedMaxScore => scores[currentPlayer] == maxScore;
+
+        private void UpdateScore()
+        {
+            scores[currentPlayer]++;
         }
 
         private void ChangePlayer()
