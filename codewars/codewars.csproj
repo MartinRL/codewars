@@ -73,6 +73,7 @@
     <Compile Include="FindTheUniqueNumber.cs" />
     <Compile Include="FirstNonRepeatingCharacter.cs" />
     <Compile Include="GetTheMiddleCharacter.cs" />
+    <Compile Include="GreedIsGood.cs" />
     <Compile Include="IsNDivisibleByXandY.cs" />
     <Compile Include="JadenCasing.cs" />
     <Compile Include="Mumbling.cs" />
