@@ -89,5 +89,18 @@ namespace codewars
             game.play(75, 25).Should().Be("Player 2 has won the game!");
             game.play(50, 50).Should().Be("Game Over!");
         }
+        
+        [Fact]
+        public void PlayGameToThree()
+        {
+            var game = new Pong(3);
+
+            game.play(0, 4).Should().Be("Player 1 has missed the ball!");
+            game.play(100, 97).Should().Be("Player 2 has hit the ball!");
+            game.play(0, 4).Should().Be("Player 1 has missed the ball!");
+            game.play(25, 25).Should().Be("Player 2 has hit the ball!");
+            game.play(0, 4).Should().Be("Player 2 has won the game!");
+            game.play(50, 50).Should().Be("Game Over!");
+        }
     }
 }
