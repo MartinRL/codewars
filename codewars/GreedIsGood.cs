@@ -15,44 +15,37 @@ namespace codewars
             if (orderedDice.Count(_ => _ == 1) >= 3)
             {
                 points += 1000;
-                points += (orderedDice.Count(_ => _ == 1) - 3) * 100;
-                points += orderedDice.Count(_ => _ == 5) * 50;
+                orderedDice = orderedDice.Skip(3).OrderBy(_ => _);
             }
 
             if (orderedDice.Count(_ => _ == 6) >= 3)
             {
                 points += 600;
-                points += orderedDice.Count(_ => _ == 1) * 100;
-                points += orderedDice.Count(_ => _ == 5) * 50;
             }
 
             if (orderedDice.Count(_ => _ == 5) >= 3)
             {
                 points += 500;
-                points += orderedDice.Count(_ => _ == 1) * 100;
-                points += (orderedDice.Count(_ => _ == 5) - 3) * 50;
+                orderedDice = orderedDice.Where(_ => _ != 6).OrderByDescending(_ => _).Skip(3).OrderBy(_ => _);
             }
 
             if (orderedDice.Count(_ => _ == 4) >= 3)
             {
                 points += 400;
-                points += orderedDice.Count(_ => _ == 1) * 100;
-                points += orderedDice.Count(_ => _ == 5) * 50;
             }
 
             if (orderedDice.Count(_ => _ == 3) >= 3)
             {
                 points += 300;
-                points += orderedDice.Count(_ => _ == 1) * 100;
-                points += orderedDice.Count(_ => _ == 5) * 50;
             }
 
             if (orderedDice.Count(_ => _ == 2) >= 3)
             {
                 points += 200;
-                points += orderedDice.Count(_ => _ == 1) * 100;
-                points += orderedDice.Count(_ => _ == 5) * 50;
             }
+            
+            points += orderedDice.Count(_ => _ == 1) * 100;
+            points += orderedDice.Count(_ => _ == 5) * 50;
 
             return points;
         }
