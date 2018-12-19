@@ -20,6 +20,14 @@ namespace codewars
                 points += orderedDice.Count(_ => _ == 5) * 50;
             }
 
+            if (orderedDice.Count(_ => _ == 6) >= 3)
+            {
+                points += 600;
+                orderedDice = orderedDice.OrderByDescending(_ => _).Skip(3).OrderByDescending(_ => _);
+                points += orderedDice.Count(_ => _ == 1) * 100;
+                points += orderedDice.Count(_ => _ == 5) * 50;
+            }
+
             return points;
         }
     }
@@ -29,6 +37,7 @@ namespace codewars
         [Theory]
         [InlineData(new[] {2, 3, 4, 6, 2}, 0)]
         [InlineData(new[] {4, 4, 4, 3, 3}, 400)]
+        [InlineData(new[] {2, 6, 6, 5, 6}, 650)]
         [InlineData(new[] {2, 4, 4, 5, 4}, 450)]
         [InlineData(new[] {5, 1, 3, 4, 1}, 250)]
         [InlineData(new[] {1, 1, 1, 3, 1}, 1100)]
