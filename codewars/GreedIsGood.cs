@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -6,9 +7,20 @@ namespace codewars
 {
     public static class GreedIsGoodKata
     {
-        public static int Score(int[] dice) 
+        public static int Score(int[] dice)
         {
-            throw new NotImplementedException();
+            var points = 0;
+            var orderedDice = dice.OrderBy(_ => _);
+
+            if (orderedDice.Count(_ => _ == 1) >= 3)
+            {
+                points += 1000;
+                orderedDice = orderedDice.Skip(3).OrderBy(_ => _);
+                points += orderedDice.Count(_ => _ == 1) * 100;
+                points += orderedDice.Count(_ => _ == 5) * 50;
+            }
+
+            return points;
         }
     }
 
