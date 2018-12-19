@@ -15,15 +15,13 @@ namespace codewars
             if (orderedDice.Count(_ => _ == 1) >= 3)
             {
                 points += 1000;
-                orderedDice = orderedDice.Skip(3).OrderBy(_ => _);
-                points += orderedDice.Count(_ => _ == 1) * 100;
+                points += (orderedDice.Count(_ => _ == 1) - 3) * 100;
                 points += orderedDice.Count(_ => _ == 5) * 50;
             }
 
             if (orderedDice.Count(_ => _ == 6) >= 3)
             {
                 points += 600;
-                orderedDice = orderedDice.OrderByDescending(_ => _).Skip(3).OrderByDescending(_ => _);
                 points += orderedDice.Count(_ => _ == 1) * 100;
                 points += orderedDice.Count(_ => _ == 5) * 50;
             }
