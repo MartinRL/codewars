@@ -18,31 +18,13 @@ namespace codewars
                 orderedDice = orderedDice.Skip(3).OrderBy(_ => _);
             }
 
-            if (orderedDice.Count(_ => _ == 6) >= 3)
-            {
-                points += 600;
-            }
-
             if (orderedDice.Count(_ => _ == 5) >= 3)
             {
                 points += 500;
                 orderedDice = orderedDice.Where(_ => _ != 6).OrderByDescending(_ => _).Skip(3).OrderBy(_ => _);
             }
-
-            if (orderedDice.Count(_ => _ == 4) >= 3)
-            {
-                points += 400;
-            }
-
-            if (orderedDice.Count(_ => _ == 3) >= 3)
-            {
-                points += 300;
-            }
-
-            if (orderedDice.Count(_ => _ == 2) >= 3)
-            {
-                points += 200;
-            }
+            
+            new [] { 6, 4, 3, 2 }.Where(side => orderedDice.Count(d => d == side) >= 3).Each(side => points+= side * 100);
             
             points += orderedDice.Count(_ => _ == 1) * 100;
             points += orderedDice.Count(_ => _ == 5) * 50;

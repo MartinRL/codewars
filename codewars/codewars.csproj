@@ -69,6 +69,7 @@
     <Compile Include="BinaryAddition.cs" />
     <Compile Include="CountingDuplicates.cs" />
     <Compile Include="CountSheep.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="FindTheNextPerfectSquare.cs" />
     <Compile Include="FindTheUniqueNumber.cs" />
     <Compile Include="FirstNonRepeatingCharacter.cs" />
