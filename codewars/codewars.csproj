@@ -77,6 +77,7 @@
     <Compile Include="GreedIsGood.cs" />
     <Compile Include="IsNDivisibleByXandY.cs" />
     <Compile Include="JadenCasing.cs" />
+    <Compile Include="JosephusSurvivor.cs" />
     <Compile Include="Mumbling.cs" />
     <Compile Include="PongBasics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
