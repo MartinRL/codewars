@@ -9,27 +9,23 @@ namespace codewars
     {
         public static int Score(int[] dice)
         {
-            var points = 0;
-            var orderedDice = dice.OrderBy(_ => _);
-
-            if (orderedDice.Count(_ => _ == 1) >= 3)
+            return dice
+                .GroupBy(d => d)
+                .Select(g => Points(g.Key, g.Count()))
+                .Sum();
+        }
+        
+        private static int Points(int die, int count)
+        {
+            switch (die)
             {
-                points += 1000;
-                orderedDice = orderedDice.Skip(3).OrderBy(_ => _);
+                case 1:
+                    return (count / 3) * 1000 + (count % 3) * 100;
+                case 5:
+                    return (count / 3) * 500 + (count % 3) * 50;
+                default:
+                    return (count / 3) * die * 100;
             }
-
-            if (orderedDice.Count(_ => _ == 5) >= 3)
-            {
-                points += 500;
-                orderedDice = orderedDice.Where(_ => _ != 6).OrderByDescending(_ => _).Skip(3).OrderBy(_ => _);
-            }
-            
-            new [] { 6, 4, 3, 2 }.Where(side => orderedDice.Count(d => d == side) >= 3).Each(side => points+= side * 100);
-            
-            points += orderedDice.Count(_ => _ == 1) * 100;
-            points += orderedDice.Count(_ => _ == 5) * 50;
-
-            return points;
         }
     }
 
