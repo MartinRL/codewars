@@ -8,7 +8,10 @@ namespace codewars
     {
         public static int JosSurvivor(int n, int k) 
         {
-            throw new NotImplementedException();
+            if (n == 1)
+                return 1;
+            
+            return (JosSurvivor(n - 1, k) + k - 1) % n + 1;
         }  
     }
 
