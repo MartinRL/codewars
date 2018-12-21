@@ -19,6 +19,7 @@ namespace codewars
         [InlineData(11, 19, 10)]
         [InlineData(40, 3, 28)]
         [InlineData(14, 2, 13)]
+        [InlineData(4, 2, 1)]
         [InlineData(100, 1, 100)]
         [InlineData(1, 300, 1)]
         [InlineData(2, 300, 1)]
