@@ -18,87 +18,44 @@ namespace codewars
         }
     }
     
-    abstract class ImmutableStack<T>: IEnumerable<T>
-    {
-        public static readonly ImmutableStack<T> Empty = new EmptyStack();
-        private ImmutableStack() {}
-        public abstract ImmutableStack<T> Pop();
-        public abstract T Top { get; }
-        public abstract bool IsEmpty { get; }
-        public IEnumerator<T> GetEnumerator()
-        {
-            var current = this;
-            while(!current.IsEmpty)
-            {
-                yield return current.Top;
-                current = current.Pop();
-            }    
-        }
-        IEnumerator IEnumerable.GetEnumerator() 
-        { 
-            return this.GetEnumerator(); 
-        }
-        public ImmutableStack<T> Push(T value)
-        {
-            return new NonEmptyStack(value, this);
-        }
-        private class EmptyStack: ImmutableStack<T>
-        {
-            public override ImmutableStack<T> Pop()
-            { 
-                throw new InvalidOperationException(); 
-            }
-            public override T Top 
-            { 
-                get { throw new InvalidOperationException(); } 
-            }
-            public override bool IsEmpty { get { return true; } }
-        } 
-        private class NonEmptyStack : ImmutableStack<T>
-        {
-            private readonly T head;
-            private readonly ImmutableStack<T> tail;
-            public NonEmptyStack(T head, ImmutableStack<T> tail)
-            {
-                this.head = head;
-                this.tail = tail;
-            }
-            public override ImmutableStack<T> Pop() { return this.tail; }
-            public override T Top { get { return this.head; } }
-            public override bool IsEmpty { get { return false; } } 
-        }
-    }
-
-    public static class IEnumerableExtensions
-    {
-        private static IEnumerable<ImmutableStack<bool>> Combinations(int n, int k)
-        {
-            if (k == 0 && n == 0)
-            { 
-                yield return ImmutableStack<bool>.Empty;
-                yield break;
-            }
-            if (n < k)
-                yield break;
-        }
-
-        private static IEnumerable<T> ZipWhere<T>(this IEnumerable<T> items, IEnumerable<bool> selectors)
-        {
-            using (var e1 = items.GetEnumerator())
-            using (var e2 = selectors.GetEnumerator())
-                while (e1.MoveNext() && e2.MoveNext())
-                    if (e2.Current)
-                        yield return e1.Current;
-        }
-        
-        public static IEnumerable<IEnumerable<T>> CombinationsOf<T>(this IEnumerable<T> @this, int k)
-        {
-            return 
-                from combination in Combinations(@this.Count(), k)
-                select @this.ZipWhere(combination);
-        }
-    }
-
+    /*
+     * 
+using System;
+class GFG {
+static void combinationUtil(int []arr,
+int n, int r, int index,
+int []data, int i)
+{
+if (index == r)
+{
+for (int j = 0; j < r; j++)
+Console.Write(data[j] + " ");
+Console.WriteLine("");
+return;
+}
+if (i >= n)
+return;
+data[index] = arr[i];
+combinationUtil(arr, n, r, index + 1,
+data, i + 1);
+combinationUtil(arr, n, r, index,
+data, i + 1);
+}
+static void printCombination(int []arr,
+int n, int r)
+{
+int []data = new int[r];
+combinationUtil(arr, n, r, 0, data, 0);
+}
+public static void Main()
+{
+int []arr = { 10, 20, 30, 40, 50 };
+int r = 3;
+int n = arr.Length;
+printCombination(arr, n, r);
+}
+}
+     * */
     public class BestTravelTests
     {
         [Theory]
