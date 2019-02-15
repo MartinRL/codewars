@@ -9,9 +9,12 @@ namespace codewars
 {
     public static class BestTravelKata
     {
-        public static int? chooseBestSum(int t, int k, List<int> ls) 
+        public static int? chooseBestSum(int t, int k, List<int> ls)
         {
-            throw new NotImplementedException();
+            return ls.CombinationsOf(k)
+                .Select(_ => _.Sum())
+                .Where(_ => _ <= t)
+                .Max();
         }
     }
     
