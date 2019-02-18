@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class BestTravelKata
+    public static class SumOfK
     {
         public static int? chooseBestSum(int t, int k, List<int> ls)
         {
@@ -62,7 +62,7 @@ namespace codewars
         [InlineData(230, 3, new [] { 91, 74, 73, 85, 73, 81, 87 }, 228)]
         public void ExecuteChooseBestSumExample(int t, int k, int[] ls, int? expected)
         {
-            BestTravelKata.chooseBestSum(t, k, ls.ToList()).Should().Be(expected);
+            SumOfK.chooseBestSum(t, k, ls.ToList()).Should().Be(expected);
         }
     }
 }
