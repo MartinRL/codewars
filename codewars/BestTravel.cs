@@ -16,7 +16,7 @@ namespace codewars
             if (k > ls.Count)
                 return null;
             
-            return new GFG().printCombination(ls.ToArray(), ls.Count, k)
+            return new GFG().printCombination(ls.ToArray(), k)
                 .Select(_ => _.Sum())
                 .Where(_ => _ <= t)
                 .Max();
@@ -26,13 +26,13 @@ namespace codewars
 
     public class GFG
     {
-        public void combinationUtil(int[] arr, int n, int r, int index, int[] data, int i, Queue<int[]> combinations)
+        public void combinationUtil(int[] arr, int k, int index, int[] data, int i, Queue<int[]> combinations)
         {
-            if (index == r)
+            if (index == k)
             {
-                var combination = new int[r];
+                var combination = new int[k];
                 
-                for (int j = 0; j < r; j++)
+                for (int j = 0; j < k; j++)
                     combination[j] = data[j];
                 
                 combinations.Enqueue(combination);
@@ -40,20 +40,20 @@ namespace codewars
                 return;
             }
 
-            if (i >= n)
+            if (i >= arr.Length)
                 return;
             
             data[index] = arr[i];
             
-            combinationUtil(arr, n, r, index + 1, data, i + 1, combinations);
-            combinationUtil(arr, n, r, index, data, i + 1, combinations);
+            combinationUtil(arr, k, index + 1, data, i + 1, combinations);
+            combinationUtil(arr, k, index, data, i + 1, combinations);
         }
 
-        public IEnumerable<int[]> printCombination(int[] arr, int n, int r)
+        public IEnumerable<int[]> printCombination(int[] arr, int r)
         {
             int[] data = new int[r];
             var combinations = new Queue<int[]>();
-            combinationUtil(arr, n, r, 0, data, 0, combinations);
+            combinationUtil(arr, r, 0, data, 0, combinations);
 
             return combinations;
         }
@@ -89,7 +89,7 @@ namespace codewars
         public void CombinationsOfShouldReturnAllCombinationsOfThree()
         {
             var x = new GFG()
-                .printCombination(new [] {50, 55, 57, 58, 60}, 5, 3);
+                .printCombination(new [] {50, 55, 57, 58, 60}, 3);
 
             /*new [] {50, 55, 57, 58, 60}.CombinationsOf(3).Should().AllBeEquivalentTo(new [] 
             { 
