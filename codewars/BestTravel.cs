@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -10,13 +11,17 @@ namespace codewars
     {
         public static int? chooseBestSum(int t, int k, List<int> ls)
         {
-            if (k > ls.Count)
+            try
+            {
+                return new Combinations(ls, k)
+                    .Select(_ => _.Sum())
+                    .Where(_ => _ <= t)
+                    .Max();
+            }
+            catch (Exception)
+            {
                 return null;
-            
-            return new Combinations(ls, k)
-                .Select(_ => _.Sum())
-                .Where(_ => _ <= t)
-                .Max();
+            }
         }
     }
 
