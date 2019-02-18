@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using FluentAssertions;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace codewars
 {
@@ -57,25 +53,10 @@ namespace codewars
 
             return combinations;
         }
-
-        /*public static void Main()
-        {
-            int[] arr = {10, 20, 30, 40, 50};
-            int r = 3;
-            int n = arr.Length;
-            printCombination(arr, n, r);
-        }*/
     }
 
     public class BestTravelTests
     {
-        private readonly ITestOutputHelper output;
-
-        public BestTravelTests(ITestOutputHelper output)
-        {
-            this.output = output;
-        }
-        
         [Theory]
         [InlineData(163, 3, new [] { 50, 55, 56, 57, 58 }, 163)]
         [InlineData(163, 3, new [] { 50 }, null)]
@@ -83,27 +64,6 @@ namespace codewars
         public void ExecuteChooseBestSumExample(int t, int k, int[] ls, int? expected)
         {
             BestTravelKata.chooseBestSum(t, k, ls.ToList()).Should().Be(expected);
-        }
-
-        [Fact]
-        public void CombinationsOfShouldReturnAllCombinationsOfThree()
-        {
-            var x = new GFG()
-                .printCombination(new [] {50, 55, 57, 58, 60}, 3);
-
-            /*new [] {50, 55, 57, 58, 60}.CombinationsOf(3).Should().AllBeEquivalentTo(new [] 
-            { 
-                new [] {50, 55, 57},  
-                new [] {50, 55, 58},
-                new [] {50, 55, 60},  
-                new [] {50, 57, 58},  
-                new [] {50, 57, 60},  
-                new [] {50, 58, 60},  
-                new [] {55, 57, 58},  
-                new [] {55, 57, 60},  
-                new [] {55, 58, 60},  
-                new [] {57, 58, 60} 
-             });*/
         }
     }
 }
