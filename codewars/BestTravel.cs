@@ -13,12 +13,13 @@ namespace codewars
     {
         public static int? chooseBestSum(int t, int k, List<int> ls)
         {
-            /*return ls.CombinationsOf(k)
+            if (k > ls.Count)
+                return null;
+            
+            return new GFG().printCombination(ls.ToArray(), ls.Count, k)
                 .Select(_ => _.Sum())
                 .Where(_ => _ <= t)
                 .Max();
-                */
-            return 0;
         }
     }
 
