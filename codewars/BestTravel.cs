@@ -12,23 +12,22 @@ namespace codewars
             if (k > ls.Count)
                 return null;
             
-            return new GFG().printCombination(ls.ToArray(), k)
+            return new CombinationsCreator().CreateFor(ls.ToArray(), k)
                 .Select(_ => _.Sum())
                 .Where(_ => _ <= t)
                 .Max();
         }
     }
 
-
-    public class GFG
+    public class CombinationsCreator
     {
-        public void combinationUtil(int[] arr, int k, int index, int[] data, int i, Queue<int[]> combinations)
+        private void CreateCombinationFor(int[] arr, int k, int index, int[] data, int i, Queue<int[]> combinations)
         {
             if (index == k)
             {
                 var combination = new int[k];
                 
-                for (int j = 0; j < k; j++)
+                for (var j = 0; j < k; j++)
                     combination[j] = data[j];
                 
                 combinations.Enqueue(combination);
@@ -41,15 +40,15 @@ namespace codewars
             
             data[index] = arr[i];
             
-            combinationUtil(arr, k, index + 1, data, i + 1, combinations);
-            combinationUtil(arr, k, index, data, i + 1, combinations);
+            CreateCombinationFor(arr, k, index + 1, data, i + 1, combinations);
+            CreateCombinationFor(arr, k, index, data, i + 1, combinations);
         }
 
-        public IEnumerable<int[]> printCombination(int[] arr, int r)
+        public IEnumerable<int[]> CreateFor(int[] arr, int r)
         {
-            int[] data = new int[r];
+            var data = new int[r];
             var combinations = new Queue<int[]>();
-            combinationUtil(arr, r, 0, data, 0, combinations);
+            CreateCombinationFor(arr, r, 0, data, 0, combinations);
 
             return combinations;
         }
