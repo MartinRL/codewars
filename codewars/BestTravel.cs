@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using FluentAssertions;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace codewars
 {
@@ -11,53 +13,67 @@ namespace codewars
     {
         public static int? chooseBestSum(int t, int k, List<int> ls)
         {
-            return ls.CombinationsOf(k)
+            /*return ls.CombinationsOf(k)
                 .Select(_ => _.Sum())
                 .Where(_ => _ <= t)
                 .Max();
+                */
+            return 0;
         }
     }
-    
-    /*
-     * 
-using System;
-class GFG {
-static void combinationUtil(int []arr,
-int n, int r, int index,
-int []data, int i)
-{
-if (index == r)
-{
-for (int j = 0; j < r; j++)
-Console.Write(data[j] + " ");
-Console.WriteLine("");
-return;
-}
-if (i >= n)
-return;
-data[index] = arr[i];
-combinationUtil(arr, n, r, index + 1,
-data, i + 1);
-combinationUtil(arr, n, r, index,
-data, i + 1);
-}
-static void printCombination(int []arr,
-int n, int r)
-{
-int []data = new int[r];
-combinationUtil(arr, n, r, 0, data, 0);
-}
-public static void Main()
-{
-int []arr = { 10, 20, 30, 40, 50 };
-int r = 3;
-int n = arr.Length;
-printCombination(arr, n, r);
-}
-}
-     * */
+
+
+    public class GFG
+    {
+        public void combinationUtil(int[] arr, int n, int r, int index, int[] data, int i, StringBuilder sb)
+        {
+            if (index == r)
+            {
+                for (int j = 0; j < r; j++)
+                    //Console.Write(data[j] + " ");
+                    sb.Append(data[j] + " ");
+                
+                //Console.WriteLine("");
+                sb.AppendLine(String.Empty);
+                return;
+            }
+
+            if (i >= n)
+                return;
+            
+            data[index] = arr[i];
+            
+            combinationUtil(arr, n, r, index + 1, data, i + 1, sb);
+            combinationUtil(arr, n, r, index, data, i + 1, sb);
+        }
+
+        public string printCombination(int[] arr, int n, int r)
+        {
+            int[] data = new int[r];
+            var sb = new StringBuilder();
+            combinationUtil(arr, n, r, 0, data, 0, sb);
+
+            return sb.ToString();
+        }
+
+        /*public static void Main()
+        {
+            int[] arr = {10, 20, 30, 40, 50};
+            int r = 3;
+            int n = arr.Length;
+            printCombination(arr, n, r);
+        }*/
+    }
+
     public class BestTravelTests
     {
+        private readonly ITestOutputHelper output;
+
+        public BestTravelTests(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+        
         [Theory]
         [InlineData(163, 3, new [] { 50, 55, 56, 57, 58 }, 163)]
         [InlineData(163, 3, new [] { 50 }, null)]
@@ -70,7 +86,10 @@ printCombination(arr, n, r);
         [Fact]
         public void CombinationsOfShouldReturnAllCombinationsOfThree()
         {
-            new [] {50, 55, 57, 58, 60}.CombinationsOf(3).Should().AllBeEquivalentTo(new [] 
+            var gfg = new GFG();
+            output.WriteLine(gfg.printCombination(new [] {50, 55, 57, 58, 60}, 5, 3));
+            
+            /*new [] {50, 55, 57, 58, 60}.CombinationsOf(3).Should().AllBeEquivalentTo(new [] 
             { 
                 new [] {50, 55, 57},  
                 new [] {50, 55, 58},  
@@ -82,7 +101,7 @@ printCombination(arr, n, r);
                 new [] {55, 57, 60},  
                 new [] {55, 58, 60},  
                 new [] {57, 58, 60} 
-             });
+             });*/
         }
     }
 }
