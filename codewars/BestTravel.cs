@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -12,16 +13,23 @@ namespace codewars
             if (k > ls.Count)
                 return null;
             
-            return new CombinationsCreator().CreateFor(ls.ToArray(), k)
+            return new Combinations(ls, k)
                 .Select(_ => _.Sum())
                 .Where(_ => _ <= t)
                 .Max();
         }
     }
 
-    public class CombinationsCreator
+    public class Combinations : IEnumerable<int[]>
     {
-        private void CreateCombinationFor(int[] arr, int k, int index, int[] data, int i, Queue<int[]> combinations)
+        Queue<int[]> combinations = new Queue<int[]>();
+
+        public Combinations(List<int> list, int k)
+        {
+            CreateCombinationFor(list.ToArray(), k, 0, new int[k], 0);    
+        }
+        
+        private void CreateCombinationFor(int[] arr, int k, int index, int[] data, int i)
         {
             if (index == k)
             {
@@ -40,17 +48,18 @@ namespace codewars
             
             data[index] = arr[i];
             
-            CreateCombinationFor(arr, k, index + 1, data, i + 1, combinations);
-            CreateCombinationFor(arr, k, index, data, i + 1, combinations);
+            CreateCombinationFor(arr, k, index + 1, data, i + 1);
+            CreateCombinationFor(arr, k, index, data, i + 1);
         }
 
-        public IEnumerable<int[]> CreateFor(int[] arr, int r)
+        public IEnumerator<int[]> GetEnumerator()
         {
-            var data = new int[r];
-            var combinations = new Queue<int[]>();
-            CreateCombinationFor(arr, r, 0, data, 0, combinations);
+            return combinations.GetEnumerator();
+        }
 
-            return combinations;
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 
