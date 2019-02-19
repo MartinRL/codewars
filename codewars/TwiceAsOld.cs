@@ -8,7 +8,16 @@ namespace codewars
     {
         public static int TwiceAsOld(int dadYears, int sonYears)
         {
-            throw new NotImplementedException();
+            var dadAge = dadYears;
+            var yearsAgo = 0;
+
+            do
+            {
+                --dadAge;
+                ++yearsAgo;
+            } while (dadAge != sonYears * 2);
+
+            return yearsAgo;
         }
     }
     
