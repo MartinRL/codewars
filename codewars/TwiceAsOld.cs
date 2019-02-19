@@ -9,15 +9,29 @@ namespace codewars
         public static int TwiceAsOld(int dadYears, int sonYears)
         {
             var dadAge = dadYears;
-            var yearsAgo = 0;
+
+            if (dadYears >= sonYears * 2)
+            {
+                var yearsAgo = 0;
+                
+                do
+                {
+                    --dadAge;
+                    ++yearsAgo;
+                } while (dadAge != sonYears * 2);
+                
+                return yearsAgo;
+            }
+
+            var yearsUntil = 0;
 
             do
             {
-                --dadAge;
-                ++yearsAgo;
+                ++dadAge;
+                ++yearsUntil;
             } while (dadAge != sonYears * 2);
 
-            return yearsAgo;
+            return yearsUntil;
         }
     }
     
