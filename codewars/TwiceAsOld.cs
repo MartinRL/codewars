@@ -8,10 +8,7 @@ namespace codewars
     {
         public static int TwiceAsOld(int dadYears, int sonYears)
         {
-            if (dadYears >= sonYears * 2)
-                return dadYears - sonYears * 2;
-
-            return sonYears * 2 - dadYears;
+            return Math.Abs(dadYears - sonYears * 2);
         }
     }
     
