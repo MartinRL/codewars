@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,7 @@ namespace codewars
     {
         public static string AreYouPlayingBanjo(string name)
         {
-            return char.ToLower(name.First()) == 'r' ? name + " plays banjo" : name + " does not play banjo";
+            return $"{name} {(name.StartsWith("R", true, CultureInfo.InvariantCulture) ? "plays" : "does not play")} banjo";
         }
     }
     
