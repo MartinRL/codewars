@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +9,7 @@ namespace codewars
     {
         public static string AreYouPlayingBanjo(string name)
         {
-            throw new NotImplementedException();
+            return char.ToLower(name.First()) == 'r' ? name + " plays banjo" : name + " does not play banjo";
         }
     }
     
