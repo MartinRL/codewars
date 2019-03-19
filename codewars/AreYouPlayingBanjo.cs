@@ -1,25 +1,25 @@
+using System;
+using FluentAssertions;
+using Xunit;
+
 namespace codewars
 {
-    public class AreYouPlayingBanjoSolution
+    public class AreYouPlayingBanjoKata
     {
         public static string AreYouPlayingBanjo(string name)
         {
-            //Implement me
+            throw new NotImplementedException();
         }
     }
     
     public class AreYouPlayingBanjoTests
     {
-        [Test]
-        public static void Martin()
+        [Theory]
+        [InlineData("Martin", "Martin does not play banjo")]
+        [InlineData("Rikke", "Rikke plays banjo")]
+        public static void ExecuteAreYouPlayingBanjo(string name, string playsBanjo)
         {
-            Assert.AreEqual("Martin does not play banjo", Kata.AreYouPlayingBanjo("Martin"));
-        }
-  
-        [Test]
-        public static void Rikke()
-        {
-            Assert.AreEqual("Rikke plays banjo", Kata.AreYouPlayingBanjo("Rikke"));
+            AreYouPlayingBanjoKata.AreYouPlayingBanjo(name).Should().Be(playsBanjo);
         }
     }
 }
