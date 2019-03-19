@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreYouPlayingBanjo.cs" />
     <Compile Include="ArrayDiff.cs" />
     <Compile Include="BestTravel.cs" />
     <Compile Include="BinaryAddition.cs" />
