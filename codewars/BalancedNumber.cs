@@ -1,32 +1,33 @@
+using System;
+using FluentAssertions;
+using Xunit;
+
 namespace codewars
 {
     public class BalancedNumberKata
     {
         public static string BalancedNumber(int number)
         {
-            //Do Some Magic
+            throw new NotImplementedException();
         }
     }
     
     public class BalancedNumberTests
     {
-        [TestCase(7, "Balanced")]
-        [TestCase(959, "Balanced")]
-        [TestCase(13, "Balanced")]
-        [TestCase(56239814, "Balanced")]
-        [TestCase(424, "Balanced")]
-        public void BalancedTests(int input, string expected)
+        [Theory]
+        [InlineData(7, "Balanced")]
+        [InlineData(959, "Balanced")]
+        [InlineData(13, "Balanced")]
+        [InlineData(56239814, "Balanced")]
+        [InlineData(424, "Balanced")]
+        [InlineData(1024, "Not Balanced")]
+        [InlineData(66545, "Not Balanced")]
+        [InlineData(295591, "Not Balanced")]
+        [InlineData(1230987, "Not Balanced")]
+        [InlineData(432, "Not Balanced")]
+        public void ExecuteBalancedNumber(int input, string expected)
         {
-            Assert.That(Kata.BalancedNumber(input), Is.EqualTo(expected));
-        }
-        [TestCase(1024, "Not Balanced")]
-        [TestCase(66545, "Not Balanced")]
-        [TestCase(295591, "Not Balanced")]
-        [TestCase(1230987, "Not Balanced")]
-        [TestCase(432, "Not Balanced")]
-        public void NotBalancedTests(int input, string expected)
-        {
-            Assert.That(Kata.BalancedNumber(input), Is.EqualTo(expected));
+            BalancedNumberKata.BalancedNumber(input).Should().Be(expected);
         }
     }
 }
