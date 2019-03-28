@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +9,20 @@ namespace codewars
     {
         public static string BalancedNumber(int number)
         {
-            throw new NotImplementedException();
+            var numberAsString = number.ToString();
+            
+            if (numberAsString.Length == 1 || numberAsString.Length == 2)
+                return "Balanced";
+
+            var termLength = (numberAsString.Length / 2) - 1 + (numberAsString.Length % 2);
+
+            var leftTermAsString = numberAsString.Substring(0, termLength);
+            var rightTermAsString = numberAsString.Substring(numberAsString.Length - termLength);
+
+            var leftTerm = (int) leftTermAsString.Sum(_ => char.GetNumericValue(_));
+            var rightTerm = (int) rightTermAsString.Sum(_ => char.GetNumericValue(_));
+
+            return (leftTerm == rightTerm ? string.Empty : "Not ") + "Balanced";
         }
     }
     
