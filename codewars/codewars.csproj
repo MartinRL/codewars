@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AreYouPlayingBanjo.cs" />
     <Compile Include="ArrayDiff.cs" />
+    <Compile Include="BalancedNumber.cs" />
     <Compile Include="BestTravel.cs" />
     <Compile Include="BinaryAddition.cs" />
     <Compile Include="CountingDuplicates.cs" />
