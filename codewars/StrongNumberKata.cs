@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,23 @@ namespace codewars
     {
         public static string StrongNumber(int number)
         {
-            throw new NotImplementedException();
+            return number == number.ToDigits().Select(Factorial).Sum() ? "STRONG!!!!" : "Not Strong !!";
+        }
+
+        private static int Factorial(int number)
+        {
+            if (number == 1)
+                return 1;
+            
+            return number * Factorial(number - 1);
+        }
+    }
+
+    public static class StrongNumberSolutionExtensions
+    {
+        public static IEnumerable<int> ToDigits(this int @this)
+        {
+            return @this.ToString().Select(_ => (int)char.GetNumericValue(_));
         }
     }
 
