@@ -4,7 +4,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class VasyaClerkKata
+    public static class VasyaClerkSolution
     {
         public static string Tickets(int[] peopleInLine)
         {
@@ -52,9 +52,9 @@ namespace codewars
         [InlineData(new[] {25, 25, 25, 25, 25, 25, 100, 100}, "YES")]
         [InlineData(new[] {25, 100}, "NO")]
         [InlineData(new[] {25, 25, 50, 50, 100}, "NO")]
-        public void ExecuteTicketsExample(int[] peopleInLine, string canGiveChangeToEveryone)
+        public void VerifyTicketsWith(int[] peopleInLine, string canGiveChangeToEveryone)
         {
-            VasyaClerkKata.Tickets(peopleInLine).Should().Be(canGiveChangeToEveryone);
+            VasyaClerkSolution.Tickets(peopleInLine).Should().Be(canGiveChangeToEveryone);
         }
     }
 }

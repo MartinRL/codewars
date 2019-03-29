@@ -6,7 +6,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class FirstNonRepeatingCharacterKata
+    public static class FirstNonRepeatingCharacterSolution
     {
         public static string FirstNonRepeatingLetter(string s)
         {
@@ -34,9 +34,9 @@ namespace codewars
         [InlineData("abcC", "a")]
         [InlineData("sTreSS", "T")]
         [InlineData("sStT", "")]
-        public void ExecuteOrderExample(string s, string l)
+        public void VerifyFirstNonRepeatingLetterWith(string s, string l)
         {
-            FirstNonRepeatingCharacterKata.FirstNonRepeatingLetter(s).Should().Be(l);
+            FirstNonRepeatingCharacterSolution.FirstNonRepeatingLetter(s).Should().Be(l);
         }
     }
 }

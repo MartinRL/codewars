@@ -6,7 +6,8 @@ using Xunit;
 
 namespace codewars
 {
-    public static class FindTheNextPerfectSquareKata
+    public static class FindTheNextPerfectSquareSolution
+    
     {
         public static long FindNextSquare(long num)
         {
@@ -27,9 +28,9 @@ namespace codewars
         [InlineData(625, 676)]
         [InlineData(319225, 320356)]
         [InlineData(15241383936, 15241630849)]
-        public void ExecuteFindNextSquareExample(long num, long expected)
+        public void VerifyFindNextSquareWith(long num, long expected)
         {
-            FindTheNextPerfectSquareKata.FindNextSquare(num).Should().Be(expected);
+            FindTheNextPerfectSquareSolution.FindNextSquare(num).Should().Be(expected);
         }
     }
 }

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public class BalancedNumberKata
+    public class BalancedNumberSolution
     {
         public static string BalancedNumber(int number)
         {
@@ -39,9 +39,9 @@ namespace codewars
         [InlineData(295591, "Not Balanced")]
         [InlineData(1230987, "Not Balanced")]
         [InlineData(432, "Not Balanced")]
-        public void ExecuteBalancedNumber(int input, string expected)
+        public void VerifyBalancedNumberWith(int input, string expected)
         {
-            BalancedNumberKata.BalancedNumber(input).Should().Be(expected);
+            BalancedNumberSolution.BalancedNumber(input).Should().Be(expected);
         }
     }
 }

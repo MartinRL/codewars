@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class GetTheMiddleCharacterKata
+    public static class GetTheMiddleCharacterSolution
     {
         public static string GetMiddle(string s)
         {
@@ -25,9 +25,9 @@ namespace codewars
         [InlineData("testing", "t")]
         [InlineData("middle", "dd")]
         [InlineData("A", "A")]
-        public void ExecuteGetMiddleExample(string argument, string expected)
+        public void VerifyGetMiddleWith(string argument, string expected)
         {
-            GetTheMiddleCharacterKata.GetMiddle(argument).Should().Be(expected);
+            GetTheMiddleCharacterSolution.GetMiddle(argument).Should().Be(expected);
         }
     }
 }

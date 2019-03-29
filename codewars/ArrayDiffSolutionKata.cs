@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class ArrayDiffKata
+    public static class ArrayDiffSolution
     {
         public static int[] ArrayDiff(int[] a, int[] b)
         {
@@ -21,7 +21,7 @@ namespace codewars
         [InlineData(new [] { 1, 2, 2}, new [] { 2 }, new [] { 1 })]
         public void ElementsInBShouldBeRemovedFromA(int[] a, int[] b, int[] c)
         {
-            ArrayDiffKata.ArrayDiff(a, b).Should().BeEquivalentTo(c);
+            ArrayDiffSolution.ArrayDiff(a, b).Should().BeEquivalentTo(c);
         }
     }
 }

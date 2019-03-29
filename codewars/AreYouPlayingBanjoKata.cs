@@ -6,7 +6,8 @@ using Xunit;
 
 namespace codewars
 {
-    public class AreYouPlayingBanjoKata
+    public class AreYouPlayingBanjoSolution
+    
     {
         public static string AreYouPlayingBanjo(string name)
         {
@@ -21,9 +22,9 @@ namespace codewars
         [InlineData("Rikke", "Rikke plays banjo")]
         [InlineData("rolle", "rolle plays banjo")]
         [InlineData("Conny", "Conny does not play banjo")]
-        public static void ExecuteAreYouPlayingBanjo(string name, string playsBanjo)
+        public static void VerifyAreYouPlayingBanjoWith(string name, string playsBanjo)
         {
-            AreYouPlayingBanjoKata.AreYouPlayingBanjo(name).Should().Be(playsBanjo);
+            AreYouPlayingBanjoSolution.AreYouPlayingBanjo(name).Should().Be(playsBanjo);
         }
     }
 }

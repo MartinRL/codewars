@@ -4,7 +4,7 @@ using Xunit;
 
 namespace codewars
 {
-    public class BinaryAdditionKata
+    public class BinaryAdditionSolution
     {
         public static string AddBinary(int firstTerm, int secondTerm)
         {
@@ -18,9 +18,9 @@ namespace codewars
         [InlineData(1, 2, "11")]
         [InlineData(5, 10, "1111")]
         [InlineData(0, 235, "11101011")]
-        public void ExecuteCountDuplicatesExample(int firstTerm, int secondTerm, string expected)
+        public void VerifyAddBinaryWith(int firstTerm, int secondTerm, string expected)
         {
-            BinaryAdditionKata.AddBinary(firstTerm, secondTerm).Should().Be(expected);
+            BinaryAdditionSolution.AddBinary(firstTerm, secondTerm).Should().Be(expected);
         }
     }
 }

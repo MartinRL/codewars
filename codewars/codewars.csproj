@@ -65,34 +65,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreYouPlayingBanjo.cs" />
-    <Compile Include="ArrayDiff.cs" />
-    <Compile Include="BalancedNumber.cs" />
-    <Compile Include="BestTravel.cs" />
-    <Compile Include="BinaryAddition.cs" />
-    <Compile Include="CountingDuplicates.cs" />
-    <Compile Include="CountSheep.cs" />
+    <Compile Include="AreYouPlayingBanjoKata.cs" />
+    <Compile Include="ArrayDiffSolutionKata.cs" />
+    <Compile Include="BalancedNumberKata.cs" />
+    <Compile Include="BestTravelKata.cs" />
+    <Compile Include="BinaryAdditionKata.cs" />
+    <Compile Include="CountingDuplicatesKata.cs" />
+    <Compile Include="CountSheepKata.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="FindTheNextPerfectSquare.cs" />
-    <Compile Include="FindTheUniqueNumber.cs" />
-    <Compile Include="FirstNonRepeatingCharacter.cs" />
-    <Compile Include="GetTheMiddleCharacter.cs" />
-    <Compile Include="GreedIsGood.cs" />
-    <Compile Include="IsNDivisibleByXandY.cs" />
-    <Compile Include="JadenCasing.cs" />
-    <Compile Include="JosephusSurvivor.cs" />
-    <Compile Include="Mumbling.cs" />
-    <Compile Include="PongBasics.cs" />
+    <Compile Include="FindTheNextPerfectSquareKata.cs" />
+    <Compile Include="FindTheUniqueNumberKata.cs" />
+    <Compile Include="FirstNonRepeatingCharacterKata.cs" />
+    <Compile Include="GetTheMiddleCharacterKata.cs" />
+    <Compile Include="GreedIsGoodKata.cs" />
+    <Compile Include="IsNDivisibleByXandYKata.cs" />
+    <Compile Include="JadenCasingKata.cs" />
+    <Compile Include="JosephusSurvivorKata.cs" />
+    <Compile Include="MumblingKata.cs" />
+    <Compile Include="PongBasicsKata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scramblies.cs" />
-    <Compile Include="ShortestWord.cs" />
-    <Compile Include="SquareEveryDigit.cs" />
-    <Compile Include="TitleCase.cs" />
-    <Compile Include="TwiceAsOld.cs" />
-    <Compile Include="TwiceLinear.cs" />
-    <Compile Include="VasyaClerk.cs" />
-    <Compile Include="WillYouMakeIt.cs" />
-    <Compile Include="YourOrder.cs" />
+    <Compile Include="ScrambliesKata.cs" />
+    <Compile Include="ShortestWordKata.cs" />
+    <Compile Include="SquareEveryDigitKata.cs" />
+    <Compile Include="TitleCaseKata.cs" />
+    <Compile Include="TwiceAsOldKata.cs" />
+    <Compile Include="TwiceLinearKata.cs" />
+    <Compile Include="VasyaClerkKata.cs" />
+    <Compile Include="WillYouMakeItKata.cs" />
+    <Compile Include="YourOrderKata.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

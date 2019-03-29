@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class CountSheepKata
+    public static class CountSheepSolution
     {
         public static int CountSheep(bool[] sheep)
         {
@@ -26,9 +26,9 @@ namespace codewars
         [InlineData(new[] { false, false, false, false, 
                             false, false, false, false, 
                             false, false, false, false }, 0)]
-        public void ExecuteCountSheepExample(bool[] sheep, int expected) 
+        public void VerifyCountSheepExampleWith(bool[] sheep, int expected) 
         {
-            CountSheepKata.CountSheep(sheep).Should().Be(expected);
+            CountSheepSolution.CountSheep(sheep).Should().Be(expected);
         }
     }
 }

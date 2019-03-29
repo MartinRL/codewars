@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class MumblingKata
+    public static class MumblingSolution
     {
         public static string Accum(string s)
         {
@@ -21,9 +21,9 @@ namespace codewars
         [InlineData("abcd", "A-Bb-Ccc-Dddd")]
         [InlineData("RqaEzty", "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")]
         [InlineData("cwAt", "C-Ww-Aaa-Tttt")]
-        public void ExecuteAccumExample(string s, string accummed)
+        public void VerifyAccumWith(string s, string accummed)
         {
-            MumblingKata.Accum(s).Should().Be(accummed);
+            MumblingSolution.Accum(s).Should().Be(accummed);
         }
     }
 }

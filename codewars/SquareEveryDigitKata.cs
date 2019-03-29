@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class SquareEveryDigitKata
+    public static class SquareEveryDigitSolution
     {
         public static int SquareDigits(int n)
         {
@@ -24,9 +24,9 @@ namespace codewars
         [InlineData(9119, 811181)]
         [InlineData(1, 1)]
         [InlineData(765, 493625)]
-        public void ExecuteSquareDigitsExample(int n, int squaredDigits)
+        public void VerifySquareDigitsWith(int n, int squaredDigits)
         {
-            SquareEveryDigitKata.SquareDigits(n).Should().Be(squaredDigits);
+            SquareEveryDigitSolution.SquareDigits(n).Should().Be(squaredDigits);
         }
     }
 }

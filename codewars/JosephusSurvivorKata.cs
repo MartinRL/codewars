@@ -4,7 +4,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class JosephusSurvivorKata
+    public static class JosephusSurvivorSolution
     {
         public static int JosSurvivor(int n, int k) 
         {
@@ -29,9 +29,9 @@ namespace codewars
         [InlineData(5, 300, 1)]
         [InlineData(7, 300, 7)]
         [InlineData(300, 300, 265)]
-        public void ExecuteJosSurvivorExample(int n, int k, int expected)
+        public void VerifyJosSurvivorWith(int n, int k, int expected)
         {
-            JosephusSurvivorKata.JosSurvivor(n, k).Should().Be(expected);
+            JosephusSurvivorSolution.JosSurvivor(n, k).Should().Be(expected);
         }
     }
 }
