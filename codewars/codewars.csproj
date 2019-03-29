@@ -87,6 +87,7 @@
     <Compile Include="ScrambliesKata.cs" />
     <Compile Include="ShortestWordKata.cs" />
     <Compile Include="SquareEveryDigitKata.cs" />
+    <Compile Include="StrongNumberKata.cs" />
     <Compile Include="TitleCaseKata.cs" />
     <Compile Include="TwiceAsOldKata.cs" />
     <Compile Include="TwiceLinearKata.cs" />
