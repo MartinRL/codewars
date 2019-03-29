@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class JadenCasingKata
+    public static class JadenCasingSolution
     {
         public static string JadenCase(string s)
         {
@@ -19,9 +19,9 @@ namespace codewars
         [Theory]
         [InlineData("How can mirrors be real if our eyes aren't real", "How Can Mirrors Be Real If Our Eyes Aren't Real")]
         [InlineData("this is me", "This Is Me")]
-        public void ExecuteJadenCaseExample(string s, string jadenCased)
+        public void VerifyJadenCaseWith(string s, string jadenCased)
         {
-            JadenCasingKata.JadenCase(s).Should().Be(jadenCased);
+            JadenCasingSolution.JadenCase(s).Should().Be(jadenCased);
         }
     }
 }

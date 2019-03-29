@@ -4,7 +4,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class ShortestWordKata
+    public static class ShortestWordSolution
     {
         public static int FindShort(string s)
         {
@@ -17,9 +17,9 @@ namespace codewars
         [Theory]
         [InlineData("bitcoin take over the world maybe who knows perhaps", 3)]
         [InlineData("turns out random test cases are easier than writing out basic ones", 3)]
-        public void ExecuteFindShortExample(string s, int shortestLength)
+        public void VerifyFindShortWith(string s, int shortestLength)
         {
-            ShortestWordKata.FindShort(s).Should().Be(shortestLength);
+            ShortestWordSolution.FindShort(s).Should().Be(shortestLength);
         }
     }
 }

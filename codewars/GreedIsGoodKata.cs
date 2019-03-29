@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class GreedIsGoodKata
+    public static class GreedIsGoodSolution
     {
         public static int Score(int[] dice)
         {
@@ -42,9 +42,9 @@ namespace codewars
         [InlineData(new[] {6, 4, 5, 5, 5}, 500)]
         [InlineData(new[] {5, 1, 3, 4, 1}, 250)]
         [InlineData(new[] {1, 1, 1, 3, 1}, 1100)]
-        public static void ShouldBeWorthless(int[] dice, int score)
+        public static void VerifyScoreWith(int[] dice, int score)
         {
-            GreedIsGoodKata.Score(dice).Should().Be(score);
+            GreedIsGoodSolution.Score(dice).Should().Be(score);
         }
     }
 }

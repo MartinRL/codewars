@@ -18,7 +18,7 @@ namespace codewars
         [InlineData(30, 0, 30)]
         [InlineData(30, 7, 16)]
         [InlineData(45, 30, 15)]
-        public void ExecuteCountDuplicatesExample(int dadYears, int sonYears, int expectedYears)
+        public void VerifyTwiceAsOldWith(int dadYears, int sonYears, int expectedYears)
         {
             TwiceAsOldSolution.TwiceAsOld(dadYears, sonYears).Should().Be(expectedYears);
         }

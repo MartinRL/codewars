@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class WillYouMakeItKata
+    public static class WillYouMakeItSolution
     {
         public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft)
         {
@@ -18,9 +18,9 @@ namespace codewars
         [Theory]
         [InlineData(50, 25, 2, true)]
         [InlineData(100, 50, 1, false)]
-        public void ExecuteOrderExample(uint distanceToPump, uint mpg, uint fuelLeft, bool iWillMakeIt)
+        public void VerifyZeroFuelWith(uint distanceToPump, uint mpg, uint fuelLeft, bool iWillMakeIt)
         {
-            WillYouMakeItKata.ZeroFuel(distanceToPump, mpg, fuelLeft).Should().Be(iWillMakeIt);
+            WillYouMakeItSolution.ZeroFuel(distanceToPump, mpg, fuelLeft).Should().Be(iWillMakeIt);
         }
     }
 }

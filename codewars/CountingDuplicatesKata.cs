@@ -4,7 +4,7 @@ using Xunit;
 
 namespace codewars
 {
-    public class CountingDuplicatesKata
+    public class CountingDuplicatesSolution
     {
         public static int CountDuplicates(string s)
         {
@@ -25,9 +25,9 @@ namespace codewars
         [InlineData("Indivisibility", 1)]
         [InlineData("Indivisibilities", 2)]
         [InlineData("1123232", 3)]
-        public void ExecuteCountDuplicatesExample(string argument, int expected)
+        public void VerifyCountDuplicatesWith(string argument, int expected)
         {
-            CountingDuplicatesKata.CountDuplicates(argument).Should().Be(expected);
+            CountingDuplicatesSolution.CountDuplicates(argument).Should().Be(expected);
         }
     }
 }

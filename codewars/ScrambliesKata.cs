@@ -5,7 +5,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class ScrambliesKata
+    public static class ScrambliesSolution
     {
         public static bool Scramble(string scrambled, string word)
         {
@@ -24,9 +24,9 @@ namespace codewars
         [InlineData("cedewaraaossoqqyt", "codewars", true)]
         [InlineData("katas", "steak", false)]
         [InlineData("scriptjavx", "javascript", false)]
-        public void ExecuteScrambleExample(string scrambled, string word, bool isMatch)
+        public void VerifyScrambleWith(string scrambled, string word, bool isMatch)
         {
-            ScrambliesKata.Scramble(scrambled, word).Should().Be(isMatch);
+            ScrambliesSolution.Scramble(scrambled, word).Should().Be(isMatch);
         }
     }
 }

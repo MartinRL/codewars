@@ -6,7 +6,7 @@ using Xunit;
 
 namespace codewars
 {
-    public static class TwiceLinearKata
+    public static class TwiceLinearSolution
     {
         public static int DblLinear(int n)
         {
@@ -40,9 +40,9 @@ namespace codewars
         [InlineData(43, 139)]
         [InlineData(44, 159)]
         [InlineData(50, 175)]
-        public void ExecuteDblLinearExample(int index, int element)
+        public void VerifyDblLinearWith(int index, int element)
         {
-            TwiceLinearKata.DblLinear(index).Should().Be(element);
+            TwiceLinearSolution.DblLinear(index).Should().Be(element);
         }
     }
 }
