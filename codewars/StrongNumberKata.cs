@@ -15,10 +15,15 @@ namespace codewars
 
         private static int Factorial(int number)
         {
-            if (number == 1)
-                return 1;
+            var result = 1;
             
-            return number * Factorial(number - 1);
+            while (number != 1)
+            {
+                result = result * number;
+                number = number - 1;
+            }
+            
+            return result;
         }
     }
 
