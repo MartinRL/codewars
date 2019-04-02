@@ -8,22 +8,11 @@ namespace codewars
 {
     public class StrongNumberSolution
     {
+        private static readonly int[] digitFactorials = new int[10] { 0, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
+        
         public static string StrongNumber(int number)
         {
-            return number == number.ToDigits().Select(Factorial).Sum() ? "STRONG!!!!" : "Not Strong !!";
-        }
-
-        private static int Factorial(int number)
-        {
-            var result = 1;
-            
-            while (number != 1)
-            {
-                result = result * number;
-                number = number - 1;
-            }
-            
-            return result;
+            return number == number.ToDigits().Select(d => digitFactorials[d]).Sum() ? "STRONG!!!!" : "Not Strong !!";
         }
     }
 
