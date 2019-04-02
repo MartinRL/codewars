@@ -23,5 +23,10 @@ namespace codewars
                                              .Combinations(k - 1)
                                              .Select(c => (new[] {e}).Concat(c)));
         }
+        
+        public static IEnumerable<int> ToDigits(this int @this)
+        {
+            return @this.ToString().Select(_ => (int)char.GetNumericValue(_));
+        }
     }
 }

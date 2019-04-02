@@ -16,14 +16,6 @@ namespace codewars
         }
     }
 
-    public static class StrongNumberSolutionExtensions
-    {
-        public static IEnumerable<int> ToDigits(this int @this)
-        {
-            return @this.ToString().Select(_ => (int)char.GetNumericValue(_));
-        }
-    }
-
     public class StrongNumberTests
     {
         [Theory]
