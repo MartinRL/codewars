@@ -10,9 +10,7 @@ namespace codewars
     {
         public static string SpecialNumber(int number)
         {
-            ISet<int> nonSpecialDigits = new SortedSet<int> { 6, 7, 8, 9 };
-
-            return number.ToDigits().Any(d => nonSpecialDigits.Contains(d)) ? "NOT!!" : "Special!!";
+            return number.ToDigits().Any(_ => _ >= 6) ? "NOT!!" : "Special!!";
         }
     }
 
