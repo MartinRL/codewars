@@ -10,11 +10,18 @@ namespace codewars
         public static string JumpingNumber(int number)
         {
             var numberAsDigits = number.ToDigits();
-
-            if (numberAsDigits.Count() == 1)
+            var count = numberAsDigits.Count();
+            
+            if (count == 1)
                 return "Jumping!!";
 
-            return "Not!!";
+            for (var i = 0; i < count - 1; i++)
+            {
+                if (Math.Abs(numberAsDigits.ElementAt(i) - numberAsDigits.ElementAt(i + 1)) != 1)
+                    return "Not!!";
+            }
+
+            return "Jumping!!";
         }
     }
 
