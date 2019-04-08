@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,9 @@ namespace codewars
     {
         public static string SpecialNumber(int number)
         {
-            throw new NotImplementedException();
+            ISet<int> nonSpecialDigits = new SortedSet<int> { 6, 7, 8, 9 };
+
+            return number.ToDigits().Any(d => nonSpecialDigits.Contains(d)) ? "NOT!!" : "Special!!";
         }
     }
 
