@@ -9,7 +9,7 @@ namespace codewars
     {
         public static string DisariumNumber(int number)
         {
-            throw new NotImplementedException();
+            return number == number.ToDigits().Select((digit, position) => Math.Pow(digit, position + 1)).Sum() ? "Disarium !!" : "Not !!";
         }
     }
     
