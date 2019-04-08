@@ -9,15 +9,15 @@ namespace codewars
     {
         public static string JumpingNumber(int number)
         {
-            var numberAsDigits = number.ToDigits();
-            var count = numberAsDigits.Count();
+            var digits = number.ToDigits();
+            var count = digits.Count();
             
             if (count == 1)
                 return "Jumping!!";
 
             for (var i = 0; i < count - 1; i++)
             {
-                if (Math.Abs(numberAsDigits.ElementAt(i) - numberAsDigits.ElementAt(i + 1)) != 1)
+                if (Math.Abs(digits.ElementAt(i) - digits.ElementAt(i + 1)) != 1)
                     return "Not!!";
             }
 
