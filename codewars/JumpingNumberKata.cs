@@ -10,12 +10,8 @@ namespace codewars
         public static string JumpingNumber(int number)
         {
             var digits = number.ToDigits();
-            var count = digits.Count();
-            
-            if (count == 1)
-                return "Jumping!!";
 
-            for (var i = 0; i < count - 1; i++)
+            for (var i = 0; i < digits.Length - 1; i++)
             {
                 if (Math.Abs(digits[i] - digits[i + 1]) != 1)
                     return "Not!!";
