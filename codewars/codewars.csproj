@@ -88,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrambliesKata.cs" />
     <Compile Include="ShortestWordKata.cs" />
+    <Compile Include="SpecialNumberKata.cs" />
     <Compile Include="SquareEveryDigitKata.cs" />
     <Compile Include="StrongNumberKata.cs" />
     <Compile Include="TitleCaseKata.cs" />
