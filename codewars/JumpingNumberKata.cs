@@ -9,7 +9,12 @@ namespace codewars
     {
         public static string JumpingNumber(int number)
         {
-            throw new NotImplementedException();
+            var numberAsDigits = number.ToDigits();
+
+            if (numberAsDigits.Count() == 1)
+                return "Jumping!!";
+
+            return "Not!!";
         }
     }
 
