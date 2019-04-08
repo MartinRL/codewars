@@ -24,9 +24,9 @@ namespace codewars
                                              .Select(c => (new[] {e}).Concat(c)));
         }
         
-        public static IEnumerable<int> ToDigits(this int @this)
+        public static int[] ToDigits(this int @this)
         {
-            return @this.ToString().Select(_ => (int)char.GetNumericValue(_));
+            return @this.ToString().Select(_ => (int)char.GetNumericValue(_)).ToArray();
         }
     }
 }
