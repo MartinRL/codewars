@@ -1,4 +1,3 @@
-using System;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +7,7 @@ namespace codewars
     {
         public static string Automorphic(int n)
         {
-            return Convert.ToInt32(Math.Pow(n, 2)).ToString().EndsWith(n.ToString()) ? "Automorphic" : "Not!!";
+            return (n * n).ToString().EndsWith(n.ToString()) ? "Automorphic" : "Not!!";
         }
     }
 
