@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AreYouPlayingBanjoKata.cs" />
     <Compile Include="ArrayDiffSolutionKata.cs" />
+    <Compile Include="AutomorphicNumberKata.cs" />
     <Compile Include="BalancedNumberKata.cs" />
     <Compile Include="BestTravelKata.cs" />
     <Compile Include="BinaryAdditionKata.cs" />
