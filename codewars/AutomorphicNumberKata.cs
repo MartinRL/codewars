@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 
@@ -9,7 +9,7 @@ namespace codewars
     {
         public static string Automorphic(int n)
         {
-            throw new NotImplementedException();
+            return Regex.IsMatch(Convert.ToInt32(Math.Pow(n, 2)).ToString(), @"\d*" + n) ? "Automorphic" : "Not!!";
         }
     }
 
