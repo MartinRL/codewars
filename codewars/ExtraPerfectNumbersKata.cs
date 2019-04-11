@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -10,17 +9,9 @@ namespace codewars
     {
         public static int[] ExtraPerfect(int n)
         {
-            IList<int> perfects = new List<int>();
-
-            for (var i = 0; i <= n; i++)
-            {
-                if (i % 2 == 1)
-                {
-                    perfects.Add(i);
-                }
-            }
-
-            return perfects.ToArray();
+            bool isOdd(int _) => _ % 2 == 1;
+            
+            return Enumerable.Range(1, n).Where(isOdd).ToArray();
         }
     }
 
