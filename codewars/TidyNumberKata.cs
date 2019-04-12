@@ -9,7 +9,9 @@ namespace codewars
     {
         public static bool TidyNumber(int n)
         {
-            throw new NotImplementedException();
+            var nAsDigits = n.ToDigits();
+
+            return !n.ToDigits().Skip(1).Select((d, pos) => d - nAsDigits[pos]).Any(_ => _ < 0);
         }
     }
 
