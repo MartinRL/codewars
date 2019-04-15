@@ -39,6 +39,13 @@ namespace codewars
             MapSolution.Map<string, string>(null, x => x).Should().BeNull();
         }
         
+        [Fact]
+        public void VerifyMapWithDoNothingFunc()
+        {
+            ToList(MapSolution.Map<int, int>(new Node<int>(1, new Node<int>(2, new Node<int>(3))), _ => _))
+                .Should().Equal(ToList(new Node<int>(1, new Node<int>(2, new Node<int>(3)))));
+        }
+        
         private static List<Node<T>> ToList<T>(Node<T> head)
         {
             var list = new List<Node<T>>();
