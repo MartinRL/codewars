@@ -9,6 +9,9 @@ namespace codewars
     {
         public static int FinalGrade(int exam, int projects)
         {
+            if (exam >= 90 || projects > 10)
+                return 100;
+            
             throw new NotImplementedException();
         }
     }
