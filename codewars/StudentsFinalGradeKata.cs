@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int FinalGrade(int exam, int projects)
         {
-            if (exam >= 90 || projects > 10)
+            if (exam > 90 || projects > 10)
                 return 100;
 
             if (exam > 75 && projects >= 5)
@@ -27,6 +27,7 @@ namespace codewars
         [Theory]
         [InlineData(100, 12, 100)]
         [InlineData(99, 0, 100)]
+        [InlineData(90, 5, 90)]
         [InlineData(10, 15, 100)]
         [InlineData(85, 5, 90)]
         [InlineData(55, 3, 75)]
