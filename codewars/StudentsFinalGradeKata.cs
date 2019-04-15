@@ -14,6 +14,9 @@ namespace codewars
 
             if (exam > 75 && projects >= 5)
                 return 90;
+
+            if (exam > 50 && projects >= 2)
+                return 75;
             
             throw new NotImplementedException();
         }
