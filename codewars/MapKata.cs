@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -10,14 +9,31 @@ namespace codewars
     {
         public static Node<T2> Map<T, T2>(Node<T> head, Func<T, T2> f) 
         {
-            return null;
+            if (head == null)
+                return null;
+
+            var next = head;
+            var headT2 = new Node<T2>(f(head.Data));
+            var nextT2 = headT2;
+            while (next != null)
+            {
+                if (next.Next != null)
+                {
+                    nextT2.Next = new Node<T2>(f(next.Next.Data));
+                }
+                
+                next = next.Next;
+                nextT2 = nextT2.Next;
+            }
+
+            return headT2;
         }
     }
     
     public class Node<T> 
     {
-        public readonly T Data;
-        public readonly Node<T> Next;
+        public T Data;
+        public Node<T> Next;
 
         public Node(T data)
         {
@@ -42,7 +58,7 @@ namespace codewars
         [Fact]
         public void VerifyMapWithDoNothingFunc()
         {
-            ToList(MapSolution.Map<int, int>(new Node<int>(1, new Node<int>(2, new Node<int>(3))), _ => _))
+            ToList(MapSolution.Map(new Node<int>(1, new Node<int>(2, new Node<int>(3))), _ => _))
                 .Should().Equal(ToList(new Node<int>(1, new Node<int>(2, new Node<int>(3)))));
         }
         
