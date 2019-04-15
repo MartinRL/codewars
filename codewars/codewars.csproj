@@ -76,6 +76,7 @@
     <Compile Include="DisariumNumberKata.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ExtraPerfectNumbersKata.cs" />
+    <Compile Include="StudentsFinalGradeKata.cs" />
     <Compile Include="FindTheNextPerfectSquareKata.cs" />
     <Compile Include="FindTheUniqueNumberKata.cs" />
     <Compile Include="FirstNonRepeatingCharacterKata.cs" />
