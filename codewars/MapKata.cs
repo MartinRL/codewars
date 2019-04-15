@@ -42,7 +42,7 @@ namespace codewars
         public void VerifyMapWithDoNothingFunc()
         {
             ToList(MapSolution.Map(new Node<int>(1, new Node<int>(2, new Node<int>(3))), _ => _))
-                .Should().Equal(ToList(new Node<int>(1, new Node<int>(2, new Node<int>(3)))));
+                .Should().BeEquivalentTo(ToList(new Node<int>(1, new Node<int>(2, new Node<int>(3)))));
         }
         
         private static List<Node<T>> ToList<T>(Node<T> head)
