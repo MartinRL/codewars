@@ -85,6 +85,7 @@
     <Compile Include="JadenCasingKata.cs" />
     <Compile Include="JosephusSurvivorKata.cs" />
     <Compile Include="JumpingNumberKata.cs" />
+    <Compile Include="MapKata.cs" />
     <Compile Include="MumblingKata.cs" />
     <Compile Include="PongBasicsKata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
