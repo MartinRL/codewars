@@ -9,24 +9,7 @@ namespace codewars
     {
         public static Node<T2> Map<T, T2>(Node<T> head, Func<T, T2> f) 
         {
-            if (head == null)
-                return null;
-
-            var next = head;
-            var headT2 = new Node<T2>(f(head.Data));
-            var nextT2 = headT2;
-            while (next != null)
-            {
-                if (next.Next != null)
-                {
-                    nextT2.Next = new Node<T2>(f(next.Next.Data));
-                }
-                
-                next = next.Next;
-                nextT2 = nextT2.Next;
-            }
-
-            return headT2;
+            return head == null ? null : new Node<T2>(f(head.Data), Map(head.Next, f));  
         }
     }
     
