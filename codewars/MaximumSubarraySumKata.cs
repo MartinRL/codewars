@@ -23,9 +23,9 @@ namespace codewars
     {
         [Theory]
         [InlineData(new int[0], 0)]
-        [InlineData(new int[]{1, 2, 3}, 6)]
-        [InlineData(new int[]{-1, -2, -3}, 0)]
-        [InlineData(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}, 6)]
+        [InlineData(new[]{1, 2, 3}, 6)]
+        [InlineData(new[]{-1, -2, -3}, 0)]
+        [InlineData(new[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}, 6)]
         public void VerifyMaxSequenceWith(int[] arr, int expected)
         {
             MaximumSubarraySumSolution.MaxSequence(arr).Should().Be(expected);
