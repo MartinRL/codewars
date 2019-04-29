@@ -12,6 +12,9 @@ namespace codewars
             if (arr.All(_ => _ >= 0))
                 return arr.Sum();
             
+            if (arr.All(_ => _ <= 0))
+                return 0;
+            
             throw new NotImplementedException();
         }
     }
