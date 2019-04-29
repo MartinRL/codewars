@@ -9,6 +9,9 @@ namespace codewars
     {
         public static int MaxSequence(int[] arr)
         {
+            if (arr.All(_ => _ >= 0))
+                return arr.Sum();
+            
             throw new NotImplementedException();
         }
     }
