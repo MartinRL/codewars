@@ -11,7 +11,7 @@ namespace codewars
         {
             var names = name.Split(' ');
 
-            return $"{names[0].First()}.{names[1].First()}";
+            return $"{char.ToUpper(names[0].First())}.{char.ToUpper(names[1].First())}";
         }
     }
 
