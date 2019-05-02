@@ -9,7 +9,9 @@ namespace codewars
     {
         public static string AbbrevName(string name)
         {
-            throw new NotImplementedException();
+            var names = name.Split(' ');
+
+            return $"{names[0].First()}.{names[1].First()}";
         }
     }
 
