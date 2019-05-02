@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbbreviateATwoWordNameKata.cs" />
     <Compile Include="AreYouPlayingBanjoKata.cs" />
     <Compile Include="ArrayDiffSolutionKata.cs" />
     <Compile Include="AutomorphicNumberKata.cs" />
