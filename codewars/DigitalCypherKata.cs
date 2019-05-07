@@ -12,7 +12,7 @@ namespace codewars
         {
             var nAsDigits = n.ToDigits();
             
-            return str.Select((c, i) => (int) c - 96 + (nAsDigits[i % nAsDigits.Length])).ToArray();
+            return str.Select((c, i) => c - ('a' - 1) + (nAsDigits[i % nAsDigits.Length])).ToArray();
         }
     }
 
