@@ -74,6 +74,7 @@
     <Compile Include="BinaryAdditionKata.cs" />
     <Compile Include="CountingDuplicatesKata.cs" />
     <Compile Include="CountSheepKata.cs" />
+    <Compile Include="DigitalCypherKata.cs" />
     <Compile Include="DisariumNumberKata.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ExtraPerfectNumbersKata.cs" />
