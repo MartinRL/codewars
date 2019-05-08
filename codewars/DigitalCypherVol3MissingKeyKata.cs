@@ -9,7 +9,11 @@ namespace codewars
     {
         public static int FindTheKey(string message, int[] code)
         {
-            throw new NotImplementedException();
+            var enumerable = message
+                .Select(c => c - ('a' - 1))
+                .Zip(code, (c, n) => n - c);
+            
+            return enumerable.Distinct().ToNumber();
         }
     }
 

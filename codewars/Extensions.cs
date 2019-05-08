@@ -28,5 +28,10 @@ namespace codewars
         {
             return @this.ToString().Select(_ => (int)char.GetNumericValue(_)).ToArray();
         }
+        
+        public static int ToNumber(this IEnumerable<int> @this)
+        {
+            return int.Parse(string.Join(string.Empty, @this));
+        }
     }
 }
