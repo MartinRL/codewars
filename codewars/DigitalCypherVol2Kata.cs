@@ -9,7 +9,9 @@ namespace codewars
     {
         public static string Decode(int[] code, int key)
         {
-            throw new NotImplementedException();
+            var keyAsDigits = key.ToDigits();
+
+            return new string(code.Select((d, i) => (char) (d + 96 - keyAsDigits[i % keyAsDigits.Length])).ToArray());
         }
     }
 
