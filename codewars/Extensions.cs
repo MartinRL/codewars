@@ -38,13 +38,17 @@ namespace codewars
         
         public static string Repeating(this string @this)
         {
-            var left = @this.Substring(0, @this.Length / 2);
-            var right = @this.Substring(@this.Length / 2);
+            var j = 0;
+            
+            for (var i = 1; i < @this.Length; i++)
+            {
+                if (@this[i] != @this[0]) continue;
+                
+                j = i;
+                break;
+            }
 
-            if (left != right)
-                return @this;
-
-            return Repeating(left);
+            return @this.Substring(0, j);
         }
     }
 
