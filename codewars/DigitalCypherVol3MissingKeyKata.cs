@@ -10,12 +10,10 @@ namespace codewars
     {
         public static int FindTheKey(string message, int[] code)
         {
-            var array = message
-                .Select(c => c - ('a' - 1))
-                .Zip(code, (c, n) => n - c)
-                .Select(_ => _.ToString()).ToArray();
-            
-            return int.Parse(string.Join("", array)
+            return int.Parse(string.Join("", message
+                    .Select(c => c - ('a' - 1))
+                    .Zip(code, (c, n) => n - c)
+                    .Select(_ => _.ToString()).ToArray())
                 .Repeating());
         }
     }
