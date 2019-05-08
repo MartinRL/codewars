@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,11 +10,13 @@ namespace codewars
     {
         public static int FindTheKey(string message, int[] code)
         {
-            var enumerable = message
+            var array = message
                 .Select(c => c - ('a' - 1))
-                .Zip(code, (c, n) => n - c);
+                .Zip(code, (c, n) => n - c)
+                .Select(_ => _.ToString()).ToArray();
             
-            return enumerable.Distinct().ToNumber();
+            return int.Parse(string.Join("", array)
+                .Repeating());
         }
     }
 

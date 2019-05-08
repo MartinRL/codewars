@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions;
+using Xunit;
 
 namespace codewars
 {
@@ -32,6 +34,28 @@ namespace codewars
         public static int ToNumber(this IEnumerable<int> @this)
         {
             return int.Parse(string.Join(string.Empty, @this));
+        }
+        
+        public static string Repeating(this string @this)
+        {
+            var left = @this.Substring(0, @this.Length / 2);
+            var right = @this.Substring(@this.Length / 2);
+
+            if (left != right)
+                return @this;
+
+            return Repeating(left);
+        }
+    }
+
+    public class ExtensionsTests
+    {
+        [Theory]
+        [InlineData("1939193919", "1939")]
+        [InlineData("1939193919391939", "1939")]
+        public void VerifyRepeatingWith(string str, string repeats)
+        {
+            str.Repeating().Should().Be(repeats);
         }
     }
 }
