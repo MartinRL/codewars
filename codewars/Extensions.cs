@@ -57,6 +57,7 @@ namespace codewars
         [Theory]
         [InlineData("1939193919", "1939")]
         [InlineData("1939193919391939", "1939")]
+        [InlineData("445547544554754455475445", "4455475")]
         public void VerifyRepeatingWith(string str, string repeats)
         {
             str.Repeating().Should().Be(repeats);
