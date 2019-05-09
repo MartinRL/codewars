@@ -14,7 +14,7 @@ namespace codewars
                     .Select(c => c - ('a' - 1))
                     .Zip(code, (c, n) => n - c)
                     .Select(_ => _.ToString()).ToArray())
-                .Repeating());
+                    .Repeating());
         }
     }
 
