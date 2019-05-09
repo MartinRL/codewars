@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using FluentAssertions;
+using Xunit;
 
 namespace codewars
 {
@@ -27,6 +30,39 @@ namespace codewars
         public static int[] ToDigits(this int @this)
         {
             return @this.ToString().Select(_ => (int)char.GetNumericValue(_)).ToArray();
+        }
+        
+        public static int ToNumber(this IEnumerable<int> @this)
+        {
+            return int.Parse(string.Join(string.Empty, @this));
+        }
+        
+        public static string Repeating(this string @this)
+        {
+            var repeatingLength = 0;
+            
+            for (var i = 0; i < @this.Length; i++)
+            {
+                if (@this == string.Join(string.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
+                {
+                    repeatingLength = i + 1;
+                    break;
+                }
+            }
+
+            return @this.Substring(0, repeatingLength);
+        }
+    }
+
+    public class ExtensionsTests
+    {
+        [Theory]
+        [InlineData("1939193919", "1939")]
+        [InlineData("1939193919391939", "1939")]
+        [InlineData("445547544554754455475445", "4455475")]
+        public void VerifyRepeatingWith(string str, string repeats)
+        {
+            str.Repeating().Should().Be(repeats);
         }
     }
 }
