@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 
@@ -38,17 +39,18 @@ namespace codewars
         
         public static string Repeating(this string @this)
         {
-            var j = 0;
+            var repeatingLength = 0;
             
-            for (var i = 1; i < @this.Length; i++)
+            for (var i = 0; i < @this.Length; i++)
             {
-                if (@this[i] != @this[0]) continue;
-                
-                j = i;
-                break;
+                if (@this == string.Join(string.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
+                {
+                    repeatingLength = i + 1;
+                    break;
+                }
             }
 
-            return @this.Substring(0, j);
+            return @this.Substring(0, repeatingLength);
         }
     }
 
