@@ -9,7 +9,7 @@ namespace codewars
     {
         public static long Supersize(long num)
         {
-            throw new NotImplementedException();
+            return long.Parse(new string(num.ToString().OrderByDescending(_ => _).ToArray()));
         }
     }
 
