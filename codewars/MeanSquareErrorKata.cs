@@ -9,7 +9,7 @@ namespace codewars
     {
         public static double Solution(int[] firstArray, int[] secondArray)
         {
-            return firstArray.Zip(secondArray, (f, s) => Math.Abs(f - s) * Math.Abs(f - s)).Average();
+            return firstArray.Zip(secondArray, (f, s) => Math.Pow(Math.Abs(f - s), 2)).Average();
         }
     }
 
