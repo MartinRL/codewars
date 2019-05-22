@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,30 @@ namespace codewars
     {
         public static string ListSquared(long m, long n)
         {
-            throw new NotImplementedException();
+            return "[" + string.Join(", ",Enumerable.Range((int) m, (int) (n - m))
+                .Select(_ =>
+                {
+                    var sumOfSquaredDivisors = _
+                        .Divisors()
+                        .Select(d => Math.Pow(d, 2))
+                        .Sum();
+
+                    var isSquare = sumOfSquaredDivisors == Math.Pow(Math.Floor(Math.Sqrt(sumOfSquaredDivisors)), 2);
+
+                    return isSquare ? new Tuple<int, double>(_, sumOfSquaredDivisors) : default;
+                })
+                .Where(_ => _ != default)
+                .Select(_ => _.ToString()).ToArray())
+                .Replace("(", "[")
+                .Replace(")", "]") + "]";
+        }
+    }
+
+    public static class IntegersRecreationOneExtensions
+    {
+        public static IEnumerable<int> Divisors(this int @this)
+        {
+            return Enumerable.Range(1, @this).Where(_ => @this % _ == 0);
         }
     }
 
@@ -22,6 +46,12 @@ namespace codewars
         public void VerifyListSquaredWith(long m, long n, string expectedSquared)
         {
             IntegersRecreationOneSolution.ListSquared(m, n).Should().Be(expectedSquared);
+        }
+
+        [Fact]
+        public void VerifyDivisors()
+        {
+            42.Divisors().Should().BeEquivalentTo(new[] {1, 2, 3, 6, 7, 14, 21, 42});
         }
     }
 }
