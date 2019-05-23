@@ -18,9 +18,9 @@ namespace codewars
                         .Select(d => d.Square())
                         .Sum();
 
-                    var isSquare = sumOfSquaredDivisors == Math.Floor(Math.Sqrt(sumOfSquaredDivisors)).Square();
+                    var sqrtIsInteger = Math.Sqrt(sumOfSquaredDivisors).IsInteger();
 
-                    return isSquare ? new Tuple<int, double>(_, sumOfSquaredDivisors) : default;
+                    return sqrtIsInteger ? new Tuple<int, double>(_, sumOfSquaredDivisors) : default;
                 })
                 .Where(_ => _ != default)
                 .Select(_ => _.ToString()).ToArray())
@@ -41,9 +41,9 @@ namespace codewars
             return Math.Pow(@this, 2);
         }
 
-        public static double Square(this double @this)
+        public static bool IsInteger(this double @this)
         {
-            return Math.Pow(@this, 2);
+            return @this % 1 == 0;
         }
     }
 
