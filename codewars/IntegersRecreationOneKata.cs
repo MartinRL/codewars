@@ -15,10 +15,10 @@ namespace codewars
                 {
                     var sumOfSquaredDivisors = _
                         .Divisors()
-                        .Select(d => Math.Pow(d, 2))
+                        .Select(d => d.Square())
                         .Sum();
 
-                    var isSquare = sumOfSquaredDivisors == Math.Pow(Math.Floor(Math.Sqrt(sumOfSquaredDivisors)), 2);
+                    var isSquare = sumOfSquaredDivisors == Math.Floor(Math.Sqrt(sumOfSquaredDivisors)).Square();
 
                     return isSquare ? new Tuple<int, double>(_, sumOfSquaredDivisors) : default;
                 })
@@ -34,6 +34,16 @@ namespace codewars
         public static IEnumerable<int> Divisors(this int @this)
         {
             return Enumerable.Range(1, @this / 2).Where(_ => @this % _ == 0).Concat(new [] { @this });
+        }
+
+        public static double Square(this int @this)
+        {
+            return Math.Pow(@this, 2);
+        }
+
+        public static double Square(this double @this)
+        {
+            return Math.Pow(@this, 2);
         }
     }
 
