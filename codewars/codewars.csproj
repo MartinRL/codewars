@@ -80,6 +80,7 @@
     <Compile Include="DisariumNumberKata.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ExtraPerfectNumbersKata.cs" />
+    <Compile Include="IntegersRecreationOneKata.cs" />
     <Compile Include="MaximumSubarraySumKata.cs" />
     <Compile Include="MeanSquareErrorKata.cs" />
     <Compile Include="StudentsFinalGradeKata.cs" />
