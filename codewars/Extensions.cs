@@ -52,6 +52,21 @@ namespace codewars
 
             return @this.Substring(0, repeatingLength);
         }
+        
+        public static IEnumerable<int> Divisors(this int @this)
+        {
+            return Enumerable.Range(1, @this / 2).Where(_ => @this % _ == 0).Concat(new [] { @this });
+        }
+
+        public static double Square(this int @this)
+        {
+            return Math.Pow(@this, 2);
+        }
+
+        public static bool IsInteger(this double @this)
+        {
+            return @this % 1 == 0;
+        }
     }
 
     public class ExtensionsTests
@@ -63,6 +78,12 @@ namespace codewars
         public void VerifyRepeatingWith(string str, string repeats)
         {
             str.Repeating().Should().Be(repeats);
+        }
+
+        [Fact]
+        public void VerifyDivisors()
+        {
+            42.Divisors().Should().BeEquivalentTo(new[] {1, 2, 3, 6, 7, 14, 21, 42});
         }
     }
 }
