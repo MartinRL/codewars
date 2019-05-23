@@ -10,7 +10,7 @@ namespace codewars
     {
         public static string ListSquared(long m, long n)
         {
-            return "[" + string.Join(", ",Enumerable.Range((int) m, (int) (n - m))
+            return "[" + string.Join(", ",Enumerable.Range((int) m, (int) (n - m)) /* would have loved to be able to use C# 8's Range instead */
                 .Select(_ =>
                 {
                     var sumOfSquaredDivisors = _
