@@ -33,7 +33,7 @@ namespace codewars
     {
         public static IEnumerable<int> Divisors(this int @this)
         {
-            return Enumerable.Range(1, @this).Where(_ => @this % _ == 0);
+            return Enumerable.Range(1, @this / 2).Where(_ => @this % _ == 0).Concat(new [] { @this });
         }
     }
 
