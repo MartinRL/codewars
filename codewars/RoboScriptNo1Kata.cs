@@ -10,8 +10,10 @@ namespace codewars
     {
         public static string Highlight(string code)
         {
-            return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code, @"(\d+)", "<span style=\"color: orange\">$1</span>"), @"(F+)",
-                "<span style=\"color: pink\">$1</span>"), @"(L+)", "<span style=\"color: red\">$1</span>"), @"(R+)", "<span style=\"color: green\">$1</span>");
+            string CreateReplacement(string color) { return $"<span style=\"color: {color}\">$1</span>"; }
+            
+            return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code, @"(\d+)", CreateReplacement("orange")), @"(F+)",
+                CreateReplacement("pink")), @"(L+)", CreateReplacement("red")), @"(R+)", CreateReplacement("green"));
         }
     }
 
