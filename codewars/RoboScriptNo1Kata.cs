@@ -12,8 +12,11 @@ namespace codewars
         {
             string CreateReplacement(string color) { return $"<span style=\"color: {color}\">$1</span>"; }
             
-            return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code, @"(\d+)", CreateReplacement("orange")), @"(F+)",
-                CreateReplacement("pink")), @"(L+)", CreateReplacement("red")), @"(R+)", CreateReplacement("green"));
+            return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code, 
+                            @"(\d+)", CreateReplacement("orange")), 
+                            @"(F+)", CreateReplacement("pink")), 
+                            @"(L+)", CreateReplacement("red")), 
+                            @"(R+)", CreateReplacement("green"));
         }
     }
 
