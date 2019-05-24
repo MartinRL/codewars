@@ -83,6 +83,7 @@
     <Compile Include="IntegersRecreationOneKata.cs" />
     <Compile Include="MaximumSubarraySumKata.cs" />
     <Compile Include="MeanSquareErrorKata.cs" />
+    <Compile Include="RoboScriptNo1Kata.cs" />
     <Compile Include="StudentsFinalGradeKata.cs" />
     <Compile Include="FindTheNextPerfectSquareKata.cs" />
     <Compile Include="FindTheUniqueNumberKata.cs" />
