@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 
@@ -9,25 +10,8 @@ namespace codewars
     {
         public static string Highlight(string code)
         {
-            return string.Join(string.Empty,code
-                .Select(c => c.ToString())
-                .Select(s =>
-                {
-                    if (s == "F")
-                        return $"<span style=\"color: pink\">{s}</span>";
-                    
-                    if (s == "L")
-                        return $"<span style=\"color: red\">{s}</span>";
-
-                    if (s == "R")
-                        return $"<span style=\"color: green\">{s}</span>";
-
-                    byte r;
-                    if (byte.TryParse(s, out r))
-                        return $"<span style=\"color: orange\">{s}</span>";
-
-                    return s;
-                }).ToArray());
+            return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code, @"(\d+)", "<span style=\"color: orange\">$1</span>"), @"(F+)",
+                "<span style=\"color: pink\">$1</span>"), @"(L+)", "<span style=\"color: red\">$1</span>"), @"(R+)", "<span style=\"color: green\">$1</span>");
         }
     }
 
