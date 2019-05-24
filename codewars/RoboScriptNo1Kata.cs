@@ -9,7 +9,25 @@ namespace codewars
     {
         public static string Highlight(string code)
         {
-            throw new NotImplementedException();
+            return string.Join(string.Empty,code
+                .Select(c => c.ToString())
+                .Select(s =>
+                {
+                    if (s == "F")
+                        return $"<span style=\"color: pink\">{s}</span>";
+                    
+                    if (s == "L")
+                        return $"<span style=\"color: red\">{s}</span>";
+
+                    if (s == "R")
+                        return $"<span style=\"color: green\">{s}</span>";
+
+                    byte r;
+                    if (byte.TryParse(s, out r))
+                        return $"<span style=\"color: orange\">{s}</span>";
+
+                    return s;
+                }).ToArray());
         }
     }
 
