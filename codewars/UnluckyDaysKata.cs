@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,13 @@ namespace codewars
     {
         public static int GetUnluckyDays(int year)
         {
-            throw new NotImplementedException();
+            IEnumerable<DateTime> GetDays()
+            {
+                for(var day = new DateTime(year, 01, 01); day.Date <= new DateTime(year, 12, 31); day = day.AddDays(1))
+                    yield return day;
+            }
+
+            return GetDays().Count(day => day.DayOfWeek == DayOfWeek.Friday && day.Day == 13);
         }
     }
 
