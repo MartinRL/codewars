@@ -1,5 +1,4 @@
-using System;
-using System.Linq;
+using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -9,29 +8,18 @@ namespace codewars
     {
         public static string UpdateLight(string current)
         {
-            switch (current)
-            {
-                case "yellow":
-                    return "green";
-                
-                case "red":
-                    return "yellow";
-                
-                case "green":
-                    return "red";
-                
-                default:
-                    throw new InvalidOperationException();
-            }
+            var lights = new LinkedList<string>( new [] { "green", "yellow", "red" });
+
+            return (lights.Find(current).Next ?? lights.First).Value;
         }
     }
 
     public class ThinkfulLogicDrillsTrafficLightTests
     {
         [Theory]
-        [InlineData("yellow", "green")]
-        [InlineData("red", "yellow")]
-        [InlineData("green", "red")]
+        [InlineData("green", "yellow")]
+        [InlineData("yellow", "red")]
+        [InlineData("red", "green")]
         public void VerifyUpdateLightWith(string current, string expectedNext)
         {
             ThinkfulLogicDrillsTrafficLightSolution.UpdateLight(current).Should().Be(expectedNext);
