@@ -9,7 +9,20 @@ namespace codewars
     {
         public static string UpdateLight(string current)
         {
-            throw new NotImplementedException();
+            switch (current)
+            {
+                case "yellow":
+                    return "green";
+                
+                case "red":
+                    return "yellow";
+                
+                case "green":
+                    return "red";
+                
+                default:
+                    throw new InvalidOperationException();
+            }
         }
     }
 
