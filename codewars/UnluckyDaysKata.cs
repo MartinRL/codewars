@@ -10,13 +10,12 @@ namespace codewars
     {
         public static int GetUnluckyDays(int year)
         {
-            IEnumerable<DateTime> GetDays()
-            {
-                for(var day = new DateTime(year, 01, 01); day.Date <= new DateTime(year, 12, 31); day = day.AddDays(1))
-                    yield return day;
-            }
-
-            return GetDays().Count(day => day.DayOfWeek == DayOfWeek.Friday && day.Day == 13);
+            const int January = 1;
+            const int December = 12;
+            
+            return Enumerable.Range(January, December)
+                .Select(month => new DateTime(year, month, 13))
+                .Count(_ => _.DayOfWeek == DayOfWeek.Friday);
         }
     }
 
