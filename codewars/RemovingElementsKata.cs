@@ -10,7 +10,7 @@ namespace codewars
     {
         public static object[] RemoveEveryOther(object[] arr)
         {
-            throw new NotImplementedException();
+            return arr.Where((element, index) => index % 2 == 0).ToArray();
         }
     }
 
