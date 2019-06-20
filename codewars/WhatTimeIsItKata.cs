@@ -17,7 +17,7 @@ namespace codewars
             if (period == "AM")
                 return hour != "12" ? timeWithRemovedPeriod : "00" + timeWithRemovedPeriod.Substring(2);
 
-            return hour != "12" ? $"{byte.Parse(hour) + 12}{timeWithRemovedPeriod.Substring(2)}" : "";
+            return hour != "12" ? $"{byte.Parse(hour) + 12}{timeWithRemovedPeriod.Substring(2)}" : timeWithRemovedPeriod;
         }
     }
 
