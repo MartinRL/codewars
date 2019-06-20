@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codewars", "codewars.csproj", "{5AB320E6-D935-4673-895E-4ACB68656157}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codewars", "codewars/codewars.csproj", "{5AB320E6-D935-4673-895E-4ACB68656157}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
