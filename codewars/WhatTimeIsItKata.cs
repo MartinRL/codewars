@@ -15,10 +15,9 @@ namespace codewars
 
             if (period == "AM")
             {
-                if (hour == "12")
-                    throw new NotImplementedException();
+                var timeWithRemovedPeriod = time.Substring(0, time.Length - period.Length);
 
-                return time.Substring(0, time.Length - period.Length);
+                return hour != "12" ? timeWithRemovedPeriod : "00" + timeWithRemovedPeriod.Substring(2);
             }
             
             throw new NotImplementedException($"time: {time}, period: {period}, hour: {hour}");
