@@ -113,6 +113,7 @@
     <Compile Include="TwiceLinearKata.cs" />
     <Compile Include="UnluckyDaysKata.cs" />
     <Compile Include="VasyaClerkKata.cs" />
+    <Compile Include="WhatTimeIsItKata.cs" />
     <Compile Include="WillYouMakeItKata.cs" />
     <Compile Include="YourOrderKata.cs" />
   </ItemGroup>
