@@ -12,15 +12,12 @@ namespace codewars
 
             var period = time.Substring(time.Length - 2);
             var hour = time.Substring(0, 2);
+            var timeWithRemovedPeriod = time.Substring(0, time.Length - period.Length);
 
             if (period == "AM")
-            {
-                var timeWithRemovedPeriod = time.Substring(0, time.Length - period.Length);
-
                 return hour != "12" ? timeWithRemovedPeriod : "00" + timeWithRemovedPeriod.Substring(2);
-            }
-            
-            throw new NotImplementedException($"time: {time}, period: {period}, hour: {hour}");
+
+            return hour != "12" ? $"{byte.Parse(hour) + 12}{timeWithRemovedPeriod.Substring(2)}" : "";
         }
     }
 
