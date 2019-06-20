@@ -22,7 +22,7 @@ namespace codewars
 
                     return sqrtIsInteger ? new Tuple<int, double>(_, sumOfSquaredDivisors) : default;
                 })
-                .Where(_ => _ != default)
+                .Where(_ => _ != null)
                 .Select(_ => _.ToString()).ToArray())
                 .Replace("(", "[")
                 .Replace(")", "]") + "]";

@@ -12,6 +12,7 @@
     <AssemblyName>codewars</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -112,6 +113,7 @@
     <Compile Include="TwiceLinearKata.cs" />
     <Compile Include="UnluckyDaysKata.cs" />
     <Compile Include="VasyaClerkKata.cs" />
+    <Compile Include="WhatTimeIsItKata.cs" />
     <Compile Include="WillYouMakeItKata.cs" />
     <Compile Include="YourOrderKata.cs" />
   </ItemGroup>
