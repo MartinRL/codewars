@@ -9,7 +9,18 @@ namespace codewars
     {
         public static string FormatAndOrderAccordingToJohnsRequirements(string friends)
         {
-            throw new NotImplementedException();
+            return string.Join(string.Empty, friends
+                .ToUpper()
+                .Split(';')
+                .Select(name =>
+                {
+                    var firstAndLastNames = name.Split(':');
+                    var firstName = firstAndLastNames[0];
+                    var lastName = firstAndLastNames[1];
+
+                    return $"({lastName}, {firstName})";
+                })
+                .ToArray());;
         }
     }
 
