@@ -12,6 +12,7 @@ namespace codewars
             return string.Join(string.Empty, friends
                 .ToUpper()
                 .Split(';')
+                .OrderBy(name => name.Split(':')[1])
                 .Select(name =>
                 {
                     var firstAndLastNames = name.Split(':');
@@ -20,7 +21,7 @@ namespace codewars
 
                     return $"({lastName}, {firstName})";
                 })
-                .ToArray());;
+                .ToArray());
         }
     }
 
