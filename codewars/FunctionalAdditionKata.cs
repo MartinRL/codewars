@@ -9,9 +9,7 @@ namespace codewars
     {
         public static Func<double, double> Add(double leftTerm)
         {
-            Func<double, double> _ = rightTerm => leftTerm + rightTerm;
-
-            return _;
+            return rightTerm => leftTerm + rightTerm;
         }
     }
 
