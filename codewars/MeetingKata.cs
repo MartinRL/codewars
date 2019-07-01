@@ -13,6 +13,7 @@ namespace codewars
                 .ToUpper()
                 .Split(';')
                 .OrderBy(name => name.Split(':')[1])
+                .ThenBy(name => name.Split(':')[0])
                 .Select(name =>
                 {
                     var firstAndLastNames = name.Split(':');
