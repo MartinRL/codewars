@@ -7,9 +7,11 @@ namespace codewars
 {
     public class Kata
     {
-        public static Func<double, double> Add(double term)
+        public static Func<double, double> Add(double leftTerm)
         {
-            throw new NotImplementedException();
+            Func<double, double> _ = rightTerm => leftTerm + rightTerm;
+
+            return _;
         }
     }
 
