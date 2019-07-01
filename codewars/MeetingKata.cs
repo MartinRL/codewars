@@ -9,26 +9,13 @@ namespace codewars
     {
         public static string FormatAndOrderAccordingToJohnsRequirements(string friends)
         {
-            return string.Join(string.Empty, friends
-                .ToUpper()
+            return friends
+                .ToUpperInvariant()
                 .Split(';')
-                .OrderBy(name => new Name(name).Last)
-                .ThenBy(name => new Name(name).First)
-                .Select(name => $"({new Name(name).Last}, {new Name(name).First})")
-                .ToArray());
-        }
-
-        private class Name
-        {
-            public readonly string First;
-            public readonly string Last;
-            
-            public Name(string name)
-            {
-                var names = name.Split(':');
-                First = names[0];
-                Last = names[1];
-            }
+                .Select(name => name.Split(':'))
+                .OrderBy(names => names[1]).ThenBy(names => names[0])
+                .Select(names => $"({names[1]}, {names[0]})")
+                .Aggregate((concat, name) => $"{concat}{name}");
         }
     }
 
