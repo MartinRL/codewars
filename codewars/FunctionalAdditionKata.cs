@@ -7,10 +7,7 @@ namespace codewars
 {
     public class Kata
     {
-        public static Func<double, double> Add(double leftTerm)
-        {
-            return rightTerm => leftTerm + rightTerm;
-        }
+        public static Func<double, double> Add(double leftTerm) => rightTerm => leftTerm + rightTerm;
     }
 
     public class FunctionalAdditionTests
