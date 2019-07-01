@@ -34,6 +34,8 @@ namespace codewars
             "(BELL, MEGAN)(CORNWELL, AMBER)(DORNY, JAMES)(DORRIES, PAUL)(GATES, JOHN)(KERN, ANN)(KORN, ANNA)(META, ALEX)(RUSSEL, ELIZABETH)(STEVE, LEWIS)(WAHL, MICHAEL)")]
         [InlineData("Alex:Arno;Alissa:Cornwell;Sarah:Bell;Andrew:Dorries;Ann:Kern;Haley:Arno;Paul:Dorny;Madison:Kern",
             "(ARNO, ALEX)(ARNO, HALEY)(BELL, SARAH)(CORNWELL, ALISSA)(DORNY, PAUL)(DORRIES, ANDREW)(KERN, ANN)(KERN, MADISON)")]
+        [InlineData("Martin:Rosenholm;Axel:Rosenholm;Sarah:Cracknell;Nils:Rosenholm",
+            "(CRACKNELL, SARAH)(ROSENHOLM, AXEL)(ROSENHOLM, MARTIN)(ROSENHOLM, NILS)")]
         public void VerifyFormatAndOrderAccordingToJohnsRequirementsWith(string friends, string formattedAndOrderedFriends)
         {
             MeetingSolution.FormatAndOrderAccordingToJohnsRequirements(friends).Should().Be(formattedAndOrderedFriends);
