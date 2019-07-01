@@ -12,17 +12,23 @@ namespace codewars
             return string.Join(string.Empty, friends
                 .ToUpper()
                 .Split(';')
-                .OrderBy(name => name.Split(':')[1])
-                .ThenBy(name => name.Split(':')[0])
-                .Select(name =>
-                {
-                    var firstAndLastNames = name.Split(':');
-                    var firstName = firstAndLastNames[0];
-                    var lastName = firstAndLastNames[1];
-
-                    return $"({lastName}, {firstName})";
-                })
+                .OrderBy(name => new Name(name).Last)
+                .ThenBy(name => new Name(name).First)
+                .Select(name => $"({new Name(name).Last}, {new Name(name).First})")
                 .ToArray());
+        }
+
+        private class Name
+        {
+            public readonly string First;
+            public readonly string Last;
+            
+            public Name(string name)
+            {
+                var names = name.Split(':');
+                First = names[0];
+                Last = names[1];
+            }
         }
     }
 
