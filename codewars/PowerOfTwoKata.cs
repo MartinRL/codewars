@@ -9,7 +9,7 @@ namespace codewars
     {
         public static bool IsPowerOfTwo(int n)
         {
-            throw new NotImplementedException();
+            return n % 2 == 0;
         }
     }
 
