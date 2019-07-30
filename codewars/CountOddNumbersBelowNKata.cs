@@ -8,7 +8,7 @@ namespace codewars
     {
         public static ulong OddCount(ulong n)
         {
-            throw new NotImplementedException();
+            return n / 2;
         }
     }
 
@@ -17,7 +17,7 @@ namespace codewars
         [Theory]
         [InlineData(7, 3)]
         [InlineData(15, 7)]
-        [InlineData(7511, 15023)]
+        [InlineData(15023, 7511)]
         public void VerifyOddCountWith(ulong n, ulong count)
         {
             CountOddNumbersBelowNSolution.OddCount(n).Should().Be(count);
