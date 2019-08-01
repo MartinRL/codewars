@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -8,7 +9,10 @@ namespace codewars
     {
         public static int AdjacentElementsProduct(int[] elements)
         {
-            throw new NotImplementedException();
+            return elements
+                .Skip(1)
+                .Select((t, i) => t * elements[i])
+                .Max();
         }
     }
     
