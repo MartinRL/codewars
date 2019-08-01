@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -12,7 +12,7 @@ namespace codewars
         {
             var geese = new [] { "African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher" };
             
-            return geese;
+            return birds.Except(geese);
         }
     }
     
