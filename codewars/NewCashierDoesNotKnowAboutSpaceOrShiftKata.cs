@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
+using static System.Array;
 
 namespace codewars
 {
@@ -9,7 +10,28 @@ namespace codewars
     {
         public static string GetOrder(string input)
         {
-            throw new NotImplementedException();
+            var formattedMenuItems = input;
+            
+            var menuItems = new[]
+            {
+                "burger",
+                "fries",
+                "chicken",
+                "pizza",
+                "sandwich",
+                "onionrings",
+                "milkshake",
+                "coke"
+            };
+
+            menuItems.Each(menuItem => formattedMenuItems = formattedMenuItems.Replace(menuItem, $"{menuItem},"));
+
+            return formattedMenuItems
+                .Remove(formattedMenuItems.Length - 1)
+                .Split(',')
+                .OrderBy(_ => IndexOf(menuItems, _))
+                .Select(_ => _.First().ToString().ToUpper() + _.Substring(1))
+                .Aggregate((r, _) => $"{r} {_}");
         }
     }
 
