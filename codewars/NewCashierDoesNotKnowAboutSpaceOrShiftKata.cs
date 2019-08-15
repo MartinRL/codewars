@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 using static System.Linq.Enumerable;
+using static System.String;
 using static System.Text.RegularExpressions.Regex;
 
 namespace codewars
@@ -23,7 +23,7 @@ namespace codewars
                 "Milkshake",
                 "Coke"
             }
-            .Aggregate((result, item) => $"{result} {string.Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
+            .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
         }
     }
 
