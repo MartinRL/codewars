@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
-using static System.Array;
+using static System.Linq.Enumerable;
+using static System.Text.RegularExpressions.Regex;
 
 namespace codewars
 {
@@ -10,29 +12,23 @@ namespace codewars
     {
         public static string GetOrder(string input)
         {
-            var formattedMenuItems = input;
-            
-            var menuItems = new[]
+            var menu = new[]
             {
-                "burger",
-                "fries",
-                "chicken",
-                "pizza",
-                "sandwich",
-                "onionrings",
-                "milkshake",
-                "coke"
+                "Burger",
+                "Fries",
+                "Chicken",
+                "Pizza",
+                "Sandwich",
+                "Onionrings",
+                "Milkshake",
+                "Coke"
             };
+            
+            var result = string.Empty;
+            
+            menu.Each(item => result += string.Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count)));
 
-            var delimiter = ' ';
-            menuItems.Each(menuItem => formattedMenuItems = formattedMenuItems.Replace(menuItem, $"{menuItem}{delimiter}"));
-
-            return formattedMenuItems
-                .Trim()
-                .Split(delimiter)
-                .OrderBy(_ => IndexOf(menuItems, _))
-                .Select(_ => _.First().ToString().ToUpper() + _.Substring(1))
-                .Aggregate((r, _) => $"{r} {_}");
+            return result.Trim();
         }
     }
 
