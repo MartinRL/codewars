@@ -12,7 +12,7 @@ namespace codewars
     {
         public static string GetOrder(string input)
         {
-            var menu = new[]
+            return new[]
             {
                 "Burger",
                 "Fries",
@@ -22,13 +22,8 @@ namespace codewars
                 "Onionrings",
                 "Milkshake",
                 "Coke"
-            };
-            
-            var result = string.Empty;
-            
-            menu.Each(item => result += string.Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count)));
-
-            return result.Trim();
+            }
+            .Aggregate((result, item) => $"{result} {string.Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
         }
     }
 
