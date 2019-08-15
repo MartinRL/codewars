@@ -24,11 +24,12 @@ namespace codewars
                 "coke"
             };
 
-            menuItems.Each(menuItem => formattedMenuItems = formattedMenuItems.Replace(menuItem, $"{menuItem},"));
+            var delimiter = ' ';
+            menuItems.Each(menuItem => formattedMenuItems = formattedMenuItems.Replace(menuItem, $"{menuItem}{delimiter}"));
 
             return formattedMenuItems
-                .Remove(formattedMenuItems.Length - 1)
-                .Split(',')
+                .Trim()
+                .Split(delimiter)
                 .OrderBy(_ => IndexOf(menuItems, _))
                 .Select(_ => _.First().ToString().ToUpper() + _.Substring(1))
                 .Aggregate((r, _) => $"{r} {_}");
