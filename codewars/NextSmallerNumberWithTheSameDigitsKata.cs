@@ -41,6 +41,11 @@ namespace codewars
         [InlineData(1027, -1)]
         [InlineData(441, 414)]
         [InlineData(123456798, 123456789)]
+        [InlineData(29009, 20990)]
+        [InlineData(315, 153)]
+        [InlineData(1207, 1072)]
+        [InlineData(59884848483559, 59884848459853)]
+        [InlineData(51226262651257, 51226262627551)]
         public void VerifyNextSmallerWith(long n, long expectedNextSmaller)
         {
             NextSmallerNumberWithTheSameDigitsSolution.NextSmaller(n).Should().Be(expectedNextSmaller);
