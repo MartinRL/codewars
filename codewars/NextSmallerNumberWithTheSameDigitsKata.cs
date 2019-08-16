@@ -9,7 +9,26 @@ namespace codewars
     {
         public static long NextSmaller(long n)
         {
-            throw new NotImplementedException();
+            var nAsCharArray = n.ToString().ToCharArray();
+
+            var next = n + 1;
+            var i = nAsCharArray.Length - 1;
+
+            while (next > n)
+            {
+                swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
+                next = long.Parse(new string(nAsCharArray));
+                i--;
+            }
+
+            return next;
+        }
+        
+        static void swap(ref char a, ref char b)
+        {
+            var temp = a;
+            a = b;
+            b = temp;
         }
     }
 
