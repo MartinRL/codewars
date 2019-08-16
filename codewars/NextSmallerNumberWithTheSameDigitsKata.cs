@@ -16,7 +16,7 @@ namespace codewars
 
             while (next > n && i > 0)
             {
-                swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
+                Swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
                 next = long.Parse(new string(nAsCharArray));
                 i--;
             }
@@ -24,7 +24,7 @@ namespace codewars
             return next < n ? next : -1;
         }
         
-        static void swap(ref char a, ref char b)
+        private static void Swap(ref char a, ref char b)
         {
             var temp = a;
             a = b;
