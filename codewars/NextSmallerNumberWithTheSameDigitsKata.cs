@@ -14,14 +14,14 @@ namespace codewars
             var next = n + 1;
             var i = nAsCharArray.Length - 1;
 
-            while (next > n)
+            while (next > n && i > 0)
             {
                 swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
                 next = long.Parse(new string(nAsCharArray));
                 i--;
             }
 
-            return next;
+            return next < n ? next : -1;
         }
         
         static void swap(ref char a, ref char b)
