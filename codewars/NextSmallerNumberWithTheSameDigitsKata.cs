@@ -34,7 +34,7 @@ namespace codewars
                 }
             }
 
-            return int.Parse(new string(nAsCharArray));
+            return nAsCharArray.First() == '0' ? -1 : int.Parse(new string(nAsCharArray));
         }
         
         private static void Swap(ref char a, ref char b)
