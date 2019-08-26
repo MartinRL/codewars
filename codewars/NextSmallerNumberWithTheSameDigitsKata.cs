@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -11,38 +10,14 @@ namespace codewars
     {
         public static long NextSmaller(long n)
         {
-            return prnPermut(n.ToString().ToCharArray(), 0, n.ToString().Length - 1)
-                .Select(_ => new string(_))
-                .OrderByDescending(_ => _)
-                .Select(long.Parse)
-                .First(_ => _ < n);
-        }
+            IEnumerable<long> CreateNumbers()
+            {
+                var i = n;
 
-        public static void Swap (ref char a, ref char b)
-        {
-            var temp = a;
-            a = b;
-            b = temp;
-        }
-        
-        public static IEnumerable<char[]> prnPermut(char[] list, int k, int m)
-        {
-            var permutations = new List<char[]>();
-            int i;
-            if (k == m)
-            { 
-                for (i = 0; i <= m; i++)
-                    permutations.Add(list);
+                while (i >= 0) yield return --i;
             }
-            else
-                for (i = k; i <= m; i++)
-                {
-                    Swap (ref list [k], ref list [i]);
-                    prnPermut (list, k+1, m);
-                    Swap (ref list [k], ref list [i]);
-                }
             
-            return permutations;
+            return CreateNumbers().First(t => t.ToString().OrderBy(_ => _).SequenceEqual(n.ToString().OrderBy(_ => _)));
         }
     }
 
