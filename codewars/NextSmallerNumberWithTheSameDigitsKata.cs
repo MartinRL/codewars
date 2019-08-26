@@ -16,8 +16,10 @@ namespace codewars
 
                 while (i >= 0) yield return --i;
             }
+
+            var firstOrDefault = CreateNumbers().FirstOrDefault(t => t.ToString().OrderBy(_ => _).SequenceEqual(n.ToString().OrderBy(_ => _)));
             
-            return CreateNumbers().First(t => t.ToString().OrderBy(_ => _).SequenceEqual(n.ToString().OrderBy(_ => _)));
+            return firstOrDefault != default ? firstOrDefault : -1;
         }
     }
 
