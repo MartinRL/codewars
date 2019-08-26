@@ -11,17 +11,30 @@ namespace codewars
         {
             var nAsCharArray = n.ToString().ToCharArray();
 
-            var next = n + 1;
-            var i = nAsCharArray.Length - 1;
+            var lastIndex = nAsCharArray.Length - 1;
+            var i = lastIndex;
+            var j = 0;
 
-            while (next > n && i > 0)
+            while (i > 0)
             {
-                Swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
-                next = long.Parse(new string(nAsCharArray));
+                if (nAsCharArray[i] < nAsCharArray[i - 1])
+                {
+                    Swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
+                    break;
+                }
                 i--;
+                j++;
+            };
+
+            for (var k = 0; k < j; k++)
+            {
+                if (nAsCharArray[lastIndex - k] >= nAsCharArray[lastIndex - k - 1])
+                {
+                    Swap(ref nAsCharArray[lastIndex - k], ref nAsCharArray[lastIndex - k - 1]);
+                }
             }
 
-            return next < n ? next : -1;
+            return int.Parse(new string(nAsCharArray));
         }
         
         private static void Swap(ref char a, ref char b)
