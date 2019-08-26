@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,39 +11,38 @@ namespace codewars
     {
         public static long NextSmaller(long n)
         {
-            var nAsCharArray = n.ToString().ToCharArray();
-
-            var lastIndex = nAsCharArray.Length - 1;
-            var i = lastIndex;
-            var j = 0;
-
-            while (i > 0)
-            {
-                if (nAsCharArray[i] < nAsCharArray[i - 1])
-                {
-                    Swap(ref nAsCharArray[i], ref nAsCharArray[i - 1]);
-                    break;
-                }
-                i--;
-                j++;
-            };
-
-            for (var k = 0; k < j; k++)
-            {
-                if (nAsCharArray[lastIndex - k] >= nAsCharArray[lastIndex - k - 1])
-                {
-                    Swap(ref nAsCharArray[lastIndex - k], ref nAsCharArray[lastIndex - k - 1]);
-                }
-            }
-
-            return nAsCharArray.First() == '0' ? -1 : int.Parse(new string(nAsCharArray));
+            return prnPermut(n.ToString().ToCharArray(), 0, n.ToString().Length - 1)
+                .Select(_ => new string(_))
+                .OrderByDescending(_ => _)
+                .Select(long.Parse)
+                .First(_ => _ < n);
         }
-        
-        private static void Swap(ref char a, ref char b)
+
+        public static void Swap (ref char a, ref char b)
         {
             var temp = a;
             a = b;
             b = temp;
+        }
+        
+        public static IEnumerable<char[]> prnPermut(char[] list, int k, int m)
+        {
+            var permutations = new List<char[]>();
+            int i;
+            if (k == m)
+            { 
+                for (i = 0; i <= m; i++)
+                    permutations.Add(list);
+            }
+            else
+                for (i = k; i <= m; i++)
+                {
+                    Swap (ref list [k], ref list [i]);
+                    prnPermut (list, k+1, m);
+                    Swap (ref list [k], ref list [i]);
+                }
+            
+            return permutations;
         }
     }
 
