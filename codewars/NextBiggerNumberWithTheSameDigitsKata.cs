@@ -9,6 +9,9 @@ namespace codewars
     {
         public static long CalculateNextBiggerNumber(long n)
         {
+            if (n.ToString().OrderByDescending(_ => _).SequenceEqual(n.ToString()))
+                return -1;
+
             throw new NotImplementedException();
         }
     }
