@@ -22,6 +22,7 @@ namespace codewars
         [InlineData(12, 21)]
         [InlineData(513, 531)]
         [InlineData(2017, 2071)]
+        [InlineData(1234, 1243)]
         [InlineData(9, -1)]
         [InlineData(111, -1)]
         [InlineData(531, -1)]
