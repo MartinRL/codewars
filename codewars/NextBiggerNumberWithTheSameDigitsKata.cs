@@ -10,11 +10,13 @@ namespace codewars
     {
         public static long CalculateNextBiggerNumber(long n)
         {
-            if (n.ToString().OrderByDescending(_ => _).SequenceEqual(n.ToString()))
+            var nAsCharArray = n.ToString().ToCharArray();
+            
+            if (nAsCharArray.OrderByDescending(_ => _).SequenceEqual(nAsCharArray))
                 return -1;
 
-            if (n.ToString().OrderBy(_ => _).SequenceEqual(n.ToString()))
-                return long.Parse(new string(n.ToString().ToCharArray().Swap(n.ToString().LastIndex(), n.ToString().SecondLastIndex())));
+            if (nAsCharArray.OrderBy(_ => _).SequenceEqual(nAsCharArray))
+                return long.Parse(new string(nAsCharArray.Swap(nAsCharArray.LastIndex(), nAsCharArray.SecondLastIndex())));
 
             throw new NotImplementedException();
         }
