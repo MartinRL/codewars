@@ -18,7 +18,29 @@ namespace codewars
             if (nAsCharArray.OrderBy(_ => _).SequenceEqual(nAsCharArray))
                 return long.Parse(new string(nAsCharArray.Swap(nAsCharArray.LastIndex(), nAsCharArray.SecondLastIndex())));
 
-            throw new NotImplementedException();
+            var d = nAsCharArray[nAsCharArray.LastIndex()];
+            var i = nAsCharArray.SecondLastIndex();
+
+            while (d < nAsCharArray[i])
+            {
+                d = nAsCharArray[i];
+                --i;
+            }
+
+            d = nAsCharArray[i];
+
+            var subArrayToTheRightOfDigit = nAsCharArray.SubArray(i + 1);
+
+            var smallestGreaterThanDigit = subArrayToTheRightOfDigit.Where(_ => _ > d).Min();
+            var indexOfSmallestGraterThanDigit = Array.LastIndexOf(nAsCharArray, smallestGreaterThanDigit);
+
+            var nWithDigitsSwapped = nAsCharArray.Swap(i, indexOfSmallestGraterThanDigit);
+            
+            var sortedRightOfDigit = nWithDigitsSwapped.SubArray(i + 1).OrderBy(_ => _);
+
+            return long.Parse(new string(nWithDigitsSwapped
+                .SubArray(0, nWithDigitsSwapped.Length - sortedRightOfDigit.Count()).Concat(sortedRightOfDigit)
+                .ToArray()));
         }
     }
 
@@ -46,6 +68,16 @@ namespace codewars
         public static int SecondLastIndex<T>(this IEnumerable<T> @this)
         {
             return @this.LastIndex() - 1;
+        }
+        
+        public static T[] SubArray<T>(this T[] @this, int index, int length = -1)
+        {
+            var l = length == -1 ? @this.Length - index : length;
+            
+            var result = new T[l];
+            Array.Copy(@this, index, result, 0, l);
+            
+            return result;
         }
     }
 
