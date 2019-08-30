@@ -90,6 +90,7 @@
     <Compile Include="MeanSquareErrorKata.cs" />
     <Compile Include="MeetingKata.cs" />
     <Compile Include="NewCashierDoesNotKnowAboutSpaceOrShiftKata.cs" />
+    <Compile Include="NextBiggerNumberWithTheSameDigitsKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
