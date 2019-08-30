@@ -17,14 +17,14 @@ namespace codewars
                 return -1;
 
             // If all digits are sorted in ascending order, then we need to swap last two digits. For example, 1234
-            if (nAsCharArray.OrderBy(_ => _).SequenceEqual(nAsCharArray))
+            if (nAsCharArray.OrderBy(_ => _).SequenceEqual(nAsCharArray) && nAsCharArray.Distinct().Count() == nAsCharArray.Length)
                 return long.Parse(new string(nAsCharArray.Swap(nAsCharArray.LastIndex(), nAsCharArray.SecondLastIndex())));
 
             // I) Traverse the given number from rightmost digit, keep traversing till you find a digit which is smaller than the previously traversed digit. For example, if the input number is “534976”, we stop at 4 because 4 is smaller than next digit 9. If we do not find such a digit, then output is -1.
             var d = nAsCharArray[nAsCharArray.LastIndex()];
             var i = nAsCharArray.SecondLastIndex();
 
-            while (d < nAsCharArray[i])
+            while (d <= nAsCharArray[i])
             {
                 d = nAsCharArray[i];
                 --i;
@@ -94,6 +94,7 @@ namespace codewars
         [InlineData(513, 531)]
         [InlineData(2017, 2071)]
         [InlineData(1234, 1243)]
+        [InlineData(144, 414)]
         [InlineData(534976, 536479)]
         [InlineData(9, -1)]
         [InlineData(111, -1)]
