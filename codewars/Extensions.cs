@@ -67,6 +67,11 @@ namespace codewars
         {
             return @this % 1 == 0;
         }
+        
+        public static string AsDescendingString(this long n)
+        {
+            return new string(n.ToString().OrderByDescending(_ => _).ToArray());
+        }
     }
 
     public class ExtensionsTests

@@ -19,15 +19,7 @@ namespace codewars
             return -1;  
         }
     }
-
-    public static class NextBiggerNumberWithTheSameDigitsExtensions
-    {
-        public static string AsDescendingString(this long n)
-        {
-            return new string(n.ToString().OrderByDescending(_ => _).ToArray());
-        }
-    }
-
+    
     public class NextBiggerNumberWithTheSameDigitsTests
     {
         [Theory]
