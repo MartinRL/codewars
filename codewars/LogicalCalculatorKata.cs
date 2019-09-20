@@ -9,15 +9,7 @@ namespace codewars
     {
         public static bool LogicalCalc(bool[] array, string op)
         {
-            switch (op)
-            {
-                case "XOR":
-                    return array.Aggregate((result, item) => result ^ item);
-                case "OR":
-                    return array.Aggregate((result, item) => result || item);
-                default:
-                    return array.Aggregate((result, item) => result && item);
-            }
+            return array.Aggregate((result, item) => op == "AND" ? result && item : op == "OR" ? result || item : result != item);
         }
     }
 
