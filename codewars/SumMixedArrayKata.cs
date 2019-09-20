@@ -1,4 +1,5 @@
 using System;
+using static System.Convert;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,7 @@ namespace codewars
     {
         public static int Execute(object[] mixedArray)
         {
-            return mixedArray.Select(_ => int.Parse(_.ToString())).Sum();
+            return mixedArray.Select(ToInt32).Sum();
         }
     }
 
