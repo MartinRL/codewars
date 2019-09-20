@@ -7,10 +7,7 @@ namespace codewars
 {
     public class LogicalCalculatorSolution
     {
-        public static bool LogicalCalc(bool[] array, string op)
-        {
-            return array.Aggregate((result, item) => op == "AND" ? result && item : op == "OR" ? result || item : result != item);
-        }
+        public static bool LogicalCalc(bool[] array, string op) => array.Aggregate((result, item) => op == "AND" ? result && item : op == "OR" ? result || item : result != item);
     }
 
     public class LogicalCalculatorTests
