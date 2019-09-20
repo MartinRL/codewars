@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int Execute(object[] mixedArray)
         {
-            throw new NotImplementedException();
+            return mixedArray.Select(_ => int.Parse(_.ToString())).Sum();
         }
     }
 
