@@ -8,10 +8,7 @@ namespace codewars
 {
     public class SumMixedArray
     {
-        public static int Execute(object[] mixedArray)
-        {
-            return mixedArray.Select(ToInt32).Sum();
-        }
+        public static int Execute(object[] mixedArray) => mixedArray.Select(ToInt32).Sum();
     }
 
     public class SumMixedArrayTests
