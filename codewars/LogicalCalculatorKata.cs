@@ -9,7 +9,7 @@ namespace codewars
     {
         public static bool LogicalCalc(bool[] array, string op)
         {
-            throw new NotImplementedException();
+            return array.Aggregate((result, item) => result && item);
         }
     }
 
