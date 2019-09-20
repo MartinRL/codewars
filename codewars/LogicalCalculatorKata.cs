@@ -9,13 +9,13 @@ namespace codewars
     {
         public static bool LogicalCalc(bool[] array, string op)
         {
-            return array.Aggregate((result, item) =>
-            {
-                if (op == "AND")
-                    return result && item;
-
-                return result || item;
-            });
+            if (op == "XOR")
+                return array.Aggregate((result, item) => result ^ item);
+            
+            if (op == "OR")
+                return array.Aggregate((result, item) => result || item);
+            
+            return array.Aggregate((result, item) => result && item);
         }
     }
 
