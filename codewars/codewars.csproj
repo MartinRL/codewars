@@ -85,6 +85,7 @@
     <Compile Include="FilterOutTheGeeseKata.cs" />
     <Compile Include="FunctionalAdditionKata.cs" />
     <Compile Include="IntegersRecreationOneKata.cs" />
+    <Compile Include="LogicalCalculatorKata.cs" />
     <Compile Include="MaximumProductKata.cs" />
     <Compile Include="MaximumSubarraySumKata.cs" />
     <Compile Include="MeanSquareErrorKata.cs" />
