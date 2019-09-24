@@ -9,7 +9,9 @@ namespace codewars
     {
         public static string ToCamelCase(string str)
         {
-            throw new NotImplementedException();
+            return new string(str.Select((e, i) =>
+                    (i > 0 && (str.ElementAt(i - 1) == '_' || str.ElementAt(i - 1) == '-')) ? char.ToUpper(e) : e)
+                .ToArray()).Replace("_", string.Empty).Replace("-", string.Empty);
         }
     }
 
