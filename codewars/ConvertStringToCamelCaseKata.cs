@@ -7,12 +7,10 @@ namespace codewars
 {
     public class ConvertStringToCamelCaseSolution
     {
-        public static string ToCamelCase(string str)
-        {
-            return new string(str.Select((e, i) =>
-                    (i > 0 && (str.ElementAt(i - 1) == '_' || str.ElementAt(i - 1) == '-')) ? char.ToUpper(e) : e)
-                .ToArray()).Replace("_", string.Empty).Replace("-", string.Empty);
-        }
+        public static string ToCamelCase(string str) => 
+            new string(str.Select((e, i) => (i > 0 && (str.ElementAt(i - 1) == '_' || str.ElementAt(i - 1) == '-')) ? char.ToUpper(e) : e).ToArray())
+                .Replace("_", string.Empty)
+                .Replace("-", string.Empty);
     }
 
     public class ConvertStringToCamelCaseTests
