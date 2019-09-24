@@ -7,10 +7,7 @@ namespace codewars
 {
     public class NiceArraySolution
     {
-        public static bool IsNice(int[] arr)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool IsNice(int[] arr) => arr.All(n => arr.Any(m => n - 1 == m || n + 1 == m));
     }
 
     public class NiceArrayTests
