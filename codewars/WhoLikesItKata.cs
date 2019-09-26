@@ -21,6 +21,9 @@ namespace codewars
                 case 2:
                     return $"{name[0]} and {name[1]} like this";
                     
+                case 3:
+                    return $"{name[0]}, {name[1]} and {name[2]} like this";
+                    
                 default:
                     throw new NotImplementedException();
             }
