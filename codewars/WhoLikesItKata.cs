@@ -25,7 +25,7 @@ namespace codewars
                     return $"{name[0]}, {name[1]} and {name[2]} like this";
                     
                 default:
-                    throw new NotImplementedException();
+                    return $"{name[0]}, {name[1]} and {name.Length - 2} others like this";
             }
         }
     }
