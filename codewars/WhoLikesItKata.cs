@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -13,6 +14,9 @@ namespace codewars
             {
                 case 0:
                     return "no one likes this";
+                
+                case 1:
+                    return $"{name[0]} likes this";
                     
                 default:
                     throw new NotImplementedException();
