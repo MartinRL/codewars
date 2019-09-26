@@ -18,6 +18,9 @@ namespace codewars
                 case 1:
                     return $"{name[0]} likes this";
                     
+                case 2:
+                    return $"{name[0]} and {name[1]} like this";
+                    
                 default:
                     throw new NotImplementedException();
             }
