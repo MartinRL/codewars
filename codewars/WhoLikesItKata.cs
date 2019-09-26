@@ -9,7 +9,14 @@ namespace codewars
     {
         public static string Likes(string[] name)
         {
-            throw new NotImplementedException();
+            switch (name.Length)
+            {
+                case 0:
+                    return "no one likes this";
+                    
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 
