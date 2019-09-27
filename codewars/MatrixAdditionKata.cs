@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using FluentAssertions;
+using FluentAssertions.Common;
 using Xunit;
 
 namespace codewars
@@ -29,10 +30,11 @@ namespace codewars
                 new[] {2, 3}
             };
             
-            MatrixAdditionSolution.Add(a, b)[0][0].Should().Be(3);
-            MatrixAdditionSolution.Add(a, b)[0][1].Should().Be(5);
-            MatrixAdditionSolution.Add(a, b)[1][0].Should().Be(3);
-            MatrixAdditionSolution.Add(a, b)[1][1].Should().Be(5);
+            MatrixAdditionSolution.Add(a, b).Should().IsSameOrEqualTo(new int[][]
+            {
+                new[] {3, 5},
+                new[] {3, 5}
+            });
         }
     }
 }
