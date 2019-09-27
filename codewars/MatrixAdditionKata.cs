@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int[][] Add(int[][] a, int[][] b)
         {
-            return a.Select((row , i) => row.Zip(b.ElementAt(i), (ea, eb) => ea + eb).ToArray()).ToArray();
+            return a.Zip(b, (ar, br) => ar.Zip(br, (i, j) => i + j).ToArray()).ToArray();
         }
     }
 
