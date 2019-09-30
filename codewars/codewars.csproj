@@ -71,6 +71,7 @@
     <Compile Include="ArrayDiffSolutionKata.cs" />
     <Compile Include="AutomorphicNumberKata.cs" />
     <Compile Include="BalancedNumberKata.cs" />
+    <Compile Include="BedmasApprovedCalculatorKata.cs" />
     <Compile Include="BestTravelKata.cs" />
     <Compile Include="BinaryAdditionKata.cs" />
     <Compile Include="ConvertStringToCamelCaseKata.cs" />
