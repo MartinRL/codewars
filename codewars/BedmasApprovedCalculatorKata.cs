@@ -20,26 +20,21 @@ namespace codewars
             
             var expression = new string(s.Where(c => !IsWhiteSpace(c)).ToArray());
 
-            // 3 = # of operators + number of terms
-            var ss = new List<List<char>> // 2do: Enumerable.Range
-            {
-                new List<char>(),
-                new List<char>(),
-                new List<char>()
-            };
+            var ss = new List<List<char>>();
+            Enumerable.Range(0, expression.Count(_ => operatorMap.Keys.Contains(_)) * 2 + 1).ToList().Each(_ => ss.Add(new List<char>()));
             
             var j = 0;
-            for (var i = 0; i < expression.Length; i++)
+            foreach (var c in expression)
             {
-                if (operatorMap.Keys.Contains(expression[i])) // 2do: hole in the middle
+                if (operatorMap.Keys.Contains(c))
                 {
                     j++;
-                    ss.ElementAt(j).Add(expression[i]);
+                    ss.ElementAt(j).Add(c);
                     j++;
                 }
                 else
                 {
-                    ss.ElementAt(j).Add(expression[i]);    
+                    ss.ElementAt(j).Add(c);    
                 }
             }
 
