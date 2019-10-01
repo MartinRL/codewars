@@ -15,7 +15,8 @@ namespace codewars
             var operatorMap = new Dictionary<char, Func<double, double, double>>
             {
                 { '*', (a, b) => a * b },
-                { '+', (a, b ) => a + b }
+                { '+', (a, b ) => a + b },
+                { '/', (a, b ) => a / b },
             };
             
             var expression = new string(s.Where(c => !IsWhiteSpace(c)).ToArray());
@@ -49,6 +50,7 @@ namespace codewars
         [Theory]
         [InlineData("1 + 2", 3)]
         [InlineData("2*2", 4)]
+        [InlineData(" 21,3 /2", 10.65)]
         public void VerifyCalculateWith(string s, double expectedCalculated)
         {
             BedmasApprovedCalculatorSolution.Calculate(s).Should().BeApproximately(expectedCalculated, 0.000000001);
