@@ -12,6 +12,12 @@ namespace codewars
     {
         public static double Calculate(string s)
         {
+            var operatorMap = new Dictionary<char, Func<double, double, double>>
+            {
+                { '*', (a, b) => a * b },
+                { '+', (a, b ) => a + b }
+            };
+            
             var expression = new string(s.Where(c => !IsWhiteSpace(c)).ToArray());
 
             // 3 = # of operators + number of terms
@@ -25,7 +31,7 @@ namespace codewars
             var j = 0;
             for (var i = 0; i < expression.Length; i++)
             {
-                if (expression[i].IsOperator()) // 2do: hole in the middle
+                if (operatorMap.Keys.Contains(expression[i])) // 2do: hole in the middle
                 {
                     j++;
                     ss.ElementAt(j).Add(expression[i]);
@@ -37,22 +43,9 @@ namespace codewars
                 }
             }
 
-            var sss = ss.Select(_ => _.First().IsOperator() ? _.First().ToString() : new string(_.ToArray()));
+            var sss = ss.Select(_ => (operatorMap.Keys.Contains(_.First())) ? _.First().ToString() : new string(_.ToArray()));
 
-            Func<double, double, double> arithmeticFunc = (a, b) => a * b;
-
-            return arithmeticFunc(double.Parse(sss.ElementAt(0)), double.Parse(sss.ElementAt(2)));
-        }
-    }
-
-    public static class BedmasApprovedCalculatorExtensions
-    {
-        public static bool IsOperator(this char @this)
-        {
-            if (@this == '*')
-                return true;
-
-            return false;
+            return operatorMap[sss.ElementAt(1).First()](double.Parse(sss.ElementAt(0)), double.Parse(sss.ElementAt(2)));
         }
     }
 
