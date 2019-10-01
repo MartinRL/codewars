@@ -17,6 +17,7 @@ namespace codewars
                 { '*', (a, b) => a * b },
                 { '+', (a, b ) => a + b },
                 { '/', (a, b ) => a / b },
+                { '-', (a, b ) => a - b },
             };
             
             var expression = new string(s.Where(c => !IsWhiteSpace(c)).ToArray());
@@ -51,6 +52,7 @@ namespace codewars
         [InlineData("1 + 2", 3)]
         [InlineData("2*2", 4)]
         [InlineData(" 21,3 /2", 10.65)]
+        [InlineData(" 7,3   -  2", 5.3)]
         public void VerifyCalculateWith(string s, double expectedCalculated)
         {
             BedmasApprovedCalculatorSolution.Calculate(s).Should().BeApproximately(expectedCalculated, 0.000000001);
