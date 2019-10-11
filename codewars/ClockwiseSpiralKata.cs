@@ -11,6 +11,9 @@ namespace codewars
     {
         public static int[,] CreateSpiral(int n)
         {
+            if (n < 1)
+                return new int[0, 0];
+            
             return new[,] {{1}};
         }
     }
