@@ -73,6 +73,7 @@
     <Compile Include="BalancedNumberKata.cs" />
     <Compile Include="BestTravelKata.cs" />
     <Compile Include="BinaryAdditionKata.cs" />
+    <Compile Include="ClockwiseSpiralKata.cs" />
     <Compile Include="ConvertStringToCamelCaseKata.cs" />
     <Compile Include="CountingDuplicatesKata.cs" />
     <Compile Include="CountOddNumbersBelowNKata.cs" />
