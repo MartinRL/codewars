@@ -14,7 +14,45 @@ namespace codewars
             if (n < 1)
                 return new int[0, 0];
             
-            return new[,] {{1}};
+            var spiral = new int[n, n];
+            spiral[0, 0] = 1;
+
+            if (n == 1)
+                return spiral;
+
+            var numbers = Enumerable.Range(2, n * n);
+
+            var x = 0;
+            var y = 0;
+            var i = 0;
+            
+            GoRight();
+
+            void GoRight()
+            {
+                try
+                {
+                    x++;
+                    if ((int)spiral.GetValue(x, y) > 0)
+                    {
+                        GoDown();
+                    }
+                    spiral.SetValue(numbers.ElementAt(i), x, y);
+                    i++;
+                    GoRight();
+                }
+                catch (Exception)
+                {
+                    GoDown();
+                }
+            }
+            
+            void GoDown()
+            {
+                throw new NotImplementedException();
+            }
+            
+            return spiral;
         }
     }
 
