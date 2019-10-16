@@ -31,7 +31,7 @@ namespace codewars
                 try
                 {
                     col++;
-                    if ((int)spiral.GetValue(row, col) > 0)
+                    if (spiral[row, col] > 0)
                     {
                         GoDown();
                     }
@@ -53,7 +53,7 @@ namespace codewars
                 try
                 {
                     row++;
-                    if ((int)spiral.GetValue(row, col) > 0)
+                    if (spiral[row, col] > 0)
                     {
                         GoLeft();
                     }
@@ -75,7 +75,7 @@ namespace codewars
                 try
                 {
                     col--;
-                    if ((int)spiral.GetValue(row, col) > 0)
+                    if (spiral[row, col] > 0)
                     {
                         GoUp();
                     }
@@ -97,7 +97,7 @@ namespace codewars
                 try
                 {
                     row--;
-                    if ((int)spiral.GetValue(row, col) > 0)
+                    if (spiral[row, col] > 0)
                     {
                         GoUp();
                     }
