@@ -20,11 +20,9 @@ namespace codewars
             if (n == 1)
                 return spiral;
 
-            var numbers = Enumerable.Range(2, n * n);
-
-            var r = 0;
-            var c = 0;
-            var i = 0;
+            var row = 0;
+            var col = 0;
+            var i = 2;
             
             GoRight();
 
@@ -32,20 +30,20 @@ namespace codewars
             {
                 try
                 {
-                    c++;
-                    if ((int)spiral.GetValue(r, c) > 0)
+                    col++;
+                    if ((int)spiral.GetValue(row, col) > 0)
                     {
                         GoDown();
                     }
-                    spiral[r, c] = numbers.ElementAt(i);
+                    spiral[row, col] = i;
                     i++;
-                    if (i == n * n - 1)
+                    if (i > n * n)
                         return;
                     GoRight();
                 }
                 catch (Exception)
                 {
-                    c--;
+                    col--;
                     GoDown();
                 }
             }
@@ -54,20 +52,20 @@ namespace codewars
             {
                 try
                 {
-                    r++;
-                    if ((int)spiral.GetValue(r, c) > 0)
+                    row++;
+                    if ((int)spiral.GetValue(row, col) > 0)
                     {
                         GoLeft();
                     }
-                    spiral[r, c] = numbers.ElementAt(i);
+                    spiral[row, col] = i;
                     i++;
-                    if (i == n * n - 1)
+                    if (i > n * n)
                         return;
                     GoDown();
                 }
                 catch (Exception)
                 {
-                    r--;
+                    row--;
                     GoLeft();
                 }
             }
@@ -76,20 +74,20 @@ namespace codewars
             {
                 try
                 {
-                    c--;
-                    if ((int)spiral.GetValue(r, c) > 0)
+                    col--;
+                    if ((int)spiral.GetValue(row, col) > 0)
                     {
                         GoUp();
                     }
-                    spiral[r, c] = numbers.ElementAt(i);
+                    spiral[row, col] = i;
                     i++;
-                    if (i == n * n - 1)
+                    if (i > n * n)
                         return;
                     GoLeft();
                 }
                 catch (Exception)
                 {
-                    c++;
+                    col++;
                     GoUp();
                 }
             }
@@ -98,20 +96,20 @@ namespace codewars
             {
                 try
                 {
-                    r--;
-                    if ((int)spiral.GetValue(r, c) > 0)
+                    row--;
+                    if ((int)spiral.GetValue(row, col) > 0)
                     {
                         GoUp();
                     }
-                    spiral[r, c] = numbers.ElementAt(i);
+                    spiral[row, col] = i;
                     i++;
-                    if (i == n * n - 1)
+                    if (i > n * n)
                         return;
                     GoRight();
                 }
                 catch (Exception)
                 {
-                    r++;
+                    row++;
                     GoRight();
                 }
             }
