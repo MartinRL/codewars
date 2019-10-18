@@ -25,47 +25,42 @@ namespace codewars
             var x = 0;
             var y = 0;
 
-            while (topBoundary <= bottomBoundary && leftBoundary <= rightBoundary) 
+            while (topBoundary <= bottomBoundary && leftBoundary <= rightBoundary)
             {
-                if (direction == Direction.Left && x <= rightBoundary)
+                switch (direction)
                 {
-                    spiral[y, x++] = counter++;
-                }
-                else if (direction == Direction.Left && x > rightBoundary)
-                {
-                    direction = Direction.Down;
-                    x = rightBoundary;
-                    y = ++topBoundary;
-                }
-                else if (direction == Direction.Down && y <= bottomBoundary)
-                {
-                    spiral[y++, x] = counter++;
-                }
-                else if (direction == Direction.Down && y > bottomBoundary)
-                {
-                    direction = Direction.Right;
-                    x = --rightBoundary;
-                    y = bottomBoundary;
-                }
-                else if (direction == Direction.Right && x >= leftBoundary)
-                {
-                    spiral[y, x--] = counter++;
-                }
-                else if (direction == Direction.Right && x < leftBoundary)
-                {
-                    direction = Direction.Up;
-                    x = leftBoundary;
-                    y = --bottomBoundary;
-                }
-                else if (direction == Direction.Up && y >= topBoundary)
-                {
-                    spiral[y--, x] = counter++;
-                }
-                else if (direction == Direction.Up && y < topBoundary)
-                {
-                    direction = Direction.Left;
-                    x = ++leftBoundary;
-                    y = topBoundary;
+                    case Direction.Left when x <= rightBoundary:
+                        spiral[y, x++] = counter++;
+                        break;
+                    case Direction.Left when x > rightBoundary:
+                        direction = Direction.Down;
+                        x = rightBoundary;
+                        y = ++topBoundary;
+                        break;
+                    case Direction.Down when y <= bottomBoundary:
+                        spiral[y++, x] = counter++;
+                        break;
+                    case Direction.Down when y > bottomBoundary:
+                        direction = Direction.Right;
+                        x = --rightBoundary;
+                        y = bottomBoundary;
+                        break;
+                    case Direction.Right when x >= leftBoundary:
+                        spiral[y, x--] = counter++;
+                        break;
+                    case Direction.Right when x < leftBoundary:
+                        direction = Direction.Up;
+                        x = leftBoundary;
+                        y = --bottomBoundary;
+                        break;
+                    case Direction.Up when y >= topBoundary:
+                        spiral[y--, x] = counter++;
+                        break;
+                    case Direction.Up when y < topBoundary:
+                        direction = Direction.Left;
+                        x = ++leftBoundary;
+                        y = topBoundary;
+                        break;
                 }
             }
 
