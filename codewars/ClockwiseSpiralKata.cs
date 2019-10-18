@@ -15,106 +15,66 @@ namespace codewars
                 return new int[0, 0];
             
             var spiral = new int[n, n];
-            spiral[0, 0] = 1;
 
-            if (n == 1)
-                return spiral;
+            var topBoundary = 0;
+            var bottomBoundary = n-1;
+            var leftBoundary = 0;
+            var rightBoundary =  n-1;
+            var counter = 1;
+            var direction = Direction.Left;
+            var x = 0;
+            var y = 0;
 
-            var row = 0;
-            var col = 0;
-            var i = 2;
-            
-            GoRight();
+            while (topBoundary <= bottomBoundary && leftBoundary <= rightBoundary) 
+            {
+                if (direction == Direction.Left && x <= rightBoundary)
+                {
+                    spiral[y, x++] = counter++;
+                }
+                else if (direction == Direction.Left && x > rightBoundary)
+                {
+                    direction = Direction.Down;
+                    x = rightBoundary;
+                    y = ++topBoundary;
+                }
+                else if (direction == Direction.Down && y <= bottomBoundary)
+                {
+                    spiral[y++, x] = counter++;
+                }
+                else if (direction == Direction.Down && y > bottomBoundary)
+                {
+                    direction = Direction.Right;
+                    x = --rightBoundary;
+                    y = bottomBoundary;
+                }
+                else if (direction == Direction.Right && x >= leftBoundary)
+                {
+                    spiral[y, x--] = counter++;
+                }
+                else if (direction == Direction.Right && x < leftBoundary)
+                {
+                    direction = Direction.Up;
+                    x = leftBoundary;
+                    y = --bottomBoundary;
+                }
+                else if (direction == Direction.Up && y >= topBoundary)
+                {
+                    spiral[y--, x] = counter++;
+                }
+                else if (direction == Direction.Up && y < topBoundary)
+                {
+                    direction = Direction.Left;
+                    x = ++leftBoundary;
+                    y = topBoundary;
+                }
+            }
 
-            void GoRight()
-            {
-                try
-                {
-                    col++;
-                    if (spiral[row, col] > 0)
-                    {
-                        GoDown();
-                    }
-                    spiral[row, col] = i;
-                    i++;
-                    if (i > n * n)
-                        return;
-                    GoRight();
-                }
-                catch (Exception)
-                {
-                    col--;
-                    GoDown();
-                }
-            }
-            
-            void GoDown()
-            {
-                try
-                {
-                    row++;
-                    if (spiral[row, col] > 0)
-                    {
-                        GoLeft();
-                    }
-                    spiral[row, col] = i;
-                    i++;
-                    if (i > n * n)
-                        return;
-                    GoDown();
-                }
-                catch (Exception)
-                {
-                    row--;
-                    GoLeft();
-                }
-            }
-            
-            void GoLeft()
-            {
-                try
-                {
-                    col--;
-                    if (spiral[row, col] > 0)
-                    {
-                        GoUp();
-                    }
-                    spiral[row, col] = i;
-                    i++;
-                    if (i > n * n)
-                        return;
-                    GoLeft();
-                }
-                catch (Exception)
-                {
-                    col++;
-                    GoUp();
-                }
-            }
-            
-            void GoUp()
-            {
-                try
-                {
-                    row--;
-                    if (spiral[row, col] > 0)
-                    {
-                        GoUp();
-                    }
-                    spiral[row, col] = i;
-                    i++;
-                    if (i > n * n)
-                        return;
-                    GoRight();
-                }
-                catch (Exception)
-                {
-                    row++;
-                    GoRight();
-                }
-            }
-            
             return spiral;
+        }
+
+        private enum Direction
+        {
+            Left, Right, Up, Down
         }
     }
 
