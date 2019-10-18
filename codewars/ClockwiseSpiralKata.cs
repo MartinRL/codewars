@@ -10,9 +10,6 @@ namespace codewars
     {
         public static int[,] CreateSpiral(int n)
         {
-            if (n < 1)
-                return new int[0, 0];
-            
             var spiral = new int[n, n];
 
             var topBoundary = 0;
