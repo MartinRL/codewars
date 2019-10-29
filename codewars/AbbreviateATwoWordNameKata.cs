@@ -9,9 +9,7 @@ namespace codewars
     {
         public static string AbbrevName(string name)
         {
-            var names = name.Split(' ');
-
-            return $"{char.ToUpper(names[0].First())}.{char.ToUpper(names[1].First())}";
+            return name.Split(' ').Aggregate((result, n) => $"{result.First()}.{n.First()}").ToUpper();
         }
     }
 
