@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int WordsToMarks(string str)
         {
-            throw new NotImplementedException();
+            return str.Sum(_ => _ - 96);
         }
     }
 
