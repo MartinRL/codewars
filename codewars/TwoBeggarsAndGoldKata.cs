@@ -12,18 +12,50 @@ namespace codewars
         {
             var _a = 0;
             var _b = 0;
+            var goldList = golds.ToList();
 
-            for (var i = 0; i < golds.Length / 2; i++)
+            for (var i = 0; i < golds.Length; i++)
             {
                 switch (i % 2)
                 {
                     case 0:
-                        _a += Math.Max(golds[i], golds[golds.Length - i - 1]);
-                        _b += Math.Min(golds[i], golds[golds.Length - i - 1]);
+                        if (goldList.First() > goldList.Last())
+                        {
+                            _a += goldList.First();
+                            goldList = goldList.Skip(1).ToList();
+                            break;
+                        }
+                        if (goldList.Last() > goldList.First())
+                        {
+                            _a += goldList.Last();
+                            goldList = goldList.Take(goldList.Count() - 1).ToList();
+                            break;
+                        }
+                        if (goldList.Last() == goldList.First())
+                        {
+                            _a += goldList.First();
+                            goldList = goldList.Skip(1).ToList();
+                        }
                         break;
+                    
                     case 1:
-                        _b += Math.Max(golds[i], golds[golds.Length - i - 1]);
-                        _a += Math.Min(golds[i], golds[golds.Length - i - 1]); 
+                        if (goldList.First() > goldList.Last())
+                        {
+                            _b += goldList.First();
+                            goldList = goldList.Skip(1).ToList();
+                            break;
+                        }
+                        if (goldList.Last() > goldList.First())
+                        {
+                            _b += goldList.Last();
+                            goldList = goldList.Take(goldList.Count() - 1).ToList();
+                            break;
+                        }
+                        if (goldList.Last() == goldList.First())
+                        {
+                            _b += goldList.First();
+                            goldList = goldList.Skip(1).ToList();
+                        }
                         break;
                 }
             }
