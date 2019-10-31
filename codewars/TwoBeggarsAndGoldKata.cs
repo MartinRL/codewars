@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +10,25 @@ namespace codewars
     {
         public static (int a, int b) DistributionOf(int[] golds)
         {
-            throw new NotImplementedException();
+            var _a = 0;
+            var _b = 0;
+
+            for (var i = 0; i < golds.Length / 2; i++)
+            {
+                switch (i % 2)
+                {
+                    case 0:
+                        _a += Math.Max(golds[i], golds[golds.Length - i - 1]);
+                        _b += Math.Min(golds[i], golds[golds.Length - i - 1]);
+                        break;
+                    case 1:
+                        _b += Math.Max(golds[i], golds[golds.Length - i - 1]);
+                        _a += Math.Min(golds[i], golds[golds.Length - i - 1]); 
+                        break;
+                }
+            }
+
+            return (_a, _b);
         }
     }
 
