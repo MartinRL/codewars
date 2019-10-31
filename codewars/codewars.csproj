@@ -127,6 +127,7 @@
     <Compile Include="TitleCaseKata.cs" />
     <Compile Include="TwiceAsOldKata.cs" />
     <Compile Include="TwiceLinearKata.cs" />
+    <Compile Include="TwoBeggarsAndGoldKata.cs" />
     <Compile Include="UnluckyDaysKata.cs" />
     <Compile Include="VasyaClerkKata.cs" />
     <Compile Include="WhatTimeIsItKata.cs" />
