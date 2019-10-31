@@ -8,13 +8,13 @@ namespace codewars
 {
     public class TwoBeggarsAndGoldSolution
     {
-        public static (int a, int b) DistributionOf(int[] golds)
+        public static (int a, int b) DistributionOf(IEnumerable<int> golds)
         {
             var _a = 0;
             var _b = 0;
-            var goldList = golds.ToList();
+            var goldList = golds;
 
-            for (var i = 0; i < golds.Length; i++)
+            for (var i = 0; i < golds.Count(); i++)
             {
                 switch (i % 2)
                 {
@@ -22,19 +22,19 @@ namespace codewars
                         if (goldList.First() > goldList.Last())
                         {
                             _a += goldList.First();
-                            goldList = goldList.Skip(1).ToList();
+                            goldList = goldList.Skip(1);
                             break;
                         }
                         if (goldList.Last() > goldList.First())
                         {
                             _a += goldList.Last();
-                            goldList = goldList.Take(goldList.Count() - 1).ToList();
+                            goldList = goldList.Take(goldList.Count() - 1);
                             break;
                         }
                         if (goldList.Last() == goldList.First())
                         {
                             _a += goldList.First();
-                            goldList = goldList.Skip(1).ToList();
+                            goldList = goldList.Skip(1);
                         }
                         break;
                     
@@ -42,19 +42,19 @@ namespace codewars
                         if (goldList.First() > goldList.Last())
                         {
                             _b += goldList.First();
-                            goldList = goldList.Skip(1).ToList();
+                            goldList = goldList.Skip(1);
                             break;
                         }
                         if (goldList.Last() > goldList.First())
                         {
                             _b += goldList.Last();
-                            goldList = goldList.Take(goldList.Count() - 1).ToList();
+                            goldList = goldList.Take(goldList.Count() - 1);
                             break;
                         }
                         if (goldList.Last() == goldList.First())
                         {
                             _b += goldList.First();
-                            goldList = goldList.Skip(1).ToList();
+                            goldList = goldList.Skip(1);
                         }
                         break;
                 }
