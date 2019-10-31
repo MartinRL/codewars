@@ -12,50 +12,36 @@ namespace codewars
         {
             var _a = 0;
             var _b = 0;
-            var goldList = golds;
+            var goldEnumerable = golds;
+
+            void AssignBiggestPileTo(ref int beggar)
+            {
+                if (goldEnumerable.First() > goldEnumerable.Last())
+                {
+                    beggar += goldEnumerable.First();
+                    goldEnumerable = goldEnumerable.Skip(1);
+                    return;
+                }
+                if (goldEnumerable.Last() > goldEnumerable.First())
+                {
+                    beggar += goldEnumerable.Last();
+                    goldEnumerable = goldEnumerable.Take(goldEnumerable.Count() - 1);
+                    return;
+                }
+                
+                beggar += goldEnumerable.First();
+                goldEnumerable = goldEnumerable.Skip(1);
+            }
 
             for (var i = 0; i < golds.Count(); i++)
             {
                 switch (i % 2)
                 {
                     case 0:
-                        if (goldList.First() > goldList.Last())
-                        {
-                            _a += goldList.First();
-                            goldList = goldList.Skip(1);
-                            break;
-                        }
-                        if (goldList.Last() > goldList.First())
-                        {
-                            _a += goldList.Last();
-                            goldList = goldList.Take(goldList.Count() - 1);
-                            break;
-                        }
-                        if (goldList.Last() == goldList.First())
-                        {
-                            _a += goldList.First();
-                            goldList = goldList.Skip(1);
-                        }
+                        AssignBiggestPileTo(ref _a);
                         break;
-                    
-                    case 1:
-                        if (goldList.First() > goldList.Last())
-                        {
-                            _b += goldList.First();
-                            goldList = goldList.Skip(1);
-                            break;
-                        }
-                        if (goldList.Last() > goldList.First())
-                        {
-                            _b += goldList.Last();
-                            goldList = goldList.Take(goldList.Count() - 1);
-                            break;
-                        }
-                        if (goldList.Last() == goldList.First())
-                        {
-                            _b += goldList.First();
-                            goldList = goldList.Skip(1);
-                        }
+                    default: 
+                        AssignBiggestPileTo(ref _b);
                         break;
                 }
             }
