@@ -16,12 +16,6 @@ namespace codewars
 
             void AssignBiggestPileTo(ref int beggar)
             {
-                if (goldEnumerable.First() > goldEnumerable.Last())
-                {
-                    beggar += goldEnumerable.First();
-                    goldEnumerable = goldEnumerable.Skip(1);
-                    return;
-                }
                 if (goldEnumerable.Last() > goldEnumerable.First())
                 {
                     beggar += goldEnumerable.Last();
