@@ -9,10 +9,21 @@ namespace codewars
     {
         public static int[] Beggars(int[] values, int n)
         {
-            var f = values.Select((e, i) => i % 2 == 0 ? e : 0).Sum();
+            /*var f = values.Select((e, i) => i % 2 == 0 ? e : 0).Sum();
             var s = values.Select((e, i) => i % 2 == 1 ? e : 0).Sum();
 
-            return new[] {f, s};
+            return new[] {f, s};*/
+
+            var beggars = new int[n];
+            var valuesLeft = values.ToList();
+
+            for (var i = 0; i < n; i++)
+            {
+                valuesLeft = valuesLeft.Skip(i).ToList();
+                beggars[i] = valuesLeft.Where((e, index) => index % n == 0).Sum();
+            }
+
+            return beggars;
         }
     }
 
