@@ -9,7 +9,10 @@ namespace codewars
     {
         public static int[] Beggars(int[] values, int n)
         {
-            throw new NotImplementedException();
+            var f = values.Select((e, i) => i % 2 == 0 ? e : 0).Sum();
+            var s = values.Select((e, i) => i % 2 == 1 ? e : 0).Sum();
+
+            return new[] {f, s};
         }
     }
 
@@ -24,7 +27,7 @@ namespace codewars
 
         public void VerifyBeggarsWith(int[] values, int n, int[] expectedBeggars)
         {
-            EnglishBeggarsSolution.Beggars(values, n).Should().AllBeEquivalentTo(expectedBeggars);
+            EnglishBeggarsSolution.Beggars(values, n).Should().BeEquivalentTo(expectedBeggars);
         }
     }
 }
