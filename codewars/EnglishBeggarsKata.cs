@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,18 +10,12 @@ namespace codewars
     {
         public static int[] Beggars(int[] values, int n)
         {
-            /*var f = values.Select((e, i) => i % 2 == 0 ? e : 0).Sum();
-            var s = values.Select((e, i) => i % 2 == 1 ? e : 0).Sum();
-
-            return new[] {f, s};*/
-
+            var valueQueue = new Queue<int>(values);
             var beggars = new int[n];
-            var valuesLeft = values.ToList();
 
-            for (var i = 0; i < n; i++)
+            for (var i = 0; i < values.Length; i++)
             {
-                valuesLeft = valuesLeft.Skip(i).ToList();
-                beggars[i] = valuesLeft.Where((e, index) => index % n == 0).Sum();
+                beggars[i % n] += valueQueue.Dequeue();
             }
 
             return beggars;
