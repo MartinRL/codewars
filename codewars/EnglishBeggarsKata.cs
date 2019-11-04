@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -10,11 +9,12 @@ namespace codewars
     {
         public static int[] Beggars(int[] values, int n)
         {
-            var valueQueue = new Queue<int>(values);
             var beggars = new int[n];
 
             if (n == 0)
                 return beggars;
+
+            var valueQueue = new Queue<int>(values);
 
             for (var i = 0; i < values.Length; i++)
             {
