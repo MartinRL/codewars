@@ -13,6 +13,9 @@ namespace codewars
             var valueQueue = new Queue<int>(values);
             var beggars = new int[n];
 
+            if (n == 0)
+                return beggars;
+
             for (var i = 0; i < values.Length; i++)
             {
                 beggars[i % n] += valueQueue.Dequeue();
