@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -14,11 +13,9 @@ namespace codewars
             if (n == 0)
                 return beggars;
 
-            var valueQueue = new Queue<int>(values);
-
             for (var i = 0; i < values.Length; i++)
             {
-                beggars[i % n] += valueQueue.Dequeue();
+                beggars[i % n] += values[i];
             }
 
             return beggars;
