@@ -1,4 +1,4 @@
-using System;
+using static System.Linq.Enumerable;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
@@ -9,7 +9,7 @@ namespace codewars
     {
         public static int[] MonkeyCount(int n)
         {
-            throw new NotImplementedException();
+            return Range(1, n).ToArray();
         }
     }
 
