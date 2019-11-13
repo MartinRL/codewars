@@ -78,6 +78,7 @@
     <Compile Include="CountingDuplicatesKata.cs" />
     <Compile Include="CountOddNumbersBelowNKata.cs" />
     <Compile Include="CountSheepKata.cs" />
+    <Compile Include="CountTheMonkeysKata.cs" />
     <Compile Include="DigitalCypherKata.cs" />
     <Compile Include="DigitalCypherVol2Kata.cs" />
     <Compile Include="DigitalCypherVol3MissingKeyKata.cs" />
