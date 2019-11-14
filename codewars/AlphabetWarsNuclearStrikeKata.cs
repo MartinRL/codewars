@@ -9,7 +9,10 @@ namespace codewars
     {
         public static string AlphabetWar(string battlefield)
         {
-            throw new NotImplementedException();
+            if (!battlefield.Contains('#'))
+                return battlefield.Replace("[", string.Empty).Replace("]", string.Empty);
+
+            return battlefield;
         }
     }
 
