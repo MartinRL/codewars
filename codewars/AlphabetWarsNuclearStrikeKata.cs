@@ -19,6 +19,7 @@ namespace codewars
     public class AlphabetWarsNuclearStrikeTests
     {
         [Theory]
+        [InlineData("abde#fghijk", "")]
         [InlineData("abde[fgh]ijk", "abdefghijk")]
         [InlineData("ab#de[fgh]ijk", "fgh")]
         [InlineData("ab#de[fgh]ij#k", "")]
