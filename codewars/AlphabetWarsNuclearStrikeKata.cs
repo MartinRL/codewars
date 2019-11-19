@@ -13,9 +13,6 @@ namespace codewars
             if (!battlefield.Contains('#'))
                 return battlefield.Replace("[", string.Empty).Replace("]", string.Empty);
 
-            if (battlefield.Contains('#') && !battlefield.Contains('['))
-                return string.Empty;
-
             var splitBattlefield = Regex.Split(battlefield, @"([\[\s.\]])");
 
             var survivors = string.Empty;
