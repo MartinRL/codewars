@@ -67,6 +67,8 @@ namespace codewars
         {
             return @this % 1 == 0;
         }
+        
+        public static string AsString(this IEnumerable<char> @this) => new string(@this.ToArray());
     }
 
     public class ExtensionsTests

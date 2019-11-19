@@ -11,7 +11,7 @@ namespace codewars
         public static string AlphabetWar(string battlefield)
         {
             if (!battlefield.Contains('#'))
-                return new string(battlefield.Where(IsLetter).ToArray());
+                return battlefield.Where(IsLetter).AsString();
 
             var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
             var survivors = string.Empty;
