@@ -1,8 +1,8 @@
-using System;
-using static System.Text.RegularExpressions.Regex;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
+using static System.Char;
+using static System.Text.RegularExpressions.Regex;
 
 namespace codewars
 {
@@ -11,7 +11,7 @@ namespace codewars
         public static string AlphabetWar(string battlefield)
         {
             if (!battlefield.Contains('#'))
-                return battlefield.Replace("[", string.Empty).Replace("]", string.Empty);
+                return new string(battlefield.Where(IsLetter).ToArray());
 
             var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
             var survivors = string.Empty;
