@@ -42,9 +42,6 @@ namespace codewars
         [InlineData("##abde[fgh]ijk[mn]op", "mn")]
         [InlineData("#abde[fgh]i#jk[mn]op", "mn")]
         [InlineData("[ab]adfd[dd]##[abe]dedf[ijk]d#d[h]#", "abijk")]
-        public void VerifyAlphabetWarWith(string battlefield, string expectedSurvivors)
-        {
-            AlphabetWarsNuclearStrikeSolution.AlphabetWar(battlefield).Should().Be(expectedSurvivors);
-        }
+        public void VerifyAlphabetWarWith(string battlefield, string expectedSurvivors) => AlphabetWarsNuclearStrikeSolution.AlphabetWar(battlefield).Should().Be(expectedSurvivors);
     }
 }
