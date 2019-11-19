@@ -6,7 +6,7 @@ namespace codewars
 {
     public class YouAreASquareSolution
     {
-        public static bool IsSquare(int n) => Sqrt(n) % 1 == 0;
+        public static bool IsSquare(int n) => Floor(Sqrt(n)) == Sqrt(n);
     }
 
     public class YouAreASquareTests
