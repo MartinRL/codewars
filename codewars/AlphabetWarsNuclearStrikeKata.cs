@@ -14,7 +14,6 @@ namespace codewars
                 return battlefield.Replace("[", string.Empty).Replace("]", string.Empty);
 
             var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
-
             var survivors = string.Empty;
             bool Strike(char _) => _ == '#';
 
