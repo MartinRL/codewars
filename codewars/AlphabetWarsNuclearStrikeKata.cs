@@ -16,10 +16,11 @@ namespace codewars
             var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
 
             var survivors = string.Empty;
+            bool Strike(char _) => _ == '#';
 
             for (var i = 1; i < splitBattlefield.Length - 3; i++)
             {
-                if (splitBattlefield[i] == "[" && splitBattlefield[i - 1].Count(_ => _ == '#') + splitBattlefield[i + 3].Count(_ => _ == '#') <= 1)
+                if (splitBattlefield[i] == "[" && splitBattlefield[i - 1].Count(Strike) + splitBattlefield[i + 3].Count(Strike) <= 1)
                 {
                     survivors += splitBattlefield[i + 1];
                 }
