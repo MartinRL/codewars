@@ -1,6 +1,6 @@
 using System;
+using static System.Text.RegularExpressions.Regex;
 using System.Linq;
-using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 
@@ -13,7 +13,7 @@ namespace codewars
             if (!battlefield.Contains('#'))
                 return battlefield.Replace("[", string.Empty).Replace("]", string.Empty);
 
-            var splitBattlefield = Regex.Split(battlefield, @"([\[\s.\]])");
+            var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
 
             var survivors = string.Empty;
 
