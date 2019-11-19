@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Xunit;
 
@@ -15,7 +16,19 @@ namespace codewars
             if (battlefield.Contains('#') && !battlefield.Contains('['))
                 return string.Empty;
 
-            return battlefield;
+            var splitBattlefield = Regex.Split(battlefield, @"([\[\s.\]])");
+
+            var survivors = string.Empty;
+
+            for (var i = 1; i < splitBattlefield.Length - 3; i++)
+            {
+                if (splitBattlefield[i] == "[" && splitBattlefield[i - 1].Count(_ => _ == '#') + splitBattlefield[i + 3].Count(_ => _ == '#') <= 1)
+                {
+                    survivors += splitBattlefield[i + 1];
+                }
+            }
+
+            return survivors;
         }
     }
 
