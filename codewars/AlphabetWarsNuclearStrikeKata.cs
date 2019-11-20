@@ -14,18 +14,14 @@ namespace codewars
                 return battlefield.Where(IsLetter).AsString();
 
             var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
-            var survivors = string.Empty;
             bool Strike(char _) => _ == '#';
 
-            for (var i = 1; i < splitBattlefield.Length - 3; i++)
-            {
-                if (splitBattlefield[i] == "[" && splitBattlefield[i - 1].Count(Strike) + splitBattlefield[i + 3].Count(Strike) <= 1)
-                {
-                    survivors += splitBattlefield[i + 1];
-                }
-            }
-
-            return survivors;
+            return splitBattlefield
+                .Skip(1)
+                .Take(splitBattlefield.Length - 3)
+                .Where((s, i) => splitBattlefield[i] == "[" && splitBattlefield[i - 1].Count(Strike) + splitBattlefield[i + 3].Count(Strike) <= 1)
+                .Aggregate(string.Empty, (survivors, next) => survivors + next)
+                .AsString();
         }
     }
 
