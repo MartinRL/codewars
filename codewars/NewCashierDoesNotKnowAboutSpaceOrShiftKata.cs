@@ -10,9 +10,8 @@ namespace codewars
 {
     public class NewCashierDoesNotKnowAboutSpaceOrShiftSolution
     {
-        public static string GetOrder(string input)
-        {
-            return new[]
+        public static string GetOrder(string input) =>
+            new[]
             {
                 "Burger",
                 "Fries",
@@ -24,7 +23,6 @@ namespace codewars
                 "Coke"
             }
             .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
-        }
     }
 
     public class NewCashierDoesNotKnowAboutSpaceOrShiftTests
@@ -32,9 +30,6 @@ namespace codewars
         [Theory]
         [InlineData("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza", "Burger Fries Chicken Pizza Pizza Pizza Sandwich Milkshake Milkshake Coke")]
         [InlineData("pizzachickenfriesburgercokemilkshakefriessandwich", "Burger Fries Fries Chicken Pizza Sandwich Milkshake Coke")]
-        public void VerifyGetOrderWith(string input, string expectedOrder)
-        {
-            NewCashierDoesNotKnowAboutSpaceOrShiftSolution.GetOrder(input).Should().Be(expectedOrder);
-        }
+        public void VerifyGetOrderWith(string input, string expectedOrder) => NewCashierDoesNotKnowAboutSpaceOrShiftSolution.GetOrder(input).Should().Be(expectedOrder);
     }
 }

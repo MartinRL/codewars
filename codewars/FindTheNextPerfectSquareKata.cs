@@ -28,9 +28,6 @@ namespace codewars
         [InlineData(625, 676)]
         [InlineData(319225, 320356)]
         [InlineData(15241383936, 15241630849)]
-        public void VerifyFindNextSquareWith(long num, long expected)
-        {
-            FindTheNextPerfectSquareSolution.FindNextSquare(num).Should().Be(expected);
-        }
+        public void VerifyFindNextSquareWith(long num, long expected) => FindTheNextPerfectSquareSolution.FindNextSquare(num).Should().Be(expected);
     }
 }

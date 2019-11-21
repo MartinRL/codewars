@@ -31,9 +31,6 @@ namespace codewars
         [InlineData("", "", "")]
         [InlineData("the quick brown fox", "", "The Quick Brown Fox")]
         [InlineData("aBC deF Ghi", null, "Abc Def Ghi")]
-        public void VerifyTitleCaseWith(string title, string minorWords, string titleCased)
-        {
-            TitleCaseSolution.TitleCase(title, minorWords).Should().Be(titleCased);
-        }
+        public void VerifyTitleCaseWith(string title, string minorWords, string titleCased) => TitleCaseSolution.TitleCase(title, minorWords).Should().Be(titleCased);
     }
 }

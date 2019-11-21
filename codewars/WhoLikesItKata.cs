@@ -38,9 +38,6 @@ namespace codewars
         [InlineData(new[] {"Jacob", "Alex"}, "Jacob and Alex like this")]
         [InlineData(new[] {"Max", "John", "Mark"}, "Max, John and Mark like this")]
         [InlineData(new[] {"Alex", "Jacob", "Mark", "Max"}, "Alex, Jacob and 2 others like this")]
-        public void VerifyLikesWith(string[] name, string expectedLikes)
-        {
-            WhoLikesItSolution.Likes(name).Should().Be(expectedLikes);
-        }
+        public void VerifyLikesWith(string[] name, string expectedLikes) => WhoLikesItSolution.Likes(name).Should().Be(expectedLikes);
     }
 }

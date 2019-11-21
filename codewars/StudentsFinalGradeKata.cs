@@ -7,13 +7,11 @@ namespace codewars
 {
     public class StudentsFinalGradeSolution
     {
-        public static int FinalGrade(int exam, int projects)
-        {
-            return exam > 90 || projects > 10 ? 100 :
-                   exam > 75 && projects > 4 ? 90 :
-                   exam > 50 && projects > 1 ? 75 :
-                   0;
-        }
+        public static int FinalGrade(int exam, int projects) =>
+            exam > 90 || projects > 10 ? 100 :
+            exam > 75 && projects > 4 ? 90 :
+            exam > 50 && projects > 1 ? 75 :
+            0;
     }
 
     public class StudentsFinalGradeTests
@@ -27,9 +25,6 @@ namespace codewars
         [InlineData(55, 3, 75)]
         [InlineData(55, 0, 0)]
         [InlineData(20, 2, 0)]
-        public void VerifyFinalGradeWith(int exam, int projects, int expected)
-        {
-            StudentsFinalGradeSolution.FinalGrade(exam, projects).Should().Be(expected);
-        }
+        public void VerifyFinalGradeWith(int exam, int projects, int expected) => StudentsFinalGradeSolution.FinalGrade(exam, projects).Should().Be(expected);
     }
 }

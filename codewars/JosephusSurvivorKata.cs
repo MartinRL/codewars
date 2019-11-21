@@ -6,13 +6,7 @@ namespace codewars
 {
     public static class JosephusSurvivorSolution
     {
-        public static int JosSurvivor(int n, int k) 
-        {
-            if (n == 1)
-                return 1;
-            
-            return (JosSurvivor(n - 1, k) + k - 1) % n + 1;
-        }  
+        public static int JosSurvivor(int n, int k) => n == 1 ? 1 : (JosSurvivor(n - 1, k) + k - 1) % n + 1;
     }
 
     public class JosephusSurvivorTests
@@ -29,9 +23,6 @@ namespace codewars
         [InlineData(5, 300, 1)]
         [InlineData(7, 300, 7)]
         [InlineData(300, 300, 265)]
-        public void VerifyJosSurvivorWith(int n, int k, int expected)
-        {
-            JosephusSurvivorSolution.JosSurvivor(n, k).Should().Be(expected);
-        }
+        public void VerifyJosSurvivorWith(int n, int k, int expected) => JosephusSurvivorSolution.JosSurvivor(n, k).Should().Be(expected);
     }
 }

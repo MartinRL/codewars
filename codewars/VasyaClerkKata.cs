@@ -52,9 +52,6 @@ namespace codewars
         [InlineData(new[] {25, 25, 25, 25, 25, 25, 100, 100}, "YES")]
         [InlineData(new[] {25, 100}, "NO")]
         [InlineData(new[] {25, 25, 50, 50, 100}, "NO")]
-        public void VerifyTicketsWith(int[] peopleInLine, string canGiveChangeToEveryone)
-        {
-            VasyaClerkSolution.Tickets(peopleInLine).Should().Be(canGiveChangeToEveryone);
-        }
+        public void VerifyTicketsWith(int[] peopleInLine, string canGiveChangeToEveryone) => VasyaClerkSolution.Tickets(peopleInLine).Should().Be(canGiveChangeToEveryone);
     }
 }

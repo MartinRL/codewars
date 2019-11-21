@@ -8,10 +8,7 @@ namespace codewars
 {
     public class SpecialNumberSolution
     {
-        public static string SpecialNumber(int number)
-        {
-            return number.ToDigits().Any(_ => _ >= 6) ? "NOT!!" : "Special!!";
-        }
+        public static string SpecialNumber(int number) => number.ToDigits().Any(_ => _ >= 6) ? "NOT!!" : "Special!!";
     }
 
     public class SpecialNumberTests
@@ -27,9 +24,6 @@ namespace codewars
         [InlineData(00009, "NOT!!")]
         [InlineData(00026, "NOT!!")]
         [InlineData(00092, "NOT!!")]
-        public void VerifySpecialNumberWith(int number, string expected)
-        {
-            SpecialNumberSolution.SpecialNumber(number).Should().Be(expected);
-        }
+        public void VerifySpecialNumberWith(int number, string expected) => SpecialNumberSolution.SpecialNumber(number).Should().Be(expected);
     }
 }

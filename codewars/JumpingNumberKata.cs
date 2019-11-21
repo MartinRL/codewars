@@ -34,9 +34,6 @@ namespace codewars
         [InlineData(4343456, "Jumping!!")]
         [InlineData(98789876, "Jumping!!")]
         [InlineData(00000079, "Not!!")]
-        public void VerifyJumpingNumberWith(int number, string expected)
-        {
-            JumpingNumberSolution.JumpingNumber(number).Should().Be(expected);
-        }
+        public void VerifyJumpingNumberWith(int number, string expected) => JumpingNumberSolution.JumpingNumber(number).Should().Be(expected);
     }
 }

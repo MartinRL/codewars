@@ -25,9 +25,6 @@ namespace codewars
         [InlineData("Indivisibility", 1)]
         [InlineData("Indivisibilities", 2)]
         [InlineData("1123232", 3)]
-        public void VerifyCountDuplicatesWith(string argument, int expected)
-        {
-            CountingDuplicatesSolution.CountDuplicates(argument).Should().Be(expected);
-        }
+        public void VerifyCountDuplicatesWith(string argument, int expected) => CountingDuplicatesSolution.CountDuplicates(argument).Should().Be(expected);
     }
 }

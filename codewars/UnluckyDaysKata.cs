@@ -32,9 +32,6 @@ namespace codewars
         [InlineData(1618, 2)]
         [InlineData(2132, 1)]
         [InlineData(2065, 3)]
-        public void VerifyGetUnluckyDaysWith(int year, int expectedUnluckyDays)
-        {
-            UnluckyDaysSolution.GetUnluckyDays(year).Should().Be(expectedUnluckyDays);
-        }
+        public void VerifyGetUnluckyDaysWith(int year, int expectedUnluckyDays) => UnluckyDaysSolution.GetUnluckyDays(year).Should().Be(expectedUnluckyDays);
     }
 }

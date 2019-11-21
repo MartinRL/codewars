@@ -8,14 +8,12 @@ namespace codewars
 {
     public static class FirstNonRepeatingCharacterSolution
     {
-        public static string FirstNonRepeatingLetter(string s)
-        {
-            return s.GroupBy(char.ToLower)
-                .Where(g => g.Count() == 1)
-                .Select(g => g.First().ToString())
-                .DefaultIfEmpty(string.Empty)
-                .First();
-        }
+        public static string FirstNonRepeatingLetter(string s) =>
+            s.GroupBy(char.ToLower)
+            .Where(g => g.Count() == 1)
+            .Select(g => g.First().ToString())
+            .DefaultIfEmpty(string.Empty)
+            .First();
     }
 
     public class FirstNonRepeatingCharacterTests
@@ -34,9 +32,6 @@ namespace codewars
         [InlineData("abcC", "a")]
         [InlineData("sTreSS", "T")]
         [InlineData("sStT", "")]
-        public void VerifyFirstNonRepeatingLetterWith(string s, string l)
-        {
-            FirstNonRepeatingCharacterSolution.FirstNonRepeatingLetter(s).Should().Be(l);
-        }
+        public void VerifyFirstNonRepeatingLetterWith(string s, string l) => FirstNonRepeatingCharacterSolution.FirstNonRepeatingLetter(s).Should().Be(l);
     }
 }

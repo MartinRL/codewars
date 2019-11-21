@@ -7,10 +7,7 @@ namespace codewars
 {
     public class AbbreviateATwoWordNameSolution
     {
-        public static string AbbrevName(string name)
-        {
-            return name.Split(' ').Aggregate((result, n) => $"{result.First()}.{n.First()}").ToUpper();
-        }
+        public static string AbbrevName(string name) => name.Split(' ').Aggregate((result, n) => $"{result.First()}.{n.First()}").ToUpper();
     }
 
     public class AbbreviateATwoWordNameTests
@@ -22,9 +19,6 @@ namespace codewars
         [InlineData("P Favuzzi", "P.F")]
         [InlineData("David Mendieta", "D.M")]
         [InlineData("jan lidholm", "J.L")]
-        public void VerifyAbbrevNameWith(string name, string expectedAbbreviation)
-        {
-            AbbreviateATwoWordNameSolution.AbbrevName(name).Should().Be(expectedAbbreviation);
-        }
+        public void VerifyAbbrevNameWith(string name, string expectedAbbreviation) => AbbreviateATwoWordNameSolution.AbbrevName(name).Should().Be(expectedAbbreviation);
     }
 }

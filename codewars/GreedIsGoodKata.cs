@@ -42,9 +42,6 @@ namespace codewars
         [InlineData(new[] {6, 4, 5, 5, 5}, 500)]
         [InlineData(new[] {5, 1, 3, 4, 1}, 250)]
         [InlineData(new[] {1, 1, 1, 3, 1}, 1100)]
-        public static void VerifyScoreWith(int[] dice, int score)
-        {
-            GreedIsGoodSolution.Score(dice).Should().Be(score);
-        }
+        public static void VerifyScoreWith(int[] dice, int score) => GreedIsGoodSolution.Score(dice).Should().Be(score);
     }
 }

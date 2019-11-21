@@ -25,9 +25,6 @@ namespace codewars
                     new[] {"Mallard", "Barbary", "Hook Bill", "Blue Swedish", "Crested"})]
         [InlineData(new[] {"African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"}, 
                     new string[] {})]
-        public void VerifyGooseFilter(IEnumerable<string> birds, IEnumerable<string> expectedBirdsWithoutGeese)
-        {
-            FilterOutTheGeeseSolution.GooseFilter(birds).Should().BeEquivalentTo(expectedBirdsWithoutGeese);
-        }
+        public void VerifyGooseFilter(IEnumerable<string> birds, IEnumerable<string> expectedBirdsWithoutGeese) => FilterOutTheGeeseSolution.GooseFilter(birds).Should().BeEquivalentTo(expectedBirdsWithoutGeese);
     }
 }

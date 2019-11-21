@@ -15,9 +15,6 @@ namespace codewars
         [Theory]
         [InlineData("the_stealth_warrior", "theStealthWarrior")]
         [InlineData("The-Stealth-Warrior", "TheStealthWarrior")]
-        public void VerifyToCamelCaseWith(string str, string expectedCamelCase)
-        {
-            ConvertStringToCamelCaseSolution.ToCamelCase(str).Should().Be(expectedCamelCase);
-        }
+        public void VerifyToCamelCaseWith(string str, string expectedCamelCase) => ConvertStringToCamelCaseSolution.ToCamelCase(str).Should().Be(expectedCamelCase);
     }
 }
