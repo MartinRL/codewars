@@ -25,9 +25,6 @@ namespace codewars
         [InlineData("testing", "t")]
         [InlineData("middle", "dd")]
         [InlineData("A", "A")]
-        public void VerifyGetMiddleWith(string argument, string expected)
-        {
-            GetTheMiddleCharacterSolution.GetMiddle(argument).Should().Be(expected);
-        }
+        public void VerifyGetMiddleWith(string argument, string expected) => GetTheMiddleCharacterSolution.GetMiddle(argument).Should().Be(expected);
     }
 }

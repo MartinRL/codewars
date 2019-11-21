@@ -16,9 +16,6 @@ namespace codewars
         [InlineData(new bool[] { true, true, true, false }, "AND", false)]
         [InlineData(new bool[] { true, true, true, false }, "OR", true)]
         [InlineData(new bool[] { true, true, true, false }, "XOR", true)]
-        public void VerifyLogicalCalcWith(bool[] array, string op, bool expectedLogicalValue)
-        {
-            LogicalCalculatorSolution.LogicalCalc(array, op).Should().Be(expectedLogicalValue);
-        }
+        public void VerifyLogicalCalcWith(bool[] array, string op, bool expectedLogicalValue) => LogicalCalculatorSolution.LogicalCalc(array, op).Should().Be(expectedLogicalValue);
     }
 }

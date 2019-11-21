@@ -40,9 +40,6 @@ namespace codewars
         [InlineData(43, 139)]
         [InlineData(44, 159)]
         [InlineData(50, 175)]
-        public void VerifyDblLinearWith(int index, int element)
-        {
-            TwiceLinearSolution.DblLinear(index).Should().Be(element);
-        }
+        public void VerifyDblLinearWith(int index, int element) => TwiceLinearSolution.DblLinear(index).Should().Be(element);
     }
 }

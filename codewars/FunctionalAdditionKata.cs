@@ -13,9 +13,6 @@ namespace codewars
     public class FunctionalAdditionTests
     {
         [Fact]
-        public void ShouldGiveAddFunc()
-        {
-            Kata.Add(1)(3).Should().Be(4);
-        }
+        public void ShouldGiveAddFunc() => Kata.Add(1)(3).Should().Be(4);
     }
 }

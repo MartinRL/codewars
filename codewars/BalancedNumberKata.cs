@@ -39,9 +39,6 @@ namespace codewars
         [InlineData(295591, "Not Balanced")]
         [InlineData(1230987, "Not Balanced")]
         [InlineData(432, "Not Balanced")]
-        public void VerifyBalancedNumberWith(int input, string expected)
-        {
-            BalancedNumberSolution.BalancedNumber(input).Should().Be(expected);
-        }
+        public void VerifyBalancedNumberWith(int input, string expected) => BalancedNumberSolution.BalancedNumber(input).Should().Be(expected);
     }
 }

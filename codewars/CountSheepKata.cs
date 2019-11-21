@@ -7,10 +7,7 @@ namespace codewars
 {
     public static class CountSheepSolution
     {
-        public static int CountSheep(bool[] sheep)
-        {
-            return sheep.Count(_ => _);
-        }
+        public static int CountSheep(bool[] sheep) => sheep.Count(_ => _);
     }
     
     public class CountSheepTests 
@@ -26,9 +23,6 @@ namespace codewars
         [InlineData(new[] { false, false, false, false, 
                             false, false, false, false, 
                             false, false, false, false }, 0)]
-        public void VerifyCountSheepExampleWith(bool[] sheep, int expected) 
-        {
-            CountSheepSolution.CountSheep(sheep).Should().Be(expected);
-        }
+        public void VerifyCountSheepExampleWith(bool[] sheep, int expected) => CountSheepSolution.CountSheep(sheep).Should().Be(expected);
     }
 }

@@ -7,13 +7,7 @@ namespace codewars
 {
     public class PowerOfTwoSolution
     {
-        public static bool IsPowerOfTwo(int n)
-        {
-            if (n == 0)
-                return false;
-            
-            return ((n - 1) & n) == 0;
-        }
+        public static bool IsPowerOfTwo(int n)  => (n != 0) && ((n - 1) & n) == 0;
     }
 
     public class PowerOfTwoTests
@@ -26,9 +20,6 @@ namespace codewars
         [InlineData(333, false)]
         [InlineData(1, true)]
         [InlineData(0, false)]
-        public void VerifyIsPowerOfTwqWith(int n, bool expected)
-        {
-            PowerOfTwoSolution.IsPowerOfTwo(n).Should().Be(expected);
-        }
+        public void VerifyIsPowerOfTwqWith(int n, bool expected) => PowerOfTwoSolution.IsPowerOfTwo(n).Should().Be(expected);
     }
 }

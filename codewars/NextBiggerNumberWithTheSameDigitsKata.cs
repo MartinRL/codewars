@@ -22,10 +22,7 @@ namespace codewars
 
     public static class NextBiggerNumberWithTheSameDigitsExtensions
     {
-        public static string AsDescendingString(this long n)
-        {
-            return new string(n.ToString().OrderByDescending(_ => _).ToArray());
-        }
+        public static string AsDescendingString(this long @this) => @this.ToString().OrderByDescending(_ => _).AsString();
     }
 
     public class NextBiggerNumberWithTheSameDigitsTests
@@ -40,9 +37,7 @@ namespace codewars
         [InlineData(9, -1)]
         [InlineData(111, -1)]
         [InlineData(531, -1)]
-        public void VerifyCalculateNextBiggerNumberWith(long n, long expectedNextBiggerWithTheSameDigits)
-        {
+        public void VerifyCalculateNextBiggerNumberWith(long n, long expectedNextBiggerWithTheSameDigits) =>
             NextBiggerNumberWithTheSameDigitsSolution.CalculateNextBiggerNumber(n).Should().Be(expectedNextBiggerWithTheSameDigits);
-        }
     }
 }

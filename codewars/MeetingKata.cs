@@ -7,16 +7,14 @@ namespace codewars
 {
     public class MeetingSolution
     {
-        public static string FormatAndOrderAccordingToJohnsRequirements(string friends)
-        {
-            return friends
-                .ToUpperInvariant()
-                .Split(';')
-                .Select(name => name.Split(':'))
-                .OrderBy(names => names[1]).ThenBy(names => names[0])
-                .Select(names => $"({names[1]}, {names[0]})")
-                .Aggregate((concat, name) => $"{concat}{name}");
-        }
+        public static string FormatAndOrderAccordingToJohnsRequirements(string friends) =>
+            friends
+            .ToUpperInvariant()
+            .Split(';')
+            .Select(name => name.Split(':'))
+            .OrderBy(names => names[1]).ThenBy(names => names[0])
+            .Select(names => $"({names[1]}, {names[0]})")
+            .Aggregate((concat, name) => $"{concat}{name}");
     }
 
     public class MeetingTests
@@ -30,9 +28,7 @@ namespace codewars
             "(ARNO, ALEX)(ARNO, HALEY)(BELL, SARAH)(CORNWELL, ALISSA)(DORNY, PAUL)(DORRIES, ANDREW)(KERN, ANN)(KERN, MADISON)")]
         [InlineData("Martin:Rosenholm;Axel:Rosenholm;Sarah:Cracknell;Nils:Rosenholm",
             "(CRACKNELL, SARAH)(ROSENHOLM, AXEL)(ROSENHOLM, MARTIN)(ROSENHOLM, NILS)")]
-        public void VerifyFormatAndOrderAccordingToJohnsRequirementsWith(string friends, string formattedAndOrderedFriends)
-        {
+        public void VerifyFormatAndOrderAccordingToJohnsRequirementsWith(string friends, string formattedAndOrderedFriends) =>
             MeetingSolution.FormatAndOrderAccordingToJohnsRequirements(friends).Should().Be(formattedAndOrderedFriends);
-        }
     }
 }

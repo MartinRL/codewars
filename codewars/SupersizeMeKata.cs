@@ -2,15 +2,13 @@ using System;
 using System.Linq;
 using FluentAssertions;
 using Xunit;
+using static System.Int64;
 
 namespace codewars
 {
     public class SupersizeMeSolution
     {
-        public static long Supersize(long num)
-        {
-            return long.Parse(new string(num.ToString().OrderByDescending(_ => _).ToArray()));
-        }
+        public static long Supersize(long num) => Parse(new string(num.ToString().OrderByDescending(_ => _).ToArray()));
     }
 
     public class SupersizeMeTests
@@ -25,9 +23,6 @@ namespace codewars
         [InlineData(700000000001, 710000000000)]
         [InlineData(666666, 666666)]
         [InlineData(2, 2)]
-        public void VerifySupersizeWith(long num, long expectedSupersizedNum)
-        {
-            SupersizeMeSolution.Supersize(num).Should().Be(expectedSupersizedNum);
-        }
+        public void VerifySupersizeWith(long num, long expectedSupersizedNum) => SupersizeMeSolution.Supersize(num).Should().Be(expectedSupersizedNum);
     }
 }

@@ -20,9 +20,6 @@ namespace codewars
         [InlineData("green", "yellow")]
         [InlineData("yellow", "red")]
         [InlineData("red", "green")]
-        public void VerifyUpdateLightWith(string current, string expectedNext)
-        {
-            ThinkfulLogicDrillsTrafficLightSolution.UpdateLight(current).Should().Be(expectedNext);
-        }
+        public void VerifyUpdateLightWith(string current, string expectedNext) => ThinkfulLogicDrillsTrafficLightSolution.UpdateLight(current).Should().Be(expectedNext);
     }
 }

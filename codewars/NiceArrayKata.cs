@@ -16,9 +16,6 @@ namespace codewars
         [InlineData(new[] {2,10,9,3}, true)]
         [InlineData(new[] {3,4,5,7}, false)]
         [InlineData(new int[] {}, false)]
-        public void VerifyIsNiceWith(int[] arr, bool expectedIsNice)
-        {
-            NiceArraySolution.IsNice(arr).Should().Be(expectedIsNice);
-        }
+        public void VerifyIsNiceWith(int[] arr, bool expectedIsNice) => NiceArraySolution.IsNice(arr).Should().Be(expectedIsNice);
     }
 }

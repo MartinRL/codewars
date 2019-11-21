@@ -73,10 +73,7 @@ namespace codewars
     {
         [Theory]
         [ClassData(typeof(ClockwiseSpiralTestData) )]
-        public void VerifyCreateSpiralWith(int n, int[,] expectedSpiral)
-        {
-            ClockwiseSpiralSolution.CreateSpiral(n).Should().BeEquivalentTo(expectedSpiral);
-        }
+        public void VerifyCreateSpiralWith(int n, int[,] expectedSpiral) => ClockwiseSpiralSolution.CreateSpiral(n).Should().BeEquivalentTo(expectedSpiral);
     }
     
     public class ClockwiseSpiralTestData : IEnumerable<object[]>

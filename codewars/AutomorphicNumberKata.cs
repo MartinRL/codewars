@@ -5,10 +5,7 @@ namespace codewars
 {
     public class AutomorphicNumberSolution
     {
-        public static string Automorphic(int n)
-        {
-            return (n * n).ToString().EndsWith(n.ToString()) ? "Automorphic" : "Not!!";
-        }
+        public static string Automorphic(int n) => (n * n).ToString().EndsWith(n.ToString()) ? "Automorphic" : "Not!!";
     }
 
     public class AutomorphicNumberTests
@@ -24,9 +21,6 @@ namespace codewars
         [InlineData(95, "Not!!")]
         [InlineData(625, "Automorphic")]
         [InlineData(225, "Not!!")]
-        public void VerifyAutomorphicWith(int n, string expected)
-        {
-            AutomorphicNumberSolution.Automorphic(n).Should().Be(expected);
-        }
+        public void VerifyAutomorphicWith(int n, string expected) => AutomorphicNumberSolution.Automorphic(n).Should().Be(expected);
     }
 }

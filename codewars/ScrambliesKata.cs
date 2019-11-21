@@ -7,14 +7,12 @@ namespace codewars
 {
     public static class ScrambliesSolution
     {
-        public static bool Scramble(string scrambled, string word)
-        {
-            return word.ToCharArray().All(l => scrambled.ToCharArray().Contains(l)) && 
-                   scrambled.ToCharArray()
-                       .Where(l => word.ToCharArray().Contains(l)).OrderBy(_ => _).GroupBy(_ => _)
-                       .Zip(word.ToCharArray().OrderBy(_ => _).GroupBy(_ => _), (sg, wg) => sg.Count() >= wg.Count())
-                       .All(_ => _);
-        }
+        public static bool Scramble(string scrambled, string word) =>
+           word.ToCharArray().All(l => scrambled.ToCharArray().Contains(l)) &&
+           scrambled.ToCharArray()
+               .Where(l => word.ToCharArray().Contains(l)).OrderBy(_ => _).GroupBy(_ => _)
+               .Zip(word.ToCharArray().OrderBy(_ => _).GroupBy(_ => _), (sg, wg) => sg.Count() >= wg.Count())
+               .All(_ => _);
     }
 
     public class ScrambliesTests
@@ -24,9 +22,6 @@ namespace codewars
         [InlineData("cedewaraaossoqqyt", "codewars", true)]
         [InlineData("katas", "steak", false)]
         [InlineData("scriptjavx", "javascript", false)]
-        public void VerifyScrambleWith(string scrambled, string word, bool isMatch)
-        {
-            ScrambliesSolution.Scramble(scrambled, word).Should().Be(isMatch);
-        }
+        public void VerifyScrambleWith(string scrambled, string word, bool isMatch) => ScrambliesSolution.Scramble(scrambled, word).Should().Be(isMatch);
     }
 }

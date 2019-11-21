@@ -31,9 +31,6 @@ namespace codewars
         [InlineData( new [] { 1, 2, 3, 4, 5 }, 6, new [] { 1, 2, 3, 4, 5, 0 })]
         [InlineData( new [] { 1, 2, 3, 4, 5 }, 0, new int[] {})]
 
-        public void VerifyBeggarsWith(int[] values, int n, int[] expectedBeggars)
-        {
-            EnglishBeggarsSolution.Beggars(values, n).Should().BeEquivalentTo(expectedBeggars);
-        }
+        public void VerifyBeggarsWith(int[] values, int n, int[] expectedBeggars) => EnglishBeggarsSolution.Beggars(values, n).Should().BeEquivalentTo(expectedBeggars);
     }
 }
