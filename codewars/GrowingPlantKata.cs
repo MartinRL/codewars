@@ -9,6 +9,9 @@ namespace codewars
     {
         public static int CalculateDaysFor(int upSpeed, int downSpeed, int desiredHeight)
         {
+            if (upSpeed >= desiredHeight)
+                return 1;
+
             return (desiredHeight / downSpeed - 1) / (upSpeed / downSpeed - 1);
         }
     }
