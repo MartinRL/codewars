@@ -8,7 +8,7 @@ namespace codewars
 {
     public class GrowingPlantSolution
     {
-        public static int CalculateDaysFor(int upSpeed, int downSpeed, int desiredHeight) => upSpeed >= desiredHeight ? 1 : (int)Ceiling((desiredHeight / (decimal)downSpeed - 1) / (upSpeed / (decimal)downSpeed - 1));
+        public static int CalculateDaysFor(int upSpeed, int downSpeed, int desiredHeight) => upSpeed >= desiredHeight ? 1 : (int)Ceiling(Round((desiredHeight / (decimal)downSpeed - 1) / (upSpeed / (decimal)downSpeed - 1)));
     }
 
     public class GrowingPlantTests
