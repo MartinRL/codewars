@@ -18,6 +18,7 @@ namespace codewars
         [InlineData(10, 9, 4, 1)]
         [InlineData(14, 7, 208, 29)]
         [InlineData(11, 9, 877, 434)]
+        [InlineData(96, 87, 153, 8)]
         public void VerifyCalculateDaysForWith(int upSpeed, int downSpeed, int desiredHeight, int expectedNoOfDays) => GrowingPlantSolution.CalculateDaysFor(upSpeed, downSpeed, desiredHeight).Should().Be(expectedNoOfDays);
     }
 }
