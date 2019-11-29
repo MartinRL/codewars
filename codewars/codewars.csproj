@@ -102,6 +102,7 @@
     <Compile Include="NewCashierDoesNotKnowAboutSpaceOrShiftKata.cs" />
     <Compile Include="NextBiggerNumberWithTheSameDigitsKata.cs" />
     <Compile Include="NiceArrayKata.cs" />
+    <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
