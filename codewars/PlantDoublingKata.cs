@@ -1,15 +1,16 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+    using static System.Math;
+
     public class PlantDoublingSolution
     {
         public static int Calculate(int n)
         {
-            throw new NotImplementedException();
+            return n % 2 == 0 ? 1 : 2;
         }
     }
 
