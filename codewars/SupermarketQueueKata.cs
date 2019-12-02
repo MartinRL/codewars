@@ -1,10 +1,10 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class SupermarketQueueSolution
     {
         public static long CalculateQueueTime(int[] customers, int n)
