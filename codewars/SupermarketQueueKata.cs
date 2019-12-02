@@ -12,6 +12,9 @@ namespace codewars
             if (customers.Length == 0)
                 return 0;
 
+            if (n >= customers.Length)
+                return customers.Max();
+
             throw new NotImplementedException();
         }
     }
