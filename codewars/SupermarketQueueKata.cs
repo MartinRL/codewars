@@ -12,6 +12,9 @@ namespace codewars
             if (customers.Length == 0)
                 return 0;
 
+            if (n == 1)
+                return customers.Sum();
+
             if (n >= customers.Length)
                 return customers.Max();
 
