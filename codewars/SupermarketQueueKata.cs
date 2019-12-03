@@ -11,9 +11,6 @@ namespace codewars
     {
         public static long CalculateQueueTime(int[] customers, int n)
         {
-            if (customers.Length == 0)
-                return 0;
-
             if (n == 1)
                 return customers.Sum();
 
