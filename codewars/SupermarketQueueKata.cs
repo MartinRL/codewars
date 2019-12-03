@@ -28,7 +28,10 @@ namespace codewars
                 {
                     if (tills[i] - 1 <= 0)
                     {
-                        tills[i] = customerQueue.Dequeue();
+                        if (customerQueue.Any())
+                        {
+                            tills[i] = customerQueue.Dequeue();
+                        }
                     }
                     else
                     {
