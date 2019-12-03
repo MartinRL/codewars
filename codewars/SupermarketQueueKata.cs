@@ -21,18 +21,13 @@ namespace codewars
 
             var tills = new int[n];
 
-            for (var i = 0; i < n; i++)
-            {
-                tills[i] = customerQueue.Dequeue();
-            }
-
-            var counter = 1;
+            var counter = 0;
 
             while (customerQueue.Any())
             {
                 for (var i = 0; i < n; i++)
                 {
-                    if (tills[i] - 1 == 0)
+                    if (tills[i] - 1 <= 0)
                     {
                         tills[i] = customerQueue.Dequeue();
                     }
