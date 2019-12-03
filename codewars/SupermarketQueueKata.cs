@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace codewars
 {
     using System;
@@ -18,7 +20,35 @@ namespace codewars
             if (n >= customers.Length)
                 return customers.Max();
 
-            throw new NotImplementedException();
+            var customerQueue = new Queue<int>(customers);
+
+            var tills = new int[n];
+
+            for (var i = 0; i < n; i++)
+            {
+                tills[i] = customerQueue.Dequeue();
+            }
+
+            var counter = 1;
+
+            while (customerQueue.Any())
+            {
+                for (var i = 0; i < n; i++)
+                {
+                    if (tills[i] - 1 == 0)
+                    {
+                        tills[i] = customerQueue.Dequeue();
+                    }
+                    else
+                    {
+                        tills[i]--;
+                    }
+                }
+
+                counter++;
+            }
+
+            return counter + tills.Max() - 1;
         }
     }
 
