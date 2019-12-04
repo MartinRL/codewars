@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
-using Xunit;
-
-namespace codewars
+﻿namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public static class JosephusSurvivorSolution
     {
         public static int JosSurvivor(int n, int k) => n == 1 ? 1 : (JosSurvivor(n - 1, k) + k - 1) % n + 1;

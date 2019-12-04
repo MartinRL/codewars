@@ -1,23 +1,23 @@
-using System.Globalization;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Globalization;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class TitleCaseSolution
     {
         public static string TitleCase(string title, string minorWords)
         {
             var titleCasedTitle = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
-            
+
             if (string.IsNullOrWhiteSpace(minorWords))
                 return titleCasedTitle;
-            
+
             return string.Join(" ",
                 titleCasedTitle
-                .Split()
-                .Select((w, i) => minorWords.ToLower().Split().Contains(w.ToLower()) && i != 0 ? w.ToLower() : w )
+                    .Split()
+                    .Select((w, i) => minorWords.ToLower().Split().Contains(w.ToLower()) && i != 0 ? w.ToLower() : w)
             );
         }
     }

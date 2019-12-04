@@ -1,20 +1,21 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
 using static System.Int32;
 
 namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class SquareEveryDigitSolution
     {
         public static int SquareDigits(int n) =>
             Parse(n.ToString().ToCharArray()
-            .Select(char.GetNumericValue)
-            .Select(d => Math.Pow(d, 2).ToString())
-            .Aggregate((s1, s2) => s1 + s2));
+                .Select(char.GetNumericValue)
+                .Select(d => Math.Pow(d, 2).ToString())
+                .Aggregate((s1, s2) => s1 + s2));
     }
-    
+
     public class SquareEveryDigitKataTests
     {
         [Theory]

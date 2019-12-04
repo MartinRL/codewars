@@ -1,16 +1,16 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class CountingDuplicatesSolution
     {
         public static int CountDuplicates(string s)
         {
             var lowerCased = s.ToLower();
             var unique = lowerCased.Distinct();
-            
+
             return unique.Count(c => lowerCased.IndexOf(c) != lowerCased.LastIndexOf(c));
         }
     }

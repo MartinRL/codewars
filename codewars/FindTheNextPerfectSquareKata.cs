@@ -1,11 +1,11 @@
-using System;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using FluentAssertions;
+    using Xunit;
+
     public static class FindTheNextPerfectSquareSolution
-    
+
     {
         public static long FindNextSquare(long num)
         {
@@ -13,11 +13,11 @@ namespace codewars
 
             if (!IsPerfectSquare(num))
                 return -1;
-            
-            return (long)Math.Pow(Math.Sqrt(num) + 1 /* next integer will yield a perfect square */ , 2);
+
+            return (long) Math.Pow(Math.Sqrt(num) + 1 /* next integer will yield a perfect square */, 2);
         }
     }
-    
+
     public class FindTheNextPerfectSquareTests
     {
         [Theory]

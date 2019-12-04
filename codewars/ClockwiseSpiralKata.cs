@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using FluentAssertions;
+    using Xunit;
+
     public class ClockwiseSpiralSolution
     {
         public static int[,] CreateSpiral(int n)
@@ -12,9 +12,9 @@ namespace codewars
             var spiral = new int[n, n];
 
             var topBoundary = 0;
-            var bottomBoundary = n-1;
+            var bottomBoundary = n - 1;
             var leftBoundary = 0;
-            var rightBoundary =  n-1;
+            var rightBoundary = n - 1;
             var counter = 1;
             var direction = Direction.Left;
             var x = 0;
@@ -64,36 +64,48 @@ namespace codewars
 
         private enum Direction
         {
-            Left, Right, Up, Down
+            Left,
+            Right,
+            Up,
+            Down
         }
     }
 
     public class ClockwiseSpiralTests
     {
         [Theory]
-        [ClassData(typeof(ClockwiseSpiralTestData) )]
+        [ClassData(typeof(ClockwiseSpiralTestData))]
         public void VerifyCreateSpiralWith(int n, int[,] expectedSpiral) => ClockwiseSpiralSolution.CreateSpiral(n).Should().BeEquivalentTo(expectedSpiral);
     }
-    
+
     public class ClockwiseSpiralTestData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {
-            yield return new object[] { 1, new[,]
+            yield return new object[]
             {
-                { 1 }
-            } };
-            yield return new object[] { 2, new[,]
+                1, new[,]
+                {
+                    {1}
+                }
+            };
+            yield return new object[]
             {
-                {1, 2},
-                {4, 3},
-            } };
-            yield return new object[] { 3, new[,]
+                2, new[,]
+                {
+                    {1, 2},
+                    {4, 3}
+                }
+            };
+            yield return new object[]
             {
-                {1, 2, 3},
-                {8, 9, 4},
-                {7, 6, 5}
-            } };
+                3, new[,]
+                {
+                    {1, 2, 3},
+                    {8, 9, 4},
+                    {7, 6, 5}
+                }
+            };
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

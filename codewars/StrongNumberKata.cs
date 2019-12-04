@@ -1,13 +1,13 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class StrongNumberSolution
     {
-        private static readonly int[] digitFactorials = new int[10] { 0, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
-        
+        private static readonly int[] digitFactorials = new int[10] {0, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+
         public static string StrongNumber(int number) => number == number.ToDigits().Select(d => digitFactorials[d]).Sum() ? "STRONG!!!!" : "Not Strong !!";
     }
 

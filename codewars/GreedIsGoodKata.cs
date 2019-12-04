@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using FluentAssertions;
-using Xunit;
-
-namespace codewars
+﻿namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class GreedIsGoodSolution
     {
         public static int Score(int[] dice)
@@ -13,17 +13,17 @@ namespace codewars
                 .Select(g => Points(g.Key, g.Count()))
                 .Sum();
         }
-        
+
         private static int Points(int die, int count)
         {
             switch (die)
             {
                 case 1:
-                    return (count / 3) * 1000 + (count % 3) * 100;
+                    return count / 3 * 1000 + count % 3 * 100;
                 case 5:
-                    return (count / 3) * 500 + (count % 3) * 50;
+                    return count / 3 * 500 + count % 3 * 50;
                 default:
-                    return (count / 3) * die * 100;
+                    return count / 3 * die * 100;
             }
         }
     }

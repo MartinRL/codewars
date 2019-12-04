@@ -1,17 +1,17 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class UnluckyDaysSolution
     {
         public static int GetUnluckyDays(int year)
         {
             const int January = 1;
             const int December = 12;
-            
+
             return Enumerable.Range(January, December)
                 .Select(month => new DateTime(year, month, 13))
                 .Count(_ => _.DayOfWeek == DayOfWeek.Friday);

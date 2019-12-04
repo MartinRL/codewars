@@ -1,9 +1,9 @@
-using System;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using FluentAssertions;
+    using Xunit;
+
     public class JumpingNumberSolution
     {
         public static string JumpingNumber(int number)

@@ -1,10 +1,10 @@
 using static System.Linq.Enumerable;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
 
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public class CountTheMonkeysSolution
     {
         public static int[] MonkeyCount(int n) => Range(1, n).ToArray();

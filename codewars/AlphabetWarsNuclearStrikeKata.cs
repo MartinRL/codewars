@@ -1,11 +1,11 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Char;
-using static System.Text.RegularExpressions.Regex;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+    using static System.Char;
+    using static System.Text.RegularExpressions.Regex;
+
     public class AlphabetWarsNuclearStrikeSolution
     {
         public static string AlphabetWar(string battlefield)
@@ -38,6 +38,7 @@ namespace codewars
         [InlineData("##abde[fgh]ijk[mn]op", "mn")]
         [InlineData("#abde[fgh]i#jk[mn]op", "mn")]
         [InlineData("[ab]adfd[dd]##[abe]dedf[ijk]d#d[h]#", "abijk")]
-        public void VerifyAlphabetWarWith(string battlefield, string expectedSurvivors) => AlphabetWarsNuclearStrikeSolution.AlphabetWar(battlefield).Should().Be(expectedSurvivors);
+        public void VerifyAlphabetWarWith(string battlefield, string expectedSurvivors) =>
+            AlphabetWarsNuclearStrikeSolution.AlphabetWar(battlefield).Should().Be(expectedSurvivors);
     }
 }

@@ -1,16 +1,16 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class DigitalCypherSolution
     {
         public static int[] Encode(string str, int n)
         {
             var nAsDigits = n.ToDigits();
-            
-            return str.Select((c, i) => c - ('a' - 1) + (nAsDigits[i % nAsDigits.Length])).ToArray();
+
+            return str.Select((c, i) => c - ('a' - 1) + nAsDigits[i % nAsDigits.Length]).ToArray();
         }
     }
 

@@ -1,9 +1,9 @@
-using static System.Math;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+    using static System.Math;
+
     public class YouAreASquareSolution
     {
         public static bool IsSquare(int n) => Floor(Sqrt(n)) == Sqrt(n);

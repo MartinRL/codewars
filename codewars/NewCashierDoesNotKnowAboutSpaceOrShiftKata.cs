@@ -1,27 +1,26 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Linq.Enumerable;
-using static System.String;
-using static System.Text.RegularExpressions.Regex;
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+    using static System.Linq.Enumerable;
+    using static System.String;
+    using static System.Text.RegularExpressions.Regex;
+
     public class NewCashierDoesNotKnowAboutSpaceOrShiftSolution
     {
         public static string GetOrder(string input) =>
             new[]
-            {
-                "Burger",
-                "Fries",
-                "Chicken",
-                "Pizza",
-                "Sandwich",
-                "Onionrings",
-                "Milkshake",
-                "Coke"
-            }
-            .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
+                {
+                    "Burger",
+                    "Fries",
+                    "Chicken",
+                    "Pizza",
+                    "Sandwich",
+                    "Onionrings",
+                    "Milkshake",
+                    "Coke"
+                }
+                .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
     }
 
     public class NewCashierDoesNotKnowAboutSpaceOrShiftTests

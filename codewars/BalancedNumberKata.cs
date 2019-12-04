@@ -1,19 +1,19 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class BalancedNumberSolution
     {
         public static string BalancedNumber(int number)
         {
             var numberAsString = number.ToString();
-            
+
             if (numberAsString.Length == 1 || numberAsString.Length == 2)
                 return "Balanced";
 
-            var termLength = (numberAsString.Length / 2) - 1 + (numberAsString.Length % 2);
+            var termLength = numberAsString.Length / 2 - 1 + numberAsString.Length % 2;
 
             var leftTermAsString = numberAsString.Substring(0, termLength);
             var rightTermAsString = numberAsString.Substring(numberAsString.Length - termLength);
@@ -24,7 +24,7 @@ namespace codewars
             return (leftTerm == rightTerm ? string.Empty : "Not ") + "Balanced";
         }
     }
-    
+
     public class BalancedNumberTests
     {
         [Theory]

@@ -1,13 +1,13 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class MumblingSolution
     {
         public static string Accum(string s) => string.Join("-",
-                s.ToCharArray()
+            s.ToCharArray()
                 .Select((c, i) => char.ToUpper(c).ToString() + new string(char.ToLower(c), i)));
     }
 

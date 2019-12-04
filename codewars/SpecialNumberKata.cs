@@ -1,9 +1,9 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class SpecialNumberSolution
     {
         public static string SpecialNumber(int number) => number.ToDigits().Any(_ => _ >= 6) ? "NOT!!" : "Special!!";

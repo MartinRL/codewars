@@ -1,8 +1,8 @@
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public class DnaToRnaConversionSolution
     {
         public static string DnaToRna(string dna) => dna.Replace('T', 'U');

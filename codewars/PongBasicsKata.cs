@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
-namespace codewars
+﻿namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     class Pong
     {
         private readonly int maxScore;
         private int currentPlayer;
-        private readonly int[] scores = { 0, 0 };
-        
+        private readonly int[] scores = {0, 0};
+
         public Pong(int maxScore)
         {
             this.maxScore = maxScore;
@@ -30,7 +30,7 @@ namespace codewars
                 : $"Player {currentPlayer + 1} has hit the ball!";
 
             currentPlayer = scoreIndex;
-            
+
             return msg;
         }
     }
@@ -45,7 +45,7 @@ namespace codewars
             game.play(75, 25).Should().Be("Player 2 has won the game!");
             game.play(50, 50).Should().Be("Game Over!");
         }
-        
+
         [Fact]
         public void PlayGameToTwo()
         {
@@ -58,7 +58,7 @@ namespace codewars
             game.play(75, 25).Should().Be("Player 2 has won the game!");
             game.play(50, 50).Should().Be("Game Over!");
         }
-        
+
         [Fact]
         public void PlayGameToThree()
         {

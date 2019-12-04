@@ -1,9 +1,9 @@
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class AbbreviateATwoWordNameSolution
     {
         public static string AbbrevName(string name) => name.Split(' ').Aggregate((result, n) => $"{result.First()}.{n.First()}").ToUpper();
