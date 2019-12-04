@@ -126,6 +126,7 @@
     <Compile Include="SquareEveryDigitKata.cs" />
     <Compile Include="StrongNumberKata.cs" />
     <Compile Include="SumMixedArrayKata.cs" />
+    <Compile Include="SupermarketQueueKata.cs" />
     <Compile Include="SupersizeMeKata.cs" />
     <Compile Include="ThinkfulLogicDrillsTrafficLightKata.cs" />
     <Compile Include="TidyNumberKata.cs" />
