@@ -12,10 +12,7 @@ namespace codewars
         {
             var tills = Enumerable.Repeat(0, n).ToList();
 
-            foreach(var customer in customers)
-            {
-                tills[tills.IndexOf(tills.Min())] += customer;
-            }
+            customers.Each(c => tills[tills.IndexOf(tills.Min())] += c);
 
             return tills.Max();
         }
