@@ -10,39 +10,14 @@ namespace codewars
     {
         public static long CalculateQueueTime(int[] customers, int n)
         {
-            if (n == 1)
-                return customers.Sum();
+            var tills = new List<int>(Enumerable.Repeat(0, n));
 
-            if (n >= customers.Length)
-                return customers.Max();
-
-            var customerQueue = new Queue<int>(customers);
-
-            var tills = new int[n];
-
-            var counter = 0;
-
-            while (customerQueue.Any())
+            foreach(var customer in customers)
             {
-                for (var i = 0; i < n; i++)
-                {
-                    if (tills[i] - 1 <= 0)
-                    {
-                        if (customerQueue.Any())
-                        {
-                            tills[i] = customerQueue.Dequeue();
-                        }
-                    }
-                    else
-                    {
-                        tills[i]--;
-                    }
-                }
-
-                counter++;
+                tills[tills.IndexOf(tills.Min())] += customer;
             }
 
-            return counter + tills.Max() - 1;
+            return tills.Max();
         }
     }
 
