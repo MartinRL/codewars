@@ -10,7 +10,7 @@ namespace codewars
     {
         public static long CalculateQueueTime(int[] customers, int n)
         {
-            var tills = new List<int>(Enumerable.Repeat(0, n));
+            var tills = Enumerable.Repeat(0, n).ToList();
 
             foreach(var customer in customers)
             {
