@@ -1,22 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class NextBiggerNumberWithTheSameDigitsSolution
     {
         public static long CalculateNextBiggerNumber(long n)
         {
             for (var i = n + 1; i <= long.Parse(n.AsDescendingString()); i++)
             {
-                if(n.AsDescendingString() == i.AsDescendingString())
+                if (n.AsDescendingString() == i.AsDescendingString())
                     return i;
             }
-            
-            return -1;  
+
+            return -1;
         }
     }
 

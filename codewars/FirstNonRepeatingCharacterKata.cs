@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class FirstNonRepeatingCharacterSolution
     {
         public static string FirstNonRepeatingLetter(string s) =>
             s.GroupBy(char.ToLower)
-            .Where(g => g.Count() == 1)
-            .Select(g => g.First().ToString())
-            .DefaultIfEmpty(string.Empty)
-            .First();
+                .Where(g => g.Count() == 1)
+                .Select(g => g.First().ToString())
+                .DefaultIfEmpty(string.Empty)
+                .First();
     }
 
     public class FirstNonRepeatingCharacterTests

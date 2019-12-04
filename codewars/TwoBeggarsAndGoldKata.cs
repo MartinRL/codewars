@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class TwoBeggarsAndGoldSolution
     {
         public static (int a, int b) DistributionOf(IEnumerable<int> golds)
@@ -22,7 +21,7 @@ namespace codewars
                     goldEnumerable = goldEnumerable.Take(goldEnumerable.Count() - 1);
                     return;
                 }
-                
+
                 beggar += goldEnumerable.First();
                 goldEnumerable = goldEnumerable.Skip(1);
             }
@@ -34,7 +33,7 @@ namespace codewars
                     case 0:
                         AssignBiggestPileTo(ref _a);
                         break;
-                    default: 
+                    default:
                         AssignBiggestPileTo(ref _b);
                         break;
                 }
@@ -47,9 +46,9 @@ namespace codewars
     public class TwoBeggarsAndGoldTests
     {
         [Theory]
-        [InlineData(new [] {4, 2, 9, 5, 2, 7}, 14, 15)]
-        [InlineData(new [] {4, 7, 2, 9, 5, 2}, 11, 18)]
-        [InlineData(new [] {10, 1000, 2, 1}, 12, 1001)]
+        [InlineData(new[] {4, 2, 9, 5, 2, 7}, 14, 15)]
+        [InlineData(new[] {4, 7, 2, 9, 5, 2}, 11, 18)]
+        [InlineData(new[] {10, 1000, 2, 1}, 12, 1001)]
         public void VerifyDistributionOfWith(int[] golds, int expectedA, int expectedB) => TwoBeggarsAndGoldSolution.DistributionOf(golds).Should().Be((expectedA, expectedB));
     }
 }

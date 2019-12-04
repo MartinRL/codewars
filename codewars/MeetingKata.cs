@@ -1,20 +1,19 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class MeetingSolution
     {
         public static string FormatAndOrderAccordingToJohnsRequirements(string friends) =>
             friends
-            .ToUpperInvariant()
-            .Split(';')
-            .Select(name => name.Split(':'))
-            .OrderBy(names => names[1]).ThenBy(names => names[0])
-            .Select(names => $"({names[1]}, {names[0]})")
-            .Aggregate((concat, name) => $"{concat}{name}");
+                .ToUpperInvariant()
+                .Split(';')
+                .Select(name => name.Split(':'))
+                .OrderBy(names => names[1]).ThenBy(names => names[0])
+                .Select(names => $"({names[1]}, {names[0]})")
+                .Aggregate((concat, name) => $"{concat}{name}");
     }
 
     public class MeetingTests

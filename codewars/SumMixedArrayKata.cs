@@ -1,11 +1,11 @@
-using System;
 using static System.Convert;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
 
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class SumMixedArray
     {
         public static int Execute(object[] mixedArray) => mixedArray.Select(ToInt32).Sum();

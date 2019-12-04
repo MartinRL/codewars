@@ -1,9 +1,8 @@
-using System;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public static class VasyaClerkSolution
     {
         public static string Tickets(int[] peopleInLine)
@@ -32,6 +31,7 @@ namespace codewars
                         {
                             billsOf25s -= 3;
                         }
+
                         break;
                 }
 

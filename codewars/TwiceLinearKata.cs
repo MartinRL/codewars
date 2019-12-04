@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class TwiceLinearSolution
     {
         public static int DblLinear(int n)
@@ -15,14 +14,14 @@ namespace codewars
 
         private static IEnumerable<int> Sequence()
         {
-            var set = new SortedSet<int> { 1 };
-            
+            var set = new SortedSet<int> {1};
+
             while (true)
             {
                 var top = set.First();
-                
+
                 yield return top;
-                
+
                 set.Remove(top);
                 set.Add(top * 2 + 1);
                 set.Add(top * 3 + 1);

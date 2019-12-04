@@ -1,19 +1,18 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public static class MaximumProductSolution
     {
         public static int AdjacentElementsProduct(int[] elements) =>
             elements
-            .Skip(1)
-            .Select((t, i) => t * elements[i])
-            .Max();
+                .Skip(1)
+                .Select((t, i) => t * elements[i])
+                .Max();
     }
-    
+
     public class MaximumProductTests
     {
         [Theory]

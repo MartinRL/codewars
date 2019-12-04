@@ -1,16 +1,15 @@
-﻿using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.String;
-
-namespace codewars
+﻿namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+    using static System.String;
+
     public class YourOrderSolution
     {
         public static string Order(string words) => IsNullOrEmpty(words) ? Empty : Join(" ", words.Split().OrderBy(s => s.Single(char.IsDigit)));
     }
-    
+
     public class YourOrderTests
     {
         [Theory]

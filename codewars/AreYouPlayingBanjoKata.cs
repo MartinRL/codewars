@@ -1,16 +1,14 @@
-using System;
-using System.Globalization;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Globalization;
+    using FluentAssertions;
+    using Xunit;
+
     public class AreYouPlayingBanjoSolution
     {
         public static string AreYouPlayingBanjo(string name) => $"{name} {(name.StartsWith("R", true, CultureInfo.InvariantCulture) ? "plays" : "does not play")} banjo";
     }
-    
+
     public class AreYouPlayingBanjoTests
     {
         [Theory]

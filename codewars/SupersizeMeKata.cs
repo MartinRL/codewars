@@ -1,11 +1,10 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Int64;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+    using static System.Int64;
+
     public class SupersizeMeSolution
     {
         public static long Supersize(long num) => Parse(new string(num.ToString().OrderByDescending(_ => _).ToArray()));

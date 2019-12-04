@@ -1,10 +1,10 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System;
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class DisariumNumberSolution
     {
         public static string DisariumNumber(int number)
@@ -12,7 +12,7 @@ namespace codewars
             return number == number.ToDigits().Select((digit, position) => Math.Pow(digit, position + 1)).Sum() ? "Disarium !!" : "Not !!";
         }
     }
-    
+
     public class DisariumNumberTests
     {
         [Theory]

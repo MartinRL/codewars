@@ -1,9 +1,8 @@
-using System;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public class WhatTimeIsItSolution
     {
         public static string GetMilitaryTimeFromStandardTime(string time)
@@ -30,6 +29,7 @@ namespace codewars
         [InlineData("12:00:00AM", "00:00:00")]
         [InlineData("12:00:00PM", "12:00:00")]
         [InlineData("07:05:45PM", "19:05:45")]
-        public static void VerifyGetMilitaryTimeFromStandardTime(string time, string expectedMilitaryTime) => WhatTimeIsItSolution.GetMilitaryTimeFromStandardTime(time).Should().Be(expectedMilitaryTime);
+        public static void VerifyGetMilitaryTimeFromStandardTime(string time, string expectedMilitaryTime) =>
+            WhatTimeIsItSolution.GetMilitaryTimeFromStandardTime(time).Should().Be(expectedMilitaryTime);
     }
 }

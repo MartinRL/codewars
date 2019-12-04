@@ -1,13 +1,12 @@
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
+    using System.Linq;
+    using FluentAssertions;
+    using Xunit;
+
     public class LoveVsFriendshipSolution
     {
-        public static int WordsToMarks(string str) =>  str.Sum(_ => _ - 96);
+        public static int WordsToMarks(string str) => str.Sum(_ => _ - 96);
     }
 
     public class LoveVsFriendshipTests

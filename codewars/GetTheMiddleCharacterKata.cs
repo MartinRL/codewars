@@ -1,10 +1,8 @@
-using System;
-using FluentAssertions;
-using Xunit;
-
-
 namespace codewars
 {
+    using FluentAssertions;
+    using Xunit;
+
     public static class GetTheMiddleCharacterSolution
     {
         public static string GetMiddle(string s)
@@ -13,11 +11,11 @@ namespace codewars
 
             if (s.Length % 2 == 0)
                 return s[quotient - 1].ToString() + s[quotient];
-            
+
             return s[quotient].ToString();
         }
     }
-    
+
     public class GetTheMiddleCharacterTests
     {
         [Theory]
