@@ -18,7 +18,7 @@ namespace codewars
                 currentQueuers = currentQueuers.Select(_ => _ - 1).ToArray();
             }
 
-            return counter + currentQueuers[pos];
+            return counter + currentQueuers.Take(pos + 1).Count(_ => _ > 0);
         }
     }
 
