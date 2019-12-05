@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -9,13 +10,13 @@ namespace codewars
     {
         public static int CalculateQueueTime(int[] queuers, int pos)
         {
-            var currentQueuers = queuers;
+            IEnumerable<int> currentQueuers = queuers;
             var counter = 0;
 
-            while (currentQueuers[pos] > 1)
+            while (currentQueuers.ElementAt(pos) > 1)
             {
                 counter += currentQueuers.Count(_ => _ > 0);
-                currentQueuers = currentQueuers.Select(_ => _ - 1).ToArray();
+                currentQueuers = currentQueuers.Select(_ => _ - 1);
             }
 
             return counter + currentQueuers.Take(pos + 1).Count(_ => _ > 0);
