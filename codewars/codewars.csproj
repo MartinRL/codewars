@@ -104,6 +104,7 @@
     <Compile Include="NiceArrayKata.cs" />
     <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
+    <Compile Include="QueueTimeCounterKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
     <Compile Include="StudentsFinalGradeKata.cs" />
