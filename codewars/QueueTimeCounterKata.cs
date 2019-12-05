@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
@@ -8,7 +9,22 @@ namespace codewars
     {
         public static int CalculateQueueTime(int[] queuers, int pos)
         {
-            throw new NotImplementedException();
+            var currentQueuers = queuers;
+            var counter = 0;
+
+            while (currentQueuers[pos] > 0)
+            {
+                for (var i = 0; i < currentQueuers.Length; i++)
+                {
+                    if (currentQueuers[i] > 0)
+                    {
+                        currentQueuers[i]--;
+                        counter++;
+                    }
+                }
+            }
+
+            return counter;
         }
     }
 
