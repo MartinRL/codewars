@@ -20,6 +20,9 @@ namespace codewars
                     {
                         currentQueuers[i]--;
                         counter++;
+
+                        if (currentQueuers[i] == 0)
+                            break;
                     }
                 }
             }
