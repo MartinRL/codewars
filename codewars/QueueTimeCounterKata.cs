@@ -12,22 +12,13 @@ namespace codewars
             var currentQueuers = queuers;
             var counter = 0;
 
-            while (currentQueuers[pos] > 0)
+            while (currentQueuers[pos] > 1)
             {
-                for (var i = 0; i < currentQueuers.Length; i++)
-                {
-                    if (currentQueuers[i] > 0)
-                    {
-                        currentQueuers[i]--;
-                        counter++;
-
-                        if (currentQueuers[i] == 0)
-                            break;
-                    }
-                }
+                counter += currentQueuers.Count(_ => _ > 0);
+                currentQueuers = currentQueuers.Select(_ => _ - 1).ToArray();
             }
 
-            return counter;
+            return counter + currentQueuers[pos];
         }
     }
 
