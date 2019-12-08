@@ -8,6 +8,10 @@ namespace codewars
     public class ItemCounter<T>
     {
         //private readonly Dictionary<T, int> _itemCounts = new Dictionary<T, int>();
+        public ItemCounter(T[] items)
+        {
+            throw new ArgumentNullException();
+        }
 
         public int DistinctItems
         {
@@ -22,11 +26,6 @@ namespace codewars
         public bool HasItem(T item)
         {
             throw new NotImplementedException();
-        }
-
-        public ItemCounter(T[] items)
-        {
-            throw new ArgumentNullException();
         }
     }
 
