@@ -7,16 +7,12 @@ namespace codewars
 
     public class ItemCounter<T>
     {
-        //private readonly Dictionary<T, int> _itemCounts = new Dictionary<T, int>();
-        public ItemCounter(T[] items)
-        {
-            throw new ArgumentNullException();
-        }
+        private readonly T[] items;
 
-        public int DistinctItems
-        {
-            get { throw new NotImplementedException(); }
-        }
+        //private readonly Dictionary<T, int> _itemCounts = new Dictionary<T, int>();
+        public ItemCounter(T[] items) => this.items = items ?? throw new ArgumentNullException();
+
+        public int DistinctItems => items.Distinct().Count();
 
         public int GetCount(T item)
         {
