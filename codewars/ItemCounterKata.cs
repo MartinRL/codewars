@@ -24,10 +24,9 @@ namespace codewars
             throw new NotImplementedException();
         }
 
-
         public ItemCounter(T[] items)
         {
-            throw new NotImplementedException();
+            throw new ArgumentNullException();
         }
     }
 
