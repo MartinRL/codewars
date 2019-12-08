@@ -9,7 +9,6 @@ namespace codewars
     {
         private readonly T[] items;
 
-        //private readonly Dictionary<T, int> _itemCounts = new Dictionary<T, int>();
         public ItemCounter(T[] items) => this.items = items ?? throw new ArgumentNullException();
 
         public int DistinctItems => items.Distinct().Count();
