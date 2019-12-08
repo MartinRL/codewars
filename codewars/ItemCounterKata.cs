@@ -18,9 +18,10 @@ namespace codewars
             if (item == null)
                 throw new ArgumentNullException();
 
-            var count = items.Count(_ => _.Equals(item));
+            if (!items.Contains(item))
+                throw new InvalidOperationException();
 
-            return count > 0 ? count : throw new InvalidOperationException();
+            return items.Count(_ => _.Equals(item));
         }
 
         public bool HasItem(T item) => items.Any(_ => _.Equals(item));
