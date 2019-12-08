@@ -14,10 +14,7 @@ namespace codewars
 
         public int DistinctItems => items.Distinct().Count();
 
-        public int GetCount(T item)
-        {
-            throw new NotImplementedException();
-        }
+        public int GetCount(T item) => items.Count(_ => _.Equals(item));
 
         public bool HasItem(T item)
         {
