@@ -14,7 +14,13 @@ namespace codewars
 
         public int DistinctItems => items.Distinct().Count();
 
-        public int GetCount(T item) => items.Count(_ => _.Equals(item));
+        public int GetCount(T item)
+        {
+            if (item == null)
+                throw new ArgumentNullException();
+
+            return items.Count(_ => _.Equals(item));
+        }
 
         public bool HasItem(T item)
         {
