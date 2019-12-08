@@ -24,10 +24,7 @@ namespace codewars
             return count > 0 ? count : throw new InvalidOperationException();
         }
 
-        public bool HasItem(T item)
-        {
-            throw new NotImplementedException();
-        }
+        public bool HasItem(T item) => items.Any(_ => _.Equals(item));
     }
 
     public class ItemCounterTests
