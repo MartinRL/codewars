@@ -24,7 +24,7 @@ namespace codewars
             return items.Count(_ => _.Equals(item));
         }
 
-        public bool HasItem(T item) => items.Any(_ => _.Equals(item));
+        public bool HasItem(T item) => items.Contains(item);
     }
 
     public class ItemCounterTests
