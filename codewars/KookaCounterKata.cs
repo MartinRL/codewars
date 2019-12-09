@@ -12,8 +12,16 @@ namespace codewars
             if (string.IsNullOrEmpty(laughing))
                 return 0;
 
-            throw new NotImplementedException();
+            return laughing
+                   .Replace("a", string.Empty)
+                   .Split(laughing.First())
+                   .Count(_ => _.Length > 0 && _.First() == laughing.First().ToggleCase()) + 1;
         }
+    }
+
+    public static class KookaCounterExtensions
+    {
+        public static char ToggleCase(this char @this) => char.IsLower(@this) ? @this.ToString().ToUpper().First() : @this.ToString().ToLower().First();
     }
 
     public class KookaCounterTests
