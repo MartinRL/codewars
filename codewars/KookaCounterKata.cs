@@ -12,10 +12,20 @@ namespace codewars
             if (string.IsNullOrEmpty(laughing))
                 return 0;
 
-            return laughing
-                   .Replace("a", string.Empty)
-                   .Split(laughing.First())
-                   .Count(_ => _.Length > 0 && _.First() == laughing.First().ToggleCase()) + 1;
+            var counter = 1;
+            var hs = laughing.Replace("a", string.Empty);
+            var current = hs.First();
+
+            for (var i = 1; i < hs.Length; i++)
+            {
+                if (hs[i] != current)
+                {
+                    counter++;
+                    current = hs[i];
+                }
+            }
+
+            return counter;
         }
     }
 
