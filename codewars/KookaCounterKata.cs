@@ -1,32 +1,13 @@
 namespace codewars
 {
     using System;
-    using System.Linq;
+    using System.Text.RegularExpressions;
     using FluentAssertions;
     using Xunit;
 
     public class KookaCounterSolution
     {
-        public static int Count(string laughing)
-        {
-            if (string.IsNullOrEmpty(laughing))
-                return 0;
-
-            var counter = 1;
-            var hs = laughing.Replace("a", string.Empty);
-            var current = hs.First();
-
-            for (var i = 1; i < hs.Length; i++)
-            {
-                if (hs[i] == current)
-                    continue;
-
-                counter++;
-                current = hs[i];
-            }
-
-            return counter;
-        }
+        public static int Count(string laughing) => new Regex(@"(ha|Ha)\1+").Matches(laughing).Count;
     }
 
     public class KookaCounterTests
