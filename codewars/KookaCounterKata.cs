@@ -18,11 +18,11 @@ namespace codewars
 
             for (var i = 1; i < hs.Length; i++)
             {
-                if (hs[i] != current)
-                {
-                    counter++;
-                    current = hs[i];
-                }
+                if (hs[i] == current)
+                    continue;
+
+                counter++;
+                current = hs[i];
             }
 
             return counter;
