@@ -29,11 +29,6 @@ namespace codewars
         }
     }
 
-    public static class KookaCounterExtensions
-    {
-        public static char ToggleCase(this char @this) => char.IsLower(@this) ? @this.ToString().ToUpper().First() : @this.ToString().ToLower().First();
-    }
-
     public class KookaCounterTests
     {
         [Theory]
