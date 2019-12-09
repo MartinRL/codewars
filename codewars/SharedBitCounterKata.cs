@@ -1,13 +1,11 @@
 namespace codewars
 {
-    using System;
-    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class SharedBitCounterSolution
     {
-        public static bool HasSharedBits(int a, int b) => Convert.ToString(a & b, 2).Count(_ => _ == '1') >= 2;
+        public static bool HasSharedBits(int a, int b) => (a &= b) != 0 && (a &= a - 1) != 0;
     }
 
     public class SharedBitCounterTests
