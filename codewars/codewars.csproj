@@ -109,6 +109,7 @@
     <Compile Include="QueueTimeCounterKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
+    <Compile Include="SharedBitCounterKata.cs" />
     <Compile Include="StudentsFinalGradeKata.cs" />
     <Compile Include="FindTheNextPerfectSquareKata.cs" />
     <Compile Include="FindTheUniqueNumberKata.cs" />
