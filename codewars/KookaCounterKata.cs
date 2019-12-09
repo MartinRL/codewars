@@ -9,6 +9,9 @@ namespace codewars
     {
         public static int Count(string laughing)
         {
+            if (string.IsNullOrEmpty(laughing))
+                return 0;
+
             throw new NotImplementedException();
         }
     }
