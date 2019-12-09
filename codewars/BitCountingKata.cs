@@ -7,7 +7,7 @@ namespace codewars
 
     public class BitCountingSolution
     {
-        public static int CountBits(int n) => throw new NotImplementedException();
+        public static int CountBits(int n) => Convert.ToString(n, 2).Count(_ => _ == '1');
     }
 
     public class BitCountingTests
