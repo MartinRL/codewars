@@ -93,6 +93,7 @@
     <Compile Include="GrowingPlantKata.cs" />
     <Compile Include="IntegersRecreationOneKata.cs" />
     <Compile Include="ItemCounterKata.cs" />
+    <Compile Include="KookaCounterKata.cs" />
     <Compile Include="LogicalCalculatorKata.cs" />
     <Compile Include="LoveVsFriendshipKata.cs" />
     <Compile Include="MatrixAdditionKata.cs" />
