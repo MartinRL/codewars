@@ -7,10 +7,7 @@ namespace codewars
 
     public class SharedBitCounterSolution
     {
-        public static bool HasSharedBits(int a, int b)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool HasSharedBits(int a, int b) => Convert.ToString(a & b, 2).Count(_ => _ == '1') >= 2;
     }
 
     public class SharedBitCounterTests
