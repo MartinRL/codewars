@@ -4,12 +4,30 @@ namespace codewars
     using System.Linq;
     using FluentAssertions;
     using Xunit;
+    using static System.Math;
 
     public class HammingNumbersSolution
     {
         public static long CalculateSmallestFor(int n)
         {
-            throw new NotImplementedException();
+            const long two = 2;
+            const long three = 3;
+            const long five = 5;
+
+            var h = new long[n];
+            h[0] = 1;
+            long x2 = 2, x3 = 3, x5 = 5;
+            int i = 0, j = 0, k = 0;
+
+            for (var index = 1; index < n; index++)
+            {
+                h[index] = Min(x2, Min(x3, x5));
+                if (h[index] == x2) x2 = two * h[++i];
+                if (h[index] == x3) x3 = three * h[++j];
+                if (h[index] == x5) x5 = five * h[++k];
+            }
+
+            return h[n - 1];
         }
     }
 
