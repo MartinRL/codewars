@@ -1,34 +1,27 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
-    using static System.Math;
 
     public class HammingNumbersSolution
     {
         public static long CalculateSmallestFor(int n)
         {
-            // stolen from https://rosettacode.org/wiki/Hamming_numbers#C.23
-            const long two = 2;
-            const long three = 3;
-            const long five = 5;
+            var pertinents = new SortedSet<long> {1};
 
-            var h = new long[n];
-            h[0] = 1;
-            long x2 = 2, x3 = 3, x5 = 5;
-            int i = 0, j = 0, k = 0;
-
-            for (var index = 1; index < n; index++)
+            for (var i = 1; i < n; i++)
             {
-                h[index] = Min(x2, Min(x3, x5));
-                if (h[index] == x2) x2 = two * h[++i];
-                if (h[index] == x3) x3 = three * h[++j];
-                if (h[index] == x5) x5 = five * h[++k];
+                var first = pertinents.First();
+                pertinents.Remove(first);
+                pertinents.Add(first * 2);
+                pertinents.Add(first * 3);
+                pertinents.Add(first * 5);
             }
 
-            return h[n - 1];
+            return pertinents.First();
         }
     }
 
@@ -36,7 +29,6 @@ namespace codewars
     {
         [Theory]
         [InlineData(1, 1)]
-        [InlineData(2, 2)]
         [InlineData(2, 2)]
         [InlineData(3, 3)]
         [InlineData(4, 4)]
