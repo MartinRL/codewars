@@ -92,6 +92,7 @@
     <Compile Include="FilterOutTheGeeseKata.cs" />
     <Compile Include="FunctionalAdditionKata.cs" />
     <Compile Include="GrowingPlantKata.cs" />
+    <Compile Include="HammingNumbersKata.cs" />
     <Compile Include="IntegersRecreationOneKata.cs" />
     <Compile Include="ItemCounterKata.cs" />
     <Compile Include="KookaCounterKata.cs" />
