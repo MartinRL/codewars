@@ -5,7 +5,6 @@ namespace codewars
     using System.Linq;
     using FluentAssertions;
     using Xunit;
-    using static System.Math;
 
     public class HammingNumbersSolution
     {
