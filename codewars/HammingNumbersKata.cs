@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -10,8 +11,17 @@ namespace codewars
     {
         public static long CalculateSmallestFor(int n)
         {
+            var pertinents = new SortedSet<long> {1};
+
+            for (var i = 1; i < n; i++)
+            {
+
+            }
+
+            return pertinents.First();
+
             // stolen from https://rosettacode.org/wiki/Hamming_numbers#C.23
-            const long two = 2;
+            /*const long two = 2;
             const long three = 3;
             const long five = 5;
 
@@ -28,7 +38,7 @@ namespace codewars
                 if (h[index] == x5) x5 = five * h[++k];
             }
 
-            return h[n - 1];
+            return h[n - 1];*/
         }
     }
 
