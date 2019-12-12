@@ -7,10 +7,7 @@ namespace codewars
 
     public class HammingDistanceBinaryCodesSolution
     {
-        public static int CalculateDistance(string a, string b)
-        {
-            throw new NotImplementedException();
-        }
+        public static int CalculateDistance(string a, string b) => a.Zip(b, (ca, cb) => ca != cb).Count(_ => _);
     }
 
     public class HammingDistanceBinaryCodesTests
