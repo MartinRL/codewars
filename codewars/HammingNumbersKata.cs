@@ -10,6 +10,7 @@ namespace codewars
     {
         public static long CalculateSmallestFor(int n)
         {
+            // stolen from https://rosettacode.org/wiki/Hamming_numbers#C.23
             const long two = 2;
             const long three = 3;
             const long five = 5;
