@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -9,8 +10,8 @@ namespace codewars
     {
         public static int CalculateDistance(int a, int b)
         {
-            var aAsBinaryString = Convert.ToString(a, 2); // todo: extract ToBinaryString extension method
-            var bAsBinaryString = Convert.ToString(b, 2); // todo: use extension method ↑
+            var aAsBinaryString = a.ToBinaryString();
+            var bAsBinaryString = b.ToBinaryString();
 
             if (aAsBinaryString.Length > bAsBinaryString.Length)
             {
@@ -23,6 +24,11 @@ namespace codewars
 
             return aAsBinaryString.Zip(bAsBinaryString, (ca, cb) => !ca.Equals(cb)).Count(_ => _);
         }
+    }
+
+    public static class HammingDistanceBinaryNotationSolutionExtensions
+    {
+        public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
     }
 
     public class HammingDistanceBinaryNotationTests
