@@ -22,13 +22,15 @@ namespace codewars
                 aAsBinaryString = aAsBinaryString.PadLeft(bAsBinaryString.Length, '0');
             }
 
-            return aAsBinaryString.Zip(bAsBinaryString, (ca, cb) => !ca.Equals(cb)).Count(_ => _);
+            return aAsBinaryString.Zip(bAsBinaryString, (ca, cb) => !ca.Equals(cb)).CountTrue();
         }
     }
 
     public static class HammingDistanceBinaryNotationSolutionExtensions
     {
         public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
+
+        public static int CountTrue(this IEnumerable<bool> @this) => @this.Count(_ => _);
     }
 
     public class HammingDistanceBinaryNotationTests
