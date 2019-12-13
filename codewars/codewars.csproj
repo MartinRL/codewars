@@ -93,6 +93,7 @@
     <Compile Include="FunctionalAdditionKata.cs" />
     <Compile Include="GrowingPlantKata.cs" />
     <Compile Include="HammingDistanceBinaryCodesKata.cs" />
+    <Compile Include="HammingDistanceBinaryNotationKata.cs" />
     <Compile Include="HammingDistanceKata.cs" />
     <Compile Include="HammingNumbersKata.cs" />
     <Compile Include="IntegersRecreationOneKata.cs" />
