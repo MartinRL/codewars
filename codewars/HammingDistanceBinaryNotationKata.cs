@@ -1,29 +1,13 @@
 namespace codewars
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class HammingDistanceBinaryNotationSolution
     {
-        public static int CalculateDistance(int a, int b)
-        {
-            var aAsBinaryString = a.ToBinaryString();
-            var bAsBinaryString = b.ToBinaryString();
-
-            if (aAsBinaryString.Length > bAsBinaryString.Length)
-            {
-                bAsBinaryString = bAsBinaryString.PadLeft(aAsBinaryString.Length, '0');
-            }
-            else
-            {
-                aAsBinaryString = aAsBinaryString.PadLeft(bAsBinaryString.Length, '0');
-            }
-
-            return aAsBinaryString.Zip(bAsBinaryString, (ca, cb) => !ca.Equals(cb)).CountTrue();
-        }
+        public static int CalculateDistance(int a, int b) => (a ^ b).ToBinaryString().Count(_ => _ == '1');
     }
 
     public class HammingDistanceBinaryNotationTests
