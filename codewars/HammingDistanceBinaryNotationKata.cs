@@ -26,13 +26,6 @@ namespace codewars
         }
     }
 
-    public static class HammingDistanceBinaryNotationSolutionExtensions
-    {
-        public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
-
-        public static int CountTrue(this IEnumerable<bool> @this) => @this.Count(_ => _);
-    }
-
     public class HammingDistanceBinaryNotationTests
     {
         [Theory]

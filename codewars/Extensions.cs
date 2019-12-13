@@ -50,6 +50,10 @@
         public static bool IsInteger(this double @this) => @this % 1 == 0;
 
         public static string AsString(this IEnumerable<char> @this) => new string(@this.ToArray());
+
+        public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
+
+        public static int CountTrue(this IEnumerable<bool> @this) => @this.Count(_ => _);
     }
 
     public class ExtensionsTests
