@@ -4,10 +4,11 @@ namespace codewars
     using System.Linq;
     using FluentAssertions;
     using Xunit;
+    using static System.Convert;
 
     public class HammingDistanceBinaryCodesSolution
     {
-        public static int CalculateDistance(string a, string b) => a.Zip(b, (ca, cb) => ca != cb).Count(_ => _);
+        public static int CalculateDistance(string a, string b) => (ToInt32(a, 2) ^ ToInt32(b, 2)).ToBinaryString().Count(_ => _ == '1');
     }
 
     public class HammingDistanceBinaryCodesTests
