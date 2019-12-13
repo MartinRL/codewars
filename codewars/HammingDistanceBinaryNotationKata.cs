@@ -9,7 +9,19 @@ namespace codewars
     {
         public static int CalculateDistance(int a, int b)
         {
-            return Convert.ToString(a, 2).Zip(Convert.ToString(b, 2), (ca, cb) => !ca.Equals(cb)).Count(_ => _);
+            var aAsBinaryString = Convert.ToString(a, 2); // todo: extract ToBinaryString extension method
+            var bAsBinaryString = Convert.ToString(b, 2); // todo: use extension method ↑
+
+            if (aAsBinaryString.Length > bAsBinaryString.Length)
+            {
+                bAsBinaryString = bAsBinaryString.PadLeft(aAsBinaryString.Length, '0');
+            }
+            else
+            {
+                aAsBinaryString = aAsBinaryString.PadLeft(bAsBinaryString.Length, '0');
+            }
+
+            return aAsBinaryString.Zip(bAsBinaryString, (ca, cb) => !ca.Equals(cb)).Count(_ => _);
         }
     }
 
