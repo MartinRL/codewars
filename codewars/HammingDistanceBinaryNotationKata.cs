@@ -7,7 +7,10 @@ namespace codewars
 
     public class HammingDistanceBinaryNotationSolution
     {
-        public static int CalculateDistance(int a, int b) => throw new NotImplementedException();
+        public static int CalculateDistance(int a, int b)
+        {
+            return Convert.ToString(a, 2).Zip(Convert.ToString(b, 2), (ca, cb) => !ca.Equals(cb)).Count(_ => _);
+        }
     }
 
     public class HammingDistanceBinaryNotationTests
