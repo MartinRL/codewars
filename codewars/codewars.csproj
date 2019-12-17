@@ -91,6 +91,7 @@
     <Compile Include="ExtraPerfectNumbersKata.cs" />
     <Compile Include="FilterOutTheGeeseKata.cs" />
     <Compile Include="FunctionalAdditionKata.cs" />
+    <Compile Include="GenerateRangeOfIntegersKata.cs" />
     <Compile Include="GrowingPlantKata.cs" />
     <Compile Include="HammingDistanceBinaryCodesKata.cs" />
     <Compile Include="HammingDistanceBinaryNotationKata.cs" />
