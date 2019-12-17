@@ -113,6 +113,7 @@
     <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
     <Compile Include="QueueTimeCounterKata.cs" />
+    <Compile Include="RangeOfIntegersInAnUnsortedStringKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
     <Compile Include="SharedBitCounterKata.cs" />
