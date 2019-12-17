@@ -1,13 +1,23 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class GenerateRangeOfIntegersSolution
     {
-        public static int[] GenerateRange(int min, int max, int step) => throw new NotImplementedException();
+        public static int[] GenerateRange(int min, int max, int step)
+        {
+            IEnumerable<int> Generator()
+            {
+                for(var i = min; i <= max; i += step)
+                    yield return i;
+            }
+
+            return Generator().ToArray();
+        }
     }
 
     public class GenerateRangeOfIntegersTests
