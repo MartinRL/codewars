@@ -8,16 +8,7 @@ namespace codewars
 
     public class GenerateRangeOfIntegersSolution
     {
-        public static int[] GenerateRange(int min, int max, int step)
-        {
-            IEnumerable<int> Generator()
-            {
-                for(var i = min; i <= max; i += step)
-                    yield return i;
-            }
-
-            return Generator().ToArray();
-        }
+        public static int[] GenerateRange(int min, int max, int step) => Enumerable.Range(0, (max - min) / step + 1).Select(_ => min + _ * step).ToArray();
     }
 
     public class GenerateRangeOfIntegersTests
