@@ -2,6 +2,7 @@ namespace codewars
 {
     using System;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using FluentAssertions;
     using Xunit;
 
@@ -9,6 +10,9 @@ namespace codewars
     {
         public static int CountDeafRats(string town)
         {
+            if (town.First() == 'P')
+                return new Regex("~O").Matches(town).Count;
+
             throw new NotImplementedException();
         }
     }
