@@ -13,6 +13,9 @@ namespace codewars
             if (town.First() == 'P')
                 return new Regex("~O").Matches(town).Count;
 
+            if (town.Last() == 'P')
+                return new Regex("O~").Matches(town).Count;
+
             throw new NotImplementedException();
         }
     }
