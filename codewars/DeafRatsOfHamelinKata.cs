@@ -19,6 +19,9 @@ namespace codewars
         [InlineData("PO~O~~OO~", 1)]
         [InlineData("~O~O~O~OP~O~OO~", 2)]
         [InlineData("P~O~OO~", 2)]
+        [InlineData("O~~OO~~OO~~OO~ P~OO~~OO~~OO~~O", 8)]
+        [InlineData("O~~OO~~OO~~OO~P ~OO~~OO~~OO~~O", 8)]
+        [InlineData("~O~O ~O~O~O~O~O ~O~OO~~O~O~O~O~O~O~O~OP~OO~O~O~O~O~O~~OO~O~~OO~O~O~O~O~O~O~O~O~", 4)]
         public void VerifyCountDeafRatsWith(string town, int expectedNoOfDeafRats) => DeafRatsOfHamelinSolution.CountDeafRats(town).Should().Be(expectedNoOfDeafRats);
     }
 }
