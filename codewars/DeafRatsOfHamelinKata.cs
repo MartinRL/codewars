@@ -2,22 +2,12 @@ namespace codewars
 {
     using System;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using FluentAssertions;
     using Xunit;
 
     public class DeafRatsOfHamelinSolution
     {
-        public static int CountDeafRats(string town)
-        {
-            if (town.First() == 'P')
-                return new Regex("~O").Matches(town).Count;
-
-            if (town.Last() == 'P')
-                return new Regex("O~").Matches(town).Count;
-
-            throw new NotImplementedException();
-        }
+        public static int CountDeafRats(string town) => town.Skip(1).Select((c, i) => c == '~' && i % 2 == 0).Count(_ => _);
     }
 
     public class DeafRatsOfHamelinTests
