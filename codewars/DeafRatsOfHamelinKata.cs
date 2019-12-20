@@ -7,7 +7,7 @@ namespace codewars
 
     public class DeafRatsOfHamelinSolution
     {
-        public static int CountDeafRats(string town) => town.Skip(1).Select((c, i) => c == '~' && i % 2 == 0).Count(_ => _);
+        public static int CountDeafRats(string town) => town.Replace(" ", string.Empty).Skip(1).Select((c, i) => c == '~' && i % 2 == 0).Count(_ => _);
     }
 
     public class DeafRatsOfHamelinTests
