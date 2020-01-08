@@ -9,9 +9,15 @@ namespace codewars
     {
         public static string StockSummary(string[] lstOfArt, string[] lstOf1stLetter)
         {
+            if (lstOfArt == null || lstOfArt.Length == 0 || lstOf1stLetter == null || lstOf1stLetter.Length == 0)
+                return string.Empty;
+
             var groupedAndSummedBy1stLetter = lstOfArt.Select(_ => _.Split(' '))
                 .GroupBy(_ => _[0].First().ToString(), _ => Convert.ToInt32(_[1]))
                 .Select(group => new { Label = group.Key, Total = group.Sum()});
+
+            if (groupedAndSummedBy1stLetter.Sum(_ => _.Total) == 0)
+                return string.Empty;
 
             return lstOf1stLetter
                 .Select(letter => $"({letter} : {groupedAndSummedBy1stLetter.Where(_ => _.Label == letter).Sum(_ => _.Total)})")
