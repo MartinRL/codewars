@@ -9,7 +9,9 @@ namespace codewars
     {
         public static string StockSummary(string[] lstOfArt, string[] lstOf1stLetter)
         {
-            throw new NotImplementedException();
+            var dicOfArt = lstOfArt.Select(_ => _.Split(' ')).GroupBy(_ => _[0].First().ToString(), _ => Convert.ToInt32(_[1])).Select(group => new { Label = group.Key, Total = group.Sum()});
+
+            return lstOf1stLetter.Select(letter => $"({letter} : {dicOfArt.Where(_ => _.Label == letter).Sum(_ => _.Total)})").Aggregate((r, _) => r + " - " + _);
         }
     }
 
