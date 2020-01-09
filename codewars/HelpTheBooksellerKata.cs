@@ -16,9 +16,6 @@ namespace codewars
                 .GroupBy(_ => _[0].First().ToString(), _ => Convert.ToInt32(_[1]))
                 .Select(group => new { Label = group.Key, Total = group.Sum()});
 
-            if (groupedAndSummedBy1stLetter.Sum(_ => _.Total) == 0)
-                return string.Empty;
-
             return lstOf1stLetter
                 .Select(letter => $"({letter} : {groupedAndSummedBy1stLetter.Where(_ => _.Label == letter).Sum(_ => _.Total)})")
                 .Aggregate((r, _) => r + " - " + _);
