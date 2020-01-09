@@ -9,7 +9,7 @@ namespace codewars
     {
         public static string StockSummary(string[] lstOfArt, string[] lstOf1stLetter)
         {
-            if (lstOfArt == null || lstOfArt.Length == 0 || lstOf1stLetter == null || lstOf1stLetter.Length == 0)
+            if (!lstOfArt.Any())
                 return string.Empty;
 
             var groupedAndSummedBy1stLetter = lstOfArt.Select(_ => _.Split(' '))
