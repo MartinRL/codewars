@@ -25,13 +25,10 @@ namespace codewars
 
     public class HelpTheBooksellerTests
     {
-        [Fact]
-        public void ShouldCreateStockSummary() => HelpTheBooksellerSolution.StockSummary(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new[] {"A", "B"}).Should().Be("(A : 200) - (B : 1140)");
-
-        [Fact]
-        public void ShouldNotCreateStockSummary() => HelpTheBooksellerSolution.StockSummary(new string [0], new[] {"A", "B"}).Should().Be(string.Empty);
-
-        [Fact]
-        public void ShouldNotCreateStockSummary2() => HelpTheBooksellerSolution.StockSummary(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new string[0]).Should().Be(string.Empty);
+        [Theory]
+        [InlineData(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new[] {"A", "B"}, "(A : 200) - (B : 1140)")]
+        [InlineData(new string [0], new[] {"A", "B"}, "")]
+        [InlineData(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new string[0], "")]
+        public void VerifyStockSummaryWith(string[] lstOfArt, string[] lstOf1stLetter, string expectedStockSummary) => HelpTheBooksellerSolution.StockSummary(lstOfArt, lstOf1stLetter).Should().Be(expectedStockSummary);
     }
 }
