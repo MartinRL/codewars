@@ -12,12 +12,13 @@ namespace codewars
             if (!lstOfArt.Any())
                 return string.Empty;
 
-            var groupedAndSummedBy1stLetter = lstOfArt.Select(_ => _.Split(' '))
+            var groupedAndSummedBy1stLetter = lstOfArt
+                .Select(_ => _.Split(' '))
                 .GroupBy(_ => _[0].First().ToString(), _ => Convert.ToInt32(_[1]))
-                .Select(group => new { Label = group.Key, Total = group.Sum()});
+                .ToDictionary(g => g.Key, g => g.Sum());
 
             return lstOf1stLetter
-                .Select(letter => $"({letter} : {groupedAndSummedBy1stLetter.Where(_ => _.Label == letter).Sum(_ => _.Total)})")
+                .Select(letter => $"({letter} : {groupedAndSummedBy1stLetter[letter]})")
                 .Aggregate((r, _) => r + " - " + _);
         }
     }
