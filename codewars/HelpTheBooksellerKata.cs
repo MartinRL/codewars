@@ -9,7 +9,7 @@ namespace codewars
     {
         public static string StockSummary(string[] lstOfArt, string[] lstOf1stLetter)
         {
-            if (!lstOfArt.Any())
+            if (!lstOfArt.Any() || !lstOf1stLetter.Any())
                 return string.Empty;
 
             var groupedAndSummedBy1stLetter = lstOfArt
@@ -18,7 +18,7 @@ namespace codewars
                 .ToDictionary(g => g.Key, g => g.Sum());
 
             return lstOf1stLetter
-                .Select(letter => $"({letter} : {groupedAndSummedBy1stLetter[letter]})")
+                .Select(letter => "(" + letter + " : " + (groupedAndSummedBy1stLetter.ContainsKey(letter) ? groupedAndSummedBy1stLetter[letter] : 0) + ")")
                 .Aggregate((r, _) => r + " - " + _);
         }
     }
@@ -29,6 +29,9 @@ namespace codewars
         public void ShouldCreateStockSummary() => HelpTheBooksellerSolution.StockSummary(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new[] {"A", "B"}).Should().Be("(A : 200) - (B : 1140)");
 
         [Fact]
-        public void ShouldNotCreateStockSummary() => HelpTheBooksellerSolution.StockSummary(new string [] {}, new[] {"A", "B"}).Should().Be(string.Empty);
+        public void ShouldNotCreateStockSummary() => HelpTheBooksellerSolution.StockSummary(new string [0], new[] {"A", "B"}).Should().Be(string.Empty);
+
+        [Fact]
+        public void ShouldNotCreateStockSummary2() => HelpTheBooksellerSolution.StockSummary(new[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"}, new string[0]).Should().Be(string.Empty);
     }
 }
