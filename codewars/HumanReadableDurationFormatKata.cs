@@ -7,7 +7,7 @@ namespace codewars
 
     public class HumanReadableDurationFormatSolution
     {
-        public static string FormatDuration(int seconds) => throw new NotImplementedException();
+        public static string FormatDuration(int seconds) => seconds == 0 ? "now" : throw new NotImplementedException();
     }
 
     public class HumanReadableDurationFormatTests
