@@ -12,7 +12,13 @@ namespace codewars
             if (h < 2)
                 return new string[] {};
 
-            throw new NotImplementedException();
+            return new[]
+            {
+                "*" + new string(' ', (h - 2) * 2 + 1) + "*" + new string(' ', (h - 2) * 2 + 1) + "*",
+                new string(' ', 1) + "*" + new string(' ', (h - 3) * 2 + 1) + "*" + new string(' ', 1) + "*" + new string(' ', (h - 3) * 2 + 1) + "*" + new string(' ', 1),
+                new string(' ', 2) + "*" + new string(' ', 1) + "*" + new string(' ', (h - 3) * 2 + 1) + "*" + new string(' ', 1) + "*" + new string(' ', 2),
+                new string(' ', 3) + "*" + new string(' ', (h - 2) * 2 + 1) + "*" + new string(' ', 3),
+            };
         }
     }
 
@@ -24,6 +30,12 @@ namespace codewars
             "*   *   *",
             " * * * * ",
             "  *   *  "
+        })]
+        [InlineData(4, new[] {
+            "*     *     *",
+            " *   * *   * ",
+            "  * *   * *  ",
+            "   *     *   "
         })]
         [InlineData(7, new[] {
             "*           *           *",
