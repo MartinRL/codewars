@@ -14,13 +14,16 @@ namespace codewars
             if (seconds == 0)
                 return "now";
 
-            var years = duration.Years == 0 ? string.Empty : duration.Years + " year" + (duration.Years == 1 ? string.Empty : "s") + ", ";
-            var days = duration.Days == 0 ? string.Empty : duration.Days + " day" + (duration.Days == 1 ? string.Empty : "s") + ", ";
-            var hours = duration.Hours == 0 ? string.Empty : duration.Hours + " hour" + (duration.Hours == 1 ? string.Empty : "s") + ", ";
-            var minutes = duration.Minutes == 0 ? string.Empty : duration.Minutes + " minute" + (duration.Minutes == 1 ? string.Empty : "s") + ", ";
+            // 2do: DRY
+            var years = duration.Years == 0 ? string.Empty : duration.Years + " year" + (duration.Years == 1 ? string.Empty : "s");
+            var days = duration.Days == 0 ? string.Empty : duration.Days + " day" + (duration.Days == 1 ? string.Empty : "s");
+            var hours = duration.Hours == 0 ? string.Empty : duration.Hours + " hour" + (duration.Hours == 1 ? string.Empty : "s");
+            var minutes = duration.Minutes == 0 ? string.Empty : duration.Minutes + " minute" + (duration.Minutes == 1 ? string.Empty : "s");
             var secs = duration.Seconds == 0 ? string.Empty : duration.Seconds + " second" + (duration.Seconds == 1 ? string.Empty : "s");
 
-            return $"{years}{days}{hours}{minutes}{secs}";
+            return new string[] {years, days, hours, minutes, secs}
+                .Where(_ => !string.IsNullOrEmpty(_))
+                .Aggregate((r, _) => $"{r}, {_}");
         }
 
         public class Duration
