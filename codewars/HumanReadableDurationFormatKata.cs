@@ -19,15 +19,31 @@ namespace codewars
 
         public class Duration
         {
-            private readonly TimeSpan timeSpan;
-            private const int year = 365; // days
-            private const int day = 24; // hours
-            private const int hours = 60; // minutes
-            private const int minute = 60; // seconds
+            private const uint yearInSeconds = 365 * dayInSeconds;
+            private const uint dayInSeconds = 24 * hourInSeconds;
+            private const uint hourInSeconds = 60 * minuteInSeconds;
+            private const uint minuteInSeconds = 60;
+
+            private uint seconds;
+
+            public readonly uint Years;
+            public readonly uint Days;
+            public readonly uint Hours;
+            public readonly uint Minutes;
+            public readonly uint Seconds;
 
             public Duration(uint seconds)
             {
-                timeSpan = TimeSpan.FromSeconds(seconds);
+                this.seconds = seconds;
+                Years = this.seconds / yearInSeconds;
+                this.seconds -= Years * yearInSeconds;
+                Days = this.seconds / dayInSeconds;
+                this.seconds -= Days * dayInSeconds;
+                Hours = this.seconds / hourInSeconds;
+                this.seconds -= Hours * hourInSeconds;
+                Minutes = this.seconds / minuteInSeconds;
+                this.seconds -= Minutes * minuteInSeconds;
+                Seconds = this.seconds;
             }
         }
     }
