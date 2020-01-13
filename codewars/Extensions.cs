@@ -54,6 +54,13 @@
         public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
 
         public static int CountTrue(this IEnumerable<bool> @this) => @this.Count(_ => _);
+
+        public static string ReplaceLastOccurence(this string @this, string oldValue, string newValue)
+        {
+            var pos = @this.LastIndexOf(oldValue);
+
+            return pos == -1 ? @this : @this.Remove(pos, oldValue.Length).Insert(pos, newValue);
+        }
     }
 
     public class ExtensionsTests

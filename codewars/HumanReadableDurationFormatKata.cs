@@ -56,16 +56,6 @@ namespace codewars
         }
     }
 
-    public static class HumanReadableDurationFormatExtensions
-    {
-        public static string ReplaceLastOccurence(this string @this, string oldValue, string newValue)
-        {
-            var pos = @this.LastIndexOf(oldValue);
-
-            return pos == -1 ? @this : @this.Remove(pos, oldValue.Length).Insert(pos, newValue);
-        }
-    }
-
     public class HumanReadableDurationFormatTests
     {
         [Theory]
