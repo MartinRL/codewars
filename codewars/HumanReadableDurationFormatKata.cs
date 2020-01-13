@@ -14,12 +14,12 @@ namespace codewars
             if (seconds == 0)
                 return "now";
 
-            // 2do: DRY
-            var years = duration.Years == 0 ? string.Empty : duration.Years + " year" + (duration.Years == 1 ? string.Empty : "s");
-            var days = duration.Days == 0 ? string.Empty : duration.Days + " day" + (duration.Days == 1 ? string.Empty : "s");
-            var hours = duration.Hours == 0 ? string.Empty : duration.Hours + " hour" + (duration.Hours == 1 ? string.Empty : "s");
-            var minutes = duration.Minutes == 0 ? string.Empty : duration.Minutes + " minute" + (duration.Minutes == 1 ? string.Empty : "s");
-            var secs = duration.Seconds == 0 ? string.Empty : duration.Seconds + " second" + (duration.Seconds == 1 ? string.Empty : "s");
+            string ToDurationString(uint durationValue, string durationName) => durationValue == 0 ? string.Empty : durationValue + " " + durationName + (durationValue == 1 ? string.Empty : "s");
+            var years = ToDurationString(duration.Years, "year");
+            var days = ToDurationString(duration.Days, "day");
+            var hours = ToDurationString(duration.Hours, "hour");
+            var minutes = ToDurationString(duration.Minutes, "minute");
+            var secs = ToDurationString(duration.Seconds, "second");
 
             return new[] {years, days, hours, minutes, secs}
                 .Where(_ => !string.IsNullOrEmpty(_))
