@@ -21,9 +21,10 @@ namespace codewars
             var minutes = duration.Minutes == 0 ? string.Empty : duration.Minutes + " minute" + (duration.Minutes == 1 ? string.Empty : "s");
             var secs = duration.Seconds == 0 ? string.Empty : duration.Seconds + " second" + (duration.Seconds == 1 ? string.Empty : "s");
 
-            return new string[] {years, days, hours, minutes, secs}
+            return new[] {years, days, hours, minutes, secs}
                 .Where(_ => !string.IsNullOrEmpty(_))
-                .Aggregate((r, _) => $"{r}, {_}");
+                .Aggregate((r, _) => $"{r}, {_}")
+                .ReplaceLastOccurence(", ", " and ");
         }
 
         public class Duration
@@ -54,6 +55,16 @@ namespace codewars
                 this.seconds -= Minutes * minuteInSeconds;
                 Seconds = this.seconds;
             }
+        }
+    }
+
+    public static class HumanReadableDurationFormatExtensions
+    {
+        public static string ReplaceLastOccurence(this string @this, string oldValue, string newValue)
+        {
+            var pos = @this.LastIndexOf(oldValue);
+
+            return pos == -1 ? @this : @this.Remove(pos, oldValue.Length).Insert(pos, newValue);
         }
     }
 
