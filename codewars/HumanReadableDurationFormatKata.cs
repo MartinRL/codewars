@@ -7,7 +7,29 @@ namespace codewars
 
     public class HumanReadableDurationFormatSolution
     {
-        public static string FormatDuration(int seconds) => seconds == 0 ? "now" : throw new NotImplementedException();
+        public static string FormatDuration(int seconds)
+        {
+            var duration = new Duration((uint)seconds);
+
+            if (seconds == 0)
+                return "now";
+
+            throw new NotImplementedException();
+        }
+
+        public class Duration
+        {
+            private readonly TimeSpan timeSpan;
+            private const int year = 365; // days
+            private const int day = 24; // hours
+            private const int hours = 60; // minutes
+            private const int minute = 60; // seconds
+
+            public Duration(uint seconds)
+            {
+                timeSpan = TimeSpan.FromSeconds(seconds);
+            }
+        }
     }
 
     public class HumanReadableDurationFormatTests
@@ -26,5 +48,29 @@ namespace codewars
         [InlineData(101956166, "3 years, 85 days, 1 hour, 9 minutes and 26 seconds")]
         [InlineData(33243586, "1 year, 19 days, 18 hours, 19 minutes and 46 seconds")]
         public void VerifyFormatDurationWith(int seconds, string expectedFormatting) => HumanReadableDurationFormatSolution.FormatDuration(seconds).Should().Be(expectedFormatting);
+
+        [Theory]
+        [InlineData(0, 0, 0, 0, 0, 0)]
+        [InlineData(1, 0, 0, 0, 0, 1)]
+        [InlineData(62, 0, 0, 0, 1, 2)]
+        [InlineData(120, 0, 0, 0, 2, 0)]
+        [InlineData(3662, 0, 0, 1, 1, 2)]
+        [InlineData(15731080, 0, 182, 1, 44, 40)]
+        [InlineData(132030240, 4, 68, 3, 4, 0)]
+        [InlineData(205851834, 6, 192, 13, 3, 54)]
+        [InlineData(253374061, 8, 12, 13, 41, 1)]
+        [InlineData(242062374, 7, 246, 15, 32, 54)]
+        [InlineData(101956166, 3, 85, 1, 9, 26)]
+        [InlineData(33243586, 1, 19, 18, 19, 46)]
+        public void VerifyDurationWith(int seconds, uint expectedYears, uint expectedDays, uint expectedHours, uint expectedMinutes, uint expectedSeconds) =>
+            new HumanReadableDurationFormatSolution.Duration((uint)seconds).Should().BeEquivalentTo(
+                new
+                {
+                    Years = expectedYears,
+                    Days = expectedDays,
+                    Hours = expectedHours,
+                    Minutes = expectedMinutes,
+                    Seconds = expectedSeconds
+                });
     }
 }
