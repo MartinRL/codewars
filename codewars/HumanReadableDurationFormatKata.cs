@@ -34,8 +34,6 @@ namespace codewars
             private const uint hourInSeconds = 60 * minuteInSeconds;
             private const uint minuteInSeconds = 60;
 
-            private uint seconds;
-
             public readonly uint Years;
             public readonly uint Days;
             public readonly uint Hours;
@@ -44,16 +42,16 @@ namespace codewars
 
             public Duration(uint seconds)
             {
-                this.seconds = seconds;
-                Years = this.seconds / yearInSeconds;
-                this.seconds -= Years * yearInSeconds;
-                Days = this.seconds / dayInSeconds;
-                this.seconds -= Days * dayInSeconds;
-                Hours = this.seconds / hourInSeconds;
-                this.seconds -= Hours * hourInSeconds;
-                Minutes = this.seconds / minuteInSeconds;
-                this.seconds -= Minutes * minuteInSeconds;
-                Seconds = this.seconds;
+                var secondCounter = seconds;
+                Years = secondCounter / yearInSeconds;
+                secondCounter -= Years * yearInSeconds;
+                Days = secondCounter / dayInSeconds;
+                secondCounter -= Days * dayInSeconds;
+                Hours = secondCounter / hourInSeconds;
+                secondCounter -= Hours * hourInSeconds;
+                Minutes = secondCounter / minuteInSeconds;
+                secondCounter -= Minutes * minuteInSeconds;
+                Seconds = secondCounter;
             }
         }
     }
