@@ -12,17 +12,22 @@ namespace codewars
             if (h < 2)
                 return new string[] {};
 
-            const char space = ' ';
             const string star = "*";
 
-            var firstRow = star + new string(space, (h - 2) * 2 + 1) + star + new string(space, (h - 2) * 2 + 1) + star;
-            var lastRow = new string(space, h - 1) + star + new string(space, (h - 1) * 2 - 1) + star + new string(space, h - 1);
+            var firstRow = star + ((h - 2) * 2 + 1).Spaces() + star + ((h - 2) * 2 + 1).Spaces() + star;
+            var lastRow = (h - 1).Spaces() + star + ((h - 1) * 2 - 1).Spaces() + star + (h - 1).Spaces();
 
             return new[] { firstRow }
-                .Concat(Enumerable.Range(2, h - 2).Select(i => new string(space, i - 1) + star + new string(space, (h - (i + 1)) * 2 + 1) + star + new string(space, 1 + (i - 2) * 2) + star + new string(space, (h - (i + 1)) * 2 + 1) + star + new string(space, i - 1)))
+                .Concat(Enumerable.Range(2, h - 2)
+                        .Select(i => (i - 1).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (1 + (i - 2) * 2).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (i - 1).Spaces()))
                 .Concat(new[] { lastRow })
                 .ToArray();
         }
+    }
+
+    public static class IntroToArtExtensions
+    {
+        public static string Spaces(this int @this) => new string(' ', @this);
     }
 
     public class IntroToArtTests
