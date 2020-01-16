@@ -12,11 +12,14 @@ namespace codewars
             if (h < 2)
                 return new string[] {};
 
-            var firstRow = "*" + new string(' ', (h - 2) * 2 + 1) + "*" + new string(' ', (h - 2) * 2 + 1) + "*";
-            var lastRow = new string(' ', h - 1) + "*" + new string(' ', (h - 1) * 2 - 1) + "*" + new string(' ', h - 1);
+            const char space = ' ';
+            const string star = "*";
+
+            var firstRow = star + new string(space, (h - 2) * 2 + 1) + star + new string(space, (h - 2) * 2 + 1) + star;
+            var lastRow = new string(space, h - 1) + star + new string(space, (h - 1) * 2 - 1) + star + new string(space, h - 1);
 
             return new[] { firstRow }
-                .Concat(Enumerable.Range(2, h - 2).Select(i => new string(' ', i - 1) + "*" + new string(' ', (h - (i + 1)) * 2 + 1) + "*" + new string(' ', 1 + (i - 2) * 2) + "*" + new string(' ', (h - (i + 1)) * 2 + 1) + "*" + new string(' ', i - 1)))
+                .Concat(Enumerable.Range(2, h - 2).Select(i => new string(space, i - 1) + star + new string(space, (h - (i + 1)) * 2 + 1) + star + new string(space, 1 + (i - 2) * 2) + star + new string(space, (h - (i + 1)) * 2 + 1) + star + new string(space, i - 1)))
                 .Concat(new[] { lastRow })
                 .ToArray();
         }
