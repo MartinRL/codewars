@@ -1,7 +1,6 @@
 namespace codewars
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -24,13 +23,6 @@ namespace codewars
                 .Concat(lastRow.ToIEnumerable())
                 .ToArray();
         }
-    }
-
-    public static class IntroToArtExtensions
-    {
-        public static string Spaces(this int @this) => new string(' ', @this);
-
-        public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
     }
 
     public class IntroToArtTests
