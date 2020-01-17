@@ -61,6 +61,10 @@
 
             return pos == -1 ? @this : @this.Remove(pos, oldValue.Length).Insert(pos, newValue);
         }
+
+        public static string Spaces(this int @this) => new string(' ', @this);
+
+        public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
     }
 
     public class ExtensionsTests

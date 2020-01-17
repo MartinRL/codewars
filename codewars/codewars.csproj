@@ -101,6 +101,7 @@
     <Compile Include="HelpTheBooksellerKata.cs" />
     <Compile Include="HumanReadableDurationFormatKata.cs" />
     <Compile Include="IntegersRecreationOneKata.cs" />
+    <Compile Include="IntroToArtKata.cs" />
     <Compile Include="ItemCounterKata.cs" />
     <Compile Include="KookaCounterKata.cs" />
     <Compile Include="LogicalCalculatorKata.cs" />
