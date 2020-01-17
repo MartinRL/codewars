@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -17,10 +18,10 @@ namespace codewars
             var firstRow = star + ((h - 2) * 2 + 1).Spaces() + star + ((h - 2) * 2 + 1).Spaces() + star;
             var lastRow = (h - 1).Spaces() + star + ((h - 1) * 2 - 1).Spaces() + star + (h - 1).Spaces();
 
-            return new[] { firstRow }
+            return firstRow.ToIEnumerable()
                 .Concat(Enumerable.Range(2, h - 2)
                         .Select(i => (i - 1).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (1 + (i - 2) * 2).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (i - 1).Spaces()))
-                .Concat(new[] { lastRow })
+                .Concat(lastRow.ToIEnumerable())
                 .ToArray();
         }
     }
@@ -28,6 +29,8 @@ namespace codewars
     public static class IntroToArtExtensions
     {
         public static string Spaces(this int @this) => new string(' ', @this);
+
+        public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
     }
 
     public class IntroToArtTests
