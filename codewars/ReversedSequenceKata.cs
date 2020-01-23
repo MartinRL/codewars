@@ -7,7 +7,7 @@ namespace codewars
 
     public class ReversedSequenceSolution
     {
-        public static int[] ReverseSeq(int n) => throw new NotImplementedException();
+        public static int[] ReverseSeq(int n) => Enumerable.Range(1, n).Reverse().ToArray();
     }
 
     public class ReversedSequenceTests
