@@ -117,6 +117,7 @@
     <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
     <Compile Include="QueueTimeCounterKata.cs" />
+    <Compile Include="RangeExtractionKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
     <Compile Include="ReversedSequenceKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
