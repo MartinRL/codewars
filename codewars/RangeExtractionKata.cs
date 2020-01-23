@@ -7,7 +7,7 @@ namespace codewars
 
     public class RangeExtractionSolution
     {
-        public static string Extract(int[] args) => throw new NotImplementedException();
+        public static string Extract(int[] args) => string.Join(",", args);
     }
 
     public class RangeExtractionTests
