@@ -20,13 +20,29 @@ namespace codewars
                 return $"{args[0]},{args[1]}";
 
             var argsQueue = new Queue<int>(args);
+            var rangeFirst = argsQueue.Dequeue();
+            var rangeLast = GetNext(rangeFirst);
 
-            /*while (argsQueue.Any())
+            int GetNext(int n)
             {
+                if (!argsQueue.Any())
+                    return n;
 
-            }*/
+                var next = argsQueue.Dequeue();
 
-            return "";
+                if (next - n > 1)
+                    return next;
+
+                return GetNext(next);
+            }
+
+            if (rangeFirst == rangeLast)
+                return rangeFirst.ToString();
+
+            if (rangeLast - rangeFirst == 1)
+                return $"{rangeFirst},{rangeLast}";
+
+            return $"{rangeFirst}-{rangeLast}";
         }
     }
 
@@ -34,7 +50,7 @@ namespace codewars
     {
         [Theory]
         [InlineData(new int[0], "")]
-        [InlineData(new [] { 1 }, "1")]
+        [InlineData(new[] { 1 }, "1")]
         [InlineData(new[] { 1, 2 }, "1,2")]
         [InlineData(new[] { 1, 2, 3 }, "1-3")]
         [InlineData(new[] { -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20 }, "-6,-3-1,3-5,7-11,14,15,17-20")]
