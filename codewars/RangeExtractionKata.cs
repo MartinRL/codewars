@@ -10,25 +10,29 @@ namespace codewars
     {
         public static string Extract(int[] args)
         {
-            if (!args.Any())
-                return string.Empty;
-
-            if (args.Length == 1)
-                return args.First().ToString();
-
-            if (args.Length == 2)
-                return $"{args[0]},{args[1]}";
-
             var argsQueue = new Queue<int>(args);
-            var rangeFirst = argsQueue.Dequeue();
+            var rangeList = new List<string>();
+
+            while (argsQueue.Any())
+            {
+                rangeList.Add(GetSubrange(argsQueue));
+            }
+
+            return string.Join(",", rangeList);
+        }
+
+        private static string GetSubrange(Queue<int> queue)
+        {
+            var rangeFirst = queue.Dequeue();
+            var argsCount = queue.Count;
             var rangeLast = GetNext(rangeFirst);
 
             int GetNext(int n)
             {
-                if (!argsQueue.Any())
+                if (!queue.Any())
                     return n;
 
-                var next = argsQueue.Dequeue();
+                var next = queue.Dequeue();
 
                 if (next - n > 1)
                     return next;
@@ -39,7 +43,7 @@ namespace codewars
             if (rangeFirst == rangeLast)
                 return rangeFirst.ToString();
 
-            if (rangeLast - rangeFirst == 1)
+            if (rangeLast - rangeFirst == 1 || argsCount - queue.Count == 1)
                 return $"{rangeFirst},{rangeLast}";
 
             return $"{rangeFirst}-{rangeLast}";
