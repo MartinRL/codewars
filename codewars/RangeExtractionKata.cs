@@ -15,38 +15,38 @@ namespace codewars
 
             while (argsQueue.Any())
             {
-                rangeList.Add(GetSubrange(argsQueue));
+                rangeList.Add(GetSubrange());
+            }
+
+            string GetSubrange()
+            {
+                var rangeFirst = argsQueue.Dequeue();
+                var argsCount = argsQueue.Count;
+                var rangeLast = GetNext(rangeFirst);
+
+                int GetNext(int n)
+                {
+                    if (!argsQueue.Any())
+                        return n;
+
+                    var next = argsQueue.Dequeue();
+
+                    if (next - n > 1)
+                        return next;
+
+                    return GetNext(next);
+                }
+
+                if (rangeFirst == rangeLast)
+                    return rangeFirst.ToString();
+
+                if (rangeLast - rangeFirst == 1 || argsCount - argsQueue.Count == 1)
+                    return $"{rangeFirst},{rangeLast}";
+
+                return $"{rangeFirst}-{rangeLast}";
             }
 
             return string.Join(",", rangeList);
-        }
-
-        private static string GetSubrange(Queue<int> queue)
-        {
-            var rangeFirst = queue.Dequeue();
-            var argsCount = queue.Count;
-            var rangeLast = GetNext(rangeFirst);
-
-            int GetNext(int n)
-            {
-                if (!queue.Any())
-                    return n;
-
-                var next = queue.Dequeue();
-
-                if (next - n > 1)
-                    return next;
-
-                return GetNext(next);
-            }
-
-            if (rangeFirst == rangeLast)
-                return rangeFirst.ToString();
-
-            if (rangeLast - rangeFirst == 1 || argsCount - queue.Count == 1)
-                return $"{rangeFirst},{rangeLast}";
-
-            return $"{rangeFirst}-{rangeLast}";
         }
     }
 
