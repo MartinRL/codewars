@@ -16,6 +16,9 @@ namespace codewars
             if (args.Length == 1)
                 return args.First().ToString();
 
+            if (args.Length == 2)
+                return $"{args[0]},{args[1]}";
+
             var argsQueue = new Queue<int>(args);
 
             /*while (argsQueue.Any())
