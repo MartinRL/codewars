@@ -20,30 +20,16 @@ namespace codewars
 
             string GetSubrange()
             {
-                var rangeFirst = argsQueue.Dequeue();
-                var argsCount = argsQueue.Count;
-                var rangeLast = GetNext(rangeFirst);
+                // 1 kvar --> de-köa och returnera
 
-                int GetNext(int n)
-                {
-                    if (!argsQueue.Any())
-                        return n;
+                // peeka n + 1
+                    // större än n + 1? --> "{n},{n+1}" varav n+1 är de-köad
 
-                    var next = argsQueue.Dequeue();
+                    // de-köa tills nästa n != n + 1
+                        // är hoppet endast ett? --> "{n},{n+1}" varav n+1 är de-köad
+                        // annars "{n}-{n+x}"
 
-                    if (next - n > 1)
-                        return next;
-
-                    return GetNext(next);
-                }
-
-                if (rangeFirst == rangeLast)
-                    return rangeFirst.ToString();
-
-                if (rangeLast - rangeFirst == 1 || argsCount - argsQueue.Count == 1)
-                    return $"{rangeFirst},{rangeLast}";
-
-                return $"{rangeFirst}-{rangeLast}";
+                throw new NotImplementedException();
             }
 
             return string.Join(",", rangeList);
