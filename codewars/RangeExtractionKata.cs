@@ -20,10 +20,11 @@ namespace codewars
 
             string GetSubrange()
             {
-                if (argsQueue.Count() == 1)
-                    return $"{argsQueue.Dequeue()}";
-
                 var start = argsQueue.Dequeue();
+
+                if (!argsQueue.Any())
+                    return $"{start}";
+
                 var next = argsQueue.Peek();
                 if (next > start + 1)
                     return $"{start}";
