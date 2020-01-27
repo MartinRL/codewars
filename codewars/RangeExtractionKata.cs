@@ -14,27 +14,22 @@ namespace codewars
             var rangeList = new List<string>();
 
             while (argsQueue.Any())
-            {
                 rangeList.Add(GetSubrange());
-            }
+
+            return string.Join(",", rangeList);
 
             string GetSubrange()
             {
                 var start = argsQueue.Dequeue();
-
                 if (!argsQueue.Any() || argsQueue.Peek() > start + 1)
                     return $"{start}";
 
                 var current = start;
                 while (argsQueue.Any() && argsQueue.Peek() == current + 1)
-                {
                     current = argsQueue.Dequeue();
-                }
 
                 return $"{start}{(current == start + 1 ? "," : "-")}{current}";
             }
-
-            return string.Join(",", rangeList);
         }
     }
 
