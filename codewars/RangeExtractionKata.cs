@@ -23,9 +23,6 @@ namespace codewars
                 if (argsQueue.Count() == 1)
                     return $"{argsQueue.Dequeue()}";
 
-                if (argsQueue.Count() == 2)
-                    return $"{argsQueue.Dequeue()},{argsQueue.Dequeue()}";
-
                 var start = argsQueue.Dequeue();
                 var next = argsQueue.Peek();
                 if (next > start + 1)
