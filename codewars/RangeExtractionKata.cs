@@ -36,7 +36,7 @@ namespace codewars
                     return $"{start},{argsQueue.Dequeue()}";
 
                 var current = start;
-                while (argsQueue.Peek() == current + 1)
+                while (argsQueue.Any() && argsQueue.Peek() == current + 1)
                 {
                     current = argsQueue.Dequeue();
                 }
