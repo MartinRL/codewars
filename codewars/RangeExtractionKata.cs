@@ -20,18 +20,14 @@ namespace codewars
 
             string GetSubrange()
             {
-                // 1 kvar --> de-köa och returnera
                 if (argsQueue.Count() == 1)
                     return $"{argsQueue.Dequeue()}";
 
                 if (argsQueue.Count() == 2)
                     return $"{argsQueue.Dequeue()},{argsQueue.Dequeue()}";
 
-                // peeka n + 1
                 var start = argsQueue.Dequeue();
                 var next = argsQueue.Peek();
-
-                // större än n + 1? --> "{n},{n+1}" varav n+1 är de-köad
                 if (next > start + 1)
                     return $"{start}";
 
