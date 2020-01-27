@@ -34,7 +34,7 @@ namespace codewars
                     current = argsQueue.Dequeue();
                 }
 
-                return current == start + 1 ? $"{start},{current}" : $"{start}-{current}";
+                return $"{start}{(current == start + 1 ? "," : "-")}{current}";
             }
 
             return string.Join(",", rangeList);
