@@ -22,11 +22,7 @@ namespace codewars
             {
                 var start = argsQueue.Dequeue();
 
-                if (!argsQueue.Any())
-                    return $"{start}";
-
-                var next = argsQueue.Peek();
-                if (next > start + 1)
+                if (!argsQueue.Any() || argsQueue.Peek() > start + 1)
                     return $"{start}";
 
                 var current = start;
