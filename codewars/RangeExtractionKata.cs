@@ -33,7 +33,7 @@ namespace codewars
 
                 // större än n + 1? --> "{n},{n+1}" varav n+1 är de-köad
                 if (next > start + 1)
-                    return $"{start},{argsQueue.Dequeue()}";
+                    return $"{start}";
 
                 var current = start;
                 while (argsQueue.Any() && argsQueue.Peek() == current + 1)
@@ -41,7 +41,7 @@ namespace codewars
                     current = argsQueue.Dequeue();
                 }
 
-                return $"{start}-{current}";
+                return current == start + 1 ? $"{start},{current}" : $"{start}-{current}";
             }
 
             return string.Join(",", rangeList);
