@@ -25,13 +25,20 @@ namespace codewars
                     return $"{argsQueue.Dequeue()}";
 
                 // peeka n + 1
-                    // större än n + 1? --> "{n},{n+1}" varav n+1 är de-köad
+                var start = argsQueue.Dequeue();
+                var next = argsQueue.Peek();
 
-                    // de-köa tills nästa n != n + 1
-                        // är hoppet endast ett? --> "{n},{n+1}" varav n+1 är de-köad
-                        // annars "{n}-{n+x}"
+                // större än n + 1? --> "{n},{n+1}" varav n+1 är de-köad
+                if (next > start + 1)
+                    return $"{start},{argsQueue.Dequeue()}";
 
-                throw new NotImplementedException();
+                var current = start;
+                while (argsQueue.Peek() == current + 1)
+                {
+                    current = argsQueue.Dequeue();
+                }
+
+                return $"{start}-{current}";
             }
 
             return string.Join(",", rangeList);
