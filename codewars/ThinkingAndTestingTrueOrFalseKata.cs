@@ -15,18 +15,18 @@ namespace codewars
         [Theory]
         [InlineData(0, 0)] // 0
         [InlineData(1, 1)] // 1
-        [InlineData(1, 2)] // 10
-        [InlineData(2, 3)] // 011
-        [InlineData(1, 4)] // 100
-        [InlineData(2, 5)] // 0101
-        [InlineData(2, 6)] // 0110
-        [InlineData(3, 7)] // 0111
-        [InlineData(1, 8)]
-        [InlineData(2, 9)]
-        [InlineData(2, 10)]
-        [InlineData(3, 100)]
-        [InlineData(6, 1000)]
-        [InlineData(5, 10000)]
+        [InlineData(2, 1)] // 10
+        [InlineData(3, 2)] // 011
+        [InlineData(4, 1)] // 100
+        [InlineData(5, 2)] // 0101
+        [InlineData(6, 2)] // 0110
+        [InlineData(7, 3)] // 0111
+        [InlineData(8, 1)]
+        [InlineData(9, 2)]
+        [InlineData(10, 2)]
+        [InlineData(100, 3)]
+        [InlineData(1000, 6)]
+        [InlineData(10000, 5)]
         public void VerifyTestItWith(int n, int expected) => ThinkingAndTestingTrueOrFalseSolution.TestIt(n).Should().Be(expected);
     }
 }
