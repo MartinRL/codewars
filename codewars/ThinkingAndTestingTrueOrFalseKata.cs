@@ -7,7 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingTrueOrFalseSolution
     {
-        public static int TestIt(int n) => throw new NotImplementedException();
+        public static int TestIt(int n) => Convert.ToString(n, 2).Count(_ => _ == '1');
     }
 
     public class ThinkingAndTestingTrueOrFalseTests
