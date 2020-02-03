@@ -13,14 +13,14 @@ namespace codewars
     public class ThinkingAndTestingTrueOrFalseTests
     {
         [Theory]
-        [InlineData(0, 0)]
-        [InlineData(1, 1)]
-        [InlineData(1, 2)]
-        [InlineData(2, 3)]
-        [InlineData(1, 4)]
-        [InlineData(2, 5)]
-        [InlineData(2, 6)]
-        [InlineData(3, 7)]
+        [InlineData(0, 0)] // 0
+        [InlineData(1, 1)] // 1
+        [InlineData(1, 2)] // 10
+        [InlineData(2, 3)] // 011
+        [InlineData(1, 4)] // 100
+        [InlineData(2, 5)] // 0101
+        [InlineData(2, 6)] // 0110
+        [InlineData(3, 7)] // 0111
         [InlineData(1, 8)]
         [InlineData(2, 9)]
         [InlineData(2, 10)]
