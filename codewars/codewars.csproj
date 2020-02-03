@@ -145,6 +145,7 @@
     <Compile Include="SupermarketQueueKata.cs" />
     <Compile Include="SupersizeMeKata.cs" />
     <Compile Include="ThinkfulLogicDrillsTrafficLightKata.cs" />
+    <Compile Include="ThinkingAndTestingTrueOrFalseKata.cs" />
     <Compile Include="TidyNumberKata.cs" />
     <Compile Include="TitleCaseKata.cs" />
     <Compile Include="TwiceAsOldKata.cs" />
