@@ -9,19 +9,10 @@ namespace codewars
     {
         public static string TestIt(string s)
         {
-            var modString = string.Empty;
+            if(s.Length < 2)
+                return s;
 
-            for(var i = 0; i < s.Length; i += 2)
-            {
-                var meanChar = s[i];
-                if(i + 1 < s.Length)
-                {
-                    meanChar = (char)((meanChar + s[i+1]) / 2);
-                }
-                modString += meanChar;
-            }
-
-            return modString;
+            return string.Concat((char)((s[0] + s[1]) / 2), TestIt(s.Substring(2)));
         }
     }
 
