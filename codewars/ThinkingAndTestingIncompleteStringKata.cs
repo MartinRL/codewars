@@ -7,13 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingIncompleteStringSolution
     {
-        public static string TestIt(string s)
-        {
-            if(s.Length < 2)
-                return s;
-
-            return string.Concat((char)((s[0] + s[1]) / 2), TestIt(s.Substring(2)));
-        }
+        public static string TestIt(string s) => s.Length < 2 ? s : string.Concat((char)((s[0] + s[1]) / 2), TestIt(s.Substring(2)));
     }
 
     public class ThinkingAndTestingIncompleteStringTests
