@@ -7,7 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingSomethingCapitalizedSolution
     {
-        public static string TestIt(string s) => throw new NotImplementedException();
+        public static string TestIt(string s) => new string(s.Select(_ => char.IsLower(_) ? char.ToUpper(_) : char.ToLower(_)).ToArray());
     }
 
     public class ThinkingAndTestingSomethingCapitalizedTests
