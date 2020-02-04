@@ -16,7 +16,7 @@ namespace codewars
         [InlineData("", "")]
         [InlineData("a", "A")]
         [InlineData("a b c", "A B C")]
-        [InlineData("Aa", "aA")]
+        [InlineData("aa", "aA")]
         public void VerifyTestItWith(string s, string expected) => ThinkingAndTestingSomethingCapitalizedSolution.TestIt(s).Should().Be(expected);
     }
 }
