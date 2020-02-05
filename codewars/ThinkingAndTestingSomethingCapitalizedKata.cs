@@ -8,7 +8,12 @@ namespace codewars
 
     public class ThinkingAndTestingSomethingCapitalizedSolution
     {
-        public static string TestIt(string s) => new string(new CultureInfo("en-US",false).TextInfo.ToTitleCase(new string(s.Reverse().ToArray())).Reverse().ToArray());
+        public static string TestIt(string s) => new CultureInfo("en-US",false).TextInfo.ToTitleCase(s.ReverseString()).ReverseString();
+    }
+
+    public static class ThinkingAndTestingSomethingCapitalizedSolutionExtensions
+    {
+        public static string ReverseString(this string @this) => new string(@this.Reverse().ToArray());
     }
 
     public class ThinkingAndTestingSomethingCapitalizedTests
