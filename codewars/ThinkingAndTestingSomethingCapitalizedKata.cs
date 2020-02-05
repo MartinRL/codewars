@@ -11,11 +11,6 @@ namespace codewars
         public static string TestIt(string s) => new CultureInfo("en-US",false).TextInfo.ToTitleCase(s.ReverseString()).ReverseString();
     }
 
-    public static class ThinkingAndTestingSomethingCapitalizedSolutionExtensions
-    {
-        public static string ReverseString(this string @this) => new string(@this.Reverse().ToArray());
-    }
-
     public class ThinkingAndTestingSomethingCapitalizedTests
     {
         [Theory]

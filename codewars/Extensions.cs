@@ -23,9 +23,9 @@
                 .Combinations(k - 1)
                 .Select(c => new[] {e}.Concat(c)));
 
-        public static int[] ToDigits(this int @this) => @this.ToString().Select(_ => (int) char.GetNumericValue(_)).ToArray();
+        public static int[] ToDigits(this int @this) => @this.ToString().Select(_ => (int) Char.GetNumericValue(_)).ToArray();
 
-        public static int ToNumber(this IEnumerable<int> @this) => int.Parse(string.Join(string.Empty, @this));
+        public static int ToNumber(this IEnumerable<int> @this) => Int32.Parse(String.Join(String.Empty, @this));
 
         public static string Repeating(this string @this)
         {
@@ -33,7 +33,7 @@
 
             for (var i = 0; i < @this.Length; i++)
             {
-                if (@this == string.Join(string.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
+                if (@this == String.Join(String.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
                 {
                     repeatingLength = i + 1;
                     break;
@@ -65,6 +65,7 @@
         public static string Spaces(this int @this) => new string(' ', @this);
 
         public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
+        public static string ReverseString(this string @this) => new string(@this.Reverse().ToArray());
     }
 
     public class ExtensionsTests
