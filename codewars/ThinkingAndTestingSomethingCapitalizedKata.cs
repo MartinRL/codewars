@@ -1,23 +1,14 @@
 namespace codewars
 {
     using System;
+    using System.Globalization;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class ThinkingAndTestingSomethingCapitalizedSolution
     {
-        public static string TestIt(string s)
-        {
-            if (s == string.Empty)
-                return string.Empty;
-
-            char Invert(char c) => char.IsLower(c) ? char.ToUpper(c) : char.ToLower(c);
-
-            string InvertFirstChar(string w) => $"{Invert(w.First()).ToString()}{w.Substring(1)}";
-
-            return string.Join(" ", s.Split(' ').Select(InvertFirstChar));
-        }
+        public static string TestIt(string s) => new string(new CultureInfo("en-US",false).TextInfo.ToTitleCase(new string(s.Reverse().ToArray())).Reverse().ToArray());
     }
 
     public class ThinkingAndTestingSomethingCapitalizedTests
