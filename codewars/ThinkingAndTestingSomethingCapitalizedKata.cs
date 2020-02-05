@@ -7,7 +7,17 @@ namespace codewars
 
     public class ThinkingAndTestingSomethingCapitalizedSolution
     {
-        public static string TestIt(string s) => new string(s.Select(_ => char.IsLower(_) ? char.ToUpper(_) : char.ToLower(_)).ToArray());
+        public static string TestIt(string s)
+        {
+            if (s == string.Empty)
+                return string.Empty;
+
+            char Invert(char c) => char.IsLower(c) ? char.ToUpper(c) : char.ToLower(c);
+
+            string InvertFirstChar(string w) => $"{Invert(w.First()).ToString()}{w.Substring(1)}";
+
+            return string.Join(" ", s.Split(' ').Select(InvertFirstChar));
+        }
     }
 
     public class ThinkingAndTestingSomethingCapitalizedTests
@@ -16,7 +26,7 @@ namespace codewars
         [InlineData("", "")]
         [InlineData("a", "A")]
         [InlineData("a b c", "A B C")]
-        [InlineData("aa", "aA")]
+        [InlineData("AA", "aA")]
         public void VerifyTestItWith(string s, string expected) => ThinkingAndTestingSomethingCapitalizedSolution.TestIt(s).Should().Be(expected);
     }
 }
