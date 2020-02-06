@@ -2,7 +2,6 @@ namespace codewars
 {
     using System;
     using System.Globalization;
-    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
