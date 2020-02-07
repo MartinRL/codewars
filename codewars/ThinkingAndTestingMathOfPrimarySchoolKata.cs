@@ -7,17 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingMathOfPrimarySchoolSolution
     {
-        public static int TestIt(int[] a) => Convert.ToInt32(new string(a.Select(_ => char.Parse(_.ToString())).ToArray()), 2).IsPrime() ? 0 : 1;
-    }
-
-    public static class ThinkingAndTestingMathOfPrimarySchoolExtensions
-    {
-        public static bool IsPrime(this int @this)
-        {
-            for (var i=2; i < @this; i++) if (@this %i == 0) return false;
-
-            return true;
-        }
+        public static int TestIt(int[] a) => a[0] * a[3] + a[1] * a[2];
     }
 
     public class ThinkingAndTestingMathOfPrimarySchoolTests
