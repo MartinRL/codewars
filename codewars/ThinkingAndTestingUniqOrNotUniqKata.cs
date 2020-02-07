@@ -1,12 +1,13 @@
 namespace codewars
 {
     using System;
+    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class ThinkingAndTestingUniqOrNotUniqSolution
     {
-        public static int[] TestIt(int[] a, int[] b) => throw new NotImplementedException();
+        public static int[] TestIt(int[] a, int[] b) => a.Concat(b).OrderBy(_ => _).ToArray();
     }
 
     public class ThinkingAndTestingUniqOrNotUniqTests
