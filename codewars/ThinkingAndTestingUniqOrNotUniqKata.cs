@@ -7,7 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingUniqOrNotUniqSolution
     {
-        public static int[] TestIt(int[] a, int[] b) => a.Concat(b).OrderBy(_ => _).ToArray();
+        public static int[] TestIt(int[] a, int[] b) => a.Distinct().Concat(b.Distinct()).OrderBy(x => x).ToArray();
     }
 
     public class ThinkingAndTestingUniqOrNotUniqTests
