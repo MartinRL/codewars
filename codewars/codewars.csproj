@@ -149,6 +149,7 @@
     <Compile Include="ThinkingAndTestingIncompleteStringKata.cs" />
     <Compile Include="ThinkingAndTestingSomethingCapitalizedKata.cs" />
     <Compile Include="ThinkingAndTestingTrueOrFalseKata.cs" />
+    <Compile Include="ThinkingAndTestingUniqOrNotUniqKata.cs" />
     <Compile Include="TidyNumberKata.cs" />
     <Compile Include="TitleCaseKata.cs" />
     <Compile Include="TwiceAsOldKata.cs" />
