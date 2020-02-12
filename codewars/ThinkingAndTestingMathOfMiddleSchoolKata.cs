@@ -9,6 +9,9 @@ namespace codewars
     {
         public static int[] TestIt(int[] a, int[] b)
         {
+            if (!a.Any(n => n > 0) || !b.Any(n => n > 0))
+                return a;
+
             var pos = a.Zip(b, (an, bn) => new[] {an, bn}).ToList().FindIndex(_ => _.All(n => n > 0));
 
             var r = new[] {0, 0, 0, 0};
