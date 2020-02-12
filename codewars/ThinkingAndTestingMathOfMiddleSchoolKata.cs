@@ -1,12 +1,21 @@
 namespace codewars
 {
     using System;
+    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class ThinkingAndTestingMathOfMiddleSchoolSolution
     {
-        public static int[] TestIt(int[] a, int[] b) => throw new NotImplementedException();
+        public static int[] TestIt(int[] a, int[] b)
+        {
+            var pos = a.Zip(b, (an, bn) => new[] {an, bn}).ToList().FindIndex(_ => _.All(n => n > 0));
+
+            var r = new[] {0, 0, 0, 0};
+            r[pos] = a.Max() * b.Max() + a.Where(n => n > 0).Min() * b.Where(n => n > 0).Min();
+
+            return r;
+        }
     }
 
     public class ThinkingAndTestingMathOfMiddleSchoolTests
