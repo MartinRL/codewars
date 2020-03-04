@@ -6,18 +6,14 @@ namespace codewars
 
     public class ThinkingAndTestingMathOfMiddleSchoolSolution
     {
-        public static int[] TestIt(int[] a, int[] b)
-        {
-            if (!a.Any(n => n > 0) || !b.Any(n => n > 0))
-                return a;
-
-            var pos = a.Zip(b, (an, bn) => new[] {an, bn}).ToList().FindIndex(_ => _.All(n => n > 0));
-
-            var r = new[] {0, 0, 0, 0};
-            r[pos] = a.Max() * b.Max() + a.Where(n => n > 0).Min() * b.Where(n => n > 0).Min();
-
-            return r;
-        }
+        public static int[] TestIt(int[] a, int[] b) =>
+            new[]
+            {
+                a[0] * b[0] + a[1] * b[2],
+                a[0] * b[1] + a[1] * b[3],
+                a[2] * b[0] + a[3] * b[2],
+                a[2] * b[1] + a[3] * b[3]
+            };
     }
 
     public class ThinkingAndTestingMathOfMiddleSchoolTests
