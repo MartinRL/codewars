@@ -7,7 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingFromNothingnessToNothingnessSolution
     {
-        public static string TestIt(string s) => throw new NotImplementedException();
+        public static string TestIt(string s) => s.Split(' ')[1];
     }
 
     public class ThinkingAndTestingFromNothingnessToNothingnessTests
