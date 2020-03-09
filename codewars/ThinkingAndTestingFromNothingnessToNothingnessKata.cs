@@ -7,7 +7,7 @@ namespace codewars
 
     public class ThinkingAndTestingFromNothingnessToNothingnessSolution
     {
-        public static string TestIt(string s) => s.Split(' ')[1];
+        public static string TestIt(string s) => s.Any(_ => _ == ' ') ? s.Split(' ')[1] : null;
     }
 
     public class ThinkingAndTestingFromNothingnessToNothingnessTests
