@@ -22,6 +22,7 @@ namespace codewars
         [InlineData("  aaa", "")]
         [InlineData("  a{", "")]
         [InlineData(" e,]6MJo hbyglm", "hbyglm")]
+        [InlineData(" SB@g2W0gK qfgpgbsul", "qfgpgbsul")]
         public void VerifyTestItWith(string s, string expected) => ThinkingAndTestingFromNothingnessToNothingnessSolution.TestIt(s).Should().Be(expected);
     }
 }
