@@ -146,6 +146,7 @@
     <Compile Include="SupersizeMeKata.cs" />
     <Compile Include="ThinkfulLogicDrillsTrafficLightKata.cs" />
     <Compile Include="ThinkingAndTestingAAndBKata.cs" />
+    <Compile Include="ThinkingAndTestingFromNothingnessToNothingnessKata.cs" />
     <Compile Include="ThinkingAndTestingIncompleteStringKata.cs" />
     <Compile Include="ThinkingAndTestingMathOfMiddleSchoolKata.cs" />
     <Compile Include="ThinkingAndTestingMathOfPrimarySchoolKata.cs" />
