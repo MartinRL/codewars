@@ -1,13 +1,13 @@
 namespace codewars
 {
     using System;
-    using System.Linq;
+    using static System.Text.RegularExpressions.Regex;
     using FluentAssertions;
     using Xunit;
 
     public class ThinkingAndTestingFromNothingnessToNothingnessSolution
     {
-        public static string TestIt(string s) => s.Any(_ => _ == ' ') ? s.Split(' ')[1] : null;
+        public static string TestIt(string s) => IsMatch(s, " [a-z]*( |$)") ? Match(s, " [a-z]*( |$)").ToString().Trim() : null;
     }
 
     public class ThinkingAndTestingFromNothingnessToNothingnessTests
