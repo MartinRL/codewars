@@ -7,7 +7,7 @@ namespace codewars
 
     public class Drinkin
     {
-        public string Hydrate(string drinks) => drinks.Where(char.IsDigit).Select(d => int.Parse(d.ToString())).Sum().ToString();
+        public string Hydrate(string drinks) => $"{drinks.Where(char.IsDigit).Select(d => int.Parse(d.ToString())).Sum().ToString()} glasses of water";
     }
 
     public class ResponsibleDrinkingTests
