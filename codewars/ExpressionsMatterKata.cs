@@ -7,7 +7,22 @@ namespace codewars
 
     public class ExpressionsMatterSolution
     {
-        public static int ExpressionsMatter(int a, int b, int c) => throw new NotImplementedException();
+        public static int ExpressionsMatter(int a, int b, int c) =>
+        new[]
+        {
+            a + b + c,
+            (a + b) + c,
+            a + (b + c),
+            a + b * c,
+            (a + b) * c,
+            a + (b * c),
+            a * b + c,
+            (a * b) + c,
+            a * (b + c),
+            a * b * c,
+            (a * b) * c,
+            a * (b * c)
+        }.Max();
     }
 
     public class ExpressionsMatterTests
