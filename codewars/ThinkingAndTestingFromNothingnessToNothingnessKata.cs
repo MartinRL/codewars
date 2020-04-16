@@ -3,11 +3,12 @@ namespace codewars
     using System;
     using static System.Text.RegularExpressions.Regex;
     using FluentAssertions;
+    using JetBrains.Annotations;
     using Xunit;
 
     public class ThinkingAndTestingFromNothingnessToNothingnessSolution
     {
-        private const string pattern = " [a-z]*( |$)";
+        [RegexPattern] private const string pattern = " [a-z]*( |$)";
 
         public static string TestIt(string s) => IsMatch(s, pattern) ? Match(s, pattern).ToString().Trim() : null;
     }
