@@ -2,6 +2,8 @@ namespace codewars
 {
     using System;
     using System.Linq;
+    using static System.Char;
+    using static System.String;
     using FluentAssertions;
     using Xunit;
 
@@ -9,9 +11,9 @@ namespace codewars
     {
         public string Hydrate(string drinks)
         {
-            var noOfDrinks = drinks.Where(char.IsDigit).Select(d => int.Parse(d.ToString())).Sum();
+            var noOfDrinks = drinks.Where(IsDigit).Select(d => int.Parse(d.ToString())).Sum();
 
-            return $"{noOfDrinks} glass{(noOfDrinks > 1 ? "es" : string.Empty)} of water";
+            return $"{noOfDrinks} glass{(noOfDrinks > 1 ? "es" : Empty)} of water";
         }
     }
 
