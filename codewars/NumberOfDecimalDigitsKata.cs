@@ -7,7 +7,7 @@ namespace codewars
 
     public class NumberOfDecimalDigitsSolution
     {
-        public static int Digits(ulong n) => throw new NotImplementedException();
+        public static int Digits(ulong n) => n.ToString().Length;
     }
 
     public class NumberOfDecimalDigitsTests
