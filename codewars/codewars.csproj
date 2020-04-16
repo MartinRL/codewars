@@ -119,6 +119,7 @@
     <Compile Include="NewCashierDoesNotKnowAboutSpaceOrShiftKata.cs" />
     <Compile Include="NextBiggerNumberWithTheSameDigitsKata.cs" />
     <Compile Include="NiceArrayKata.cs" />
+    <Compile Include="NumberOfDecimalDigitsKata.cs" />
     <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
     <Compile Include="QueueTimeCounterKata.cs" />
