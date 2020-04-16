@@ -11,7 +11,7 @@ namespace codewars
     {
         public string Hydrate(string drinks)
         {
-            var noOfDrinks = drinks.Where(IsDigit).Select(d => int.Parse(d.ToString())).Sum();
+            var noOfDrinks = drinks.Where(IsDigit).Select(GetNumericValue).Sum();
 
             return $"{noOfDrinks} glass{(noOfDrinks > 1 ? "es" : Empty)} of water";
         }
