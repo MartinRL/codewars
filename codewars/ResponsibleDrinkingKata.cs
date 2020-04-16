@@ -7,7 +7,7 @@ namespace codewars
 
     public class Drinkin
     {
-        public string Hydrate(string drinks) => throw new NotImplementedException();
+        public string Hydrate(string drinks) => drinks.Where(char.IsDigit).Select(d => int.Parse(d.ToString())).Sum().ToString();
     }
 
     public class ResponsibleDrinkingTests
