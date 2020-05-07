@@ -122,6 +122,7 @@
     <Compile Include="NumberOfDecimalDigitsKata.cs" />
     <Compile Include="PlantDoublingKata.cs" />
     <Compile Include="PowerOfTwoKata.cs" />
+    <Compile Include="Properties\RectangleRotationKata.cs" />
     <Compile Include="QueueTimeCounterKata.cs" />
     <Compile Include="RangeExtractionKata.cs" />
     <Compile Include="RemovingElementsKata.cs" />
