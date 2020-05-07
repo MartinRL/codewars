@@ -1,5 +1,6 @@
 namespace codewars
 {
+    using System.Linq;
     using FluentAssertions;
     using Xunit;
     using static System.Math;
@@ -23,11 +24,7 @@ namespace codewars
             }
             var highest = sqrt2 * (ah + bh) / 2;
 
-            var rightSide = 0;
-            for (int column = 1; column < highest; column++)
-            {
-                rightSide += CalcColumn(column);
-            }
+            var rightSide = Enumerable.Range(1, (int) highest).Select(CalcColumn).Sum();
 
             var column0 = CalcColumn(0);
             return column0 + 2 * rightSide;
