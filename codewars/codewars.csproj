@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AbbreviateATwoWordNameKata.cs" />
     <Compile Include="AlphabetWarsNuclearStrikeKata.cs" />
+    <Compile Include="AlternateCapitalizationKata.cs" />
     <Compile Include="AreYouPlayingBanjoKata.cs" />
     <Compile Include="ArrayDiffSolutionKata.cs" />
     <Compile Include="AutomorphicNumberKata.cs" />
