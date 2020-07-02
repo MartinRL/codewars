@@ -20,6 +20,6 @@ namespace codewars
         [InlineData("codewars", new [] { "CoDeWaRs", "cOdEwArS" })]
         [InlineData("abracadabra", new [] { "AbRaCaDaBrA", "aBrAcAdAbRa" })]
         [InlineData("codewarriors", new [] { "CoDeWaRrIoRs", "cOdEwArRiOrS" })]
-        public void VerifyCapitalizeWith(string s, string[] capitalized) => AlternateCapitalizationSolution.Capitalize(s).Should().BeEquivalentTo(capitalized);
+        public void VerifyCapitalizeWith(string s, string[] capitalized) => AlternateCapitalizationSolution.Capitalize(s).Should().Equal(capitalized);
     }
 }
