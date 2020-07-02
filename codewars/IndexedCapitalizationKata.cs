@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using static System.Char;
     using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
@@ -8,7 +9,7 @@ namespace codewars
 
     public class IndexedCapitalizationSolution
     {
-        public static string Capitalize(string s, List<int> idxs) => throw new NotImplementedException();
+        public static string Capitalize(string s, List<int> idxs) => new string(s.Select((c, i) => idxs.Contains(i) ? ToUpper(c) : c).ToArray());
     }
 
     public class IndexedCapitalizationTests
