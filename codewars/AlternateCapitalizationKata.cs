@@ -7,7 +7,7 @@ namespace codewars
 
     public class AlternateCapitalizationSolution
     {
-        private static string CapitalizeEverySecond(string s, int fromIndex = 0) => new string(s.ToCharArray());
+        private static string CapitalizeEverySecond(string s, int fromIndex = 0) => new string(s.Select((c, i) => i % 2 == 0 ? c : char.ToUpper(c)).ToArray());
 
         public static string[] Capitalize(string s) => new [] { CapitalizeEverySecond(s), CapitalizeEverySecond(s, 1) };
     }
