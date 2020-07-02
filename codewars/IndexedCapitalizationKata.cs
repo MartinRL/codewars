@@ -9,7 +9,7 @@ namespace codewars
 
     public class IndexedCapitalizationSolution
     {
-        public static string Capitalize(string s, List<int> idxs) => new string(s.Select((c, i) => idxs.Contains(i) ? ToUpper(c) : c).ToArray());
+        public static string Capitalize(string s, List<int> idxs) => string.Concat(s.Select((c, i) => idxs.Contains(i) ? ToUpper(c) : c));
     }
 
     public class IndexedCapitalizationTests
