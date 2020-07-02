@@ -7,7 +7,9 @@ namespace codewars
 
     public class AlternateCapitalizationSolution
     {
-        public static string[] Capitalize(string s) => throw new NotImplementedException();
+        private static string CapitalizeEverySecond(string s, int fromIndex = 0) => new string(s.ToCharArray());
+
+        public static string[] Capitalize(string s) => new [] { CapitalizeEverySecond(s), CapitalizeEverySecond(s, 1) };
     }
 
     public class AlternateCapitalizationTests
