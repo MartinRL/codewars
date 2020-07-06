@@ -9,7 +9,20 @@ namespace codewars
 
     public class StringArrayRevisalSolution
     {
-        public static IEnumerable<string> RemoveConsecutiveDuplicateLettersFrom(IEnumerable<string> strings) => strings.Select(s => string.Concat(s.Distinct()));
+        private static string RemoveConsecutiveDuplicateLettersFrom(string s)
+        {
+            var chars = new List<char> { s[0] };
+
+            for (var i = 1; i < s.Length; i++)
+            {
+                if (s[i] != s[i - 1])
+                    chars.Add(s[i]);
+            }
+
+            return string.Concat(chars);
+        }
+
+        public static IEnumerable<string> RemoveConsecutiveDuplicateLettersFrom(IEnumerable<string> strings) => strings.Select(RemoveConsecutiveDuplicateLettersFrom);
     }
 
     public class StringArrayRevisalTests
