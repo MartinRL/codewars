@@ -132,6 +132,7 @@
     <Compile Include="ReversedSequenceKata.cs" />
     <Compile Include="RoboScriptNo1Kata.cs" />
     <Compile Include="SharedBitCounterKata.cs" />
+    <Compile Include="StringArrayRevisalKata.cs" />
     <Compile Include="StudentsFinalGradeKata.cs" />
     <Compile Include="FindTheNextPerfectSquareKata.cs" />
     <Compile Include="FindTheUniqueNumberKata.cs" />
