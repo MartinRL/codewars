@@ -92,6 +92,7 @@
     <Compile Include="DigitalCypherVol3MissingKeyKata.cs" />
     <Compile Include="DisariumNumberKata.cs" />
     <Compile Include="DnaToRnaConversionKata.cs" />
+    <Compile Include="EncryptThisKata.cs" />
     <Compile Include="EnglishBeggarsKata.cs" />
     <Compile Include="ExpressionsMatterKata.cs" />
     <Compile Include="Extensions.cs" />
