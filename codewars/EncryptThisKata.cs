@@ -9,24 +9,17 @@ namespace codewars
 
     public static class EncryptThisSolution
     {
-        private static string EncryptWord(string input)
-        {
-            switch (input.Length)
+        private static string Encrypt(string word) => word.Length switch
             {
-                case 0:
-                    return input;
-                case 1:
-                    return ASCII.GetBytes(input).First().ToString();
-                case 2:
-                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
-                default:
-                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input.Second().ToString() });
-            }
-        }
+                0 => word,
+                1 => ASCII.GetBytes(word).First().ToString(),
+                2 => string.Concat(new[] {ASCII.GetBytes(word).First().ToString(), word.Last().ToString()}),
+                _ => string.Concat(new[] {ASCII.GetBytes(word).First().ToString(), word.Last().ToString(), string.Concat(word.Skip(2).Take(word.Length - 3)), word.Second().ToString()})
+            };
 
         public static string EncryptThis(string input)
         {
-            return input.Split(' ').Select(EncryptWord).Aggregate((r, c) => $"{r} {c}");
+            return input.Split(' ').Select(Encrypt).Aggregate((r, c) => $"{r} {c}");
         }
     }
 
