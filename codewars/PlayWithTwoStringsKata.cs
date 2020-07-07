@@ -7,14 +7,27 @@ namespace codewars
 
     public static class PlayWithTwoStringsSolution
     {
-        public static string WorkOnStrings(string a, string b) => throw new NotImplementedException();
+        public static string WorkOnStrings(string a, string b) => $"{Swap(a, b)}{Swap(b, a)}";
+
+        private static string Swap(string input, string seed) => string.Concat(input.Select(c => seed.Count(_ => _ == c) % 2 == 1 ? c.ToggleCase() : c));
+    }
+
+    public static class PlayWithTwoStringsExtensions
+    {
+        public static char ToggleCase(this char @this)
+        {
+            if (char.IsLower(@this))
+                return char.ToUpper(@this);
+
+            return char.ToLower(@this);
+        }
     }
 
     public class PlayWithTwoStringsTests
     {
         [Theory]
         [InlineData("abc","cde", "abCCde")]
-        [InlineData("abc","cde", "ABABbababa")]
+        [InlineData("abab", "bababa", "ABABbababa")]
         [InlineData("abcdeFgtrzw", "defgGgfhjkwqe", "abcDeFGtrzWDEFGgGFhjkWqE")]
         [InlineData("abcdeFg", "defgG", "abcDEfgDEFGg")]
         public void VerifyWorkOnStringsWith(string a, string b, string expectedCombination) => PlayWithTwoStringsSolution.WorkOnStrings(a, b).Should().Be(expectedCombination);
