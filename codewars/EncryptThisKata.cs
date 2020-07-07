@@ -2,6 +2,7 @@ namespace codewars
 {
     using System;
     using System.Linq;
+    using static System.Text.Encoding;
     using FluentAssertions;
     using Xunit;
 
@@ -13,7 +14,7 @@ namespace codewars
                 return input;
 
             if (input.Length == 1)
-                return ((int)input.First()).ToString();
+                return ASCII.GetBytes(input).First().ToString();
 
             throw new NotImplementedException();
         }
