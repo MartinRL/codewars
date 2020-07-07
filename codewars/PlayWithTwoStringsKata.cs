@@ -13,11 +13,6 @@ namespace codewars
             string.Concat(input.Select(c => seed.Count(_ => char.ToLower(_) == char.ToLower(c)) % 2 == 0 ? c : c.ToggleCase()));
     }
 
-    public static class PlayWithTwoStringsExtensions
-    {
-        public static char ToggleCase(this char @this) => char.IsLower(@this) ? char.ToUpper(@this) : char.ToLower(@this);
-    }
-
     public class PlayWithTwoStringsTests
     {
         [Theory]
