@@ -6,7 +6,7 @@ namespace codewars
     using FluentAssertions;
     using Xunit;
 
-    public class EncryptThisSolution
+    public static class EncryptThisSolution
     {
         public static string EncryptThis(string input)
         {
