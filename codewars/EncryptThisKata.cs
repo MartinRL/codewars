@@ -7,7 +7,13 @@ namespace codewars
 
     public class EncryptThisSolution
     {
-        public static string EncryptThis(string input) => throw new NotImplementedException();
+        public static string EncryptThis(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return input;
+
+            throw new NotImplementedException();
+        }
     }
 
     public class EncryptThisTests
