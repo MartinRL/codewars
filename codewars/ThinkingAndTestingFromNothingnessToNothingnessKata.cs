@@ -8,7 +8,7 @@ namespace codewars
 
     public class ThinkingAndTestingFromNothingnessToNothingnessSolution
     {
-        [RegexPattern] private const string pattern = " [a-z]*( |$)";
+        private const string pattern = " [a-z]*( |$)";
 
         public static string TestIt(string s) => IsMatch(s, pattern) ? Match(s, pattern).ToString().Trim() : null;
     }
