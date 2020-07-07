@@ -8,7 +8,7 @@ namespace codewars
 
     public static class EncryptThisSolution
     {
-        public static string EncryptThis(string input)
+        private static string EncryptWord(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
                 return input;
@@ -20,6 +20,11 @@ namespace codewars
                 return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
 
             return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input[1].ToString() });
+        }
+
+        public static string EncryptThis(string input)
+        {
+            return input.Split(' ').Select(EncryptWord).Aggregate((r, c) => $"{r} {c}");
         }
     }
 
