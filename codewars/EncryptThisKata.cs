@@ -10,16 +10,17 @@ namespace codewars
     {
         private static string EncryptWord(string input)
         {
-            if (string.IsNullOrWhiteSpace(input))
-                return input;
-
-            if (input.Length == 1)
-                return ASCII.GetBytes(input).First().ToString();
-
-            if (input.Length == 2)
-                return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
-
-            return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input[1].ToString() });
+            switch (input.Length)
+            {
+                case 0:
+                    return input;
+                case 1:
+                    return ASCII.GetBytes(input).First().ToString();
+                case 2:
+                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
+                default:
+                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input[1].ToString() });
+            }
         }
 
         public static string EncryptThis(string input)
