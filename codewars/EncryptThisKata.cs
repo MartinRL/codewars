@@ -16,7 +16,7 @@ namespace codewars
             if (input.Length == 1)
                 return ASCII.GetBytes(input).First().ToString();
 
-            throw new NotImplementedException();
+            return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
         }
     }
 
