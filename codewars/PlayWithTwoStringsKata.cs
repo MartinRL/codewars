@@ -14,13 +14,7 @@ namespace codewars
 
     public static class PlayWithTwoStringsExtensions
     {
-        public static char ToggleCase(this char @this)
-        {
-            if (char.IsLower(@this))
-                return char.ToUpper(@this);
-
-            return char.ToLower(@this);
-        }
+        public static char ToggleCase(this char @this) => char.IsLower(@this) ? char.ToUpper(@this) : char.ToLower(@this);
     }
 
     public class PlayWithTwoStringsTests
