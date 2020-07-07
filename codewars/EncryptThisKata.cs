@@ -3,8 +3,7 @@ namespace codewars
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using static System.Text.Encoding;
-    using FluentAssertions;
+        using FluentAssertions;
     using Xunit;
 
     public static class EncryptThisSolution
@@ -12,9 +11,9 @@ namespace codewars
         private static string Encrypt(string word) => word.Length switch
             {
                 0 => word,
-                1 => ASCII.GetBytes(word).First().ToString(),
-                2 => string.Concat(new[] {ASCII.GetBytes(word).First().ToString(), word.Last().ToString()}),
-                _ => string.Concat(new[] {ASCII.GetBytes(word).First().ToString(), word.Last().ToString(), string.Concat(word.Skip(2).Take(word.Length - 3)), word.Second().ToString()})
+                1 => $"{(int)word[0]}",
+                2 => $"{(int)word[0]}{word[1]}",
+                _ => $"{(int)word[0]}{word[^1]}{word[2..^1]}{word[1]}"
             };
 
         public static string EncryptThis(string input)
