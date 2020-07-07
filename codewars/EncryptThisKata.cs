@@ -22,11 +22,6 @@ namespace codewars
         }
     }
 
-    public static class EncryptThisExtensions
-    {
-        public static T Second<T>(this IEnumerable<T> @this) => @this.ElementAt(1);
-    }
-
     public class EncryptThisTests
     {
         [Theory]

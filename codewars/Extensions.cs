@@ -66,6 +66,10 @@
 
         public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
         public static string ReverseString(this string @this) => new string(@this.Reverse().ToArray());
+
+        public static char ToggleCase(this char @this) => char.IsLower(@this) ? char.ToUpper(@this) : char.ToLower(@this);
+
+        public static T Second<T>(this IEnumerable<T> @this) => @this.ElementAt(1);
     }
 
     public class ExtensionsTests
