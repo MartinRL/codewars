@@ -9,7 +9,8 @@ namespace codewars
     {
         public static string WorkOnStrings(string a, string b) => $"{Swap(a, b)}{Swap(b, a)}";
 
-        private static string Swap(string input, string seed) => string.Concat(input.Select(c => seed.Count(_ => char.ToLower(_) == char.ToLower(c)) % 2 == 0 ? c : c.ToggleCase()));
+        private static string Swap(string input, string seed) =>
+            string.Concat(input.Select(c => seed.Count(_ => char.ToLower(_) == char.ToLower(c)) % 2 == 0 ? c : c.ToggleCase()));
     }
 
     public static class PlayWithTwoStringsExtensions
