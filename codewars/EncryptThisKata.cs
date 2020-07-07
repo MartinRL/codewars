@@ -1,6 +1,8 @@
 namespace codewars
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using static System.Text.Encoding;
     using FluentAssertions;
@@ -19,7 +21,7 @@ namespace codewars
                 case 2:
                     return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString() });
                 default:
-                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input[1].ToString() });
+                    return string.Concat(new [] { ASCII.GetBytes(input).First().ToString(), input.Last().ToString(), string.Concat(input.Skip(2).Take(input.Length - 3)), input.Second().ToString() });
             }
         }
 
@@ -27,6 +29,11 @@ namespace codewars
         {
             return input.Split(' ').Select(EncryptWord).Aggregate((r, c) => $"{r} {c}");
         }
+    }
+
+    public static class EncryptThisExtensions
+    {
+        public static T Second<T>(this IEnumerable<T> @this) => @this.ElementAt(1);
     }
 
     public class EncryptThisTests
