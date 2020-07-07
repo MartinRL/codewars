@@ -12,6 +12,9 @@ namespace codewars
             if (string.IsNullOrWhiteSpace(input))
                 return input;
 
+            if (input.Length == 1)
+                return ((int)input.First()).ToString();
+
             throw new NotImplementedException();
         }
     }
