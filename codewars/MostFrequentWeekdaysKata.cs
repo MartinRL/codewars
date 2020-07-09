@@ -9,8 +9,6 @@ namespace codewars
     {
         public static string[] GetMostFrequentDaysOf(int year)
         {
-            var daysOfYear = new DateTime(year, 12, 31).Subtract(new DateTime(year, 01, 01)).TotalDays;
-
             var firstDayOfYear = new DateTime(year, 01, 01).DayOfWeek;
 
             if (!DateTime.IsLeapYear(year))
