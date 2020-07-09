@@ -1,7 +1,7 @@
 namespace codewars
 {
     using System;
-    using System.Linq;
+    using static System.DateTime;
     using FluentAssertions;
     using Xunit;
 
@@ -11,7 +11,7 @@ namespace codewars
         {
             var firstDateOfYear = new DateTime(year, 01, 01);
 
-            if (!DateTime.IsLeapYear(year))
+            if (!IsLeapYear(year))
                 return new[] {firstDateOfYear.DayOfWeek.ToString()};
 
             if (firstDateOfYear.DayOfWeek != DayOfWeek.Sunday)
