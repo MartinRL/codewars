@@ -23,6 +23,7 @@ namespace codewars
         [InlineData(1770, new[] {"Monday"})]
         [InlineData(2001, new[] {"Monday"})]
         [InlineData(1968, new[] {"Monday", "Tuesday"})]
+        [InlineData(1888, new[] {"Monday", "Sunday"})]
         [InlineData(1785, new[] {"Saturday"})]
         [InlineData(1910, new[] {"Saturday"})]
         [InlineData(2135, new[] {"Saturday"})]
