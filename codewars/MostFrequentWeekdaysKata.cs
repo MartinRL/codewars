@@ -14,10 +14,10 @@ namespace codewars
             if (!IsLeapYear(year))
                 return new[] {firstDateOfYear.DayOfWeek.ToString()};
 
-            if (firstDateOfYear.DayOfWeek != DayOfWeek.Sunday)
-                return new[] {firstDateOfYear.DayOfWeek.ToString(), firstDateOfYear.AddDays(1).DayOfWeek.ToString()};
+            if (firstDateOfYear.DayOfWeek == DayOfWeek.Sunday)
+                return new []{DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()};
 
-            return new []{DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()};
+            return new[] {firstDateOfYear.DayOfWeek.ToString(), firstDateOfYear.AddDays(1).DayOfWeek.ToString()};
         }
     }
 
