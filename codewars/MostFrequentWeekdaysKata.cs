@@ -13,7 +13,11 @@ namespace codewars
 
             var firstDayOfYear = new DateTime(year, 01, 01).DayOfWeek;
 
-            return new[] {firstDayOfYear.ToString()};
+            if (!DateTime.IsLeapYear(year))
+                return new[] {firstDayOfYear.ToString()};
+
+            var secondDayOfYear = new DateTime(year, 01, 02).DayOfWeek;
+            return new[] {firstDayOfYear.ToString(), secondDayOfYear.ToString()};
         }
     }
 
