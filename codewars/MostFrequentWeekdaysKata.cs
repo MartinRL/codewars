@@ -7,33 +7,17 @@ namespace codewars
 
     public class MostFrequentWeekdaysSolution
     {
-        public static string[] GetMostFrequentDaysOf(int year)
-        {
-            var firstDateOfYear = new DateTime(year, 01, 01);
-
-            switch (IsLeapYear(year))
+        public static string[] GetMostFrequentDaysOf(int year) => IsLeapYear(year) switch
             {
-                case true when firstDateOfYear.DayOfWeek == DayOfWeek.Sunday:
-                    return new []{DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()};
-                case true when firstDateOfYear.DayOfWeek != DayOfWeek.Sunday:
-                    return new[] {firstDateOfYear.DayOfWeek.ToString(), firstDateOfYear.AddDays(1).DayOfWeek.ToString()};
-                default:
-                    return new[] {firstDateOfYear.DayOfWeek.ToString()};
-            }
-        }
+                true when year.January1st().DayOfWeek == DayOfWeek.Sunday => new[] {DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()},
+                true when year.January1st().DayOfWeek != DayOfWeek.Sunday => new[] {year.January1st().DayOfWeek.ToString(), year.January1st().AddDays(1).DayOfWeek.ToString()},
+                _ => new[] {year.January1st().DayOfWeek.ToString()}
+            };
+    }
 
-        public static string[] GetMostFrequentDaysOf_(int year)
-        {
-            var firstDateOfYear = new DateTime(year, 01, 01);
-
-            if (!IsLeapYear(year))
-                return new[] {firstDateOfYear.DayOfWeek.ToString()};
-
-            if (firstDateOfYear.DayOfWeek == DayOfWeek.Sunday)
-                return new []{DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()};
-
-            return new[] {firstDateOfYear.DayOfWeek.ToString(), firstDateOfYear.AddDays(1).DayOfWeek.ToString()};
-        }
+    public static class MostFrequentWeekdaysExtensions
+    {
+        public static DateTime January1st(this int @this) => new DateTime(@this, 01, 01);
     }
 
     public class MostFrequentWeekdaysTests
