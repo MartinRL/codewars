@@ -7,7 +7,14 @@ namespace codewars
 
     public class MostFrequentWeekdaysSolution
     {
-        public static string[] GetMostFrequentDaysOf(int year) => throw new NotImplementedException();
+        public static string[] GetMostFrequentDaysOf(int year)
+        {
+            var daysOfYear = new DateTime(year, 12, 31).Subtract(new DateTime(year, 01, 01)).TotalDays;
+
+            var firstDayOfYear = new DateTime(year, 01, 01).DayOfWeek;
+
+            return new[] {firstDayOfYear.ToString()};
+        }
     }
 
     public class MostFrequentWeekdaysTests
