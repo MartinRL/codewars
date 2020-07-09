@@ -7,16 +7,10 @@ namespace codewars
 
     public class MostFrequentWeekdaysSolution
     {
-        public static string[] GetMostFrequentDaysOf(int year)
-        {
-            var firstDayOfYear = new DateTime(year, 01, 01).DayOfWeek;
-
-            if (!DateTime.IsLeapYear(year))
-                return new[] {firstDayOfYear.ToString()};
-
-            var secondDayOfYear = new DateTime(year, 01, 02).DayOfWeek;
-            return new[] {firstDayOfYear.ToString(), secondDayOfYear.ToString()};
-        }
+        public static string[] GetMostFrequentDaysOf(int year) =>
+            DateTime.IsLeapYear(year) ?
+                new[] {new DateTime(year, 01, 01).DayOfWeek.ToString(), new DateTime(year, 01, 02).DayOfWeek.ToString()} :
+                new[] {new DateTime(year, 01, 01).DayOfWeek.ToString()};
     }
 
     public class MostFrequentWeekdaysTests
