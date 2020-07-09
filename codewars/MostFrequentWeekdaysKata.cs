@@ -11,6 +11,21 @@ namespace codewars
         {
             var firstDateOfYear = new DateTime(year, 01, 01);
 
+            switch (IsLeapYear(year))
+            {
+                case true when firstDateOfYear.DayOfWeek == DayOfWeek.Sunday:
+                    return new []{DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()};
+                case true when firstDateOfYear.DayOfWeek != DayOfWeek.Sunday:
+                    return new[] {firstDateOfYear.DayOfWeek.ToString(), firstDateOfYear.AddDays(1).DayOfWeek.ToString()};
+                default:
+                    return new[] {firstDateOfYear.DayOfWeek.ToString()};
+            }
+        }
+
+        public static string[] GetMostFrequentDaysOf_(int year)
+        {
+            var firstDateOfYear = new DateTime(year, 01, 01);
+
             if (!IsLeapYear(year))
                 return new[] {firstDateOfYear.DayOfWeek.ToString()};
 
