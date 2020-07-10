@@ -7,7 +7,19 @@ namespace codewars
 
     public class EqualSidesOfAnArraySolution
     {
-        public static int FindEvenIndex(int[] arr) => throw new NotImplementedException();
+        public static int FindEvenIndex(int[] arr)
+        {
+            for (var i = 1; i < arr.Count(); i++)
+            {
+                var left = arr.Take(i).Sum();
+                var right = arr.Skip(i + 1).Sum();
+
+                if (left == right)
+                    return i;
+            }
+
+            return -1;
+        }
     }
 
     public class EqualSidesOfAnArrayTests
