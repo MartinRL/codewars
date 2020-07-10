@@ -9,10 +9,16 @@ namespace codewars
     {
         public static int FindEvenIndex(int[] arr)
         {
-            for (var i = 0; i < arr.Count(); i++)
+            int leftSum = 0, rightSum = arr.Sum();
+
+            for (var i = 0; i < arr.Length; ++i)
             {
-                if (arr.Take(i).Sum() == arr.Skip(i + 1).Sum())
+                rightSum -= arr[i];
+
+                if (leftSum == rightSum)
                     return i;
+
+                leftSum += arr[i];
             }
 
             return -1;
