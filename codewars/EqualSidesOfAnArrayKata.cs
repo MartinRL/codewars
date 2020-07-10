@@ -11,10 +11,7 @@ namespace codewars
         {
             for (var i = 1; i < arr.Count(); i++)
             {
-                var left = arr.Take(i).Sum();
-                var right = arr.Skip(i + 1).Sum();
-
-                if (left == right)
+                if (arr.Take(i).Sum() == arr.Skip(i + 1).Sum())
                     return i;
             }
 
