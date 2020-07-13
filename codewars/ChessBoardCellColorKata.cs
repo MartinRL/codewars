@@ -10,7 +10,7 @@ namespace codewars
 
     public class ChessBoardCellColorSolution
     {
-        public static Color GetColorOfCell(string cell) => ((int)cell.First() % 2 == 0 && (int)cell.Last() % 2 == 0) ? Color.White : Color.Black;
+        public static Color GetColorOfCell(string cell) => ((int)cell.First() % 2 == 0 && (int)char.GetNumericValue(cell.Last()) % 2 == 0) ? Color.White : Color.Black;
 
         public static bool HaveSameColors(string cell1, string cell2) => throw new NotImplementedException();
     }
@@ -23,8 +23,8 @@ namespace codewars
             {
                 yield return new object[] { "A1", Color.Black };
                 yield return new object[] { "C3", Color.Black };
-                yield return new object[] { "H3", Color.White};
-                yield return new object[] { "A2", Color.White};
+                yield return new object[] { "H3", Color.White };
+                yield return new object[] { "A2", Color.White };
             }
 
             IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
