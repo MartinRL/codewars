@@ -1,16 +1,13 @@
 namespace codewars
 {
     using System;
-    using System.Drawing;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class ChessBoardCellColorSolution
     {
-        private static Color GetColorOfCell(string cell) => ((int) cell.First() % 2 == (int) cell.Last() % 2) ? Color.Black : Color.White;
-
-        public static bool HaveSameColors(string cell1, string cell2) => GetColorOfCell(cell1) == GetColorOfCell(cell2);
+        public static bool HaveSameColors(string cell1, string cell2) => (cell1.First() % 2 == cell1.Last() % 2) && (cell2.First() % 2 == cell2.Last() % 2);
     }
 
     public class ChessBoardCellColorTests
