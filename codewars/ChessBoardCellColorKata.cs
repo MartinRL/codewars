@@ -7,7 +7,7 @@ namespace codewars
 
     public class ChessBoardCellColorSolution
     {
-        public static bool HaveSameColors(string cell1, string cell2) => (cell1.First() + cell1.Last()) % 2 == (cell2.First() + cell2.Last()) % 2;
+        public static bool HaveSameColors(string cell1, string cell2) => (cell2.First() - cell1.First() + cell2.Last() - cell1.Last()) % 2 == 0;
     }
 
     public class ChessBoardCellColorTests
