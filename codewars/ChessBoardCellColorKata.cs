@@ -4,12 +4,13 @@ namespace codewars
     using System.Collections;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class ChessBoardCellColorSolution
     {
-        public static Color GetColorOfCell(string cell) => throw new NotImplementedException();
+        public static Color GetColorOfCell(string cell) => ((int)cell.First() % 2 == 0 && (int)cell.Last() % 2 == 0) ? Color.White : Color.Black;
 
         public static bool HaveSameColors(string cell1, string cell2) => throw new NotImplementedException();
     }
@@ -31,7 +32,7 @@ namespace codewars
 
         [Theory]
         [ClassData(typeof(GetColorOfCellTestData))]
-        public void GetColorOfCell(string cell1, string cell2, bool expected) => ChessBoardCellColorSolution.HaveSameColors(cell1, cell2).Should().Be(expected);
+        public void GetColorOfCell(string cell, Color expected) => ChessBoardCellColorSolution.GetColorOfCell(cell).Should().Be(expected);
 
         [Theory]
 
