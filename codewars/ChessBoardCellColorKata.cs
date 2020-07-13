@@ -8,12 +8,7 @@ namespace codewars
 
     public class ChessBoardCellColorSolution
     {
-        private static Color GetColorOfCell(string cell)=> ((int)cell.First() % 2, (int)cell.Last() % 2) switch
-            {
-                (1, 1) => Color.Black,
-                (0, 0) => Color.Black,
-                _ => Color.White
-            };
+        private static Color GetColorOfCell(string cell) => ((int) cell.First() % 2 == (int) cell.Last() % 2) ? Color.Black : Color.White;
 
         public static bool HaveSameColors(string cell1, string cell2) => GetColorOfCell(cell1) == GetColorOfCell(cell2);
     }
