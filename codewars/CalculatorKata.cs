@@ -1,17 +1,15 @@
-using codewars;
-using FluentAssertions;
-using Xunit;
-
 namespace codewars
 {
-    using static System.Double;
-    using static Microsoft.CodeAnalysis.CSharp.Scripting.CSharpScript;
+    using System;
+    using System.Data;
+    using static System.Math;
+    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
     public class CalculatorSolution
     {
-        public static double Evaluate(string expression) => Parse(EvaluateAsync(expression).Result.ToString());
+        public static double Evaluate(string expression) => Round(ToDouble(new DataTable().Compute(expression, string.Empty)), 6);
     }
 
     public class CalculatorTests
