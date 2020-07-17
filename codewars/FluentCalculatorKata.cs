@@ -2,7 +2,10 @@ namespace codewars
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
+    using static System.Math;
+    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
@@ -161,10 +164,7 @@ namespace codewars
             }
         }
 
-        public double Result()
-        {
-            throw new NotImplementedException();
-        }
+        public double Result() => Round(ToDouble(new DataTable().Compute(string.Concat(stack), string.Empty)), 6);
 
         public static implicit operator double(FluentCalculator fluentCalculator) => fluentCalculator.Result();
     }
