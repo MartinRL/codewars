@@ -186,6 +186,9 @@ namespace codewars
         }
 
         [Fact]
+        public static void OperatorOrdering() => new FluentCalculator().Two.Plus.Eight.DividedBy.Five.Result().Should().Be(2);
+
+        [Fact]
         public static void Bedmas()
         {
             var calculator = new FluentCalculator();
