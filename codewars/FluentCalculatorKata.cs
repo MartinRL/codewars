@@ -1,16 +1,172 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class FluentCalculator
     {
-        public FluentCalculator()
+        private readonly Stack<char> stack = new Stack<char>();
+
+        public FluentCalculator Zero
+        {
+            get
+            {
+                stack.Push('0');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator One
+        {
+            get
+            {
+                stack.Push('1');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Two
+        {
+            get
+            {
+                stack.Push('2');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Three
+        {
+            get
+            {
+                stack.Push('3');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Four
+        {
+            get
+            {
+                stack.Push('4');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Five
+        {
+            get
+            {
+                stack.Push('5');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Six
+        {
+            get
+            {
+                stack.Push('6');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Seven
+        {
+            get
+            {
+                stack.Push('7');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Eight
+        {
+            get
+            {
+                stack.Push('8');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Nine
+        {
+            get
+            {
+                stack.Push('9');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Ten
+        {
+            get
+            {
+                stack.Push('1');
+                stack.Push('0');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Plus
+        {
+            get
+            {
+                stack.Push('+');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Minus
+        {
+            get
+            {
+                stack.Push('-');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator Times
+        {
+            get
+            {
+                stack.Push('*');
+
+                return this;
+            }
+        }
+
+        public FluentCalculator DividedBy
+        {
+            get
+            {
+                stack.Push('/');
+
+                return this;
+            }
+        }
+
+        public double Result()
         {
             throw new NotImplementedException();
         }
+
+        public static implicit operator double(FluentCalculator fluentCalculator) => fluentCalculator.Result();
     }
 
     public class FluentCalculatorTests
@@ -35,7 +191,7 @@ namespace codewars
             var calculator = new FluentCalculator();
 
             ((double)calculator.Six.Times.Six.Plus.Eight.DividedBy.Two.Times.Two.Plus.Ten.Times.Four.DividedBy.Two.Minus.Six).Should().Be(58);
-            calculator.Zero.Minus.Four.Times.Three.Plus.Two.DividedBy.Eight.Times.One.DividedBy.Nine.Should().BeApproximately(-11.972, 0.01);
+            ((double)calculator.Zero.Minus.Four.Times.Three.Plus.Two.DividedBy.Eight.Times.One.DividedBy.Nine).Should().BeApproximately(-11.972, 0.01);
         }
 
         [Fact]
