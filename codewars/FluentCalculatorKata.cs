@@ -1,9 +1,7 @@
 namespace codewars
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
-    using System.Linq;
     using static System.Math;
     using static System.Convert;
     using FluentAssertions;
@@ -11,13 +9,20 @@ namespace codewars
 
     public class FluentCalculator
     {
-        private readonly Stack<char> stack = new Stack<char>();
+        private readonly Func<double, double, double> plus = (operand1, operand2) => operand1 + operand2;
+        private readonly Func<double, double, double> minus = (operand1, operand2) => operand1 - operand2;
+        private readonly Func<double, double, double> times = (operand1, operand2) => operand1 * operand2;
+        private readonly Func<double, double, double> dividedBy = (operand1, operand2) => operand1 / operand2;
+        private Func<double, double, double> expression;
+        private double number = 0;
+
+        public FluentCalculator() => expression = plus;
 
         public FluentCalculator Zero
         {
             get
             {
-                stack.Push('0');
+                number = expression(number, 0);
 
                 return this;
             }
@@ -27,7 +32,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('1');
+                number = expression(number, 1);
 
                 return this;
             }
@@ -37,7 +42,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('2');
+                number = expression(number, 2);
 
                 return this;
             }
@@ -47,7 +52,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('3');
+                number = expression(number, 3);
 
                 return this;
             }
@@ -57,7 +62,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('4');
+                number = expression(number, 4);
 
                 return this;
             }
@@ -67,7 +72,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('5');
+                number = expression(number, 5);
 
                 return this;
             }
@@ -77,7 +82,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('6');
+                number = expression(number, 6);
 
                 return this;
             }
@@ -87,7 +92,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('7');
+                number = expression(number, 7);
 
                 return this;
             }
@@ -97,7 +102,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('8');
+                number = expression(number, 8);
 
                 return this;
             }
@@ -107,7 +112,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('9');
+                number = expression(number, 9);
 
                 return this;
             }
@@ -117,8 +122,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('1');
-                stack.Push('0');
+                number = expression(number, 10);
 
                 return this;
             }
@@ -128,7 +132,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('+');
+                expression = plus;
 
                 return this;
             }
@@ -138,7 +142,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('-');
+                expression = minus;
 
                 return this;
             }
@@ -148,7 +152,7 @@ namespace codewars
         {
             get
             {
-                stack.Push('*');
+                expression = times;
 
                 return this;
             }
@@ -158,13 +162,13 @@ namespace codewars
         {
             get
             {
-                stack.Push('/');
+                expression = dividedBy;
 
                 return this;
             }
         }
 
-        public double Result() => Round(ToDouble(new DataTable().Compute(string.Concat(stack), string.Empty)), 6);
+        public double Result() => number;
 
         public static implicit operator double(FluentCalculator fluentCalculator) => fluentCalculator.Result();
     }
