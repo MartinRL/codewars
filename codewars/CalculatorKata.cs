@@ -1,15 +1,12 @@
 namespace codewars
 {
     using System;
-    using System.Data;
-    using static System.Math;
-    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
     public class CalculatorSolution
     {
-        public static double Evaluate(string expression) => Round(ToDouble(new DataTable().Compute(expression, string.Empty)), 6);
+        public static double Evaluate(string expression) => expression.Compute();
     }
 
     public class CalculatorTests
