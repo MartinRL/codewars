@@ -1,9 +1,6 @@
 namespace codewars
 {
     using System;
-    using System.Data;
-    using static System.Math;
-    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
@@ -43,7 +40,7 @@ namespace codewars
 
         public double Result()
         {
-            var result = Round(ToDouble(new DataTable().Compute(expression, string.Empty)), 6);;
+            var result = expression.Compute();
 
             expression = string.Empty;
 

@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Data;
+    using static System.Math;
+    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
@@ -70,6 +73,8 @@
         public static char ToggleCase(this char @this) => char.IsLower(@this) ? char.ToUpper(@this) : char.ToLower(@this);
 
         public static T Second<T>(this IEnumerable<T> @this) => @this.ElementAt(1);
+
+        public static double Compute(this string @this) => Round(ToDouble(new DataTable().Compute(@this, string.Empty)), 6);
     }
 
     public class ExtensionsTests
