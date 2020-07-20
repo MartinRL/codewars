@@ -11,156 +11,35 @@ namespace codewars
     {
         private string expression = string.Empty;
 
-        public FluentCalculator Zero
-        {
-            get
-            {
-                expression += "0";
+        public FluentCalculator Zero { get { expression += "0"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator One { get { expression += "1"; return this; } }
 
-        public FluentCalculator One
-        {
-            get
-            {
-                expression += "1";
+        public FluentCalculator Two { get { expression += "2"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Three { get { expression += "3"; return this; } }
 
-        public FluentCalculator Two
-        {
-            get
-            {
-                expression += "2";
+        public FluentCalculator Four { get { expression += "4"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Five { get { expression += "5"; return this; } }
 
-        public FluentCalculator Three
-        {
-            get
-            {
-                expression += "3";
+        public FluentCalculator Six { get { expression += "6"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Seven { get { expression += "7"; return this; } }
 
-        public FluentCalculator Four
-        {
-            get
-            {
-                expression += "4";
+        public FluentCalculator Eight { get { expression += "8"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Nine { get { expression += "9"; return this; } }
 
-        public FluentCalculator Five
-        {
-            get
-            {
-                expression += "5";
+        public FluentCalculator Ten { get { expression += "10"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Plus { get { expression += "+"; return this; } }
 
-        public FluentCalculator Six
-        {
-            get
-            {
-                expression += "6";
+        public FluentCalculator Minus { get { expression += "-"; return this; } }
 
-                return this;
-            }
-        }
+        public FluentCalculator Times { get { expression += "*"; return this; } }
 
-        public FluentCalculator Seven
-        {
-            get
-            {
-                expression += "7";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Eight
-        {
-            get
-            {
-                expression += "8";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Nine
-        {
-            get
-            {
-                expression += "9";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Ten
-        {
-            get
-            {
-                expression += "1";
-                expression += "0";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Plus
-        {
-            get
-            {
-                expression += "+";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Minus
-        {
-            get
-            {
-                expression += "-";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator Times
-        {
-            get
-            {
-                expression += "*";
-
-                return this;
-            }
-        }
-
-        public FluentCalculator DividedBy
-        {
-            get
-            {
-                expression += "/";
-
-                return this;
-            }
-        }
+        public FluentCalculator DividedBy { get { expression += "/"; return this; } }
 
         public double Result()
         {
