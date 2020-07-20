@@ -1,25 +1,22 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using static System.Math;
+    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
     public class FluentCalculator
     {
-        private readonly Func<double, double, double> plus = (operand1, operand2) => operand1 + operand2;
-        private readonly Func<double, double, double> minus = (operand1, operand2) => operand1 - operand2;
-        private readonly Func<double, double, double> times = (operand1, operand2) => operand1 * operand2;
-        private readonly Func<double, double, double> dividedBy = (operand1, operand2) => operand1 / operand2;
-        private Func<double, double, double> expression;
-        private double number = 0;
-
-        public FluentCalculator() => expression = plus;
+        private readonly Queue<char> queue = new Queue<char>();
 
         public FluentCalculator Zero
         {
             get
             {
-                number = expression(number, 0);
+                queue.Enqueue('0');
 
                 return this;
             }
@@ -29,7 +26,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 1);
+                queue.Enqueue('1');
 
                 return this;
             }
@@ -39,7 +36,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 2);
+                queue.Enqueue('2');
 
                 return this;
             }
@@ -49,7 +46,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 3);
+                queue.Enqueue('3');
 
                 return this;
             }
@@ -59,7 +56,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 4);
+                queue.Enqueue('4');
 
                 return this;
             }
@@ -69,7 +66,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 5);
+                queue.Enqueue('5');
 
                 return this;
             }
@@ -79,7 +76,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 6);
+                queue.Enqueue('6');
 
                 return this;
             }
@@ -89,7 +86,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 7);
+                queue.Enqueue('7');
 
                 return this;
             }
@@ -99,7 +96,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 8);
+                queue.Enqueue('8');
 
                 return this;
             }
@@ -109,7 +106,7 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 9);
+                queue.Enqueue('9');
 
                 return this;
             }
@@ -119,7 +116,8 @@ namespace codewars
         {
             get
             {
-                number = expression(number, 10);
+                queue.Enqueue('1');
+                queue.Enqueue('0');
 
                 return this;
             }
@@ -129,7 +127,7 @@ namespace codewars
         {
             get
             {
-                expression = plus;
+                queue.Enqueue('+');
 
                 return this;
             }
@@ -139,7 +137,7 @@ namespace codewars
         {
             get
             {
-                expression = minus;
+                queue.Enqueue('-');
 
                 return this;
             }
@@ -149,7 +147,7 @@ namespace codewars
         {
             get
             {
-                expression = times;
+                queue.Enqueue('*');
 
                 return this;
             }
@@ -159,7 +157,7 @@ namespace codewars
         {
             get
             {
-                expression = dividedBy;
+                queue.Enqueue('/');
 
                 return this;
             }
@@ -167,9 +165,11 @@ namespace codewars
 
         public double Result()
         {
-            var result = number;
+            var expression = string.Concat(queue);
 
-            number = 0;
+            var result = Round(ToDouble(new DataTable().Compute(expression, string.Empty)), 6);;
+
+            queue.Clear();
 
             return result;
         }
