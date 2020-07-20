@@ -1,7 +1,6 @@
 namespace codewars
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using static System.Math;
     using static System.Convert;
@@ -10,13 +9,13 @@ namespace codewars
 
     public class FluentCalculator
     {
-        private readonly Queue<char> queue = new Queue<char>();
+        private string expression = string.Empty;
 
         public FluentCalculator Zero
         {
             get
             {
-                queue.Enqueue('0');
+                expression += "0";
 
                 return this;
             }
@@ -26,7 +25,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('1');
+                expression += "1";
 
                 return this;
             }
@@ -36,7 +35,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('2');
+                expression += "2";
 
                 return this;
             }
@@ -46,7 +45,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('3');
+                expression += "3";
 
                 return this;
             }
@@ -56,7 +55,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('4');
+                expression += "4";
 
                 return this;
             }
@@ -66,7 +65,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('5');
+                expression += "5";
 
                 return this;
             }
@@ -76,7 +75,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('6');
+                expression += "6";
 
                 return this;
             }
@@ -86,7 +85,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('7');
+                expression += "7";
 
                 return this;
             }
@@ -96,7 +95,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('8');
+                expression += "8";
 
                 return this;
             }
@@ -106,7 +105,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('9');
+                expression += "9";
 
                 return this;
             }
@@ -116,8 +115,8 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('1');
-                queue.Enqueue('0');
+                expression += "1";
+                expression += "0";
 
                 return this;
             }
@@ -127,7 +126,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('+');
+                expression += "+";
 
                 return this;
             }
@@ -137,7 +136,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('-');
+                expression += "-";
 
                 return this;
             }
@@ -147,7 +146,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('*');
+                expression += "*";
 
                 return this;
             }
@@ -157,7 +156,7 @@ namespace codewars
         {
             get
             {
-                queue.Enqueue('/');
+                expression += "/";
 
                 return this;
             }
@@ -165,11 +164,9 @@ namespace codewars
 
         public double Result()
         {
-            var expression = string.Concat(queue);
-
             var result = Round(ToDouble(new DataTable().Compute(expression, string.Empty)), 6);;
 
-            queue.Clear();
+            expression = string.Empty;
 
             return result;
         }
