@@ -1,9 +1,6 @@
 namespace codewars
 {
     using System;
-    using System.Data;
-    using static System.Math;
-    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
@@ -168,7 +165,14 @@ namespace codewars
             }
         }
 
-        public double Result() => number;
+        public double Result()
+        {
+            var result = number;
+
+            number = 0;
+
+            return result;
+        }
 
         public static implicit operator double(FluentCalculator fluentCalculator) => fluentCalculator.Result();
     }
