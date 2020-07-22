@@ -120,6 +120,9 @@ namespace codewars
             if (HandValue > hand.HandValue)
                 return Result.Win;
 
+            if (HandValue < hand.HandValue)
+                return Result.Loss;
+
             if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
                 return Result.Win;
 
