@@ -84,6 +84,12 @@ namespace codewars
         {
             get
             {
+                if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4 && hand.Max(c => c.Value) == 14)
+                    return HandValue.RoyalFlush;
+
+                if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4)
+                    return HandValue.StraightFlush;
+
                 return HandValue.None;
             }
         }
@@ -117,7 +123,7 @@ namespace codewars
             new PokerHand(hand).CompareWith(new PokerHand(opponentHand)).Should().Be(expectedResult, because);
 
         [Theory]
-        [InlineData("2H 3H 4H 5H 6H", HandValue.RoyalFlush)]
+        [InlineData("2H 3H 4H 5H 6H", HandValue.StraightFlush)]
         [InlineData("KS AS TS QS JS", HandValue.RoyalFlush)]
         public void VerifyHandValueWith(string hand, HandValue expectedHandValue) => new PokerHand(hand).HandValue.Should().Be(expectedHandValue);
     }
