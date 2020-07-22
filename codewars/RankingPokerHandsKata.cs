@@ -105,6 +105,9 @@ namespace codewars
                 if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 3)
                     return HandValue.ThreeOfAKind;
 
+                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Count() == 3)
+                    return HandValue.TwoPairs;
+
                 return HandValue.None;
             }
         }
@@ -145,6 +148,7 @@ namespace codewars
         [InlineData("AS 3S 4S 8S 2S", HandValue.Flush)]
         [InlineData("2S 3H 4H 5S 6C", HandValue.Straight)]
         [InlineData("AH AC 5H 6H AS", HandValue.ThreeOfAKind)]
+        [InlineData("2S 2H 4H 5S 4C", HandValue.TwoPairs)]
         public void VerifyHandValueWith(string hand, HandValue expectedHandValue) => new PokerHand(hand).HandValue.Should().Be(expectedHandValue);
     }
 }
