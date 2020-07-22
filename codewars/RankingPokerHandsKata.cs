@@ -99,6 +99,9 @@ namespace codewars
                 if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5)
                     return HandValue.Flush;
 
+                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 1 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4)
+                    return HandValue.Straight;
+
                 return HandValue.None;
             }
         }
@@ -137,6 +140,7 @@ namespace codewars
         [InlineData("AS AD AC AH JD", HandValue.FourOfAKind)]
         [InlineData("2S AH 2H AS AC", HandValue.FullHouse)]
         [InlineData("AS 3S 4S 8S 2S", HandValue.Flush)]
+        [InlineData("2S 3H 4H 5S 6C", HandValue.Straight)]
         public void VerifyHandValueWith(string hand, HandValue expectedHandValue) => new PokerHand(hand).HandValue.Should().Be(expectedHandValue);
     }
 }
