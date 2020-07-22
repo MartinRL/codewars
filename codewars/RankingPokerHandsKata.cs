@@ -5,12 +5,7 @@ namespace codewars
     using FluentAssertions;
     using Xunit;
 
-    public enum Result
-    {
-        Win,
-        Loss,
-        Tie
-    }
+    public enum Result { Win, Loss, Tie }
 
     public class PokerHand
     {
