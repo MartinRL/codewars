@@ -8,7 +8,7 @@ namespace codewars
 
     public class FakeBinarySolution
     {
-        public static string Fake(string s) => Concat(s.Select(c => c < '5' ? '0' : '1'));
+        public static string Fake(string s) => Concat(s.Select(c => c / '5'));
     }
 
     public class FakeBinaryTests
