@@ -115,7 +115,16 @@ namespace codewars
             }
         }
 
-        public Result CompareWith(PokerHand hand) => HandValue > hand.HandValue ? Result.Win : Result.Tie;
+        public Result CompareWith(PokerHand hand)
+        {
+            if (HandValue > hand.HandValue)
+                return Result.Win;
+
+            if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
+                return Result.Win;
+
+            return Result.Tie;
+        }
     }
 
     public class RankingPokerHandsTests
