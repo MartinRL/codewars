@@ -115,10 +115,7 @@ namespace codewars
             }
         }
 
-        public Result CompareWith(PokerHand hand)
-        {
-            return Result.Tie;
-        }
+        public Result CompareWith(PokerHand hand) => HandValue > hand.HandValue ? Result.Win : Result.Tie;
     }
 
     public class RankingPokerHandsTests
