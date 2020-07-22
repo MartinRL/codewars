@@ -10,7 +10,7 @@ namespace codewars
 
     public enum Result { Win, Loss, Tie }
 
-    public enum Hands { Pair = 1, TwoPairs = 2, ThreeOfAKind = 3, Straight = 4, Flush = 5, FullHouse = 6, FourOfAKind = 7, StraightFlush = 8, RoyalFlush = 9 }
+    public enum HandValue { None, Pair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush, RoyalFlush }
 
     public class Card : IComparable<Card>
     {
@@ -80,6 +80,14 @@ namespace codewars
 
         public PokerHand(string hand) => this.hand = hand.Split(" ").Select(card => new Card(card)).OrderBy(_ => _).ToArray();
 
+        public HandValue HandValue
+        {
+            get
+            {
+                return HandValue.None;
+            }
+        }
+
         public Result CompareWith(PokerHand hand)
         {
             return Result.Tie;
@@ -107,5 +115,10 @@ namespace codewars
         [InlineData("Equal cards is tie", Result.Tie, "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")]
         public void VerifyCompareWithWith(string because, Result expectedResult, string hand, string opponentHand) =>
             new PokerHand(hand).CompareWith(new PokerHand(opponentHand)).Should().Be(expectedResult, because);
+
+        [Theory]
+        [InlineData("2H 3H 4H 5H 6H", HandValue.RoyalFlush)]
+        [InlineData("KS AS TS QS JS", HandValue.RoyalFlush)]
+        public void VerifyHandValueWith(string hand, HandValue expectedHandValue) => new PokerHand(hand).HandValue.Should().Be(expectedHandValue);
     }
 }
