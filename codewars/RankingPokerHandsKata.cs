@@ -1,17 +1,84 @@
 namespace codewars
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Collections.Immutable;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public enum Result { Win, Loss, Tie }
 
+    public enum Hands { Pair = 1, TwoPairs = 2, ThreeOfAKind = 3, Straight = 4, Flush = 5, FullHouse = 6, FourOfAKind = 7, StraightFlush = 8, RoyalFlush = 9 }
+
+    public class Card : IComparable<Card>
+    {
+        private readonly char valueChar;
+        private readonly char suitChar;
+
+        public Card(string card)
+        {
+            valueChar = card.First();
+            suitChar = card.Last();
+        }
+
+        public byte Value
+        {
+            get
+            {
+                if (valueChar == 'T')
+                    return 10;
+
+                if (valueChar == 'J')
+                    return 11;
+
+                if (valueChar == 'Q')
+                    return 12;
+
+                if (valueChar == 'K')
+                    return 13;
+
+                if (valueChar == 'A')
+                    return 14;
+
+                return (byte)(Convert.ToByte(valueChar) - Convert.ToByte('0'));
+            }
+        }
+
+        public enum Suits { Clubs, Diamonds, Spades, Hearts }
+
+        public Suits Suit => suitChar switch
+            {
+                'S' => Suits.Spades,
+                'H' => Suits.Hearts,
+                'D' => Suits.Diamonds,
+                _ => Suits.Clubs
+            };
+
+        public int CompareTo(Card other)
+        {
+            if (Value > other.Value)
+                return 1;
+
+            if (Value == other.Value)
+                return Suit > other.Suit ? 1 : -1;
+
+            return -1;
+        }
+
+        public override bool Equals(object obj) => Value == ((Card) obj).Value && Suit == ((Card) obj).Suit;
+
+        public override int GetHashCode() => Value.GetHashCode() * 17 + Suit.GetHashCode();
+
+        public override string ToString() => $"{Suit.ToString()} {Value.ToString()}";
+    }
+
     public class PokerHand
     {
-        public PokerHand(string hand)
-        {
-        }
+        private readonly IEnumerable<Card> hand;
+
+        public PokerHand(string hand) => this.hand = hand.Split(" ").Select(card => new Card(card)).OrderBy(_ => _).ToArray();
 
         public Result CompareWith(PokerHand hand)
         {
