@@ -126,6 +126,9 @@ namespace codewars
             if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
                 return Result.Win;
 
+            if (this.hand.Last().CompareTo(hand.hand.Last()) == -1)
+                return Result.Loss;
+
             return Result.Tie;
         }
     }
