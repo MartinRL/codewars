@@ -2,14 +2,13 @@ namespace codewars
 {
     using System;
     using System.Linq;
-    using static System.Convert;
     using static System.String;
     using FluentAssertions;
     using Xunit;
 
     public class FakeBinarySolution
     {
-        public static string Fake(string s) => Concat(s.Select(c => ToByte(c) < 53 ? '0' : '1'));
+        public static string Fake(string s) => Concat(s.Select(c => c < '5' ? '0' : '1'));
     }
 
     public class FakeBinaryTests
