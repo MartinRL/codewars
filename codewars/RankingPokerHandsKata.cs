@@ -138,8 +138,6 @@ namespace codewars
 
                     if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(4).Value)
                         return Result.Loss;
-
-                    return Result.Tie;
                 }
             }
 
