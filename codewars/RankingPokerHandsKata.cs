@@ -141,15 +141,9 @@ namespace codewars
                 }
             }
 
-            /*if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
-                return Result.Win;
-
-            if (this.hand.Last().CompareTo(hand.hand.Last()) == -1)
-                return Result.Loss;*/
-
             if (HandValue == HandValue.None && hand.HandValue == HandValue.None)
             {
-                if (this.hand.SequenceEqual(hand.hand))
+                if (this.hand.Select(c => c.Value).SequenceEqual(hand.hand.Select(c => c.Value)))
                     return Result.Tie;
 
                 if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(4).Value)
@@ -157,9 +151,33 @@ namespace codewars
 
                 if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(4).Value)
                     return Result.Loss;
+
+                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(3).Value)
+                    return Result.Win;
+
+                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(3).Value)
+                    return Result.Loss;
+
+                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(2).Value)
+                    return Result.Win;
+
+                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(2).Value)
+                    return Result.Loss;
+
+                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(1).Value)
+                    return Result.Win;
+
+                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(1).Value)
+                    return Result.Loss;
+
+                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(0).Value)
+                    return Result.Win;
+
+                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(0).Value)
+                    return Result.Loss;
             }
 
-                return Result.Tie;
+            return Result.Tie;
         }
     }
 
