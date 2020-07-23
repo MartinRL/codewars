@@ -123,13 +123,32 @@ namespace codewars
             if (HandValue < hand.HandValue)
                 return Result.Loss;
 
-            if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
+            if (HandValue == hand.HandValue)
+            {
+                if (HandValue == HandValue.Pair || HandValue == HandValue.TwoPairs || HandValue == HandValue.ThreeOfAKind || HandValue == HandValue.FourOfAKind ||
+                    HandValue == HandValue.FullHouse)
+                    return this.hand.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key >
+                           hand.hand.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key
+                        ? Result.Win
+                        : Result.Loss;
+            }
+
+            /*if (this.hand.Last().CompareTo(hand.hand.Last()) == 1)
                 return Result.Win;
 
             if (this.hand.Last().CompareTo(hand.hand.Last()) == -1)
-                return Result.Loss;
+                return Result.Loss;*/
 
-            return Result.Tie;
+            if (HandValue == HandValue.None && hand.HandValue == HandValue.None)
+            {
+                if (this.hand.SequenceEqual(hand.hand))
+                    return Result.Tie;
+
+                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(4).Value)
+                    return Result.Win;
+            }
+
+                return Result.Tie;
         }
     }
 
