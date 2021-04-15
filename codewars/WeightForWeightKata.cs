@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using FluentAssertions;
@@ -8,7 +9,12 @@ namespace codewars
 
     public class WeightForWeightKataSolution
     {
-        public static string OrderWeight(string weights) => weights.Split(" ").OrderBy(_ => _.WeightedWeight()).Aggregate((_, __) => $"{_} {__}");
+        public static string OrderWeight(string weights) => weights.Split(" ").OrderBy(_ => _, new WeightComparer()).Aggregate((_, __) => $"{_} {__}");
+    }
+
+    public class WeightComparer : IComparer<string>
+    {
+        public int Compare(string x, string y) => x.WeightedWeight() > y.WeightedWeight() ? 1 : x.WeightedWeight() < y.WeightedWeight() ? -1 : 0;
     }
 
     public static class WeightForWeightKataExtensions
@@ -19,9 +25,18 @@ namespace codewars
     public class WeightForWeightKataTests
     {
         [Theory]
-        [InlineData("2000 103 123 4444 99", "103 123 4444 99 2000")]
-        [InlineData("11 11 2000 10003 22 123 1234000 44444444 9999", "2000 10003 1234000 44444444 9999 11 11 22 123")]
+        [InlineData("103 123 4444 99 2000", "2000 103 123 4444 99")]
+        [InlineData("2000 10003 1234000 44444444 9999 11 11 22 123", "11 11 2000 10003 22 123 1234000 44444444 9999")]
         public void VerifyOrderWeightWith(string weights, string expectedOrderedWeights) => WeightForWeightKataSolution.OrderWeight(weights).Should().Be(expectedOrderedWeights);
+    }
+
+    public class WeightComparerTests
+    {
+        [Theory]
+        [InlineData("99", "100", 1)]
+        [InlineData("100", "99", -1)]
+        [InlineData("100", "100", 0)]
+        public void VerifyOrderWeightWith(string weight1, string weight2, int expectedComparison) => new WeightComparer().Compare(weight1, weight2).Should().Be(expectedComparison);
     }
 
     public class WeightForWeightExtensionsTests
