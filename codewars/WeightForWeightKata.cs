@@ -4,6 +4,7 @@ namespace codewars
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using static System.String;
     using FluentAssertions;
     using Xunit;
 
@@ -14,7 +15,7 @@ namespace codewars
 
     public class WeightComparer : IComparer<string>
     {
-        public int Compare(string x, string y) => x.WeightedWeight() > y.WeightedWeight() ? 1 : x.WeightedWeight() < y.WeightedWeight() ? -1 : string.Compare(x, y);
+        public int Compare(string x, string y) => x.WeightedWeight() > y.WeightedWeight() ? 1 : x.WeightedWeight() < y.WeightedWeight() ? -1 : CompareOrdinal(x, y);
     }
 
     public static class WeightForWeightKataExtensions
