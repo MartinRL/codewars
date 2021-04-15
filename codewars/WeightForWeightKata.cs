@@ -9,7 +9,7 @@ namespace codewars
 
     public class WeightForWeightKataSolution
     {
-        public static string OrderWeight(string weights) => weights.Split(" ").OrderBy(_ => _, new WeightComparer()).Aggregate((_, __) => $"{_} {__}");
+        public static string OrderWeight(string weights) => weights.Split(" ").OrderBy(_ => _, new WeightComparer()).Aggregate((x, y) => $"{x} {y}");
     }
 
     public class WeightComparer : IComparer<string>
