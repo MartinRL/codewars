@@ -14,7 +14,7 @@ namespace codewars
 
     public class WeightComparer : IComparer<string>
     {
-        public int Compare(string x, string y) => x.WeightedWeight() > y.WeightedWeight() ? 1 : x.WeightedWeight() < y.WeightedWeight() ? -1 : 0;
+        public int Compare(string x, string y) => x.WeightedWeight() > y.WeightedWeight() ? 1 : x.WeightedWeight() < y.WeightedWeight() ? -1 : string.Compare(x, y);
     }
 
     public static class WeightForWeightKataExtensions
