@@ -62,7 +62,7 @@ namespace codewars
                 return 1;
 
             if (Value == other.Value)
-                return Suit > other.Suit ? 1 : -1;
+                return 0;
 
             return -1;
         }
