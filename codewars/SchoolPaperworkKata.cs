@@ -7,8 +7,12 @@ namespace codewars
 
     public class SchoolPaperworkSolution
     {
-        public static int Paperwork(int n, int m) => throw new NotImplementedException();
-    }
+        public static int Paperwork(int n, int m) => (n, m) switch
+        {
+            //(n < 0 || m < 0) => 0,
+            _ => n * m
+        };
+}
 
     public class SchoolPaperworkTests
     {
