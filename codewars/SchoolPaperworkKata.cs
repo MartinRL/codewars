@@ -7,11 +7,7 @@ namespace codewars
 
     public class SchoolPaperworkSolution
     {
-        public static int Paperwork(int n, int m) => (n >= 0, m >= 0) switch
-        {
-            (true, true) => n * m,
-            _ => 0
-        };
+        public static int Paperwork(int n, int m) => (n < 0 || m < 0) ? 0 : n * m;
 }
 
     public class SchoolPaperworkTests
