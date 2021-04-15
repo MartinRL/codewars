@@ -76,39 +76,39 @@ namespace codewars
 
     public class PokerHand
     {
-        private readonly IEnumerable<Card> hand;
+        private readonly IEnumerable<Card> cards;
 
-        public PokerHand(string hand) => this.hand = hand.Split(" ").Select(card => new Card(card)).OrderBy(_ => _).ToArray();
+        public PokerHand(string hand) => this.cards = hand.Split(" ").Select(card => new Card(card)).OrderBy(_ => _).ToArray();
 
         public HandValue HandValue
         {
             get
             {
-                if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4 && hand.Max(c => c.Value) == 14)
+                if (cards.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && cards.Max(c => c.Value) - cards.Min(c => c.Value) == 4 && cards.Max(c => c.Value) == 14)
                     return HandValue.RoyalFlush;
 
-                if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4)
+                if (cards.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5 && cards.Max(c => c.Value) - cards.Min(c => c.Value) == 4)
                     return HandValue.StraightFlush;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 4)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 4)
                     return HandValue.FourOfAKind;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 3 && hand.GroupBy(c => c.Value).Select(g => g.Count()).Min() == 2)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 3 && cards.GroupBy(c => c.Value).Select(g => g.Count()).Min() == 2)
                     return HandValue.FullHouse;
 
-                if (hand.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5)
+                if (cards.GroupBy(c => c.Suit).Select(g => g.Count()).Max() == 5)
                     return HandValue.Flush;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 1 && hand.Max(c => c.Value) - hand.Min(c => c.Value) == 4)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 1 && cards.Max(c => c.Value) - cards.Min(c => c.Value) == 4)
                     return HandValue.Straight;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 3)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Max() == 3)
                     return HandValue.ThreeOfAKind;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Count() == 3)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Count() == 3)
                     return HandValue.TwoPairs;
 
-                if (hand.GroupBy(c => c.Value).Select(g => g.Count()).Count() == 4)
+                if (cards.GroupBy(c => c.Value).Select(g => g.Count()).Count() == 4)
                     return HandValue.Pair;
 
                 return HandValue.None;
@@ -127,53 +127,53 @@ namespace codewars
             {
                 if (HandValue == HandValue.ThreeOfAKind || HandValue == HandValue.FourOfAKind ||
                     HandValue == HandValue.FullHouse)
-                    return this.hand.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key >
-                           hand.hand.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key
+                    return cards.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key >
+                           hand.cards.GroupBy(c => c.Value).OrderByDescending(g => g.Count()).First().Key
                         ? Result.Win : Result.Loss;
 
                 if (HandValue == HandValue.StraightFlush || HandValue == HandValue.Flush)
                 {
-                    if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(4).Value)
+                    if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(4).Value)
                         return Result.Win;
 
-                    if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(4).Value)
+                    if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(4).Value)
                         return Result.Loss;
                 }
             }
 
             if (HandValue == HandValue.None && hand.HandValue == HandValue.None)
             {
-                if (this.hand.Select(c => c.Value).SequenceEqual(hand.hand.Select(c => c.Value)))
+                if (this.cards.Select(c => c.Value).SequenceEqual(hand.cards.Select(c => c.Value)))
                     return Result.Tie;
 
-                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(4).Value)
+                if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(4).Value)
                     return Result.Win;
 
-                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(4).Value)
+                if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(4).Value)
                     return Result.Loss;
 
-                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(3).Value)
+                if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(3).Value)
                     return Result.Win;
 
-                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(3).Value)
+                if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(3).Value)
                     return Result.Loss;
 
-                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(2).Value)
+                if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(2).Value)
                     return Result.Win;
 
-                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(2).Value)
+                if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(2).Value)
                     return Result.Loss;
 
-                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(1).Value)
+                if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(1).Value)
                     return Result.Win;
 
-                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(1).Value)
+                if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(1).Value)
                     return Result.Loss;
 
-                if (this.hand.ElementAt(4).Value > hand.hand.ElementAt(0).Value)
+                if (this.cards.ElementAt(4).Value > hand.cards.ElementAt(0).Value)
                     return Result.Win;
 
-                if (this.hand.ElementAt(4).Value < hand.hand.ElementAt(0).Value)
+                if (this.cards.ElementAt(4).Value < hand.cards.ElementAt(0).Value)
                     return Result.Loss;
             }
 
