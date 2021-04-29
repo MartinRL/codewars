@@ -2,14 +2,15 @@ namespace codewars
 {
     using System;
     using System.Linq;
+    using static System.Convert;
     using FluentAssertions;
     using Xunit;
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => text.Select(Convert.ToInt32).ToString();
+        public static string Encode(string text) => text.Select(ToInt32).Select(To8BitBinary).Aggregate((_, __) => $"{_} {__}");
 
-        public static string ToBinary(int baseTen)
+        public static string To8BitBinary(int baseTen)
         {
             var result = string.Empty;
             
@@ -34,9 +35,9 @@ namespace codewars
         public void VerifyEncodeWith(string text, string expectedEncoding) => ErrorCorrectionNo1HammingCodeSolution.Encode(text).Should().Be(expectedEncoding);
 
         [Theory]
-        [InlineData(65, "1000001")]
-        [InlineData(2, "10")]
-        [InlineData(8, "1000")]
-        public void VerifyToBinaryWith(int baseTen, string expectedBinary) => ErrorCorrectionNo1HammingCodeSolution.ToBinary(baseTen).Should().Be(expectedBinary);
+        [InlineData(104, "01101000")]
+        [InlineData(101, "01100101")]
+        [InlineData(121, "01111001")]
+        public void VerifyTo8BitBinaryWith(int baseTen, string expectedBinary) => ErrorCorrectionNo1HammingCodeSolution.To8BitBinary(baseTen).Should().Be(expectedBinary);
     }
 }
