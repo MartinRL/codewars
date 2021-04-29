@@ -20,7 +20,17 @@ namespace codewars
             return result;
         }
 
-        public static BigInteger V1(int n, int p) => throw new NotImplementedException();
+        public static BigInteger V1(int n, int p)
+        {
+            BigInteger result = 0;
+
+            for (var k = 0; k <= n; k++)
+            {
+                result += (BigInteger)Math.Pow(-1, k) * p * (BigInteger)Math.Pow(4, n - k) * (2 * n - k).Choose(k);
+            }
+
+            return result;
+        }
     }
 
     public static class DisguisedSequencesIIExtensions
