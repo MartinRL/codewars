@@ -7,7 +7,21 @@ namespace codewars
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => throw new NotImplementedException();
+        public static string Encode(string text) => text.Select(c => (int)c).ToString();
+
+        public static string ToBinary(int baseTen)
+        {
+            var result = string.Empty;
+            
+            while (baseTen > 1)
+            {
+                int remainder = baseTen % 2;
+                result = Convert.ToString(remainder) + result;
+                baseTen /= 2;
+            }
+            
+            return Convert.ToString(baseTen) + result;
+        }
     }
 
     public class ErrorCorrectionNo1HammingCodeTests
@@ -18,5 +32,11 @@ namespace codewars
         [InlineData("T3st", "000111000111000111000000000000111111000000111111000111111111000000111111000111111111000111000000")]
         [InlineData("T?st!%", "000111000111000111000000000000111111111111111111000111111111000000111111000111111111000111000000000000111000000000000111000000111000000111000111")]
         public void VerifyEncodeWith(string text, string expectedEncoding) => ErrorCorrectionNo1HammingCodeSolution.Encode(text).Should().Be(expectedEncoding);
+
+        [Theory]
+        [InlineData(65, "1000001")]
+        [InlineData(2, "10")]
+        [InlineData(8, "1000")]
+        public void VerifyToBinaryWith(int baseTen, string expectedBinary) => ErrorCorrectionNo1HammingCodeSolution.ToBinary(baseTen).Should().Be(expectedBinary);
     }
 }
