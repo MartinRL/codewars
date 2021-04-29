@@ -8,7 +8,7 @@ namespace codewars
 
     public class DisguisedSequencesIISolution
     {
-        public static BigInteger U1(int n, int p) => throw new NotImplementedException();
+        public static BigInteger U1(int n, int p) => Enumerable.Range(0, n).Select(k => (int)Math.Pow(-1, k) * p * (int)Math.Pow(4, n - k)).Sum();
 
         public static BigInteger V1(int n, int p) => throw new NotImplementedException();
     }
@@ -21,6 +21,6 @@ namespace codewars
 
         [Theory]
         [InlineData(16, 68, "2244")]
-        public void VerifyV1With(int n, int p, string expected) => DisguisedSequencesIISolution.U1(n, p).Should().Be(BigInteger.Parse(expected));
+        public void VerifyV1With(int n, int p, string expected) => DisguisedSequencesIISolution.V1(n, p).Should().Be(BigInteger.Parse(expected));
     }
 }
