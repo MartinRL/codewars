@@ -7,7 +7,7 @@ namespace codewars
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => text.Select(c => (int)c).ToString();
+        public static string Encode(string text) => text.Select(Convert.ToInt32).ToString();
 
         public static string ToBinary(int baseTen)
         {
@@ -15,7 +15,7 @@ namespace codewars
             
             while (baseTen > 1)
             {
-                int remainder = baseTen % 2;
+                var remainder = baseTen % 2;
                 result = Convert.ToString(remainder) + result;
                 baseTen /= 2;
             }
