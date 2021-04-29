@@ -13,7 +13,7 @@ namespace codewars
 
             for (var k = 0; k <= n; k++)
             {
-                result += (BigInteger)Math.Pow(-1, k) * p * (BigInteger)Math.Pow(4, n - k) * (2 * n - k + 1).Choose(k);
+                result += BigInteger.Pow(-1, k) * p * BigInteger.Pow(4, n - k) * (2 * n - k + 1).Choose(k);
             }
 
             return result;
@@ -25,7 +25,7 @@ namespace codewars
 
             for (var k = 0; k <= n; k++)
             {
-                result += (BigInteger)Math.Pow(-1, k) * p * (BigInteger)Math.Pow(4, n - k) * (2 * n - k).Choose(k);
+                result += BigInteger.Pow(-1, k) * p * BigInteger.Pow(4, n - k) * (2 * n - k).Choose(k);
             }
 
             return result;
@@ -34,9 +34,9 @@ namespace codewars
 
     public static class DisguisedSequencesIIExtensions
     {
-        public static int Choose(this int @this, int k)
+        public static BigInteger Choose(this int @this, int k)
         {
-            decimal result = 1;
+            BigInteger result = 1;
 
             for (var i = 1; i <= k; i++)
             {
@@ -44,7 +44,7 @@ namespace codewars
                 result /= i;
             }
 
-            return (int)result;
+            return result;
         }
     }
 
