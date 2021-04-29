@@ -15,12 +15,10 @@ namespace codewars
 
     public class DisguisedSequencesIITests
     {
-        [Theory]
-        [InlineData(13, 18, "252")]
-        public void VerifyU1With(int n, int p, string expected) => DisguisedSequencesIISolution.U1(n, p).Should().Be(BigInteger.Parse(expected));
+        [Fact]
+        public void U1_should_return_as_per_codewars_description() => DisguisedSequencesIISolution.U1(13, 18).Should().Be(new BigInteger(252));
 
-        [Theory]
-        [InlineData(16, 68, "2244")]
-        public void VerifyV1With(int n, int p, string expected) => DisguisedSequencesIISolution.V1(n, p).Should().Be(BigInteger.Parse(expected));
+        [Fact]
+        public void V1_should_return_as_per_codewars_description() => DisguisedSequencesIISolution.V1(16, 68).Should().Be(new BigInteger(2244));
     }
 }
