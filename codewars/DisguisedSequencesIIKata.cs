@@ -8,10 +8,27 @@ namespace codewars
 
     public class DisguisedSequencesIISolution
     {
-        public static BigInteger U1(int n, int p) => Enumerable.Range(0, n).Select(k => (int)Math.Pow(-1, k) * p * (int)Math.Pow(4, n - k)).Sum();
+        public static BigInteger U1(int n, int p) => Enumerable.Range(0, n).Select(k => (int)Math.Pow(-1, k) * p * (int)Math.Pow(4, n - k) * (2 * n - k + 1).Choose(k)).Sum();
 
         public static BigInteger V1(int n, int p) => throw new NotImplementedException();
     }
+
+    public static class DisguisedSequencesIIExtensions
+    {
+        public static int Choose(this int @this, int k)
+        {
+            decimal result = 1;
+
+            for (var i = 1; i <= k; i++)
+            {
+                result *= @this - (k - i);
+                result /= i;
+            }
+
+            return (int)result;
+        }
+    }
+
 
     public class DisguisedSequencesIITests
     {
@@ -22,5 +39,9 @@ namespace codewars
         [Theory]
         [InlineData(16, 68, "2244")]
         public void VerifyV1With(int n, int p, string expected) => DisguisedSequencesIISolution.V1(n, p).Should().Be(BigInteger.Parse(expected));
+
+        [Theory]
+        [InlineData(5, 3, 10)]
+        public void VerifyChooseWith(int n, int k, int expected) => n.Choose(k).Should().Be(expected);
     }
 }
