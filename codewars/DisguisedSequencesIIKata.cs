@@ -7,25 +7,17 @@ namespace codewars
 
     public class DisguisedSequencesIISolution
     {
-        public static BigInteger U1(int n, int p)
+        public static BigInteger U1(int n, int p) => G1(n, p, 1);
+
+        public static BigInteger V1(int n, int p) => G1(n, p);
+
+        public static BigInteger G1(int n, int p, int add = 0)
         {
             BigInteger result = 0;
 
             for (var k = 0; k <= n; k++)
             {
-                result += BigInteger.Pow(-1, k) * p * BigInteger.Pow(4, n - k) * (2 * n - k + 1).Choose(k);
-            }
-
-            return result;
-        }
-
-        public static BigInteger V1(int n, int p)
-        {
-            BigInteger result = 0;
-
-            for (var k = 0; k <= n; k++)
-            {
-                result += BigInteger.Pow(-1, k) * p * BigInteger.Pow(4, n - k) * (2 * n - k).Choose(k);
+                result += BigInteger.Pow(-1, k) * p * BigInteger.Pow(4, n - k) * (2 * n - k + add).Choose(k);
             }
 
             return result;
