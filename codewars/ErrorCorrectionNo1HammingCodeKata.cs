@@ -20,8 +20,8 @@ namespace codewars
                 result = Convert.ToString(remainder) + result;
                 baseTen /= 2;
             }
-            
-            return Convert.ToString(baseTen) + result;
+
+            return (Convert.ToString(baseTen) + result).PadLeft(8, '0');
         }
     }
 
