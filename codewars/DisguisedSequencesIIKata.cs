@@ -1,7 +1,6 @@
 namespace codewars
 {
     using System;
-    using System.Linq;
     using System.Numerics;
     using FluentAssertions;
     using Xunit;
