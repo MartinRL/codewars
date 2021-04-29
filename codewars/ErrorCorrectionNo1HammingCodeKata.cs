@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using static System.Convert;
     using FluentAssertions;
@@ -8,7 +9,7 @@ namespace codewars
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => text.Select(ToInt32).Select(To8BitBinary).Aggregate((src, accu) => $"{src}{accu}").Select(c => new string(c, 3)).Aggregate((src, accu) => $"{src}{accu}");
+        public static string Encode(string text) => text.Select(ToInt32).Select(To8BitBinary).AggregateString().Select(c => new string(c, 3)).AggregateString();
 
         public static string To8BitBinary(int baseTen)
         {
@@ -23,6 +24,11 @@ namespace codewars
 
             return (Convert.ToString(baseTen) + result).PadLeft(8, '0');
         }
+    }
+
+    public static class ErrorCorrectionNo1HammingCodeExtension
+    {
+        public static string AggregateString(this IEnumerable<string> @this) => @this.Aggregate((src, accu) => $"{src}{accu}");
     }
 
     public class ErrorCorrectionNo1HammingCodeTests
