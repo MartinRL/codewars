@@ -8,7 +8,17 @@ namespace codewars
 
     public class DisguisedSequencesIISolution
     {
-        public static BigInteger U1(int n, int p) => Enumerable.Range(0, n).Select(k => (int)Math.Pow(-1, k) * p * (int)Math.Pow(4, n - k) * (2 * n - k + 1).Choose(k)).Sum();
+        public static BigInteger U1(int n, int p)
+        {
+            BigInteger result = 0;
+
+            for (var k = 0; k <= n; k++)
+            {
+                result += (BigInteger)Math.Pow(-1, k) * p * (BigInteger)Math.Pow(4, n - k) * (2 * n - k + 1).Choose(k);
+            }
+
+            return result;
+        }
 
         public static BigInteger V1(int n, int p) => throw new NotImplementedException();
     }
