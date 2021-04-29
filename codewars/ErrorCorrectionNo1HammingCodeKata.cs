@@ -8,7 +8,7 @@ namespace codewars
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => text.Select(ToInt32).Select(To8BitBinary).Aggregate((_, __) => $"{_} {__}");
+        public static string Encode(string text) => text.Select(ToInt32).Select(To8BitBinary).Aggregate((src, accu) => $"{src}{accu}").Select(c => new string(c, 3)).Aggregate((src, accu) => $"{src}{accu}");
 
         public static string To8BitBinary(int baseTen)
         {
