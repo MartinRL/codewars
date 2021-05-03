@@ -16,14 +16,13 @@ namespace codewars
         public static string Decode(string bits) => bits
             .ToChunks(3)
             .Select(GetBit)
-            .AggregateString()
             .ToChunks(8)
             .Select(s => ToInt32(s, 2))
             .Select(ToChar)
             .Select(c => c.ToString())
             .AggregateString();
 
-        public static string GetBit(string @this) => @this.Count(c => c == '1') >= 2 ? "1" : "0";
+        public static char GetBit(IEnumerable<char> @this) => @this.Count(c => c == '1') >= 2 ? '1' : '0';
 
     }
 
@@ -31,7 +30,7 @@ namespace codewars
     {
         public static string AggregateString(this IEnumerable<string> @this) => @this.Aggregate((src, accu) => $"{src}{accu}");
 
-        public static IEnumerable<string> ToChunks(this string @this, int size)
+        public static IEnumerable<string> ToChunks(this IEnumerable<char> @this, int size)
         {
             for (var i = 0; i < @this.Count(); i += size)
                 yield return string.Concat(@this.Skip(i).Take(size));
