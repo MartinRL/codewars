@@ -14,10 +14,10 @@ namespace codewars
             .Aggregate(string.Empty, (c, n) => c + new string(n, 3));
 
         public static string Decode(string text) => text
-            .TakeEvery(3)
+            .ToChunks(3)
             .Select(GetBit)
             .AggregateString()
-            .TakeEvery(8)
+            .ToChunks(8)
             .Select(s => ToInt32(s, 2))
             .Select(ToChar)
             .Select(c => c.ToString())
@@ -45,7 +45,7 @@ namespace codewars
     {
         public static string AggregateString(this IEnumerable<string> @this) => @this.Aggregate((src, accu) => $"{src}{accu}");
 
-        public static IEnumerable<string> TakeEvery(this string @this, int chunkSize)
+        public static IEnumerable<string> ToChunks(this string @this, int chunkSize)
         {
             var remainder = @this;
             var chunks = new List<string>();
