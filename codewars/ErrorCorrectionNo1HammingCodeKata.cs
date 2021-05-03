@@ -11,7 +11,7 @@ namespace codewars
     {
         public static string Encode(string text) => text
             .SelectMany(c => Convert.ToString(c, 2).PadLeft(8, '0'))
-            .Aggregate(string.Empty, (c, n) => c + new string(n, 3));
+            .Aggregate(string.Empty, (c, n) => $"{c}{new string(n, 3)}");
 
         public static string Decode(string bits) => bits
             .ToChunks(3)
@@ -19,8 +19,7 @@ namespace codewars
             .ToChunks(8)
             .Select(s => ToInt32(s, 2))
             .Select(ToChar)
-            .Select(c => c.ToString())
-            .AggregateString();
+            .Aggregate(string.Empty, (c, n) => $"{c}{n}");
 
         public static char GetBit(IEnumerable<char> @this) => @this.Count(c => c == '1') >= 2 ? '1' : '0';
 
@@ -28,8 +27,6 @@ namespace codewars
 
     public static class ErrorCorrectionNo1HammingCodeExtension
     {
-        public static string AggregateString(this IEnumerable<string> @this) => @this.Aggregate((src, accu) => $"{src}{accu}");
-
         public static IEnumerable<string> ToChunks(this IEnumerable<char> @this, int size)
         {
             for (var i = 0; i < @this.Count(); i += size)
