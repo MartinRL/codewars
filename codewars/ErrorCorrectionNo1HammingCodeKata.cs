@@ -11,7 +11,7 @@ namespace codewars
     {
         public static string Encode(string text) => text
             .SelectMany(c => Convert.ToString(c, 2).PadLeft(8, '0'))
-            .Aggregate("", (c,n) => c + (n == '0' ? "000" : "111") );
+            .Aggregate(string.Empty, (c, n) => c + new string(n, 3));
 
         public static string Encode2(string text) => text
             .Select(ToInt32)
