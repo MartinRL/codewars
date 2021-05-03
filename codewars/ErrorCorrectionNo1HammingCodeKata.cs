@@ -9,13 +9,15 @@ namespace codewars
 
     public class ErrorCorrectionNo1HammingCodeSolution
     {
-        public static string Encode(string text) => text.Select(ToInt32)
+        public static string Encode(string text) => text
+            .Select(ToInt32)
             .Select(To8BitBinary)
             .AggregateString()
             .Select(c => new string(c, 3))
             .AggregateString();
 
-        public static string Decode(string text) => text.TakeEvery(3)
+        public static string Decode(string text) => text
+            .TakeEvery(3)
             .Select(s => s.First().ToString())
             .AggregateString()
             .TakeEvery(8)
