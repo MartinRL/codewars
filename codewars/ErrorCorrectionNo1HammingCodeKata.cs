@@ -45,21 +45,10 @@ namespace codewars
     {
         public static string AggregateString(this IEnumerable<string> @this) => @this.Aggregate((src, accu) => $"{src}{accu}");
 
-        public static IEnumerable<string> ToChunks(this string @this, int chunkSize)
+        public static IEnumerable<string> ToChunks(this string @this, int size)
         {
-            var remainder = @this;
-            var chunks = new List<string>();
-
-            while (remainder.Length > chunkSize)
-            {
-                chunks.Add(remainder.Substring(0, chunkSize));
-                remainder = remainder.Substring(chunkSize);
-            }
-
-            if (remainder != string.Empty)
-                chunks.Add(remainder);
-
-            return chunks;
+            for (var i = 0; i < @this.Count(); i += size)
+                yield return string.Concat(@this.Skip(i).Take(size));
         }
     }
 
