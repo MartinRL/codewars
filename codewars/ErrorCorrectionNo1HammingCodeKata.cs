@@ -10,6 +10,10 @@ namespace codewars
     public class ErrorCorrectionNo1HammingCodeSolution
     {
         public static string Encode(string text) => text
+            .SelectMany(c => Convert.ToString(c, 2).PadLeft(8, '0'))
+            .Aggregate("", (c,n) => c + (n == '0' ? "000" : "111") );
+
+        public static string Encode2(string text) => text
             .Select(ToInt32)
             .Select(To8BitBinary)
             .AggregateString()
@@ -18,7 +22,7 @@ namespace codewars
 
         public static string Decode(string text) => text
             .TakeEvery(3)
-            .Select(s => s.First().ToString())
+            .Select(GetBit)
             .AggregateString()
             .TakeEvery(8)
             .Select(s => ToInt32(s, 2))
@@ -39,6 +43,9 @@ namespace codewars
 
             return (Convert.ToString(baseTen) + result).PadLeft(8, '0');
         }
+
+        public static string GetBit(string @this) => @this.Count(c => c == '1') >= 2 ? "1" : "0";
+
     }
 
     public static class ErrorCorrectionNo1HammingCodeExtension
