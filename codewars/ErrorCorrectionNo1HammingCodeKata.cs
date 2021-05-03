@@ -13,13 +13,6 @@ namespace codewars
             .SelectMany(c => Convert.ToString(c, 2).PadLeft(8, '0'))
             .Aggregate(string.Empty, (c, n) => c + new string(n, 3));
 
-        public static string Encode2(string text) => text
-            .Select(ToInt32)
-            .Select(To8BitBinary)
-            .AggregateString()
-            .Select(c => new string(c, 3))
-            .AggregateString();
-
         public static string Decode(string text) => text
             .TakeEvery(3)
             .Select(GetBit)
