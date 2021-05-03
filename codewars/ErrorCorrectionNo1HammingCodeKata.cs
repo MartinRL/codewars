@@ -23,20 +23,6 @@ namespace codewars
             .Select(c => c.ToString())
             .AggregateString();
 
-        public static string To8BitBinary(int baseTen)
-        {
-            var result = string.Empty;
-            
-            while (baseTen > 1)
-            {
-                var remainder = baseTen % 2;
-                result = Convert.ToString(remainder) + result;
-                baseTen /= 2;
-            }
-
-            return (Convert.ToString(baseTen) + result).PadLeft(8, '0');
-        }
-
         public static string GetBit(string @this) => @this.Count(c => c == '1') >= 2 ? "1" : "0";
 
     }
@@ -67,11 +53,5 @@ namespace codewars
         [InlineData("000111000111000111000001000000111111000000111111000111111111000000111011000111111111000111000000", "T3st")]
         [InlineData("000111000111000111000010000000111111111111011111000111111111000000111111000111101111000111000000000000111000000000000111000000111000000111000111", "T?st!%")]
         public void VerifyDecodeWith(string text, string expectedDecoding) => ErrorCorrectionNo1HammingCodeSolution.Decode(text).Should().Be(expectedDecoding);
-
-        [Theory]
-        [InlineData(104, "01101000")]
-        [InlineData(101, "01100101")]
-        [InlineData(121, "01111001")]
-        public void VerifyTo8BitBinaryWith(int baseTen, string expectedBinary) => ErrorCorrectionNo1HammingCodeSolution.To8BitBinary(baseTen).Should().Be(expectedBinary);
     }
 }
