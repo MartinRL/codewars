@@ -13,7 +13,7 @@ namespace codewars
             .SelectMany(c => Convert.ToString(c, 2).PadLeft(8, '0'))
             .Aggregate(string.Empty, (c, n) => c + new string(n, 3));
 
-        public static string Decode(string text) => text
+        public static string Decode(string bits) => bits
             .ToChunks(3)
             .Select(GetBit)
             .AggregateString()
