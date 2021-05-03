@@ -25,15 +25,6 @@ namespace codewars
 
     }
 
-    public static class ErrorCorrectionNo1HammingCodeExtension
-    {
-        public static IEnumerable<string> ToChunks(this IEnumerable<char> @this, int size)
-        {
-            for (var i = 0; i < @this.Count(); i += size)
-                yield return string.Concat(@this.Skip(i).Take(size));
-        }
-    }
-
     public class ErrorCorrectionNo1HammingCodeTests
     {
         [Theory]
