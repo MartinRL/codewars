@@ -11,6 +11,12 @@
 
     public static class Extensions
     {
+        public static IEnumerable<string> ToChunks(this IEnumerable<char> @this, int size)
+        {
+            for (var i = 0; i < @this.Count(); i += size)
+                yield return string.Concat(@this.Skip(i).Take(size));
+        }
+
         public static void Each<T>(this IEnumerable<T> @this, Action<T> action)
         {
             foreach (var element in @this)
