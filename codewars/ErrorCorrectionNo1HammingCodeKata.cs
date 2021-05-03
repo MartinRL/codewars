@@ -21,7 +21,7 @@ namespace codewars
             .Select(s => s.First().ToString())
             .AggregateString()
             .TakeEvery(8)
-            .Select(s => Convert.ToInt32(s, 2))
+            .Select(s => ToInt32(s, 2))
             .Select(ToChar)
             .Select(c => c.ToString())
             .AggregateString();
