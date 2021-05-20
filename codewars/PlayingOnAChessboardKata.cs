@@ -13,22 +13,20 @@ namespace codewars
             if (n == 0)
                 return "[0]";
 
-            var fractions = new List<Fraction>();
+            var fraction = new Fraction();
 
             for (var i = 1; i <= n; i++)
             {
                 for (var j = 1; j <= n; j++)
                 {
-                    fractions.Add(new Fraction(i, j + i));
+                    fraction += new Fraction(i, j + i);
                 }
             }
 
-            var sum = fractions.Aggregate((src, seed) => src + seed);
+            if (fraction.Denominator == 1)
+                return $"[{fraction.Numerator}]";
 
-            if (sum.Denominator == 1)
-                return $"[{sum.Numerator}]";
-
-            return $"[{sum.Numerator}, {sum.Denominator}]";
+            return $"[{fraction.Numerator}, {fraction.Denominator}]";
         }
     }
 
