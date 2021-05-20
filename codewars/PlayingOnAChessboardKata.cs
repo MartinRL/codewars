@@ -7,16 +7,11 @@ namespace codewars
 
     public class PlayingOnAChessboardSolution
     {
-        public static string Game(BigInteger n)
+        public static string Game(long n) => (n % 2) switch
         {
-            if (n == 0)
-                return "[0]";
-
-            if (n % 2 == 0)
-                return $"[{n * n / 2}]";
-
-            return $"[{n * n}, 2]";
-        }
+            0 => $"[{n * n / 2}]",
+            _ => $"[{n * n}, 2]"
+        };
     }
 
     public class PlayingOnAChessboardTests
@@ -31,7 +26,6 @@ namespace codewars
         [InlineData(6, "[18]")]
         [InlineData(7, "[49, 2]")]
         [InlineData(8, "[32]")]
-        //[InlineData(10000, "dummy")]
-        public void VerifyGameWith(BigInteger n, string expectedGameOutcome) => PlayingOnAChessboardSolution.Game(n).Should().Be(expectedGameOutcome);
+        public void VerifyGameWith(long n, string expectedGameOutcome) => PlayingOnAChessboardSolution.Game(n).Should().Be(expectedGameOutcome);
     }
 }
