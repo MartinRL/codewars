@@ -392,6 +392,7 @@ namespace codewars
         [InlineData(0, "[0]")]
         [InlineData(1, "[1, 2]")]
         [InlineData(8, "[32]")]
+        [InlineData(10000, "dummy")]
         public void VerifyGameWith(long n, string expectedGameOutcome) => PlayingOnAChessboardSolution.Game(n).Should().Be(expectedGameOutcome);
     }
 }
