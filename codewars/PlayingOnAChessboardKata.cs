@@ -34,32 +34,32 @@ namespace codewars
 
     public struct Fraction : IEquatable<Fraction>
     {
-        long _numerator;
+        long numerator;
 
         public long Numerator
         {
-            get { return _numerator; }
-            private set { _numerator = value; }
+            get => numerator;
+            private set => numerator = value;
         }
 
-        long _denominator;
+        long denominator;
 
         public long Denominator
         {
-            get { return _denominator == 0 ? 1 : _denominator; }
+            get => denominator == 0 ? 1 : denominator;
             private set
             {
                 if (value == 0)
                     throw new InvalidOperationException("Denominator cannot be assigned a 0 Value.");
 
-                _denominator = value;
+                denominator = value;
             }
         }
 
         public Fraction(long value)
         {
-            _numerator = value;
-            _denominator = 1;
+            numerator = value;
+            denominator = 1;
             Reduce();
         }
 
@@ -68,8 +68,8 @@ namespace codewars
             if (denominator == 0)
                 throw new InvalidOperationException("Denominator cannot be assigned a 0 Value.");
 
-            _numerator = numerator;
-            _denominator = denominator;
+            this.numerator = numerator;
+            this.denominator = denominator;
             Reduce();
         }
 
@@ -84,42 +84,27 @@ namespace codewars
                     return;
                 }
 
-                long iGCD = GCD(Numerator, Denominator);
+                var iGCD = GCD(Numerator, Denominator);
                 Numerator /= iGCD;
                 Denominator /= iGCD;
 
-                if (Denominator < 0)
-                {
-                    Numerator *= -1;
-                    Denominator *= -1;
-                }
+                if (Denominator >= 0)
+                    return;
+
+                Numerator *= -1;
+                Denominator *= -1;
             }
-            catch (Exception exp)
+            catch (Exception e)
             {
-                throw new InvalidOperationException("Cannot reduce Fraction: " + exp.Message);
+                throw new InvalidOperationException("Cannot reduce Fraction: " + e.Message);
             }
         }
 
-        public bool Equals(Fraction other)
-        {
-            if (other == null)
-                return false;
+        public bool Equals(Fraction other) => Numerator == other.Numerator && Denominator == other.Denominator;
 
-            return (Numerator == other.Numerator && Denominator == other.Denominator);
-        }
+        public override bool Equals(object obj) => obj is Fraction && Equals((Fraction) obj);
 
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !(obj is Fraction))
-                return false;
-
-            return Equals((Fraction) obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return Convert.ToInt32((Numerator ^ Denominator) & 0xFFFFFFFF);
-        }
+        public override int GetHashCode() => Convert.ToInt32((Numerator ^ Denominator) & 0xFFFFFFFF);
 
         public override string ToString()
         {
@@ -136,12 +121,13 @@ namespace codewars
 
         public static Fraction Parse(string strValue)
         {
-            int i = strValue.IndexOf('/');
+            var i = strValue.IndexOf('/');
             if (i == -1)
                 return DecimalToFraction(Convert.ToDecimal(strValue));
 
-            long iNumerator = Convert.ToInt64(strValue.Substring(0, i));
-            long iDenominator = Convert.ToInt64(strValue.Substring(i + 1));
+            var iNumerator = Convert.ToInt64(strValue.Substring(0, i));
+            var iDenominator = Convert.ToInt64(strValue.Substring(i + 1));
+
             return new Fraction(iNumerator, iDenominator);
         }
 
@@ -151,13 +137,13 @@ namespace codewars
             {
                 try
                 {
-                    int i = strValue.IndexOf('/');
+                    var i = strValue.IndexOf('/');
                     if (i == -1)
                     {
-                        decimal dValue;
-                        if (decimal.TryParse(strValue, out dValue))
+                        if (decimal.TryParse(strValue, out var dValue))
                         {
                             fraction = DecimalToFraction(dValue);
+
                             return true;
                         }
                     }
@@ -167,6 +153,7 @@ namespace codewars
                         if (long.TryParse(strValue.Substring(0, i), out iNumerator) && long.TryParse(strValue.Substring(i + 1), out iDenominator))
                         {
                             fraction = new Fraction(iNumerator, iDenominator);
+
                             return true;
                         }
                     }
@@ -177,12 +164,13 @@ namespace codewars
             }
 
             fraction = new Fraction();
+
             return false;
         }
 
         private static Fraction DoubleToFraction(double dValue)
         {
-            char separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+            var separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
 
             try
             {
@@ -195,9 +183,9 @@ namespace codewars
                     }
                     else
                     {
-                        double dTemp = dValue;
+                        var dTemp = dValue;
                         long iMultiple = 1;
-                        string strTemp = dValue.ToString();
+                        var strTemp = dValue.ToString();
                         while (strTemp.IndexOf("E") > 0) // if in the form like 12E-9
                         {
                             dTemp *= 10;
@@ -205,10 +193,10 @@ namespace codewars
                             strTemp = dTemp.ToString();
                         }
 
-                        int i = 0;
+                        var i = 0;
                         while (strTemp[i] != separator)
                             i++;
-                        int iDigitsAfterDecimal = strTemp.Length - i - 1;
+                        var iDigitsAfterDecimal = strTemp.Length - i - 1;
                         while (iDigitsAfterDecimal > 0)
                         {
                             dTemp *= 10;
@@ -234,7 +222,7 @@ namespace codewars
 
         private static Fraction DecimalToFraction(decimal dValue)
         {
-            char separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+            var separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
 
             try
             {
@@ -247,9 +235,9 @@ namespace codewars
                     }
                     else
                     {
-                        decimal dTemp = dValue;
+                        var dTemp = dValue;
                         long iMultiple = 1;
-                        string strTemp = dValue.ToString();
+                        var strTemp = dValue.ToString();
                         while (strTemp.IndexOf("E") > 0) // if in the form like 12E-9
                         {
                             dTemp *= 10;
@@ -257,10 +245,10 @@ namespace codewars
                             strTemp = dTemp.ToString();
                         }
 
-                        int i = 0;
+                        var i = 0;
                         while (strTemp[i] != separator)
                             i++;
-                        int iDigitsAfterDecimal = strTemp.Length - i - 1;
+                        var iDigitsAfterDecimal = strTemp.Length - i - 1;
                         while (iDigitsAfterDecimal > 0)
                         {
                             dTemp *= 10;
@@ -289,15 +277,17 @@ namespace codewars
             if (frac1.Numerator == 0)
                 throw new InvalidOperationException("Operation not possible (Denominator cannot be assigned a ZERO Value)");
 
-            long iNumerator = frac1.Denominator;
-            long iDenominator = frac1.Numerator;
+            var iNumerator = frac1.Denominator;
+            var iDenominator = frac1.Numerator;
+
             return new Fraction(iNumerator, iDenominator);
         }
 
         private static Fraction Negate(Fraction frac1)
         {
-            long iNumerator = -frac1.Numerator;
-            long iDenominator = frac1.Denominator;
+            var iNumerator = -frac1.Numerator;
+            var iDenominator = frac1.Denominator;
+
             return new Fraction(iNumerator, iDenominator);
         }
 
@@ -307,8 +297,9 @@ namespace codewars
             {
                 checked
                 {
-                    long iNumerator = frac1.Numerator * frac2.Denominator + frac2.Numerator * frac1.Denominator;
-                    long iDenominator = frac1.Denominator * frac2.Denominator;
+                    var iNumerator = frac1.Numerator * frac2.Denominator + frac2.Numerator * frac1.Denominator;
+                    var iDenominator = frac1.Denominator * frac2.Denominator;
+
                     return new Fraction(iNumerator, iDenominator);
                 }
             }
@@ -328,8 +319,9 @@ namespace codewars
             {
                 checked
                 {
-                    long iNumerator = frac1.Numerator * frac2.Numerator;
-                    long iDenominator = frac1.Denominator * frac2.Denominator;
+                    var iNumerator = frac1.Numerator * frac2.Numerator;
+                    var iDenominator = frac1.Denominator * frac2.Denominator;
+
                     return new Fraction(iNumerator, iDenominator);
                 }
             }
@@ -352,7 +344,7 @@ namespace codewars
             {
                 if (iNo1 < iNo2)
                 {
-                    long tmp = iNo1;
+                    var tmp = iNo1;
                     iNo1 = iNo2;
                     iNo2 = tmp;
                 }
@@ -363,85 +355,37 @@ namespace codewars
             return iNo2;
         }
 
-        public static Fraction operator -(Fraction frac1)
-        {
-            return (Negate(frac1));
-        }
+        public static Fraction operator -(Fraction frac1) => (Negate(frac1));
 
-        public static Fraction operator +(Fraction frac1, Fraction frac2)
-        {
-            return (Add(frac1, frac2));
-        }
+        public static Fraction operator +(Fraction frac1, Fraction frac2) => (Add(frac1, frac2));
 
-        public static Fraction operator -(Fraction frac1, Fraction frac2)
-        {
-            return (Add(frac1, -frac2));
-        }
+        public static Fraction operator -(Fraction frac1, Fraction frac2) => (Add(frac1, -frac2));
 
-        public static Fraction operator *(Fraction frac1, Fraction frac2)
-        {
-            return (Multiply(frac1, frac2));
-        }
+        public static Fraction operator *(Fraction frac1, Fraction frac2) => (Multiply(frac1, frac2));
 
-        public static Fraction operator /(Fraction frac1, Fraction frac2)
-        {
-            return (Multiply(frac1, Inverse(frac2)));
-        }
+        public static Fraction operator /(Fraction frac1, Fraction frac2) => (Multiply(frac1, Inverse(frac2)));
 
-        public static bool operator ==(Fraction frac1, Fraction frac2)
-        {
-            return frac1.Equals(frac2);
-        }
+        public static bool operator ==(Fraction frac1, Fraction frac2) => frac1.Equals(frac2);
 
-        public static bool operator !=(Fraction frac1, Fraction frac2)
-        {
-            return (!frac1.Equals(frac2));
-        }
+        public static bool operator !=(Fraction frac1, Fraction frac2) => (!frac1.Equals(frac2));
 
-        public static bool operator <(Fraction frac1, Fraction frac2)
-        {
-            return frac1.Numerator * frac2.Denominator < frac2.Numerator * frac1.Denominator;
-        }
+        public static bool operator <(Fraction frac1, Fraction frac2) => frac1.Numerator * frac2.Denominator < frac2.Numerator * frac1.Denominator;
 
-        public static bool operator >(Fraction frac1, Fraction frac2)
-        {
-            return frac1.Numerator * frac2.Denominator > frac2.Numerator * frac1.Denominator;
-        }
+        public static bool operator >(Fraction frac1, Fraction frac2) => frac1.Numerator * frac2.Denominator > frac2.Numerator * frac1.Denominator;
 
-        public static bool operator <=(Fraction frac1, Fraction frac2)
-        {
-            return frac1.Numerator * frac2.Denominator <= frac2.Numerator * frac1.Denominator;
-        }
+        public static bool operator <=(Fraction frac1, Fraction frac2) => frac1.Numerator * frac2.Denominator <= frac2.Numerator * frac1.Denominator;
 
-        public static bool operator >=(Fraction frac1, Fraction frac2)
-        {
-            return frac1.Numerator * frac2.Denominator >= frac2.Numerator * frac1.Denominator;
-        }
+        public static bool operator >=(Fraction frac1, Fraction frac2) => frac1.Numerator * frac2.Denominator >= frac2.Numerator * frac1.Denominator;
 
-        public static implicit operator Fraction(long value)
-        {
-            return new Fraction(value);
-        }
+        public static implicit operator Fraction(long value) => new Fraction(value);
 
-        public static implicit operator Fraction(double value)
-        {
-            return DoubleToFraction(value);
-        }
+        public static implicit operator Fraction(double value) => DoubleToFraction(value);
 
-        public static implicit operator Fraction(decimal value)
-        {
-            return DecimalToFraction(value);
-        }
+        public static implicit operator Fraction(decimal value) => DecimalToFraction(value);
 
-        public static explicit operator double(Fraction frac)
-        {
-            return ((double) frac.Numerator / frac.Denominator);
-        }
+        public static explicit operator double(Fraction frac) => ((double) frac.Numerator / frac.Denominator);
 
-        public static explicit operator decimal(Fraction frac)
-        {
-            return ((decimal) frac.Numerator / (decimal) frac.Denominator);
-        }
+        public static explicit operator decimal(Fraction frac) => ((decimal) frac.Numerator / (decimal) frac.Denominator);
     }
 
     public class PlayingOnAChessboardTests
