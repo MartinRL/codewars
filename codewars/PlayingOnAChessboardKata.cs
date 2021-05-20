@@ -20,7 +20,7 @@ namespace codewars
                 }
             }
 
-            return fractions.Aggregate((_, __) => _ + __) .ToString();
+            return fractions.Aggregate((src, seed) => src + seed) .ToString();
         }
     }
 
