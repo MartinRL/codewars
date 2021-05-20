@@ -1,13 +1,27 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class PlayingOnAChessboardSolution
     {
-        public static string Game(long n) => throw new NotImplementedException();
+        public static string Game(long n)
+        {
+            var fractions = new List<Fraction>();
+
+            for (var i = 1; i <= n; i++)
+            {
+                for (var j = 1; j <= n; j++)
+                {
+                    fractions.Add(new Fraction(i, j + i));
+                }
+            }
+
+            return fractions.Aggregate((_, __) => _ + __) .ToString();
+        }
     }
 
     public struct Fraction : IEquatable<Fraction>
