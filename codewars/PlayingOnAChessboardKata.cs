@@ -1,14 +1,13 @@
 namespace codewars
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using System.Numerics;
     using FluentAssertions;
     using Xunit;
 
     public class PlayingOnAChessboardSolution
     {
-        public static string Game(long n)
+        public static string Game(BigInteger n)
         {
             if (n == 0)
                 return "[0]";
@@ -32,17 +31,17 @@ namespace codewars
 
     public struct Fraction : IEquatable<Fraction>
     {
-        long numerator;
+        BigInteger numerator;
 
-        public long Numerator
+        public BigInteger Numerator
         {
             get => numerator;
             private set => numerator = value;
         }
 
-        long denominator;
+        BigInteger denominator;
 
-        public long Denominator
+        public BigInteger Denominator
         {
             get => denominator == 0 ? 1 : denominator;
             private set
@@ -54,14 +53,14 @@ namespace codewars
             }
         }
 
-        public Fraction(long value)
+        public Fraction(BigInteger value)
         {
             numerator = value;
             denominator = 1;
             Reduce();
         }
 
-        public Fraction(long numerator, long denominator)
+        public Fraction(BigInteger numerator, BigInteger denominator)
         {
             if (denominator == 0)
                 throw new InvalidOperationException("Denominator cannot be assigned a 0 Value.");
@@ -147,8 +146,8 @@ namespace codewars
                     }
                     else
                     {
-                        long iNumerator, iDenominator;
-                        if (long.TryParse(strValue.Substring(0, i), out iNumerator) && long.TryParse(strValue.Substring(i + 1), out iDenominator))
+                        BigInteger iNumerator, iDenominator;
+                        if (BigInteger.TryParse(strValue.Substring(0, i), out iNumerator) && BigInteger.TryParse(strValue.Substring(i + 1), out iDenominator))
                         {
                             fraction = new Fraction(iNumerator, iDenominator);
 
@@ -177,12 +176,12 @@ namespace codewars
                     Fraction frac;
                     if (dValue % 1 == 0) // if whole number
                     {
-                        frac = new Fraction((long) dValue);
+                        frac = new Fraction((BigInteger) dValue);
                     }
                     else
                     {
                         var dTemp = dValue;
-                        long iMultiple = 1;
+                        BigInteger iMultiple = 1;
                         var strTemp = dValue.ToString();
                         while (strTemp.IndexOf("E") > 0) // if in the form like 12E-9
                         {
@@ -229,12 +228,12 @@ namespace codewars
                     Fraction frac;
                     if (dValue % 1 == 0) // if whole number
                     {
-                        frac = new Fraction((long) dValue);
+                        frac = new Fraction((BigInteger) dValue);
                     }
                     else
                     {
                         var dTemp = dValue;
-                        long iMultiple = 1;
+                        BigInteger iMultiple = 1;
                         var strTemp = dValue.ToString();
                         while (strTemp.IndexOf("E") > 0) // if in the form like 12E-9
                         {
@@ -333,7 +332,7 @@ namespace codewars
             }
         }
 
-        private static long GCD(long iNo1, long iNo2)
+        private static BigInteger GCD(BigInteger iNo1, BigInteger iNo2)
         {
             if (iNo1 < 0) iNo1 = -iNo1;
             if (iNo2 < 0) iNo2 = -iNo2;
@@ -375,15 +374,15 @@ namespace codewars
 
         public static bool operator >=(Fraction frac1, Fraction frac2) => frac1.Numerator * frac2.Denominator >= frac2.Numerator * frac1.Denominator;
 
-        public static implicit operator Fraction(long value) => new Fraction(value);
+        public static implicit operator Fraction(BigInteger value) => new Fraction(value);
 
         public static implicit operator Fraction(double value) => DoubleToFraction(value);
 
         public static implicit operator Fraction(decimal value) => DecimalToFraction(value);
 
-        public static explicit operator double(Fraction frac) => ((double) frac.Numerator / frac.Denominator);
+        public static explicit operator double(Fraction frac) => (double) frac.Numerator / (double) frac.Denominator;
 
-        public static explicit operator decimal(Fraction frac) => ((decimal) frac.Numerator / (decimal) frac.Denominator);
+        public static explicit operator decimal(Fraction frac) => (decimal) frac.Numerator / (decimal) frac.Denominator;
     }
 
     public class PlayingOnAChessboardTests
@@ -393,6 +392,6 @@ namespace codewars
         [InlineData(1, "[1, 2]")]
         [InlineData(8, "[32]")]
         [InlineData(10000, "dummy")]
-        public void VerifyGameWith(long n, string expectedGameOutcome) => PlayingOnAChessboardSolution.Game(n).Should().Be(expectedGameOutcome);
+        public void VerifyGameWith(BigInteger n, string expectedGameOutcome) => PlayingOnAChessboardSolution.Game(n).Should().Be(expectedGameOutcome);
     }
 }
