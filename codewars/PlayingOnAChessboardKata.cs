@@ -10,7 +10,8 @@ namespace codewars
     {
         public static string Game(long n)
         {
-            if (n == 0) return "[0]";
+            if (n == 0)
+                return "[0]";
 
             var fractions = new List<Fraction>();
 
@@ -22,7 +23,12 @@ namespace codewars
                 }
             }
 
-            return fractions.Aggregate((src, seed) => src + seed).ToString();
+            var sum = fractions.Aggregate((src, seed) => src + seed);
+
+            if (sum.Denominator == 1)
+                return $"[{sum.Numerator}]";
+
+            return $"[{sum.Numerator}, {sum.Denominator}]";
         }
     }
 
