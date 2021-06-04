@@ -9,13 +9,13 @@ namespace codewars
     {
         public static int GetTheNumberOfDifferentMoves(string cell)
         {
-            var horisontalNumPos = (byte)cell.First() - 96;
+            var horizontalNumPos = (byte)cell.First() - 96;
             var verticalNumPos = char.GetNumericValue(cell.Second());
 
             var topDist = 8 - verticalNumPos;
             var bottomDist = verticalNumPos - 1;
-            var leftDist = horisontalNumPos - 1;
-            var rightDist = 8 - horisontalNumPos;
+            var leftDist = horizontalNumPos - 1;
+            var rightDist = 8 - horizontalNumPos;
 
             return new[]
             {
