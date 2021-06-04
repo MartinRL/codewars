@@ -17,18 +17,17 @@ namespace codewars
             var leftDist = horisontalNumPos - 1;
             var rightDist = 8 - horisontalNumPos;
 
-            byte numberOfDifferentMoves = 0;
-
-            if (topDist >= 1 && leftDist >= 2) numberOfDifferentMoves++;
-            if (topDist >= 2 && leftDist >= 1) numberOfDifferentMoves++;
-            if (topDist >= 2 && rightDist >= 1) numberOfDifferentMoves++;
-            if (topDist >= 1 && rightDist >= 2) numberOfDifferentMoves++;
-            if (bottomDist >= 1 && rightDist >= 2) numberOfDifferentMoves++;
-            if (bottomDist >= 2 && rightDist >= 1) numberOfDifferentMoves++;
-            if (bottomDist >= 2 && leftDist >= 1) numberOfDifferentMoves++;
-            if (bottomDist >= 1 && leftDist >= 2) numberOfDifferentMoves++;
-
-            return numberOfDifferentMoves;
+            return new[]
+            {
+                topDist >= 1 && leftDist >= 2,
+                topDist >= 2 && leftDist >= 1,
+                topDist >= 2 && rightDist >= 1,
+                topDist >= 1 && rightDist >= 2,
+                bottomDist >= 1 && rightDist >= 2,
+                bottomDist >= 2 && rightDist >= 1,
+                bottomDist >= 2 && leftDist >= 1,
+                bottomDist >= 1 && leftDist >= 2,
+            }.Count(_ => _);
         }
     }
 
