@@ -27,6 +27,7 @@ namespace codewars
     {
         [Theory]
         [InlineData("a1", 2)]
+        [InlineData("c2", 6)]
         [InlineData("d4", 8)]
         [InlineData("g6", 6)]
         public void VerifyGetTheNumberOfDifferentMovesWith(string cell, int expectedNumberOfDifferentMoves) =>
