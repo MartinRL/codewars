@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using static System.String;
     using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
@@ -10,8 +11,8 @@ namespace codewars
     {
         public static string CalculateStats(string teamResults)
         {
-            if (string.IsNullOrWhiteSpace(teamResults))
-                return string.Empty;
+            if (IsNullOrWhiteSpace(teamResults))
+                return Empty;
 
             var results = teamResults.Split(", ")
                 .Select(r => r.Split('|').Select(int.Parse))
