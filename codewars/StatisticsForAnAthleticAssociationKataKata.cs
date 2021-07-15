@@ -22,12 +22,12 @@ namespace codewars
 
             var range = results.Max() - results.Min();
 
-            TimeSpan calculateAverage(IEnumerable<TimeSpan> timeSpans) => timeSpans.Aggregate((sum, r) => sum = sum.Add(r)) / count;
+            TimeSpan calculateAverage(IEnumerable<TimeSpan> timeSpans) => timeSpans.Aggregate((sum, r) => sum = sum.Add(r)) / timeSpans.Count();
 
             var average = calculateAverage(results);
 
             var median = count % 2 == 0
-                ? new [] { results.OrderBy(_ => _).ElementAt(count / 2 - 1), results.OrderBy(_ => _).ElementAt(count / 2) }.Aggregate((sum, r) => sum = sum.Add(r)) / 2
+                ? calculateAverage(new [] { results.OrderBy(_ => _).ElementAt(count / 2 - 1), results.OrderBy(_ => _).ElementAt(count / 2) })
                 : results.OrderBy(_ => _).ElementAt(count / 2);
 
             string format(TimeSpan timeSpan) => timeSpan.ToString().Replace(':', '|').Substring(0, 8);
