@@ -10,6 +10,9 @@ namespace codewars
     {
         public static string CalculateStats(string teamResults)
         {
+            if (string.IsNullOrWhiteSpace(teamResults))
+                return string.Empty;
+
             var results = teamResults.Split(", ")
                 .Select(r => r.Split('|').Select(int.Parse))
                 .Select(r => new TimeSpan(r.First(), r.ElementAt(1), r.Last()));
