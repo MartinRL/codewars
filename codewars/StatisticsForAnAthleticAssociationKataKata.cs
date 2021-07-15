@@ -23,7 +23,7 @@ namespace codewars
             var average = calculateAverage(results);
 
             var median = count % 2 == 0
-                ? calculateAverage(new [] { results.ElementAt(count / 2 - 1), results.ElementAt(count / 2) })
+                ? new [] { results.OrderBy(_ => _).ElementAt(count / 2 - 1), results.OrderBy(_ => _).ElementAt(count / 2) }.Aggregate((sum, r) => sum = sum.Add(r)) / 2
                 : results.OrderBy(_ => _).ElementAt(count / 2);
 
             string format(TimeSpan timeSpan) => timeSpan.ToString().Replace(':', '|');
