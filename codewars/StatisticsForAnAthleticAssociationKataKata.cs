@@ -26,9 +26,9 @@ namespace codewars
                 ? new [] { results.OrderBy(_ => _).ElementAt(count / 2 - 1), results.OrderBy(_ => _).ElementAt(count / 2) }.Aggregate((sum, r) => sum = sum.Add(r)) / 2
                 : results.OrderBy(_ => _).ElementAt(count / 2);
 
-            string format(TimeSpan timeSpan) => timeSpan.ToString().Replace(':', '|');
+            string format(TimeSpan timeSpan) => timeSpan.ToString().Replace(':', '|').Substring(0, 8);
 
-            return $"Range: {format(range)} Average: {format(average).Substring(0, 8)} Median: {format(median)}";
+            return $"Range: {format(range)} Average: {format(average)} Median: {format(median)}";
         }
     }
 
