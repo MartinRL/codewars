@@ -13,10 +13,13 @@ namespace codewars
                 .Select(r => r.Split('|').Select(int.Parse))
                 .Select(r => new TimeSpan(r.First(), r.ElementAt(1), r.Last()));
 
-            var range = results.Max() - results.Min();
-            var average = results.Aggregate((sum, r) => sum = sum.Add(r)) / results.Count();
+            var count = results.Count();
 
-            return $"Range: {range.ToString().Replace(':', '|')} Average: {average.ToString().Substring(0, 8).Replace(':', '|')}";
+            var range = results.Max() - results.Min();
+            var average = results.Aggregate((sum, r) => sum = sum.Add(r)) / count;
+            var median = results.OrderBy(_ => _).ElementAt(count / 2);
+
+            return $"Range: {range.ToString().Replace(':', '|')} Average: {average.ToString().Substring(0, 8).Replace(':', '|')} Median: {median.ToString().Replace(':', '|')}";
         }
     }
 
