@@ -7,7 +7,17 @@ namespace codewars
 
     public class StatisticsForAnAthleticAssociationSolution
     {
-        public static string CalculateStats(string teamResults) => throw new NotImplementedException();
+        public static string CalculateStats(string teamResults)
+        {
+            var results = teamResults.Split(", ")
+                .Select(r => r.Split('|').Select(int.Parse))
+                .Select(r => new TimeSpan(r.First(), r.ElementAt(1), r.Last()));
+
+            var range = results.Max() - results.Min();
+            var average = results.Aggregate((sum, r) => sum = sum.Add(r)) / results.Count();
+
+            return $"Range: {range.ToString().Replace(':', '|')} Average: {average.ToString().Substring(0, 8).Replace(':', '|')}";
+        }
     }
 
     public class StatisticsForAnAthleticAssociationTests
