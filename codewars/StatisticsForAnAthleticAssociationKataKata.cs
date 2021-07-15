@@ -1,6 +1,7 @@
 namespace codewars
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
@@ -16,10 +17,18 @@ namespace codewars
             var count = results.Count();
 
             var range = results.Max() - results.Min();
-            var average = results.Aggregate((sum, r) => sum = sum.Add(r)) / count;
-            var median = results.OrderBy(_ => _).ElementAt(count / 2);
 
-            return $"Range: {range.ToString().Replace(':', '|')} Average: {average.ToString().Substring(0, 8).Replace(':', '|')} Median: {median.ToString().Replace(':', '|')}";
+            TimeSpan calculateAverage(IEnumerable<TimeSpan> timeSpans) => timeSpans.Aggregate((sum, r) => sum = sum.Add(r)) / count;
+
+            var average = calculateAverage(results);
+
+            var median = count % 2 == 0
+                ? calculateAverage(new [] { results.ElementAt(count / 2 - 1), results.ElementAt(count / 2) })
+                : results.OrderBy(_ => _).ElementAt(count / 2);
+
+            string format(TimeSpan timeSpan) => timeSpan.ToString().Replace(':', '|');
+
+            return $"Range: {format(range)} Average: {format(average).Substring(0, 8)} Median: {format(median)}";
         }
     }
 
