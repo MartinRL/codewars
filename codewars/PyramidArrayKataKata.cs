@@ -8,7 +8,7 @@ namespace codewars
 
     public class PyramidArraySolution
     {
-        public static int[][] Pyramid(int n) => throw new NotImplementedException();
+        public static int[][] Pyramid(int n) => new int[][] {};
     }
 
     public class PyramidArrayTests
