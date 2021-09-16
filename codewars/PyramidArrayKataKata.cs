@@ -13,14 +13,14 @@ namespace codewars
             if (n == 0)
                 return new int[][] {};
 
-            var pyramid = new List<int[]>();
+            var pyramid = new int[n][];
 
-            for (var i = 1; i <= n; i++)
+            for (var i = 0; i < n; i++)
             {
-                pyramid.Add(new string('1', i).Select(c => int.Parse(c.ToString())).ToArray());
+                pyramid[i] = new string('1', i + 1).Select(c => int.Parse(c.ToString())).ToArray();
             }
 
-            return pyramid.ToArray();
+            return pyramid;
         }
     }
 
@@ -30,13 +30,13 @@ namespace codewars
             new List<object[]>
             {
                 new object[] { 0, new int[][] {}},
-                new object[] { 1, new[] { new[] { 1 } }},
-                new object[] { 2, new[] { new[] { 1 }, new[] { 1, 1 } }},
-                new object[] { 3, new[] { new[] { 1 }, new[] { 1, 1 }, new[] { 1, 1, 1 } }},
+                new object[] { 1, new int[][] { new[] { 1 } }},
+                new object[] { 2, new int[][] { new[] { 1 }, new[] { 1, 1 } }},
+                new object[] { 3, new int[][] { new[] { 1 }, new[] { 1, 1 }, new[] { 1, 1, 1 } }},
             };
 
         [Theory]
         [MemberData(nameof(Cases))]
-        public void VerifyPyramidWith(int n, int[][] expectedPyramid) => PyramidArraySolution.Pyramid(n).Should().Equal(expectedPyramid);
+        public void VerifyPyramidWith(int n, int[][] expectedPyramid) => Assert.Equal(expectedPyramid, PyramidArraySolution.Pyramid(n));
     }
 }
