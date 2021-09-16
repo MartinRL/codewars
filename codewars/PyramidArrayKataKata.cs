@@ -10,13 +10,14 @@ namespace codewars
     {
         public static int[][] Pyramid(int n)
         {
-            //var pyramid = new int[][] {};
+            if (n == 0)
+                return new int[][] {};
+
             var pyramid = new List<int[]>();
-            pyramid.Add(new int[]{});
 
             for (var i = 1; i <= n; i++)
             {
-                pyramid.Add(new string('1', i).Select(Convert.ToInt32).ToArray()); //new []{}
+                pyramid.Add(new string('1', i).Select(c => int.Parse(c.ToString())).ToArray());
             }
 
             return pyramid.ToArray();
