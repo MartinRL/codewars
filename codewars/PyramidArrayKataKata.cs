@@ -1,27 +1,12 @@
 namespace codewars
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using FluentAssertions;
     using Xunit;
 
     public class PyramidArraySolution
     {
-        public static int[][] Pyramid(int n)
-        {
-            if (n == 0)
-                return new int[][] {};
-
-            var pyramid = new int[n][];
-
-            for (var i = 0; i < n; i++)
-            {
-                pyramid[i] = new string('1', i + 1).Select(c => int.Parse(c.ToString())).ToArray();
-            }
-
-            return pyramid;
-        }
+        public static int[][] Pyramid(int n) => Enumerable.Range(1, n).Select(i => Enumerable.Repeat(1, i).ToArray()).ToArray();
     }
 
     public class PyramidArrayTests
