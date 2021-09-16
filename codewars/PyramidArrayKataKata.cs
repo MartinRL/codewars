@@ -8,7 +8,19 @@ namespace codewars
 
     public class PyramidArraySolution
     {
-        public static int[][] Pyramid(int n) => new int[][] {};
+        public static int[][] Pyramid(int n)
+        {
+            //var pyramid = new int[][] {};
+            var pyramid = new List<int[]>();
+            pyramid.Add(new int[]{});
+
+            for (var i = 1; i <= n; i++)
+            {
+                pyramid.Add(new string('1', i).Select(Convert.ToInt32).ToArray()); //new []{}
+            }
+
+            return pyramid.ToArray();
+        }
     }
 
     public class PyramidArrayTests
