@@ -2,12 +2,13 @@ namespace codewars
 {
     using System;
     using System.Linq;
+    using static System.TimeSpan;
     using FluentAssertions;
     using Xunit;
 
     public static class HumanReadableTimeSolution
     {
-        public static string GetReadableTime(int seconds) => throw new NotImplementedException();
+        public static string GetReadableTime(int seconds) => FromSeconds(seconds).ToString();
     }
 
     public class HumanReadableTimeTests
