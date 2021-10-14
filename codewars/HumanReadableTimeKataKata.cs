@@ -15,9 +15,10 @@ namespace codewars
 
             var daysAndTheRest = FromSeconds(seconds).ToString().Split('.');
             var days = daysAndTheRest[0];
-            var hrs = int.Parse(daysAndTheRest[1].Split(':')[0]) + int.Parse(days) * 24;
-            var mins = int.Parse(daysAndTheRest[1].Split(':')[1]);
-            var secs = int.Parse(daysAndTheRest[1].Split(':')[2]);
+            var theRest = daysAndTheRest[1].Split(':');
+            var hrs = int.Parse(theRest[0]) + int.Parse(days) * 24;
+            var mins = theRest[1];
+            var secs = theRest[2];
 
             return $"{hrs}:{mins}:{secs}";
         }
