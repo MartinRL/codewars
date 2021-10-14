@@ -10,10 +10,11 @@ namespace codewars
     {
         public static string GetReadableTime(int seconds)
         {
-            if (FromSeconds(seconds).ToString().Length == 8)
-                return FromSeconds(seconds).ToString();
+            var timeSpanFromSeconds = FromSeconds(seconds).ToString();
+            if (timeSpanFromSeconds.Length == 8)
+                return timeSpanFromSeconds;
 
-            var daysAndTheRest = FromSeconds(seconds).ToString().Split('.');
+            var daysAndTheRest = timeSpanFromSeconds.Split('.');
             var days = daysAndTheRest[0];
             var theRest = daysAndTheRest[1].Split(':');
             var hrs = int.Parse(theRest[0]) + int.Parse(days) * 24;
