@@ -13,9 +13,9 @@ namespace codewars
             if (seconds <= 60 * 60 * 24)
                 return FromSeconds(seconds).ToString();
 
-            var days = seconds / (60 * 60 * 24);
+            var days = FromSeconds(seconds).ToString().Split('.')[0];
 
-            throw new NotImplementedException(days.ToString());
+            throw new NotImplementedException(days);
         }
     }
 
