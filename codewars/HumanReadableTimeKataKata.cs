@@ -10,7 +10,7 @@ namespace codewars
     {
         public static string GetReadableTime(int seconds)
         {
-            if (seconds <= 24 * 60 * 60)
+            if (FromSeconds(seconds).ToString().Length == 8)
                 return FromSeconds(seconds).ToString();
 
             var daysAndTheRest = FromSeconds(seconds).ToString().Split('.');
