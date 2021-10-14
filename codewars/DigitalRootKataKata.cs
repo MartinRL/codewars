@@ -1,13 +1,20 @@
 namespace codewars
 {
     using System;
+    using static System.Char;
     using System.Linq;
     using FluentAssertions;
     using Xunit;
 
     public class DigitalRootSolution
     {
-        public static int DigitalRoot(long n) => throw new NotImplementedException();
+        public static int DigitalRoot(long n)
+        {
+            if (n.ToString().Length == 1)
+                return (int)n;
+
+            return DigitalRoot((long) n.ToString().Sum(GetNumericValue));
+        }
     }
 
     public class DigitalRootTests
