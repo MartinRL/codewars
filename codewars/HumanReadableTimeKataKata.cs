@@ -8,7 +8,15 @@ namespace codewars
 
     public static class HumanReadableTimeSolution
     {
-        public static string GetReadableTime(int seconds) => FromSeconds(seconds).ToString();
+        public static string GetReadableTime(int seconds)
+        {
+            if (seconds <= 60 * 60 * 24)
+                return FromSeconds(seconds).ToString();
+
+            var days = seconds / (60 * 60 * 24);
+
+            throw new NotImplementedException(days.ToString());
+        }
     }
 
     public class HumanReadableTimeTests
