@@ -6,7 +6,7 @@ namespace codewars
     using FluentAssertions;
     using Xunit;
 
-    public class DigitalRootSolution
+    public static class DigitalRootSolution
     {
         public static int DigitalRoot(long n) => n.ToString().Length == 1 ? (int)n : DigitalRoot((long) n.ToString().Sum(GetNumericValue));
     }
