@@ -8,13 +8,7 @@ namespace codewars
 
     public class DigitalRootSolution
     {
-        public static int DigitalRoot(long n)
-        {
-            if (n.ToString().Length == 1)
-                return (int)n;
-
-            return DigitalRoot((long) n.ToString().Sum(GetNumericValue));
-        }
+        public static int DigitalRoot(long n) => n.ToString().Length == 1 ? (int)n : DigitalRoot((long) n.ToString().Sum(GetNumericValue));
     }
 
     public class DigitalRootTests
