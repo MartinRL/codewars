@@ -13,9 +13,11 @@ namespace codewars
             if (seconds <= 60 * 60 * 24)
                 return FromSeconds(seconds).ToString();
 
-            var days = FromSeconds(seconds).ToString().Split('.')[0];
+            var daysAndTheRest = FromSeconds(seconds).ToString().Split('.');
+            var days = daysAndTheRest[0];
+            var hrs = int.Parse(daysAndTheRest[1].Split(':')[0]) + int.Parse(days) * 24;
 
-            throw new NotImplementedException(days);
+            throw new NotImplementedException(hrs.ToString());
         }
     }
 
