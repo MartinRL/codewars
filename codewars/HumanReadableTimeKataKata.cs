@@ -1,28 +1,12 @@
 namespace codewars
 {
     using System;
-    using System.Linq;
-    using static System.TimeSpan;
     using FluentAssertions;
     using Xunit;
 
     public static class HumanReadableTimeSolution
     {
-        public static string GetReadableTime(int seconds)
-        {
-            var timeSpanFromSeconds = FromSeconds(seconds).ToString();
-            if (timeSpanFromSeconds.Length == 8)
-                return timeSpanFromSeconds;
-
-            var daysAndTheRest = timeSpanFromSeconds.Split('.');
-            var days = daysAndTheRest[0];
-            var theRest = daysAndTheRest[1].Split(':');
-            var hrs = int.Parse(theRest[0]) + int.Parse(days) * 24;
-            var mins = theRest[1];
-            var secs = theRest[2];
-
-            return $"{hrs}:{mins}:{secs}";
-        }
+        public static string GetReadableTime(int seconds) => $"{seconds / 3600:00}:{seconds / 60 % 60:00}:{seconds % 60:00}";
     }
 
     public class HumanReadableTimeTests
