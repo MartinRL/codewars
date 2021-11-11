@@ -9,7 +9,7 @@ namespace codewars
 
     public static class NumberOfPeopleInTheBusSolution
     {
-        public static int Number(IEnumerable<int[]> peopleListInOut) => peopleListInOut.Select(_ => _[0] - _[1]).Sum();
+        public static int Number(IEnumerable<int[]> peopleListInOut) => peopleListInOut.Sum(_ => _[0] - _[1]);
     }
 
     public class NumberOfPeopleInTheBusTests
