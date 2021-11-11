@@ -9,7 +9,7 @@ namespace codewars
 
     public static class NumberOfPeopleInTheBusSolution
     {
-        public static int Number(List<int[]> peopleListInOut) => throw new NotImplementedException();
+        public static int Number(IEnumerable<int[]> peopleListInOut) => peopleListInOut.Select(_ => _[0] - _[1]).Sum();
     }
 
     public class NumberOfPeopleInTheBusTests
