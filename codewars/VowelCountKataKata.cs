@@ -7,7 +7,7 @@ namespace codewars
 
     public static class VowelCountSolution
     {
-        public static int GetVowelCount(string str) => throw new NotImplementedException();
+        public static int GetVowelCount(string str) => str.Count(c => "aeiou".Contains(c));
     }
 
     public class VowelCountTests
