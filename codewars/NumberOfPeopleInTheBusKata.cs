@@ -14,12 +14,12 @@ namespace codewars
 
     public class NumberOfPeopleInTheBusTests
     {
-        public static IEnumerable<object[]> Cases =>
-            new List<object[]>
+        public static TheoryData<List<int[]>, int> Cases =>
+            new()
             {
-                new object[] { new List<int[]> { new[] {10,0}, new[] {3,5}, new[] {5,8} }, 5},
-                new object[] { new List<int[]> { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 10 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 10 } }, 17},
-                new object[] { new List<int[]> { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 8 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 8 } }, 21},
+                { new List<int[]> { new[] {10,0}, new[] {3,5}, new[] {5,8} }, 5},
+                { new List<int[]> { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 10 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 10 } }, 17},
+                { new List<int[]> { new[] { 3, 0 }, new[] { 9, 1 }, new[] { 4, 8 }, new[] { 12, 2 }, new[] { 6, 1 }, new[] { 7, 8 } }, 21},
             };
 
         [Theory]
