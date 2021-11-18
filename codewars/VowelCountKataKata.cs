@@ -12,8 +12,7 @@ namespace codewars
 
     public class VowelCountTests
     {
-        [Theory]
-        [InlineData("abracadabra", 5)]
-        public void VerifyGetVowelCountWith(string str, int expectedVowelCount) => VowelCountSolution.GetVowelCount(str).Should().Be(expectedVowelCount);
+        [Fact]
+        public void VerifyGetVowelCountWith() => VowelCountSolution.GetVowelCount("abracadabra").Should().Be(5);
     }
 }
