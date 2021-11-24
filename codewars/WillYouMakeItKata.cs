@@ -1,19 +1,18 @@
-namespace codewars
+namespace codewars;
+
+using FluentAssertions;
+using Xunit;
+
+public static class WillYouMakeItSolution
 {
-    using FluentAssertions;
-    using Xunit;
+    public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft) => mpg * fuelLeft >= distanceToPump;
+}
 
-    public static class WillYouMakeItSolution
-    {
-        public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft) => mpg * fuelLeft >= distanceToPump;
-    }
-
-    public class WillYouMakeItTests
-    {
-        [Theory]
-        [InlineData(50, 25, 2, true)]
-        [InlineData(100, 50, 1, false)]
-        public void VerifyZeroFuelWith(uint distanceToPump, uint mpg, uint fuelLeft, bool iWillMakeIt) =>
-            WillYouMakeItSolution.ZeroFuel(distanceToPump, mpg, fuelLeft).Should().Be(iWillMakeIt);
-    }
+public class WillYouMakeItTests
+{
+    [Theory]
+    [InlineData(50, 25, 2, true)]
+    [InlineData(100, 50, 1, false)]
+    public void VerifyZeroFuelWith(uint distanceToPump, uint mpg, uint fuelLeft, bool iWillMakeIt) =>
+        WillYouMakeItSolution.ZeroFuel(distanceToPump, mpg, fuelLeft).Should().Be(iWillMakeIt);
 }
