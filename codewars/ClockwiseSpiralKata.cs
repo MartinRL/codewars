@@ -70,40 +70,33 @@ public class ClockwiseSpiralSolution
 
 public class ClockwiseSpiralTests
 {
+    public static TheoryData<int, int[,]> Cases =>
+        new()
+        {
+            {
+                1, new[,]
+                {
+                    {1}
+                }
+            },
+            {
+                2, new[,]
+                {
+                    {1, 2},
+                    {4, 3}
+                }
+            },
+            {
+                3, new[,]
+                {
+                    {1, 2, 3},
+                    {8, 9, 4},
+                    {7, 6, 5}
+                }
+            },
+        };
+
     [Theory]
-    [ClassData(typeof(ClockwiseSpiralTestData))]
+    [MemberData(nameof(Cases))]
     public void VerifyCreateSpiralWith(int n, int[,] expectedSpiral) => ClockwiseSpiralSolution.CreateSpiral(n).Should().BeEquivalentTo(expectedSpiral);
-}
-
-public class ClockwiseSpiralTestData : IEnumerable<object[]>
-{
-    public IEnumerator<object[]> GetEnumerator()
-    {
-        yield return new object[]
-        {
-            1, new[,]
-            {
-                {1}
-            }
-        };
-        yield return new object[]
-        {
-            2, new[,]
-            {
-                {1, 2},
-                {4, 3}
-            }
-        };
-        yield return new object[]
-        {
-            3, new[,]
-            {
-                {1, 2, 3},
-                {8, 9, 4},
-                {7, 6, 5}
-            }
-        };
-    }
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
