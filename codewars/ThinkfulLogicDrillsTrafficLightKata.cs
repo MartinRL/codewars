@@ -1,25 +1,20 @@
-namespace codewars
+namespace codewars;
+
+public class ThinkfulLogicDrillsTrafficLightSolution
 {
-    using System.Collections.Generic;
-    using FluentAssertions;
-    using Xunit;
-
-    public class ThinkfulLogicDrillsTrafficLightSolution
+    public static string UpdateLight(string current)
     {
-        public static string UpdateLight(string current)
-        {
-            var lights = new LinkedList<string>(new[] {"green", "yellow", "red"});
+        var lights = new LinkedList<string>(new[] {"green", "yellow", "red"});
 
-            return (lights.Find(current).Next ?? lights.First).Value;
-        }
+        return (lights.Find(current).Next ?? lights.First).Value;
     }
+}
 
-    public class ThinkfulLogicDrillsTrafficLightTests
-    {
-        [Theory]
-        [InlineData("green", "yellow")]
-        [InlineData("yellow", "red")]
-        [InlineData("red", "green")]
-        public void VerifyUpdateLightWith(string current, string expectedNext) => ThinkfulLogicDrillsTrafficLightSolution.UpdateLight(current).Should().Be(expectedNext);
-    }
+public class ThinkfulLogicDrillsTrafficLightTests
+{
+    [Theory]
+    [InlineData("green", "yellow")]
+    [InlineData("yellow", "red")]
+    [InlineData("red", "green")]
+    public void VerifyUpdateLightWith(string current, string expectedNext) => ThinkfulLogicDrillsTrafficLightSolution.UpdateLight(current).Should().Be(expectedNext);
 }

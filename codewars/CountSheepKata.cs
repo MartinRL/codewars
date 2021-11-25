@@ -1,33 +1,28 @@
-﻿namespace codewars
+﻿namespace codewars;
+
+public static class CountSheepSolution
 {
-    using System.Linq;
-    using FluentAssertions;
-    using Xunit;
+    public static int CountSheep(bool[] sheep) => sheep.Count(_ => _);
+}
 
-    public static class CountSheepSolution
+public class CountSheepTests
+{
+    [Theory]
+    [InlineData(new[] {true, false, true}, 2)]
+    [InlineData(new[]
     {
-        public static int CountSheep(bool[] sheep) => sheep.Count(_ => _);
-    }
-
-    public class CountSheepTests
+        true, true, true, false,
+        true, true, true, true,
+        true, false, true, false,
+        true, false, false, true,
+        true, true, true, true,
+        false, false, true, true
+    }, 17)]
+    [InlineData(new[]
     {
-        [Theory]
-        [InlineData(new[] {true, false, true}, 2)]
-        [InlineData(new[]
-        {
-            true, true, true, false,
-            true, true, true, true,
-            true, false, true, false,
-            true, false, false, true,
-            true, true, true, true,
-            false, false, true, true
-        }, 17)]
-        [InlineData(new[]
-        {
-            false, false, false, false,
-            false, false, false, false,
-            false, false, false, false
-        }, 0)]
-        public void VerifyCountSheepExampleWith(bool[] sheep, int expected) => CountSheepSolution.CountSheep(sheep).Should().Be(expected);
-    }
+        false, false, false, false,
+        false, false, false, false,
+        false, false, false, false
+    }, 0)]
+    public void VerifyCountSheepExampleWith(bool[] sheep, int expected) => CountSheepSolution.CountSheep(sheep).Should().Be(expected);
 }
