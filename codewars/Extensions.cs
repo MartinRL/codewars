@@ -1,13 +1,8 @@
 ﻿namespace codewars;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Data;
-using static System.Math;
-using static System.Convert;
-using FluentAssertions;
-using Xunit;
+using static Math;
+using static Convert;
 
 public static class Extensions
 {

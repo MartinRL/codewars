@@ -1,10 +1,5 @@
 ﻿namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 class Pong
 {
     private readonly int maxScore;

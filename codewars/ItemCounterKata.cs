@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ItemCounter<T>
 {
     private readonly T[] items;

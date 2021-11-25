@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkingAndTestingUniqOrNotUniqSolution
 {
     public static int[] TestIt(int[] a, int[] b) => a.Distinct().Concat(b.Distinct()).OrderBy(_ => _).ToArray();

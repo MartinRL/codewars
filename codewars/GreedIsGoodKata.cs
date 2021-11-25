@@ -1,9 +1,5 @@
 ﻿namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class GreedIsGoodSolution
 {
     public static int Score(int[] dice)

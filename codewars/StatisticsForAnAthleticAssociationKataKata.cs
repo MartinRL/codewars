@@ -1,11 +1,6 @@
 namespace codewars;
 
-using System;
-using static System.String;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
+using static String;
 
 public class StatisticsForAnAthleticAssociationSolution
 {

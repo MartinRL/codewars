@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using FluentAssertions.Common;
-using Xunit;
-
 public class MatrixAdditionSolution
 {
     public static int[][] Add(int[][] a, int[][] b) => a.Zip(b, (ar, br) => ar.Zip(br, (i, j) => i + j).ToArray()).ToArray();

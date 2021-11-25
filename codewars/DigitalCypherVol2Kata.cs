@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class DigitalCypherVol2Solution
 {
     public static string Decode(int[] code, int key)

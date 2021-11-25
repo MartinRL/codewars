@@ -1,10 +1,5 @@
 ﻿namespace codewars;
 
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class SumOfKSolution
 {
     public static int? ChooseBestSum(int t, int k, List<int> ls) =>

@@ -1,9 +1,5 @@
 ﻿namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class CountSheepSolution
 {
     public static int CountSheep(bool[] sheep) => sheep.Count(_ => _);

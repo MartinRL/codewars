@@ -1,11 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class GenerateRangeOfIntegersSolution
 {
     public static int[] GenerateRange(int min, int max, int step) => Enumerable.Range(0, (max - min) / step + 1).Select(_ => min + _ * step).ToArray();

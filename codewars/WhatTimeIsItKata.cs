@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class WhatTimeIsItSolution
 {
     public static string GetMilitaryTimeFromStandardTime(string time)

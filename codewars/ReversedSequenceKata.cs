@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ReversedSequenceSolution
 {
     public static int[] ReverseSeq(int n) => Enumerable.Range(1, n).Reverse().ToArray();

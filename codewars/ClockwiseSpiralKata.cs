@@ -1,9 +1,6 @@
 namespace codewars;
 
 using System.Collections;
-using System.Collections.Generic;
-using FluentAssertions;
-using Xunit;
 
 public class ClockwiseSpiralSolution
 {

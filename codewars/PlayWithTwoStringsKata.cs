@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class PlayWithTwoStringsSolution
 {
     public static string WorkOnStrings(string a, string b) => $"{Swap(a, b)}{Swap(b, a)}";

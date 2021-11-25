@@ -1,9 +1,5 @@
 ﻿namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class ArrayDiffSolution
 {
     public static int[] ArrayDiff(int[] a, int[] b) => a.Where(x => !b.Contains(x)).ToArray();

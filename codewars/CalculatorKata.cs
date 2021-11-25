@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System;
-using FluentAssertions;
-using Xunit;
-
 public class CalculatorSolution
 {
     public static double Evaluate(string expression) => expression.Compute();

@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class MaximumProductSolution
 {
     public static int AdjacentElementsProduct(int[] elements) =>

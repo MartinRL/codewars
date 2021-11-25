@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class WhoLikesItSolution
 {
     public static string Likes(string[] name)

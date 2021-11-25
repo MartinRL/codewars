@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System;
-using FluentAssertions;
-using Xunit;
-
 public class MaximumSubarraySumSolution
 {
     public static int MaxSequence(int[] arr)

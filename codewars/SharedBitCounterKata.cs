@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class SharedBitCounterSolution
 {
     public static bool HasSharedBits(int a, int b) => (a &= b) != 0 && (a &= a - 1) != 0;

@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class ScrambliesSolution
 {
     public static bool Scramble(string scrambled, string word) =>

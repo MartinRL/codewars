@@ -1,9 +1,6 @@
-using static System.Linq.Enumerable;
-
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
+using static Enumerable;
 
 public class CountTheMonkeysSolution
 {

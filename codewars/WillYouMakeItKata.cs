@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public static class WillYouMakeItSolution
 {
     public static bool ZeroFuel(uint distanceToPump, uint mpg, uint fuelLeft) => mpg * fuelLeft >= distanceToPump;

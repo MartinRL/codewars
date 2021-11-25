@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkingAndTestingMathOfMiddleSchoolSolution
 {
     public static int[] TestIt(int[] a, int[] b) =>

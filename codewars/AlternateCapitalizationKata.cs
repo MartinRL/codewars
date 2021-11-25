@@ -1,10 +1,6 @@
 namespace codewars;
 
-using System;
-using static System.Char;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
+using static Char;
 
 public class AlternateCapitalizationSolution
 {

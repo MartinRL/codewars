@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class HammingDistanceSolution
 {
     public static int CalculateDistance(string a, string b) => a.Zip(b, (ca, cb) => !ca.Equals(cb)).Count(_ => _);

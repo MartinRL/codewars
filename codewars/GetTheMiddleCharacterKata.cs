@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public static class GetTheMiddleCharacterSolution
 {
     public static string GetMiddle(string s)

@@ -1,15 +1,12 @@
 namespace codewars;
 
-using System.Globalization;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
+using static System.Globalization.CultureInfo;
 
 public static class TitleCaseSolution
 {
     public static string TitleCase(string title, string minorWords)
     {
-        var titleCasedTitle = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
+        var titleCasedTitle = CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
 
         if (string.IsNullOrWhiteSpace(minorWords))
             return titleCasedTitle;

@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System;
-using FluentAssertions;
-using Xunit;
-
 public static class FindTheNextPerfectSquareSolution
 
 {

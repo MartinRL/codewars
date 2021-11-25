@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class TidyNumberSolution
 {
     public static bool TidyNumber(int n) => n.ToString() == new string(n.ToString().OrderBy(_ => _).ToArray());

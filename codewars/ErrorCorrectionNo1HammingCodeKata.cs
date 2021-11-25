@@ -1,11 +1,6 @@
 namespace codewars;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using static System.Convert;
-using FluentAssertions;
-using Xunit;
+using static Convert;
 
 public class ErrorCorrectionNo1HammingCodeSolution
 {

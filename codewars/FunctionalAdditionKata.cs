@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System;
-using FluentAssertions;
-using Xunit;
-
 public class Kata
 {
     public static Func<double, double> Add(double leftTerm) => rightTerm => leftTerm + rightTerm;

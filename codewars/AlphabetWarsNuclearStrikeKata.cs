@@ -1,10 +1,7 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Char;
-using static System.Text.RegularExpressions.Regex;
+using static Char;
+using static Regex;
 
 public class AlphabetWarsNuclearStrikeSolution
 {

@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class EnglishBeggarsSolution
 {
     public static int[] Beggars(int[] values, int n)

@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class ShortestWordSolution
 {
     public static int FindShort(string s) => s.Split(' ').Min(w => w.Length);

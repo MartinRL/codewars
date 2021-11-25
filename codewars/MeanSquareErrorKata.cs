@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class MeanSquareErrorSolution
 {
     public static double Solution(int[] firstArray, int[] secondArray) => firstArray.Zip(secondArray, (f, s) => Math.Pow(f - s, 2)).Average();

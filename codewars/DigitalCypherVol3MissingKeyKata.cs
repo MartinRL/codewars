@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class DigitalCypherVol3MissingKeySolution
 {
     public static int FindTheKey(string message, int[] code) => int.Parse(string.Join("", message

@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class FindTheUniqueNumberSolution
 {
     public static int GetUnique(IEnumerable<int> numbers) =>

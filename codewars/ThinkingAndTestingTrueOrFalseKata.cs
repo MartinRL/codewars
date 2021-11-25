@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkingAndTestingTrueOrFalseSolution
 {
     public static int TestIt(int n) => Convert.ToString(n, 2).Count(_ => _ == '1');

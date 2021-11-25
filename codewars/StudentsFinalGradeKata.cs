@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class StudentsFinalGradeSolution
 {
     public static int FinalGrade(int exam, int projects) =>

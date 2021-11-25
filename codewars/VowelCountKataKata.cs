@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class VowelCountSolution
 {
     public static int GetVowelCount(string str) => str.Count(c => "aeiou".Contains(c));

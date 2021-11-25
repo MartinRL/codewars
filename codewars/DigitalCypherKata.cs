@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class DigitalCypherSolution
 {
     public static int[] Encode(string str, int n)

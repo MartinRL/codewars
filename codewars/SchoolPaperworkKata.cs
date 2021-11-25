@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class SchoolPaperworkSolution
 {
     public static int Paperwork(int n, int m) => (n < 0 || m < 0) ? 0 : n * m;

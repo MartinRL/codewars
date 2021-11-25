@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
-
 public class PyramidArraySolution
 {
     public static int[][] Pyramid(int n) => Enumerable.Range(1, n).Select(i => Enumerable.Repeat(1, i).ToArray()).ToArray();

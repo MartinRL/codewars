@@ -1,10 +1,6 @@
 namespace codewars;
 
-using System;
-using static System.Text.RegularExpressions.Regex;
-using FluentAssertions;
-using JetBrains.Annotations;
-using Xunit;
+using static Regex;
 
 public class ThinkingAndTestingFromNothingnessToNothingnessSolution
 {

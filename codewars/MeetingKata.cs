@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class MeetingSolution
 {
     public static string FormatAndOrderAccordingToJohnsRequirements(string friends) =>

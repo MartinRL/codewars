@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ExpressionsMatterSolution
 {
     public static int ExpressionsMatter(int a, int b, int c) =>

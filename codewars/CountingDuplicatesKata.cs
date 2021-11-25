@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class CountingDuplicatesSolution
 {
     public static int CountDuplicates(string s)

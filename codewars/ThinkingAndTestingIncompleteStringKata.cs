@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkingAndTestingIncompleteStringSolution
 {
     public static string TestIt(string s) => s.Length < 2 ? s : string.Concat((char)((s[0] + s[1]) / 2), TestIt(s.Substring(2)));

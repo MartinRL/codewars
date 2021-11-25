@@ -1,9 +1,6 @@
 namespace codewars;
 
-using System;
 using System.Globalization;
-using FluentAssertions;
-using Xunit;
 
 public class ThinkingAndTestingSomethingCapitalizedSolution
 {

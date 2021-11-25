@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class DeafRatsOfHamelinSolution
 {
     public static int CountDeafRats(string town) => town.Replace(" ", string.Empty).Skip(1).Select((c, i) => c == '~' && i % 2 == 0).Count(_ => _);

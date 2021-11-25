@@ -1,10 +1,6 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using static System.String;
-using FluentAssertions;
-using Xunit;
+using static String;
 
 public class FakeBinarySolution
 {

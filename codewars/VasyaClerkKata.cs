@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public static class VasyaClerkSolution
 {
     public static string Tickets(int[] peopleInLine)

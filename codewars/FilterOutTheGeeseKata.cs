@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class FilterOutTheGeeseSolution
 {
     public static IEnumerable<string> GooseFilter(IEnumerable<string> birds)

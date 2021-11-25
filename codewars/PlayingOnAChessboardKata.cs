@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Numerics;
-using FluentAssertions;
-using Xunit;
-
 public class PlayingOnAChessboardSolution
 {
     public static string Game(long n) => (n % 2) switch

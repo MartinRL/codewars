@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class MumblingSolution
 {
     public static string Accum(string s) => string.Join("-",

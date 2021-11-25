@@ -1,9 +1,6 @@
 namespace codewars;
 
-using System;
-using static System.DateTime;
-using FluentAssertions;
-using Xunit;
+using static DateTime;
 
 public class MostFrequentWeekdaysSolution
 {

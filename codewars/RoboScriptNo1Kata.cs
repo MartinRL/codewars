@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Text.RegularExpressions;
-using FluentAssertions;
-using Xunit;
-
 public class RoboScriptNo1Solution
 {
     public static string Highlight(string code)

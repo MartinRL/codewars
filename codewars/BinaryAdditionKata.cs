@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System;
-using FluentAssertions;
-using Xunit;
-
 public class BinaryAdditionSolution
 {
     public static string AddBinary(int firstTerm, int secondTerm) => Convert.ToString(firstTerm + secondTerm, 2);

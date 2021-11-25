@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Collections.Generic;
-using FluentAssertions;
-using Xunit;
-
 public class MapSolution
 {
     public static Node<T2> Map<T, T2>(Node<T> head, Func<T, T2> f) => head == null ? null : new Node<T2>(f(head.Data), Map(head.Next, f));

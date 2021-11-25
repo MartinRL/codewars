@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Collections.Generic;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkfulLogicDrillsTrafficLightSolution
 {
     public static string UpdateLight(string current)

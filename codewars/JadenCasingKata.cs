@@ -1,12 +1,10 @@
 ﻿namespace codewars;
 
-using System.Globalization;
-using FluentAssertions;
-using Xunit;
+using static System.Globalization.CultureInfo;
 
 public static class JadenCasingSolution
 {
-    public static string JadenCase(string s) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(s);
+    public static string JadenCase(string s) => CurrentCulture.TextInfo.ToTitleCase(s);
 }
 
 public class JadenCasingTests

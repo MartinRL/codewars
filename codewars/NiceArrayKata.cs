@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class NiceArraySolution
 {
     public static bool IsNice(int[] arr) => arr.Length != 0 && arr.All(n => arr.Any(m => n - 1 == m || n + 1 == m));

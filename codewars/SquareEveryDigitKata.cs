@@ -1,11 +1,6 @@
-using static System.Int32;
-
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
+using static Int32;
 
 public static class SquareEveryDigitSolution
 {

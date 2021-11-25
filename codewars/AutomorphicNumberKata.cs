@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class AutomorphicNumberSolution
 {
     public static string Automorphic(int n) => (n * n).ToString().EndsWith(n.ToString()) ? "Automorphic" : "Not!!";

@@ -1,8 +1,6 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-using static System.Math;
+using static Math;
 
 public class YouAreASquareSolution
 {

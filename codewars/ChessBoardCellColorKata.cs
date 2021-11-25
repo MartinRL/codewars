@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ChessBoardCellColorSolution
 {
     public static bool HaveSameColors(string cell1, string cell2) => (cell2.First() - cell1.First() + cell2.Last() - cell1.Last()) % 2 == 0;

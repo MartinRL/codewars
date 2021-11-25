@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class WhichAreInSolution
 {
     public static string[] GetIns(string[] array1, string[] array2) => array1.Where(s1 => array2.Any(s2 => s2.Contains(s1))).OrderBy(_ => _).ToArray();

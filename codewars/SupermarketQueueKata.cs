@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class SupermarketQueueSolution
 {
     public static long CalculateQueueTime(int[] customers, int n)

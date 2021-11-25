@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class HelpTheBooksellerSolution
 {
     public static string StockSummary(string[] lstOfArt, string[] lstOf1stLetter)

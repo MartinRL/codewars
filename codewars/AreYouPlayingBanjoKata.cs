@@ -1,8 +1,6 @@
 namespace codewars;
 
 using System.Globalization;
-using FluentAssertions;
-using Xunit;
 
 public class AreYouPlayingBanjoSolution
 {

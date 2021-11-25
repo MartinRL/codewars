@@ -1,12 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using FluentAssertions;
-using Xunit;
-
 public static class NumberOfPeopleInTheBusSolution
 {
     public static int Number(IEnumerable<int[]> peopleListInOut) => peopleListInOut.Sum(_ => _[0] - _[1]);

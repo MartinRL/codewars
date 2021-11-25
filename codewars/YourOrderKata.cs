@@ -1,9 +1,6 @@
 ﻿namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.String;
+using static String;
 
 public class YourOrderSolution
 {

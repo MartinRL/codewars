@@ -1,12 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class StringArrayRevisalSolution
 {
     private static string RemoveConsecutiveDuplicateLettersFrom(string s)

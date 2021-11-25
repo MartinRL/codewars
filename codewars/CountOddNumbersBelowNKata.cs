@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public static class CountOddNumbersBelowNSolution
 {
     public static ulong OddCount(ulong n) => n / 2;

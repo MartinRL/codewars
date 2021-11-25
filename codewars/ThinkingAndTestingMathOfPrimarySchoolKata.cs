@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ThinkingAndTestingMathOfPrimarySchoolSolution
 {
     public static int TestIt(int[] a) => a[0] * a[3] + a[1] * a[2];

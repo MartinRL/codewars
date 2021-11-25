@@ -1,9 +1,6 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Int64;
+using static Int64;
 
 public class SupersizeMeSolution
 {

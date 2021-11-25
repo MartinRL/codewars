@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class NumberOfDecimalDigitsSolution
 {
     public static int Digits(ulong n) => n.ToString().Length;

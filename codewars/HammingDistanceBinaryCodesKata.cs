@@ -1,10 +1,6 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-using static System.Convert;
+using static Convert;
 
 public class HammingDistanceBinaryCodesSolution
 {

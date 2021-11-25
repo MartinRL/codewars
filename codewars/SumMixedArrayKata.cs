@@ -1,10 +1,6 @@
-using static System.Convert;
-
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
+using static Convert;
 
 public class SumMixedArray
 {

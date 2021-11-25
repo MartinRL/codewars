@@ -1,8 +1,5 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-
 public class PowerOfTwoSolution
 {
     public static bool IsPowerOfTwo(int n) => n != 0 && ((n - 1) & n) == 0;

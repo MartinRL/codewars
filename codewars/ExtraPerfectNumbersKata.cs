@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class ExtraPerfectNumbersSolution
 {
     public static int[] ExtraPerfect(int n)

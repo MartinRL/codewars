@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class RemovingElementsSolution
 {
     public static object[] RemoveEveryOther(object[] arr) => arr.Where((element, index) => index % 2 == 0).ToArray();

@@ -1,10 +1,5 @@
 namespace codewars;
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public class HammingDistanceBinaryNotationSolution
 {
     public static int CalculateDistance(int a, int b) => (a ^ b).ToBinaryString().Count(_ => _ == '1');

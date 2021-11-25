@@ -1,9 +1,5 @@
 namespace codewars;
 
-using System.Linq;
-using FluentAssertions;
-using Xunit;
-
 public static class FirstNonRepeatingCharacterSolution
 {
     public static string FirstNonRepeatingLetter(string s) =>

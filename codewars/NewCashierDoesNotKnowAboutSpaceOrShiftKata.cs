@@ -1,10 +1,8 @@
 namespace codewars;
 
-using FluentAssertions;
-using Xunit;
-using static System.Linq.Enumerable;
-using static System.String;
-using static System.Text.RegularExpressions.Regex;
+using static Enumerable;
+using static String;
+using static Regex;
 
 public class NewCashierDoesNotKnowAboutSpaceOrShiftSolution
 {
