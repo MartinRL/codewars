@@ -10,7 +10,14 @@ public static class HandshakeProblemSolution
         if (handshakes == 1)
             return 2;
 
-        throw new NotImplementedException();
+        var participants = 3;
+
+        int possibleHandshakes(int p) => (p * (p - 1)) / 2;
+
+        while (possibleHandshakes(participants) < handshakes)
+            ++participants;
+
+        return participants;
     }
 }
 
