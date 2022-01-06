@@ -7,10 +7,7 @@ public static class HandshakeProblemSolution
         if (handshakes == 0)
             return 1;
 
-        if (handshakes == 1)
-            return 2;
-
-        var participants = 3;
+        var participants = 2;
 
         int possibleHandshakes(int p) => (p * (p - 1)) / 2;
 
