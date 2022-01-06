@@ -9,7 +9,7 @@ public static class HandshakeProblemSolution
 
         var participants = 2;
 
-        int possibleHandshakes(int p) => (p * (p - 1)) / 2;
+        static int possibleHandshakes(int p) => (p * (p - 1)) / 2;
 
         while (possibleHandshakes(participants) < handshakes)
             ++participants;
