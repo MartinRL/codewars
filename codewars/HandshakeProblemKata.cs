@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace codewars;
+﻿namespace codewars;
 
 public static class HandshakeProblemSolution
 {
     public static int GetParticipants(int handshakes)
     {
+        if (handshakes == 0)
+            return 1;
+
         throw new NotImplementedException();
     }
 }
