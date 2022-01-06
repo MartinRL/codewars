@@ -7,6 +7,9 @@ public static class HandshakeProblemSolution
         if (handshakes == 0)
             return 1;
 
+        if (handshakes == 1)
+            return 2;
+
         throw new NotImplementedException();
     }
 }
