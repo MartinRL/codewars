@@ -2,20 +2,7 @@
 
 public static class HandshakeProblemSolution
 {
-    public static int GetParticipants(int handshakes)
-    {
-        if (handshakes == 0)
-            return 1;
-
-        var participants = 2;
-
-        static int possibleHandshakes(int p) => (p * (p - 1)) / 2;
-
-        while (possibleHandshakes(participants) < handshakes)
-            ++participants;
-
-        return participants;
-    }
+    public static int GetParticipants(int handshakes) => (int) Math.Ceiling((1 + Math.Sqrt(1 + 8 * handshakes)) / 2);
 }
 
 public class HandshakeProblemTests
