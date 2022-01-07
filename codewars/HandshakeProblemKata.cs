@@ -1,8 +1,10 @@
 ﻿namespace codewars;
 
+using static System.Math;
+
 public static class HandshakeProblemSolution
 {
-    public static int GetParticipants(int handshakes) => (int) Math.Ceiling((1 + Math.Sqrt(1 + 8 * handshakes)) / 2);
+    public static int GetParticipants(int handshakes) => (int) Ceiling((1 + Sqrt(1 + 8 * handshakes)) / 2);
 }
 
 public class HandshakeProblemTests
