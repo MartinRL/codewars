@@ -10,7 +10,10 @@ internal static class MostProfitFromStockQuoteSolution
 
         for (int i = 1; i < quotes.Length; i++)
         {
-            mostProfit += currentHigh - quotes[i];
+            if (currentHigh > quotes[i])
+                mostProfit += currentHigh - quotes[i];
+            else
+                currentHigh = quotes[i];
         }
 
         return mostProfit;
