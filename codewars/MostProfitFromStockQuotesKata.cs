@@ -2,7 +2,19 @@
 
 internal static class MostProfitFromStockQuoteSolution
 {
-    public static int GetMostProfitFromStockQuotes(int[] quotes) => throw new NotImplementedException();
+    public static int GetMostProfitFromStockQuotes(int[] quotes)
+    {
+        Array.Reverse(quotes);
+        var currentHigh = quotes[0];
+        var mostProfit = 0;
+
+        for (int i = 1; i < quotes.Length; i++)
+        {
+            mostProfit += currentHigh - quotes[i];
+        }
+
+        return mostProfit;
+    }
 }
 
 public class MostProfitFromStockQuoteTests
