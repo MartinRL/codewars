@@ -1,14 +1,16 @@
 ﻿namespace codewars;
 
+using static System.Array;
+
 internal static class MostProfitFromStockQuoteSolution
 {
     public static int GetMostProfitFromStockQuotes(int[] quotes)
     {
-        Array.Reverse(quotes);
+        Reverse(quotes);
         var currentHigh = quotes[0];
         var mostProfit = 0;
 
-        for (int i = 1; i < quotes.Length; i++)
+        for (var i = 1; i < quotes.Length; i++)
         {
             if (currentHigh > quotes[i])
                 mostProfit += currentHigh - quotes[i];
