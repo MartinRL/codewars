@@ -4,22 +4,7 @@ using static System.Array;
 
 internal static class MostProfitFromStockQuoteSolution
 {
-    public static int GetMostProfitFromStockQuotes(int[] quotes)
-    {
-        Reverse(quotes);
-        var currentHigh = quotes[0];
-        var mostProfit = 0;
-
-        for (var i = 1; i < quotes.Length; i++)
-        {
-            if (currentHigh > quotes[i])
-                mostProfit += currentHigh - quotes[i];
-            else
-                currentHigh = quotes[i];
-        }
-
-        return mostProfit;
-    }
+    public static int GetMostProfitFromStockQuotes(int[] quotes) => quotes.Select((q, i) => quotes[i..].Max() - q).Sum();
 }
 
 public class MostProfitFromStockQuoteTests
