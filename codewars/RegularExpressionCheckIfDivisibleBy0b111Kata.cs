@@ -10,23 +10,25 @@ public class RegularExpressionCheckIfDivisibleBy0b111Solution
 
 public class RegularExpressionCheckIfDivisibleBy0b111Tests
 {
-    private static String rgxStr = BinaryRegexp.MultipleOf7();
+    private static string rgxStr = RegularExpressionCheckIfDivisibleBy0b111Solution.MultipleOf7();
     
     [Fact]
     public void EdgeCases()
     {
         System.Console.WriteLine("Testing for: empty string");
-        Assert.AreEqual(Regex.Match("", rgxStr).Success, false);
+        Regex.Match("", rgxStr).Success.Should().BeFalse();
+        
         System.Console.WriteLine("Testing for: 0");
-        Assert.AreEqual(Regex.Match("0", rgxStr).Success, true);
+        Regex.Match("0", rgxStr).Success.Should().BeTrue();
     }
     
     [Fact]
     public void FixedTests1000()
     {
-        for(int i=1; i<100; i++) {
+        for (var i=1; i<100; i++) 
+        {
             System.Console.WriteLine("Testing for: "+i.ToString());
-            Assert.AreEqual(Regex.Match(Convert.ToString(i, 2), rgxStr).Success, i%7 == 0);
+            Regex.Match(Convert.ToString(i, 2), rgxStr).Success.Should().Be(i%7 == 0);
         }
     }
 }
