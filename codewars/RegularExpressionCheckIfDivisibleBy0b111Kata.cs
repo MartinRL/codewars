@@ -15,10 +15,8 @@ public class RegularExpressionCheckIfDivisibleBy0b111Tests
     [Fact]
     public void EdgeCases()
     {
-        System.Console.WriteLine("Testing for: empty string");
         Regex.Match("", rgxStr).Success.Should().BeFalse();
         
-        System.Console.WriteLine("Testing for: 0");
         Regex.Match("0", rgxStr).Success.Should().BeTrue();
     }
     
@@ -27,7 +25,6 @@ public class RegularExpressionCheckIfDivisibleBy0b111Tests
     {
         for (var i=1; i<100; i++) 
         {
-            System.Console.WriteLine("Testing for: "+i.ToString());
             Regex.Match(Convert.ToString(i, 2), rgxStr).Success.Should().Be(i%7 == 0);
         }
     }
