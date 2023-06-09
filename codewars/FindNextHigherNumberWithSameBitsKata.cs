@@ -4,7 +4,17 @@ public static class FindNextHigherNumberWithSameBitsSolution
 {
     public static int Find(int number)
     {
-        throw new NotImplementedException();
+        var next = number;
+        
+        while (next <= int.MaxValue)
+        {
+            next++;
+            
+            if (Convert.ToString(number, 2).Count(n => n == '1') == Convert.ToString(next, 2).Count(n => n == '1'))
+                return next;
+        }
+        
+        throw new Exception("No next higher number with same bits");
     }
 }
 
