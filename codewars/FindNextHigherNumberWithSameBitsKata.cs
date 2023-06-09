@@ -2,19 +2,18 @@
 
 public static class FindNextHigherNumberWithSameBitsSolution
 {
-    public static int Find(int number)
+    public static int Find(int num)
     {
-        var next = number;
+        int o, n, p, r;
         
-        while (true)
-        {
-            next++;
-            
-            if (CountOnes(number) == CountOnes(next))
-                return next;
-        }
-        
-        int CountOnes(int num) => Convert.ToString(num, 2).Count(n => n == '1');
+        o = num & -num;
+        n = num + o;
+        p = num ^ n;
+        p /= o;
+        p >>= 2;
+        r = n | p;
+    
+        return r;
     }
 }
 
