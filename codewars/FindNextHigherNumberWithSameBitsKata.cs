@@ -6,7 +6,7 @@ public static class FindNextHigherNumberWithSameBitsSolution
     {
         var next = number;
         
-        while (next <= int.MaxValue)
+        while (true)
         {
             next++;
             
@@ -14,8 +14,6 @@ public static class FindNextHigherNumberWithSameBitsSolution
                 return next;
         }
         
-        throw new Exception("No next higher number with same bits");
-
         int CountOnes(int num) => Convert.ToString(num, 2).Count(n => n == '1');
     }
 }
