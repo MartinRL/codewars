@@ -10,11 +10,13 @@ public static class FindNextHigherNumberWithSameBitsSolution
         {
             next++;
             
-            if (Convert.ToString(number, 2).Count(n => n == '1') == Convert.ToString(next, 2).Count(n => n == '1'))
+            if (CountOnes(number) == CountOnes(next))
                 return next;
         }
         
         throw new Exception("No next higher number with same bits");
+
+        int CountOnes(int num) => Convert.ToString(num, 2).Count(n => n == '1');
     }
 }
 
