@@ -2,13 +2,20 @@
 
 public class CuckooClock
 {
-    public readonly TimeOnly Time;
+    public TimeOnly Time;
     public int Chimes = 0;
 
     public CuckooClock(TimeOnly time)
     {
         Time = time;
         
+        SetChimes();
+        
+        SetTimeToLastChime();
+    }
+
+    private void SetChimes()
+    {
         if (Time.Minute == 0)
         {
             Chimes += Time.Hour;
@@ -19,9 +26,18 @@ public class CuckooClock
         }
     }
 
+    private void SetTimeToLastChime()
+    {
+        Time = Time.Minute <= 15 ? 
+            Time.AddMinutes(-Time.Minute) : 
+            Time.AddMinutes(-Time.Minute % 15);
+    }
+
     public void Chime()
     {
-        throw new NotImplementedException();
+        Time = Time.AddMinutes(15);
+        
+        SetChimes();
     }
 }
 
