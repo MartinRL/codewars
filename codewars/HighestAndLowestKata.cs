@@ -1,8 +1,10 @@
 ﻿namespace codewars;
 
+using static Int32;
+
 public class HighestAndLowestSolution
 {
-    public static string HighAndLow(string numbers) => $"{numbers.Split(' ').Select(int.Parse).Max()} {numbers.Split(' ').Select(int.Parse).Min()}";
+    public static string HighAndLow(string numbers) => $"{numbers.Split(' ').Select(Parse).Max()} {numbers.Split(' ').Select(Parse).Min()}";
 }
 
 public class HighestAndLowestTests
