@@ -69,26 +69,16 @@ public class CuckooClockTests
         [InlineData("10:00", 11, "10:15")]
         [InlineData("10:00", 13, "10:45")]
         [InlineData("10:00", 20, "11:00")]
+        [InlineData("12:30", 1, "12:30")]
+        [InlineData("12:30", 2, "12:45")]
+        [InlineData("12:30", 3, "01:00")]
+        [InlineData("12:30", 4, "01:15")]
+        [InlineData("09:53", 50, "02:30")]
         public void VerifyCuckooClockWith(string time, int chimes, string expectedTime) => CuckooClockSolution.CuckooClock(time, chimes).Should().Be(expectedTime);
     }
 
 /* tests from https://www.codewars.com/kata/656e4602ee72af0017e37e82
- * [Test]
-        
-    [Test]
-    public void HourTests() // Test case where the starting time is 00, i.e. on the hour
-    {
-          List<string> initialTimes = new List<string> { "10:00", "10:00", "10:00", "10:00", "10:00" };
-          List<int> chimes = new List<int> { 1, 10, 11, 13, 20 };
-          List<string> expectedTimes = new List<string> { "10:00", "10:00", "10:15", "10:45", "11:00" };
-
-          for (int i = 0; i < initialTimes.Count; i++)
-          {
-              Assert.AreEqual(expectedTimes[i], CuckooClockSolution.CuckooClock(initialTimes[i], chimes[i]));
-          }
-    }
-  
-    [Test]
+ *  [Test]
     public void TwelveTests() // Test going from twelve to one
     {
           List<string> initialTimes = new List<string> { "12:30", "12:30", "12:30", "12:30", "09:53" };
