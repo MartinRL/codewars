@@ -50,7 +50,7 @@ public class CuckooClockSolution
         do
         {
             cuckooClock.Chime();
-        } while (cuckooClock.Chimes <= chimes);
+        } while (cuckooClock.Chimes < chimes);
         
         return cuckooClock.Time.ToString();
     }
