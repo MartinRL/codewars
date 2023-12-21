@@ -52,7 +52,7 @@ public class CuckooClockSolution
             cuckooClock.Chime();
         }
 
-        return cuckooClock.Time.ToString();
+        return $"{(cuckooClock.Time.Hour != 12 ? cuckooClock.Time.Hour % 12 : cuckooClock.Time.Hour).ToString().PadLeft(2, '0')}:{cuckooClock.Time.Minute.ToString().PadLeft(2, '0')}";
     }
 }
 
