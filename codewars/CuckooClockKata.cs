@@ -1,26 +1,42 @@
 ﻿namespace codewars;
 
+public class CuckooClock
+{
+    public readonly TimeOnly Time;
+    public int Chimes = 0;
+
+    public CuckooClock(TimeOnly time)
+    {
+        Time = time;
+        
+        if (Time.Minute == 0)
+        {
+            Chimes += Time.Hour;
+        }
+        else if (Time.Minute % 15 == 0)
+        {
+            Chimes += 1;
+        }
+    }
+
+    public void Chime()
+    {
+        throw new NotImplementedException();
+    }
+}
+
 public class CuckooClockSolution
 {
     public static string CuckooClock(string time, int chimes)
     {
-        var hoursAndMinutes = time.Split(':').Select(int.Parse);
-        var hours = hoursAndMinutes.First();
-        var minutes = hoursAndMinutes.Last();
-        var cuckooClock = new[] { 00, 15, 30, 45 };
+        CuckooClock cuckooClock = new (TimeOnly.Parse(time));
 
-        var chimeHours = hours;
-        //var chimeMinutes = cuckooClock.First(cuckoo => cuckoo >= minutes);
-
-        if (minutes % 15 == 0)
+        do
         {
-            chimes--;
-        }
-
-        var lastChimeMinutes = minutes - (minutes % 15);
-        var chimeMinutes = lastChimeMinutes + 15 * chimes;
-
-        return $"{chimeHours.ToString().PadLeft(2, '0')}:{chimeMinutes.ToString().PadLeft(2, '0')}";
+            cuckooClock.Chime();
+        } while (cuckooClock.Chimes <= chimes);
+        
+        return cuckooClock.Time.ToString();
     }
 }
 
