@@ -12,6 +12,11 @@ public class CuckooClockSolution
         var chimeHours = hours;
         //var chimeMinutes = cuckooClock.First(cuckoo => cuckoo >= minutes);
 
+        if (minutes % 15 == 0)
+        {
+            chimes--;
+        }
+
         var lastChimeMinutes = minutes - (minutes % 15);
         var chimeMinutes = lastChimeMinutes + 15 * chimes;
 
