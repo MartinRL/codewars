@@ -2,19 +2,30 @@
 
 public class CuckooClockSolution
 {
-    public static string CuckooClock(string time, int chimes) => throw new NotImplementedException();
+    public static string CuckooClock(string time, int chimes)
+    {
+        var hoursAndMinutes = time.Split(':').Select(int.Parse);
+        var hours = hoursAndMinutes.First();
+        var minutes = hoursAndMinutes.Last();
+        var cuckooClock = new[] { 00, 15, 30, 45 };
+
+        var chimeHours = hours;
+        var chimeMinutes = cuckooClock.First(cuckoo => cuckoo >= minutes);
+
+        return $"{chimeHours.ToString().PadLeft(2, '0')}:{chimeMinutes.ToString().PadLeft(2, '0')}";
+    }
 }
 
 public class CuckooClockTests
-{
-    [Theory]
-    [InlineData("07:22", 1, "07:30")]
-    [InlineData("12:22", 2, "12:45")]
-    [InlineData("01:30", 2, "01:45")]
-    [InlineData("04:01", 10, "05:30")]
-    [InlineData("03:38", 19, "06:00")]
-    public void VerifyCuckooClockWith(string time, int chimes, string expectedTime) => CuckooClockSolution.CuckooClock(time, chimes).Should().Be(expectedTime);
-}
+    {
+        [Theory]
+        [InlineData("07:22", 1, "07:30")]
+        [InlineData("12:22", 2, "12:45")]
+        [InlineData("01:30", 2, "01:45")]
+        [InlineData("04:01", 10, "05:30")]
+        [InlineData("03:38", 19, "06:00")]
+        public void VerifyCuckooClockWith(string time, int chimes, string expectedTime) => CuckooClockSolution.CuckooClock(time, chimes).Should().Be(expectedTime);
+    }
 
 /* tests from https://www.codewars.com/kata/656e4602ee72af0017e37e82
  * [Test]
