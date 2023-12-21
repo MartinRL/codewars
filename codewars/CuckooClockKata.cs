@@ -18,7 +18,8 @@ public class CuckooClock
     {
         if (Time.Minute == 0)
         {
-            Chimes += Time.Hour;
+            var hour = Time.Hour > 12 ? Time.Hour % 12 : Time.Hour; 
+            Chimes += hour;
         }
         else if (Time.Minute % 15 == 0)
         {
