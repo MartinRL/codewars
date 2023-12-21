@@ -47,11 +47,11 @@ public class CuckooClockSolution
     {
         CuckooClock cuckooClock = new (TimeOnly.Parse(time));
 
-        do
+        while (cuckooClock.Chimes < chimes)
         {
             cuckooClock.Chime();
-        } while (cuckooClock.Chimes < chimes);
-        
+        }
+
         return cuckooClock.Time.ToString();
     }
 }
