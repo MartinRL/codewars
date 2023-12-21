@@ -10,7 +10,10 @@ public class CuckooClockSolution
         var cuckooClock = new[] { 00, 15, 30, 45 };
 
         var chimeHours = hours;
-        var chimeMinutes = cuckooClock.First(cuckoo => cuckoo >= minutes);
+        //var chimeMinutes = cuckooClock.First(cuckoo => cuckoo >= minutes);
+
+        var lastChimeMinutes = minutes - (minutes % 15);
+        var chimeMinutes = lastChimeMinutes + 15 * chimes;
 
         return $"{chimeHours.ToString().PadLeft(2, '0')}:{chimeMinutes.ToString().PadLeft(2, '0')}";
     }
