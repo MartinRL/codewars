@@ -2,36 +2,33 @@
 
 public static class CuckooClockSolution
 {
-    public static string CuckooClock(string inputTime, int chimes)
+    public static string CuckooClock(string time, int chimes)
     {
-        var time = TimeOnly.Parse(inputTime);
-        var chimesCount = 0;
-
-        if (time.Minute % 15 != 0)
+        var hAndM = time.Split(':').Select(int.Parse);
+        var h = hAndM.First();
+        var m = hAndM.Last();
+        
+        chimes -= m % 15 == 0 ? m == 0 ? h : 1 : 0;
+        while (chimes > 0)
         {
-            time = time.AddMinutes(15 - time.Minute % 15);
+            m += 15;
+            if (m >= 60)
+            {
+                h++;
+                m %= 60;
+                if (h > 12)
+                {
+                    h %= 12;
+                }
+                chimes -= h - 1;
+            }
+
+            chimes--;
         }
 
-        while (chimes > chimesCount)
-        {
-            if (time.Hour == 13)
-            {
-                time = time.AddHours(12);
-            }
-
-            if (time.Minute > 0)
-            {
-                chimesCount++;
-            }
-            else
-            {
-                chimesCount += time.Hour;
-            }
-            
-            time = time.AddMinutes(15);
-        }
-
-        return time.AddMinutes(-15).ToShortTimeString();
+        m -= m % 15;
+        
+        return $"{h:d2}:{m:d2}";
     }
 }
 
