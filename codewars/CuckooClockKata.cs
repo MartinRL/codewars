@@ -1,5 +1,7 @@
 ﻿namespace codewars;
 
+using static Convert;
+
 public class CuckooClock
 {
     public byte Hour;
@@ -28,7 +30,7 @@ public class CuckooClock
         }
     }
 
-    private void SetMinutesToLastChime() => Minutes -= Convert.ToByte(Minutes % 15);
+    private void SetMinutesToLastChime() => Minutes -= ToByte(Minutes % 15);
 
     public void Chime()
     {
@@ -50,6 +52,8 @@ public class CuckooClock
             Hour = 1;
         }
     }
+
+    public override string ToString() => $"{Hour.ToString().PadLeft(2, '0')}:{Minutes.ToString().PadLeft(2, '0')}";
 }
 
 public static class CuckooClockSolution
@@ -63,7 +67,7 @@ public static class CuckooClockSolution
             cuckooClock.Chime();
         }
 
-        return $"{cuckooClock.Hour.ToString().PadLeft(2, '0')}:{cuckooClock.Minutes.ToString().PadLeft(2, '0')}";
+        return cuckooClock.ToString();
     }
 }
 
