@@ -53,7 +53,7 @@ public class CuckooClock
         }
     }
 
-    public override string ToString() => $"{Hour.ToString().PadLeft(2, '0')}:{Minutes.ToString().PadLeft(2, '0')}";
+    public override string ToString() => $"{Hour:00}:{Minutes:00}";
 }
 
 public static class CuckooClockSolution
