@@ -2,58 +2,68 @@
 
 public class CuckooClock
 {
-    public TimeOnly Time;
-    public int Chimes = 0;
+    public byte Hour;
+    public byte Minutes;
+    public uint Chimes = 0;
 
-    public CuckooClock(TimeOnly time)
+    public CuckooClock(string time)
     {
-        Time = time;
+        var hourAndMinutes = time.Split(':').Select(byte.Parse);
+        Hour = hourAndMinutes.First();
+        Minutes = hourAndMinutes.Last();
         
-        SetChimes();
-        
-        SetTimeToLastChime();
+        UpdateChimes();
+        SetMinutesToLastChime();
     }
 
-    private void SetChimes()
+    private void UpdateChimes()
     {
-        if (Time.Minute == 0)
+        if (Minutes == 0)
         {
-            var hour = Time.Hour > 12 ? Time.Hour % 12 : Time.Hour; 
-            Chimes += hour;
+            Chimes += Hour;
         }
-        else if (Time.Minute % 15 == 0)
+        else if (Minutes % 15 == 0)
         {
             Chimes += 1;
         }
     }
 
-    private void SetTimeToLastChime()
-    {
-        Time = Time.Minute <= 15 ? 
-            Time.AddMinutes(-Time.Minute) : 
-            Time.AddMinutes(-Time.Minute % 15);
-    }
+    private void SetMinutesToLastChime() => Minutes -= Convert.ToByte(Minutes % 15);
 
     public void Chime()
     {
-        Time = Time.AddMinutes(15);
+        UpdateTime();
+        UpdateChimes();
+    }
+
+    private void UpdateTime()
+    {
+        Minutes += 15;
+
+        if (Minutes != 60) return;
         
-        SetChimes();
+        Minutes = 0;
+        Hour += 1;
+            
+        if (Hour == 13)
+        {
+            Hour = 1;
+        }
     }
 }
 
-public class CuckooClockSolution
+public static class CuckooClockSolution
 {
     public static string CuckooClock(string time, int chimes)
     {
-        CuckooClock cuckooClock = new (TimeOnly.Parse(time));
+        CuckooClock cuckooClock = new (time);
 
         while (cuckooClock.Chimes < chimes)
         {
             cuckooClock.Chime();
         }
 
-        return $"{(cuckooClock.Time.Hour != 12 ? cuckooClock.Time.Hour % 12 : cuckooClock.Time.Hour).ToString().PadLeft(2, '0')}:{cuckooClock.Time.Minute.ToString().PadLeft(2, '0')}";
+        return $"{cuckooClock.Hour.ToString().PadLeft(2, '0')}:{cuckooClock.Minutes.ToString().PadLeft(2, '0')}";
     }
 }
 
@@ -82,19 +92,4 @@ public class CuckooClockTests
         [InlineData("08:17", 200, "05:45")]
         public void VerifyCuckooClockWith(string time, int chimes, string expectedTime) => CuckooClockSolution.CuckooClock(time, chimes).Should().Be(expectedTime);
     }
-
-/* tests from https://www.codewars.com/kata/656e4602ee72af0017e37e82
- *  [Test]
-    public void AroundTheClockTests() // Test going more than 12 hours ahead
-    {
-          List<string> initialTimes = new List<string> { "08:17", "08:17", "08:17", "08:17", "08:17" };
-          List<int> chimes = new List<int> { 113, 114, 115, 150, 200 };
-          List<string> expectedTimes = new List<string> { "08:00", "08:15", "08:30", "11:00", "05:45" };
-
-          for (int i = 0; i < initialTimes.Count; i++)
-          {
-              Assert.AreEqual(expectedTimes[i], CuckooClockSolution.CuckooClock(initialTimes[i], chimes[i]));
-          }
-    }
- */
  
