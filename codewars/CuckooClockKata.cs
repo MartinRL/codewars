@@ -1,73 +1,40 @@
 ﻿namespace codewars;
 
-using static Convert;
-
-public class CuckooClock
-{
-    public byte Hour;
-    public byte Minutes;
-    public uint Chimes = 0;
-
-    public CuckooClock(string time)
-    {
-        var hourAndMinutes = time.Split(':').Select(byte.Parse);
-        Hour = hourAndMinutes.First();
-        Minutes = hourAndMinutes.Last();
-        
-        UpdateChimes();
-        UpdateMinutesToLastChime();
-    }
-
-    private void UpdateChimes()
-    {
-        if (Minutes == 0)
-        {
-            Chimes += Hour;
-        }
-        else if (Minutes % 15 == 0)
-        {
-            Chimes += 1;
-        }
-    }
-
-    private void UpdateMinutesToLastChime() => Minutes -= ToByte(Minutes % 15);
-
-    public void Chime()
-    {
-        UpdateTime();
-        UpdateChimes();
-    }
-
-    private void UpdateTime()
-    {
-        Minutes += 15;
-
-        if (Minutes != 60) return;
-        
-        Minutes = 0;
-        Hour += 1;
-            
-        if (Hour == 13)
-        {
-            Hour = 1;
-        }
-    }
-
-    public override string ToString() => $"{Hour:00}:{Minutes:00}";
-}
-
 public static class CuckooClockSolution
 {
-    public static string CuckooClock(string time, int chimes)
+    public static string CuckooClock(string inputTime, int chimes)
     {
-        CuckooClock cuckooClock = new (time);
+        var time = TimeOnly.Parse(inputTime);
+        var chimesCount = 0;
 
-        while (cuckooClock.Chimes < chimes)
+        if (time.Minute % 15 != 0)
         {
-            cuckooClock.Chime();
+            time = time.AddMinutes(15 - time.Minute % 15);
         }
 
-        return cuckooClock.ToString();
+        while (chimesCount < chimes)
+        {
+            if (time.Hour == 13)
+            {
+                time = time.AddHours(12);
+            }
+
+            if (time.Minute > 0)
+            {
+                chimesCount++;
+            }
+            else
+            {
+                chimesCount += time.Hour;
+            }
+
+            if (chimesCount < chimes)
+            {
+                time = time.AddMinutes(15);
+            }
+        }
+
+        return time.ToShortTimeString();
     }
 }
 
