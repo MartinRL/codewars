@@ -12,7 +12,7 @@ public static class CuckooClockSolution
             time = time.AddMinutes(15 - time.Minute % 15);
         }
 
-        while (chimesCount < chimes)
+        while (chimes > chimesCount)
         {
             if (time.Hour == 13)
             {
@@ -27,14 +27,11 @@ public static class CuckooClockSolution
             {
                 chimesCount += time.Hour;
             }
-
-            if (chimesCount < chimes)
-            {
-                time = time.AddMinutes(15);
-            }
+            
+            time = time.AddMinutes(15);
         }
 
-        return time.ToShortTimeString();
+        return time.AddMinutes(-15).ToShortTimeString();
     }
 }
 
