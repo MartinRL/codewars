@@ -15,7 +15,7 @@ public class CuckooClock
         Minutes = hourAndMinutes.Last();
         
         UpdateChimes();
-        SetMinutesToLastChime();
+        UpdateMinutesToLastChime();
     }
 
     private void UpdateChimes()
@@ -30,7 +30,7 @@ public class CuckooClock
         }
     }
 
-    private void SetMinutesToLastChime() => Minutes -= ToByte(Minutes % 15);
+    private void UpdateMinutesToLastChime() => Minutes -= ToByte(Minutes % 15);
 
     public void Chime()
     {
