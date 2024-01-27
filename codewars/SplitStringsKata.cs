@@ -4,6 +4,11 @@ public class SplitStringSolution
 {
     public static string[] SplitString(string str)
     {
+        if (str.Length % 2 != 0)
+        {
+            str += '_';
+        }
+
         return str.Chunk(2).Select(_ => new string(_)).ToArray();
     }
 }
