@@ -2,7 +2,10 @@
 
 public class SplitStringSolution
 {
-    public static string[] SplitString(string str) => throw new NotImplementedException();
+    public static string[] SplitString(string str)
+    {
+        return str.Chunk(2).Select(_ => new string(_)).ToArray();
+    }
 }
 
 public class SplitStringTests
