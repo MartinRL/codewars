@@ -1,18 +1,82 @@
-﻿public class Laundry
+﻿namespace codewars;
+
+public class Laundry
 {
-    private List<IClothing> _clothes;
+    private List<IClothing> clothes;
+
     public List<IClothing> Disposed { get; set; }
 
-    //Create the washing things here!
+    public void FillLaundryBasket(List<IClothing> clothes) => this.clothes = clothes;
+
+    public void LetMotherWashTheClothes()
+    {
+        throw new NotImplementedException();
+    }
+
+    public object GetSpecificClothes<T>()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public interface IClothing
+{
+    int WashedCount { get; }
+}
+
+public interface ITrowers : IClothing
+{
+}
+
+public interface IShirt : IClothing
+{
+}
+
+public interface ISocks : IClothing
+{
+}
+
+public interface IForged : IClothing
+{
+}
+
+public class LongSleevedShirt : IShirt
+{
+    private int v;
+
+    public LongSleevedShirt(int v)
+    {
+        this.v = v;
+    }
+}
+
+public class ShortTrowsers : ITrowers
+{
+    private int v;
+
+    public ShortTrowsers(int v)
+    {
+        this.v = v;
+    }
+}
+
+public class SilkSocks : ISocks
+{
+    private int v;
+
+    public SilkSocks(int v)
+    {
+        this.v = v;
+    }
 }
 
 public class LetUsDoTheLaundryTests
 {
     [Fact]
-    public void SmallTest()
+    public void VerifyLaundrySpec()
     {
-        List<IClothing> testClothes = new List<IClothing>
-        {
+        List<IClothing> clothes =
+        [
             new SilkSocks(20),
             new SilkSocks(25),
             new SilkSocks(35),
@@ -25,10 +89,10 @@ public class LetUsDoTheLaundryTests
             new LongSleevedShirt(25),
             new LongSleevedShirt(35),
             new LongSleevedShirt(40)
-        };
+        ];
 
-        Laundry laundry = new Laundry();
-        laundry.FillLaundryBasket(new List<IClothing>(testClothes));
+        Laundry laundry = new();
+        laundry.FillLaundryBasket(new List<IClothing>(clothes));
         laundry.LetMotherWashTheClothes();
 
         laundry.Disposed.Count().Should().Be(5, "Remember to dispose the correct clothes");
