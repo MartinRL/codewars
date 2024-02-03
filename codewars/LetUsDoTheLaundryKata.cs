@@ -4,16 +4,24 @@ public class Laundry
 {
     private List<IClothing> clothes;
 
-    public List<IClothing> Disposed { get; set; }
+    public List<IClothing> Disposed 
+    { 
+        get
+        {
+            return clothes.Where(_ => _.WashedCount >= 40).ToList();
+        }
+        set
+        { }
+    }
 
     public void FillLaundryBasket(List<IClothing> clothes) => this.clothes = clothes;
 
     public void LetMotherWashTheClothes()
     {
-        throw new NotImplementedException();
+        return;
     }
 
-    public object GetSpecificClothes<T>()
+    public T GetSpecificClothes<T>()
     {
         throw new NotImplementedException();
     }
