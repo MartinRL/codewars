@@ -36,38 +36,23 @@ public interface ISocks : IClothing
 {
 }
 
-public interface IForged : IClothing
+public interface IForged
 {
 }
 
-public class LongSleevedShirt : IShirt
+public class LongSleevedShirt(int washedCount) : IShirt
 {
-    private int v;
-
-    public LongSleevedShirt(int v)
-    {
-        this.v = v;
-    }
+    public int WashedCount => washedCount;
 }
 
-public class ShortTrowsers : ITrowers
+public class ShortTrowsers(int washedCount) : ITrowers
 {
-    private int v;
-
-    public ShortTrowsers(int v)
-    {
-        this.v = v;
-    }
+    public int WashedCount => washedCount;
 }
 
-public class SilkSocks : ISocks
+public class SilkSocks(int washedCount) : ISocks
 {
-    private int v;
-
-    public SilkSocks(int v)
-    {
-        this.v = v;
-    }
+    public int WashedCount => washedCount;
 }
 
 public class LetUsDoTheLaundryTests
