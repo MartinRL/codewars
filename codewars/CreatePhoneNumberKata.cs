@@ -1,24 +1,16 @@
 ﻿namespace codewars;
 
-using static System.Convert;
-
 public class Kata
 {
-    public static string CreatePhoneNumber(int[] numbers)
-    {
-        // Use a seed value of "(" and a result selector of adding ")"
-        return numbers.Aggregate("(", (result, number) =>
+    public static string CreatePhoneNumber(int[] numbers) =>
+        numbers.Aggregate("(", (result, number) =>
         {
-            // Add the number as a char to the result
-            result += (char)(number + 48);
-            // Add a ")" after the third number, a " " after the fourth, and a "-" after the sixth
+            result += number;
             if (result.Length == 4) result += ") ";
-            else if (result.Length == 5) result += " ";
             else if (result.Length == 9) result += "-";
-            // Return the updated result
+
             return result;
-        }, result => result);
-    }
+        });
 }
 
 public class CreatePhoneNumberTests
