@@ -63,7 +63,7 @@ public class Laundry
 
     public List<IClothing> Disposed => disposed;
 
-    public int GetSpecificClothes<T>() where T : IClothing => clothes.Count(c => c is T);
+    public int GetSpecificClothes<T>() where T : IClothing => clothes.Count(_ => _ is T);
 }
 
 
