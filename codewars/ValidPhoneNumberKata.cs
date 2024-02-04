@@ -1,11 +1,10 @@
 ﻿namespace codewars;
 
+using static System.Text.RegularExpressions.Regex;
+
 public static class Kata
 {
-    public static bool ValidPhoneNumber(string phoneNumber)
-    {
-        throw new NotImplementedException();
-    }
+    public static bool ValidPhoneNumber(string phoneNumber) => IsMatch(phoneNumber, @"^\(\d{3}\) \d{3}-\d{4}$");
 }
 
 public class ValidPhoneNumberTests
