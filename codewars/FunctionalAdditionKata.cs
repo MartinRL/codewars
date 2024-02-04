@@ -1,6 +1,6 @@
 namespace codewars;
 
-public class Kata
+public class FunctionalAdditionSolution
 {
     public static Func<double, double> Add(double leftTerm) => rightTerm => leftTerm + rightTerm;
 }
@@ -8,5 +8,5 @@ public class Kata
 public class FunctionalAdditionTests
 {
     [Fact]
-    public void ShouldGiveAddFunc() => Kata.Add(1)(3).Should().Be(4);
+    public void ShouldGiveAddFunc() => FunctionalAdditionSolution.Add(1)(3).Should().Be(4);
 }
