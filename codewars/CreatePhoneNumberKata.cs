@@ -6,12 +6,18 @@ public class Kata
 {
     public static string CreatePhoneNumber(int[] numbers)
     {
-        var numbersAsChars = numbers.Select(_ => ToChar(_ + 48));
-        var areaCode = new string(numbersAsChars.Take(3).ToArray());
-        var phoneNumber1 = new string(numbersAsChars.Skip(areaCode.Length).Take(3).ToArray());
-        string phoneNumber2 = new string(numbersAsChars.Skip(areaCode.Length + phoneNumber1.Length).Take(4).ToArray());
-
-        return $"({areaCode}) {phoneNumber1}-{phoneNumber2}";
+        // Use a seed value of "(" and a result selector of adding ")"
+        return numbers.Aggregate("(", (result, number) =>
+        {
+            // Add the number as a char to the result
+            result += (char)(number + 48);
+            // Add a ")" after the third number, a " " after the fourth, and a "-" after the sixth
+            if (result.Length == 4) result += ") ";
+            else if (result.Length == 5) result += " ";
+            else if (result.Length == 9) result += "-";
+            // Return the updated result
+            return result;
+        }, result => result);
     }
 }
 
