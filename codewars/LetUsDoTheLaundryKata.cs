@@ -45,12 +45,12 @@ public class LongSleevedShirt(int washedCount) : IShirt
 public class Laundry
 {
     private List<IClothing> clothes;
-    private List<IClothing> _disposed;
+    private List<IClothing> disposed;
 
     public Laundry()
     {
-        clothes = new List<IClothing>();
-        _disposed = new List<IClothing>();
+        clothes = [];
+        disposed = [];
     }
 
     public void FillLaundryBasket(List<IClothing> clothes)
@@ -69,14 +69,14 @@ public class Laundry
             // If the washed count is less than 40, wash it normally
             if (((clothing is IForged && washedCount >= 25) || washedCount >= 40))
             {
-                _disposed.Add(clothing);
+                disposed.Add(clothing);
             }
 
-            clothes = clothes.Except(_disposed).ToList();
+            clothes = clothes.Except(disposed).ToList();
         }
     }
 
-    public List<IClothing> Disposed => _disposed;
+    public List<IClothing> Disposed => disposed;
 
     public int GetSpecificClothes<T>() where T : IClothing
     {
