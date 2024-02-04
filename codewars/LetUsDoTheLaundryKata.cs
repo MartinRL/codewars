@@ -53,10 +53,7 @@ public class Laundry
         disposed = [];
     }
 
-    public void FillLaundryBasket(List<IClothing> clothes)
-    {
-        this.clothes.AddRange(clothes);
-    }
+    public void FillLaundryBasket(List<IClothing> clothes) => this.clothes.AddRange(clothes);
 
     public void LetMotherWashTheClothes()
     {
@@ -78,10 +75,7 @@ public class Laundry
 
     public List<IClothing> Disposed => disposed;
 
-    public int GetSpecificClothes<T>() where T : IClothing
-    {
-        return clothes.Count(c => c is T);
-    }
+    public int GetSpecificClothes<T>() where T : IClothing => clothes.Count(c => c is T);
 }
 
 
