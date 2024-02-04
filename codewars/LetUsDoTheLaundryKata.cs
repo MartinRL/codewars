@@ -50,7 +50,7 @@ public class Laundry
 
     public void LetMotherWashTheClothes()
     {
-        disposed = clothes.Where(_ => (_ is IForged && _.WashedCount >= 25) || _.WashedCount >= 40).ToList();
+        disposed = clothes.Where(_ => _.WashedCount >= (_ is IForged ? 25 : 40)).ToList();
         clothes = clothes.Except(disposed).ToList();
     }
 
