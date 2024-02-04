@@ -12,7 +12,7 @@ public interface IShirt : IClothing { }
 
 public interface ITrowers : IClothing { }
 
-public interface IForged : IClothing { }
+public interface IForged { }
 
 public class SportSocks(int washedCount) : ISocks
 {
@@ -54,7 +54,7 @@ public class Laundry
 
     public List<IClothing> Disposed => disposed;
 
-    public int GetSpecificClothes<T>() where T : IClothing => clothes.Count(_ => _ is T);
+    public int GetSpecificClothes<T>() => clothes.Count(_ => _ is T);
 }
 
 
