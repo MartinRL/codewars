@@ -16,54 +16,29 @@ public interface ITrowers : IClothing { }
 public interface IForged : IClothing { }
 
 // Define the classes for different kinds of clothes
-public class SportSocks : ISocks
+public class SportSocks(int washedCount) : ISocks
 {
-    public int WashedCount { get; }
-
-    public SportSocks(int washedCount)
-    {
-        WashedCount = washedCount;
-    }
+    public int WashedCount { get; } = washedCount;
 }
 
-public class SilkSocks : ISocks, IForged
+public class SilkSocks(int washedCount) : ISocks, IForged
 {
-    public int WashedCount { get; }
-
-    public SilkSocks(int washedCount)
-    {
-        WashedCount = washedCount;
-    }
+    public int WashedCount { get; } = washedCount;
 }
 
-public class ShortTrowsers : ITrowers
+public class ShortTrowsers(int washedCount) : ITrowers
 {
-    public int WashedCount { get; }
-
-    public ShortTrowsers(int washedCount)
-    {
-        WashedCount = washedCount;
-    }
+    public int WashedCount { get; } = washedCount;
 }
 
-public class ShortSleevedShirt : IShirt
+public class ShortSleevedShirt(int washedCount) : IShirt
 {
-    public int WashedCount { get; }
-
-    public ShortSleevedShirt(int washedCount)
-    {
-        WashedCount = washedCount;
-    }
+    public int WashedCount { get; } = washedCount;
 }
 
-public class LongSleevedShirt : IShirt
+public class LongSleevedShirt(int washedCount) : IShirt
 {
-    public int WashedCount { get; }
-
-    public LongSleevedShirt(int washedCount)
-    {
-        WashedCount = washedCount;
-    }
+    public int WashedCount { get; } = washedCount;
 }
 
 // Define the class for the laundry basket
