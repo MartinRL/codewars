@@ -21,7 +21,7 @@ public class MatrixAdditionTests
             new[] {2, 3}
         };
 
-        MatrixAdditionSolution.Add(a, b).Should().IsSameOrEqualTo(new[]
+        MatrixAdditionSolution.Add(a, b).Should().BeEquivalentTo(new[]
         {
             new[] {3, 5},
             new[] {3, 5}
