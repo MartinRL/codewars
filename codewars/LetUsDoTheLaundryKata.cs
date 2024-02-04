@@ -1,7 +1,6 @@
 ﻿namespace codewars;
 
 
-// Define the interfaces for different types of clothes
 public interface IClothing
 {
     int WashedCount { get; }
@@ -15,7 +14,6 @@ public interface ITrowers : IClothing { }
 
 public interface IForged : IClothing { }
 
-// Define the classes for different kinds of clothes
 public class SportSocks(int washedCount) : ISocks
 {
     public int WashedCount { get; } = washedCount;
@@ -41,7 +39,6 @@ public class LongSleevedShirt(int washedCount) : IShirt
     public int WashedCount { get; } = washedCount;
 }
 
-// Define the class for the laundry basket
 public class Laundry
 {
     private List<IClothing> clothes = [];
