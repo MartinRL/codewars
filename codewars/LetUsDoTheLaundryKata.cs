@@ -44,14 +44,8 @@ public class LongSleevedShirt(int washedCount) : IShirt
 // Define the class for the laundry basket
 public class Laundry
 {
-    private List<IClothing> clothes;
-    private List<IClothing> disposed;
-
-    public Laundry()
-    {
-        clothes = [];
-        disposed = [];
-    }
+    private List<IClothing> clothes = [];
+    private List<IClothing> disposed = [];
 
     public void FillLaundryBasket(List<IClothing> clothes) => this.clothes.AddRange(clothes);
 
