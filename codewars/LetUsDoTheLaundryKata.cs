@@ -8,7 +8,7 @@ public class Laundry
     { 
         get
         {
-            return clothes.Where(_ => _.WashedCount >= 40).ToList();
+            return clothes.Where(_ => (_ is IForged && _.WashedCount == 25) || _.WashedCount == 40).ToList();
         }
         set
         { }
@@ -21,9 +21,9 @@ public class Laundry
         return;
     }
 
-    public T GetSpecificClothes<T>()
+    public int GetSpecificClothes<T>()
     {
-        throw new NotImplementedException();
+        return clothes.Count(_ => _ is T);
     }
 }
 
