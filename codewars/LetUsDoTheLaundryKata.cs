@@ -1,67 +1,114 @@
 ﻿namespace codewars;
 
-public class Laundry
-{
-    private List<IClothing> clothes;
 
-    public List<IClothing> Disposed 
-    { 
-        get
-        {
-            return clothes.Where(_ => (_ is IForged && _.WashedCount == 25) || _.WashedCount == 40).ToList();
-        }
-        set
-        { }
-    }
-
-    public void FillLaundryBasket(List<IClothing> clothes) => this.clothes = clothes;
-
-    public void LetMotherWashTheClothes()
-    {
-        return;
-    }
-
-    public int GetSpecificClothes<T>()
-    {
-        return clothes.Count(_ => _ is T);
-    }
-}
-
+// Define the interfaces for different types of clothes
 public interface IClothing
 {
     int WashedCount { get; }
 }
 
-public interface ITrowers : IClothing
+public interface ISocks : IClothing { }
+
+public interface IShirt : IClothing { }
+
+public interface ITrowers : IClothing { }
+
+public interface IForged : IClothing { }
+
+// Define the classes for different kinds of clothes
+public class SportSocks : ISocks
 {
+    public int WashedCount { get; }
+
+    public SportSocks(int washedCount)
+    {
+        WashedCount = washedCount;
+    }
 }
 
-public interface IShirt : IClothing
+public class SilkSocks : ISocks, IForged
 {
+    public int WashedCount { get; }
+
+    public SilkSocks(int washedCount)
+    {
+        WashedCount = washedCount;
+    }
 }
 
-public interface ISocks : IClothing
+public class ShortTrowsers : ITrowers
 {
+    public int WashedCount { get; }
+
+    public ShortTrowsers(int washedCount)
+    {
+        WashedCount = washedCount;
+    }
 }
 
-public interface IForged
+public class ShortSleevedShirt : IShirt
 {
+    public int WashedCount { get; }
+
+    public ShortSleevedShirt(int washedCount)
+    {
+        WashedCount = washedCount;
+    }
 }
 
-public class LongSleevedShirt(int washedCount) : IShirt
+public class LongSleevedShirt : IShirt
 {
-    public int WashedCount => washedCount;
+    public int WashedCount { get; }
+
+    public LongSleevedShirt(int washedCount)
+    {
+        WashedCount = washedCount;
+    }
 }
 
-public class ShortTrowsers(int washedCount) : ITrowers
+// Define the class for the laundry basket
+public class Laundry
 {
-    public int WashedCount => washedCount;
+    private List<IClothing> clothes;
+    private List<IClothing> _disposed;
+
+    public Laundry()
+    {
+        clothes = new List<IClothing>();
+        _disposed = new List<IClothing>();
+    }
+
+    public void FillLaundryBasket(List<IClothing> clothes)
+    {
+        this.clothes.AddRange(clothes);
+    }
+
+    public void LetMotherWashTheClothes()
+    {
+        // Loop through the clothes and wash them
+        foreach (var clothing in clothes)
+        {
+            // Check the washed count
+            int washedCount = clothing.WashedCount;
+
+            // If the washed count is less than 40, wash it normally
+            if (((clothing is IForged && washedCount >= 25) || washedCount >= 40))
+            {
+                _disposed.Add(clothing);
+            }
+
+            clothes = clothes.Except(_disposed).ToList();
+        }
+    }
+
+    public List<IClothing> Disposed => _disposed;
+
+    public int GetSpecificClothes<T>() where T : IClothing
+    {
+        return clothes.Count(c => c is T);
+    }
 }
 
-public class SilkSocks(int washedCount) : ISocks
-{
-    public int WashedCount => washedCount;
-}
 
 public class LetUsDoTheLaundryTests
 {
