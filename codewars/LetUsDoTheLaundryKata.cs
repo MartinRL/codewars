@@ -57,20 +57,8 @@ public class Laundry
 
     public void LetMotherWashTheClothes()
     {
-        // Loop through the clothes and wash them
-        foreach (var clothing in clothes)
-        {
-            // Check the washed count
-            int washedCount = clothing.WashedCount;
-
-            // If the washed count is less than 40, wash it normally
-            if (((clothing is IForged && washedCount >= 25) || washedCount >= 40))
-            {
-                disposed.Add(clothing);
-            }
-
-            clothes = clothes.Except(disposed).ToList();
-        }
+        disposed = clothes.Where(_ => (_ is IForged && _.WashedCount >= 25) || _.WashedCount >= 40).ToList();
+        clothes = clothes.Except(disposed).ToList();
     }
 
     public List<IClothing> Disposed => disposed;
