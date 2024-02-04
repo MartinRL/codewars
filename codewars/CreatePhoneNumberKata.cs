@@ -4,7 +4,12 @@ public class Kata
 {
     public static string CreatePhoneNumber(int[] numbers)
     {
-        throw new NotImplementedException();
+        var numbersAsChars = numbers.Select(_ => Convert.ToChar(_ + 48));
+        var areaCode = new string(numbersAsChars.Take(3).ToArray());
+        var phoneNumber1 = new string(numbersAsChars.Skip(3).Take(3).ToArray());
+        string phoneNumber2 = new string(numbersAsChars.Skip(6).Take(4).ToArray());
+
+        return $"({areaCode}) {phoneNumber1}-{phoneNumber2}";
     }
 }
 
