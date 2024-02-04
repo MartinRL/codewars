@@ -44,6 +44,8 @@ public class Laundry
     private List<IClothing> clothes = [];
     private List<IClothing> disposed = [];
 
+    public List<IClothing> Disposed => disposed;
+
     public void FillLaundryBasket(List<IClothing> clothes) => this.clothes.AddRange(clothes);
 
     public void LetMotherWashTheClothes()
@@ -51,8 +53,6 @@ public class Laundry
         disposed = clothes.Where(_ => (_ is IForged && _.WashedCount >= 25) || _.WashedCount >= 40).ToList();
         clothes = clothes.Except(disposed).ToList();
     }
-
-    public List<IClothing> Disposed => disposed;
 
     public int GetSpecificClothes<T>() => clothes.Count(_ => _ is T);
 }
