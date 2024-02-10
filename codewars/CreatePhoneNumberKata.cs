@@ -2,6 +2,7 @@
 
 using static System.String;
 using static System.UInt64;
+using static System.Convert;
 
 public class CreatePhoneNumberSolution
 {
@@ -16,11 +17,9 @@ public class CreatePhoneNumberTests
     public void VerifyCreatePhoneNumberWith(int[] numbers, string expectedPhoneNumber) =>
         CreatePhoneNumberSolution.CreatePhoneNumber(numbers).Should().Be(expectedPhoneNumber);
 
-    [Fact]
-    public Task VerifyCreatePhoneNumber() => Verify(CreatePhoneNumberSolution.CreatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
-
-    [Fact]
-    public Task VerifyCreatePhoneNumber2() => Verify(CreatePhoneNumberSolution.CreatePhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
-
+    [Theory]
+    [InlineData(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 })]
+    [InlineData(new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 })]
+    public Task VerifyCreatePhoneNumber(int[] numbers) => 
+        Verify(CreatePhoneNumberSolution.CreatePhoneNumber(numbers)).UseParameters(new string(numbers.Select(_ => ToChar(_ + 48)).ToArray()));
 }
-
