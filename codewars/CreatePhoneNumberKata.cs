@@ -15,5 +15,8 @@ public class CreatePhoneNumberTests
     [InlineData(new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, "(111) 111-1111")]
     public void VerifyCreatePhoneNumberWith(int[] numbers, string expectedPhoneNumber) =>
         CreatePhoneNumberSolution.CreatePhoneNumber(numbers).Should().Be(expectedPhoneNumber);
+
+    [Fact]
+    public Task VerifyCreatePhoneNumber() => Verify(CreatePhoneNumberSolution.CreatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 }
 
