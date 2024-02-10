@@ -6,7 +6,7 @@ public class AlternateCapitalizationSolution
 {
     private static string CapitalizeEverySecond(string s, int fromIndex = 0) => string.Concat(s.Select((c, i) => i % 2 != fromIndex % 2 ? c : ToUpper(c)));
 
-    public static string[] Capitalize(string s) => new [] { CapitalizeEverySecond(s), CapitalizeEverySecond(s, 1) };
+    public static string[] Capitalize(string s) => [CapitalizeEverySecond(s), CapitalizeEverySecond(s, 1)];
 }
 
 public class AlternateCapitalizationTests
