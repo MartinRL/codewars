@@ -18,5 +18,9 @@ public class CreatePhoneNumberTests
 
     [Fact]
     public Task VerifyCreatePhoneNumber() => Verify(CreatePhoneNumberSolution.CreatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+    [Fact]
+    public Task VerifyCreatePhoneNumber2() => Verify(CreatePhoneNumberSolution.CreatePhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
+
 }
 
