@@ -2,7 +2,7 @@
 
 namespace codewars;
 
-public class FitnessFunctions
+public class ReflectionFitnessFunctions
 {
     [Fact]
     public void VerifyThatTestMethodNamesStartWithVerify()
