@@ -13,8 +13,8 @@ public class DisguisedSequencesIISolution
 public class DisguisedSequencesIITests
 {
     [Fact]
-    public void U1_should_return_as_per_codewars_description() => DisguisedSequencesIISolution.U1(13, 18).Should().Be(new BigInteger(252));
+    public void VerifyU1() => DisguisedSequencesIISolution.U1(13, 18).Should().Be(new BigInteger(252));
 
     [Fact]
-    public void V1_should_return_as_per_codewars_description() => DisguisedSequencesIISolution.V1(16, 68).Should().Be(new BigInteger(2244));
+    public void VerifyV1() => DisguisedSequencesIISolution.V1(16, 68).Should().Be(new BigInteger(2244));
 }
