@@ -11,7 +11,8 @@ public class AlphabetWarsNuclearStrikeSolution
             return battlefield.Where(IsLetter).AsString();
 
         var splitBattlefield = Split(battlefield, @"([\[\s.\]])");
-        bool Strike(char _) => _ == '#';
+
+        static bool Strike(char _) => _ == '#';
 
         return splitBattlefield
             .Skip(1)

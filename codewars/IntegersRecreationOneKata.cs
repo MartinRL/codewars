@@ -4,7 +4,7 @@ public class IntegersRecreationOneSolution
 {
     public static string ListSquared(long m, long n)
     {
-        return "[" + string.Join(", ", Enumerable.Range((int) m, (int) (n - m)) /* would have loved to be able to use C# 8's Range instead */
+        return "[" + string.Join(", ", Enumerable.Range((int) m, (int) (n - m))
                 .Select(_ =>
                 {
                     var sumOfSquaredDivisors = _

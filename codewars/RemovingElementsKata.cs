@@ -2,7 +2,7 @@ namespace codewars;
 
 public class RemovingElementsSolution
 {
-    public static object[] RemoveEveryOther(object[] arr) => arr.Where((element, index) => index % 2 == 0).ToArray();
+    public static object[] RemoveEveryOther(object[] arr) => [.. arr.Where((element, index) => index % 2 == 0)];
 }
 
 public class RemovingElementsTests

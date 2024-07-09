@@ -1,15 +1,17 @@
 namespace codewars;
 
+using static System.Text.RegularExpressions.Regex;
+
 public class RoboScriptNo1Solution
 {
     public static string Highlight(string code)
     {
         string CreateHtmlHighlight(string color) => $"<span style=\"color: {color}\">$1</span>";
 
-        return Regex.Replace(Regex.Replace(Regex.Replace(Regex.Replace(code,
-                        @"(\d+)", CreateHtmlHighlight("orange")),
-                    @"(F+)", CreateHtmlHighlight("pink")),
-                @"(L+)", CreateHtmlHighlight("red")),
+        return Replace(Replace(Replace(Replace(code,
+            @"(\d+)", CreateHtmlHighlight("orange")),
+            @"(F+)", CreateHtmlHighlight("pink")),
+            @"(L+)", CreateHtmlHighlight("red")),
             @"(R+)", CreateHtmlHighlight("green"));
     }
 }

@@ -1,15 +1,10 @@
 ﻿namespace codewars;
 
-class Pong
+class Pong(int maxScore)
 {
-    private readonly int maxScore;
+    private readonly int maxScore = maxScore;
     private int currentPlayer;
-    private readonly int[] scores = {0, 0};
-
-    public Pong(int maxScore)
-    {
-        this.maxScore = maxScore;
-    }
+    private readonly int[] scores = { 0, 0 };
 
     public string play(int ballPos, int playerPos)
     {

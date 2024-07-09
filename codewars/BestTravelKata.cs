@@ -4,7 +4,7 @@ public static class SumOfKSolution
 {
     public static int? ChooseBestSum(int t, int k, List<int> ls) =>
         ls.Combinations(k)
-            .Select(_ => (int?) _.Sum())
+            .Select(_ => (int?)_.Sum())
             .Where(_ => _ <= t)
             .DefaultIfEmpty()
             .Max();

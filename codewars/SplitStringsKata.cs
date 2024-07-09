@@ -3,7 +3,7 @@
 public class SplitStringSolution
 {
     public static string[] SplitString(string str) =>
-        ((str.Length % 2 == 0) ? str : str + "_").Chunk(2).Select(_ => new string(_)).ToArray();
+        [.. ((str.Length % 2 == 0) ? str : str + "_").Chunk(2).Select(_ => new string(_))];
 }
 
 public class SplitStringTests

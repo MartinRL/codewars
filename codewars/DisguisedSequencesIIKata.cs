@@ -7,7 +7,6 @@ public class DisguisedSequencesIISolution
     public static BigInteger U1(int n, int p) => (new BigInteger(n + 1)) * p;
 
     public static BigInteger V1(int n, int p) => 2 * (new BigInteger(n)) * p + p;
-
 }
 
 public class DisguisedSequencesIITests

@@ -2,7 +2,7 @@
 
 public static class ArrayDiffSolution
 {
-    public static int[] ArrayDiff(int[] a, int[] b) => a.Where(x => !b.Contains(x)).ToArray();
+    public static int[] ArrayDiff(int[] a, int[] b) => [.. a.Where(x => !b.Contains(x))];
 }
 
 public class ArrayDiffTests

@@ -14,8 +14,8 @@ public class BalancedNumberSolution
         var leftTermAsString = numberAsString.Substring(0, termLength);
         var rightTermAsString = numberAsString.Substring(numberAsString.Length - termLength);
 
-        var leftTerm = (int) leftTermAsString.Sum(_ => char.GetNumericValue(_));
-        var rightTerm = (int) rightTermAsString.Sum(_ => char.GetNumericValue(_));
+        var leftTerm = (int) leftTermAsString.Sum(char.GetNumericValue);
+        var rightTerm = (int) rightTermAsString.Sum(char.GetNumericValue);
 
         return (leftTerm == rightTerm ? string.Empty : "Not ") + "Balanced";
     }

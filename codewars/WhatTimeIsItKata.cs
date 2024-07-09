@@ -6,14 +6,14 @@ public class WhatTimeIsItSolution
     {
         // NB. Not allowed to use System.DateTime.
 
-        var period = time.Substring(time.Length - 2);
-        var hour = time.Substring(0, 2);
+        var period = time[^2..];
+        var hour = time[..2];
         var timeWithRemovedPeriod = time.Substring(0, time.Length - period.Length);
 
         if (period == "AM")
-            return hour != "12" ? timeWithRemovedPeriod : $"00{timeWithRemovedPeriod.Substring(2)}";
+            return hour != "12" ? timeWithRemovedPeriod : $"00{timeWithRemovedPeriod[2..]}";
 
-        return hour != "12" ? $"{byte.Parse(hour) + 12}{timeWithRemovedPeriod.Substring(2)}" : timeWithRemovedPeriod;
+        return hour != "12" ? $"{byte.Parse(hour) + 12}{timeWithRemovedPeriod[2..]}" : timeWithRemovedPeriod;
     }
 }
 

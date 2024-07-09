@@ -8,7 +8,7 @@ public class MostFrequentWeekdaysSolution
     {
         true when year.January1st().DayOfWeek == DayOfWeek.Sunday => new[] {DayOfWeek.Monday.ToString(), DayOfWeek.Sunday.ToString()},
         true when year.January1st().DayOfWeek != DayOfWeek.Sunday => new[] {year.January1st().DayOfWeek.ToString(), year.January1st().AddDays(1).DayOfWeek.ToString()},
-        _ => new[] {year.January1st().DayOfWeek.ToString()}
+        _ => [year.January1st().DayOfWeek.ToString()]
     };
 }
 

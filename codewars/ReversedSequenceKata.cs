@@ -2,7 +2,7 @@ namespace codewars;
 
 public class ReversedSequenceSolution
 {
-    public static int[] ReverseSeq(int n) => Enumerable.Range(1, n).Reverse().ToArray();
+    public static int[] ReverseSeq(int n) => [.. Enumerable.Range(1, n).Reverse()];
 }
 
 public class ReversedSequenceTests

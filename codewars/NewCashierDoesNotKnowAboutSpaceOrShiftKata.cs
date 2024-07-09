@@ -8,17 +8,17 @@ public class NewCashierDoesNotKnowAboutSpaceOrShiftSolution
 {
     public static string GetOrder(string input) =>
         new[]
-            {
-                "Burger",
-                "Fries",
-                "Chicken",
-                "Pizza",
-                "Sandwich",
-                "Onionrings",
-                "Milkshake",
-                "Coke"
-            }
-            .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
+        {
+            "Burger",
+            "Fries",
+            "Chicken",
+            "Pizza",
+            "Sandwich",
+            "Onionrings",
+            "Milkshake",
+            "Coke"
+        }
+        .Aggregate((result, item) => $"{result} {Concat(Repeat($"{item} ", Matches(input, item.ToLower()).Count))}".Trim());
 }
 
 public class NewCashierDoesNotKnowAboutSpaceOrShiftTests
