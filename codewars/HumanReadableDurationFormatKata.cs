@@ -19,7 +19,7 @@ public class HumanReadableDurationFormatSolution
         return new[] {years, days, hours, minutes, secs}
             .Where(_ => !string.IsNullOrEmpty(_))
             .Aggregate((r, _) => $"{r}, {_}")
-            .ReplaceLastOccurence(", ", " and ");
+            .ReplaceLastOccurrence(", ", " and ");
     }
 
     public class Duration

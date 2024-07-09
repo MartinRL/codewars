@@ -4,7 +4,7 @@ using static Enumerable;
 
 public class CountTheMonkeysSolution
 {
-    public static int[] MonkeyCount(int n) => Range(1, n).ToArray();
+    public static int[] MonkeyCount(int n) => [.. Range(1, n)];
 }
 
 public class CountTheMonkeysTests

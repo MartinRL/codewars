@@ -4,7 +4,7 @@ using static Int64;
 
 public class SupersizeMeSolution
 {
-    public static long Supersize(long num) => Parse(new string(num.ToString().OrderByDescending(_ => _).ToArray()));
+    public static long Supersize(long num) => Parse(new string([.. num.ToString().OrderByDescending(_ => _)]));
 }
 
 public class SupersizeMeTests

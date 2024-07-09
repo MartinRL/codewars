@@ -4,7 +4,7 @@ public class HammingNumbersSolution
 {
     public static long CalculateSmallestFor(int n)
     {
-        var pertinents = new SortedSet<long> {1};
+        var pertinents = new SortedSet<long> { 1 };
 
         for (var i = 1; i < n; i++)
         {

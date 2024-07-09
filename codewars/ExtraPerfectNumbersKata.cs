@@ -4,9 +4,9 @@ public class ExtraPerfectNumbersSolution
 {
     public static int[] ExtraPerfect(int n)
     {
-        bool isOdd(int _) => _ % 2 == 1;
+        static bool isOdd(int _) => _ % 2 == 1;
 
-        return Enumerable.Range(1, n).Where(isOdd).ToArray();
+        return [.. Enumerable.Range(1, n).Where(isOdd)];
     }
 }
 

@@ -6,7 +6,7 @@ public class DigitalCypherVol2Solution
     {
         var keyAsDigits = key.ToDigits();
 
-        return new string(code.Select((d, i) => (char) (d + ('a' - 1) - keyAsDigits[i % keyAsDigits.Length])).ToArray());
+        return new string([.. code.Select((d, i) => (char)(d + ('a' - 1) - keyAsDigits[i % keyAsDigits.Length]))]);
     }
 }
 

@@ -27,9 +27,9 @@ public static class Extensions
             .Combinations(k - 1)
             .Select(c => new[] {e}.Concat(c)));
 
-    public static int[] ToDigits(this int @this) => @this.ToString().Select(_ => (int) Char.GetNumericValue(_)).ToArray();
+    public static int[] ToDigits(this int @this) => [.. @this.ToString().Select(_ => (int) char.GetNumericValue(_))];
 
-    public static int ToNumber(this IEnumerable<int> @this) => Int32.Parse(String.Join(String.Empty, @this));
+    public static int ToNumber(this IEnumerable<int> @this) => int.Parse(string.Join(string.Empty, @this));
 
     public static string Repeating(this string @this)
     {
@@ -37,7 +37,7 @@ public static class Extensions
 
         for (var i = 0; i < @this.Length; i++)
         {
-            if (@this == String.Join(String.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
+            if (@this == string.Join(string.Empty, Enumerable.Repeat(@this.Substring(0, i + 1), @this.Length / (i + 1))) + @this.Substring(0, @this.Length % (i + 1)))
             {
                 repeatingLength = i + 1;
                 break;
@@ -53,13 +53,13 @@ public static class Extensions
 
     public static bool IsInteger(this double @this) => @this % 1 == 0;
 
-    public static string AsString(this IEnumerable<char> @this) => new string(@this.ToArray());
+    public static string AsString(this IEnumerable<char> @this) => new([.. @this]);
 
     public static string ToBinaryString(this int @this) => Convert.ToString(@this, 2);
 
     public static int CountTrue(this IEnumerable<bool> @this) => @this.Count(_ => _);
 
-    public static string ReplaceLastOccurence(this string @this, string oldValue, string newValue)
+    public static string ReplaceLastOccurrence(this string @this, string oldValue, string newValue)
     {
         var pos = @this.LastIndexOf(oldValue);
 
@@ -69,7 +69,7 @@ public static class Extensions
     public static string Spaces(this int @this) => new string(' ', @this);
 
     public static IEnumerable<T> ToIEnumerable<T>(this T @this) => new[] { @this };
-    public static string ReverseString(this string @this) => new string(@this.Reverse().ToArray());
+    public static string ReverseString(this string @this) => new([.. @this.Reverse()]);
 
     public static char ToggleCase(this char @this) => char.IsLower(@this) ? char.ToUpper(@this) : char.ToLower(@this);
 

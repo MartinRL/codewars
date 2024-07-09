@@ -12,11 +12,10 @@ public class IntroToArt
         var firstRow = star + ((h - 2) * 2 + 1).Spaces() + star + ((h - 2) * 2 + 1).Spaces() + star;
         var lastRow = (h - 1).Spaces() + star + ((h - 1) * 2 - 1).Spaces() + star + (h - 1).Spaces();
 
-        return firstRow.ToIEnumerable()
+        return [.. firstRow.ToIEnumerable()
             .Concat(Enumerable.Range(2, h - 2)
                 .Select(i => (i - 1).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (1 + (i - 2) * 2).Spaces() + star + ((h - (i + 1)) * 2 + 1).Spaces() + star + (i - 1).Spaces()))
-            .Concat(lastRow.ToIEnumerable())
-            .ToArray();
+            .Concat(lastRow.ToIEnumerable())];
     }
 }
 
